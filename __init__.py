@@ -1,0 +1,1 @@
+from dynamsoft_barcode_reader.dbr import *
