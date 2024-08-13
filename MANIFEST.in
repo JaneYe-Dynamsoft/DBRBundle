@@ -8,3 +8,4 @@ include Legal.txt
 recursive-include include *
 recursive-include lib *
 recursive-include src *
+recursive-include resource *

@@ -3,7 +3,7 @@ Dynamsoft Python Barcode SDK
 |version| |python| |pypi| 
 
 .. |version| image:: https://img.shields.io/pypi/v/dbr?color=orange
-.. |python| image:: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue
+.. |python| image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue
 .. |pypi| image:: https://img.shields.io/pypi/dm/dbr
 
 
@@ -12,7 +12,7 @@ What You Should Know About Dynamsoft Barcode Reader
 |trial|
 
 .. |trial| image:: https://img.shields.io/badge/Get-30--day%20FREE%20Trial-blue
-            :target: https://www.dynamsoft.com/customer/license/trialLicense?product=dbr
+            :target: https://www.dynamsoft.com/customer/license/trialLicense/?product=cvs&package=desktop
 
 `Dynamsoft Barcode Reader SDK <https://www.dynamsoft.com/barcode-reader/overview/?utm_source=pypi>`_ 
 enables you to efficiently embed barcode reading functionality in your
@@ -30,24 +30,17 @@ features of Dynamsoft Barcode Reader, bringing convenience for Python developers
 Version
 -------
 
--  9.6.40.2
+-  10.4.1000
 
 Supported Platforms
 -------------------
 
 - Windows x64
 
-- Linux(x64, ARM32, ARM64)
-
-- macOS(10.15+)
+- Linux(x64)
 
 Supported Python Versions
 -------------------------
-
--  Python3.6
-
--  Python3.7
-
 -  Python3.8
 
 -  Python3.9
@@ -61,7 +54,7 @@ Supported Python Versions
 Installation
 ------------
 
-   pip install dbr
+   pip install dynamsoft_barcode_reader_bundle
 
 Supported Symbologies
 ---------------------
@@ -118,32 +111,29 @@ Quick Start
 -----------
 .. code-block:: python
 
-   from dbr import *
+   from dynamsoft_barcode_reader_bundle import *
 
-   # Apply for a trial license: https://www.dynamsoft.com/customer/license/trialLicense?product=dbr&utm_source=github
+   # Apply for a trial license: https://www.dynamsoft.com/customer/license/trialLicense/?product=dbr&utm_source=github
    license_key = "Input your own license"
    image = r"Please input your own image path"
-
-   BarcodeReader.init_license(license_key)
-
-   reader = BarcodeReader()
+   LicenseManager.init_license(license_key)
+   cvr = CaptureVisionRouter()
 
    try:
-      text_results = reader.decode_file(image)
+      
+     capturedResult = cvr.capture(image,EnumPresetTemplate.PT_READ_BARCODES.value)
 
-      if text_results != None:
-         for text_result in text_results:
-               print("Barcode Format : ")
-               print(text_result.barcode_format_string)
-               print("Barcode Text : ")
-               print(text_result.barcode_text)
-               print("Localization Points : ")
-               print(text_result.localization_result.localization_points)
-               print("Exception : ")
-               print(text_result.exception)
-               print("-------------")
-   except BarcodeReaderError as bre:
-      print(bre)
+     items = capturedResult.get_items()
+
+     for i in range(len(items)):
+        barcode = items[i]
+        print("Barcode Format : ")
+        print(barcode.get_format_string())
+        print("Barcode Text : ")
+        print(barcode.get_text())             
+        print("-------------")
+   except Exception as e:
+     print(e)
 
 
 Sample Code
