@@ -5,6 +5,18 @@ else:
 
 
 class DynamsoftImageProcessingModule:
+    """
+    The DynamsoftImageProcessingModule class represents the Dynamsoft Image Processing module.
+
+    Methods:
+        get_version() -> str: Gets the version of the Dynamsoft Image Processing module.
+    """
     @staticmethod
     def get_version() -> str:
+        """
+        Gets the version of the Dynamsoft Image Processing module.
+
+        Returns:
+            A string representing the version of the Dynamsoft Image Processing module.
+        """
         return _DynamsoftImageProcessing.getversion()
