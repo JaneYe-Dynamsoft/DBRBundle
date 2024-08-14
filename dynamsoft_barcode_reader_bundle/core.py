@@ -664,7 +664,7 @@ class ImageData(object):
     This class represents image data, which contains the image bytes, width, height, stride, pixel format, orientation, and a tag.
 
     Methods:
-        __init__(self, bytes_length: int, bytes: bytes, width: int, height: int, stride: int, format: int, orientation: int = 0, tag: ImageTag = None): Initializes an ImageData object.
+        __init__(self, bytes: bytes, width: int, height: int, stride: int, format: int, orientation: int = 0, tag: ImageTag = None): Initializes an ImageData object.
         get_bytes(self) -> bytes: Returns the image bytes.
         get_width(self) -> int: Returns the width of the image.
         get_height(self) -> int: Returns the height of the image.
@@ -680,7 +680,6 @@ class ImageData(object):
 
     def __init__(
         self,
-        bytes_length: int,
         bytes: bytes,
         width: int,
         height: int,
@@ -693,7 +692,6 @@ class ImageData(object):
         Initializes an ImageData object.
 
         Args:
-            bytes_length: The length of the image byte array.
             bytes: The image byte array.
             width: The width of the image.
             height: The height of the image.
@@ -702,6 +700,7 @@ class ImageData(object):
             orientation: The orientation of the image.
             tag: The tag of the image.
         """
+        bytes_length = len(bytes)
         _DynamsoftCore.CImageData_init(
             self,
             _DynamsoftCore.new_CImageData(
@@ -1133,15 +1132,15 @@ class PDFReadingParameter(object):
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
-    mode = property(
+    mode: int = property(
         _DynamsoftCore.CPDFReadingParameter_mode_get,
         _DynamsoftCore.CPDFReadingParameter_mode_set,
     )
-    dpi = property(
+    dpi: int = property(
         _DynamsoftCore.CPDFReadingParameter_dpi_get,
         _DynamsoftCore.CPDFReadingParameter_dpi_set,
     )
-    raster_data_source = property(
+    raster_data_source: int = property(
         _DynamsoftCore.CPDFReadingParameter_rasterDataSource_get,
         _DynamsoftCore.CPDFReadingParameter_rasterDataSource_set,
     )
