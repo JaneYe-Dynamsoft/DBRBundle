@@ -127,7 +127,7 @@ class CustomInstall(install):
 
 setup (name = 'dynamsoft_barcode_reader_bundle',
             version = '10.4.1000',
-            description = 'Barcode scanning SDK for Python',
+            description = 'Dynamsoft Barcode Reader SDK for Python',
             long_description=long_description,
             long_description_content_type="text/x-rst",
             author='Dynamsoft',

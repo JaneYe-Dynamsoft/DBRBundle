@@ -1,3 +1,5 @@
+__version__ = "2.2.40"
+
 if __package__ or "." in __name__:
     from . import _DynamsoftImageProcessing
 else:
@@ -19,4 +21,4 @@ class DynamsoftImageProcessingModule:
         Returns:
             A string representing the version of the Dynamsoft Image Processing module.
         """
-        return _DynamsoftImageProcessing.getversion()
+        return __version__ + " (Algotithm " + _DynamsoftImageProcessing.getversion() + ")"

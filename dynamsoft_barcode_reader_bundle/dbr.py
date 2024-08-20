@@ -1,3 +1,5 @@
+__version__ = "10.4.10"
+
 if __package__ or "." in __name__:
     from .core import *
 else:
@@ -831,7 +833,7 @@ class BarcodeReaderModule(object):
         Returns:
             A string representing the version of the barcode reader module.
         """
-        return _DynamsoftBarcodeReader.CBarcodeReaderModule_GetVersion()
+        return __version__ + " (Algotithm " + _DynamsoftBarcodeReader.CBarcodeReaderModule_GetVersion() + ")"
 
     def __init__(self):
         _DynamsoftBarcodeReader.CBarcodeReaderModule_init(

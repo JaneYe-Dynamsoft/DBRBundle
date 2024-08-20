@@ -1,7 +1,10 @@
+__version__ = "1.2.30"
+
 if __package__ or "." in __name__:
     from .cvr import *
 else:
     from cvr import *
+
 if __package__ or "." in __name__:
     from .core import *
 else:
@@ -36,7 +39,7 @@ class UtilityModule(object):
         Returns:
             A string representing the version of the utility module.
         """
-        return _DynamsoftUtility.CUtilityModule_GetVersion()
+        return __version__ + " (Algotithm " + _DynamsoftUtility.CUtilityModule_GetVersion() + ")"
 
     def __init__(self):
         _DynamsoftUtility.CUtilityModule_init(

@@ -1,10 +1,10 @@
-Dynamsoft Python Barcode SDK
+Dynamsoft Barcode Reader SDK for Python
 ====================================================
 |version| |python| |pypi| 
 
-.. |version| image:: https://img.shields.io/pypi/v/dbr?color=orange
+.. |version| image:: https://img.shields.io/pypi/v/dynamsoft_barcode_reader_bundle?color=orange
 .. |python| image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue
-.. |pypi| image:: https://img.shields.io/pypi/dm/dbr
+.. |pypi| image:: https://img.shields.io/pypi/dm/dynamsoft_barcode_reader_bundle
 
 
 What You Should Know About Dynamsoft Barcode Reader
@@ -12,7 +12,7 @@ What You Should Know About Dynamsoft Barcode Reader
 |trial|
 
 .. |trial| image:: https://img.shields.io/badge/Get-30--day%20FREE%20Trial-blue
-            :target: https://www.dynamsoft.com/customer/license/trialLicense/?product=cvs&package=desktop
+            :target: https://www.dynamsoft.com/customer/license/trialLicense/?product=dbr&package=python
 
 `Dynamsoft Barcode Reader SDK <https://www.dynamsoft.com/barcode-reader/overview/?utm_source=pypi>`_ 
 enables you to efficiently embed barcode reading functionality in your
@@ -113,7 +113,7 @@ Quick Start
 
    from dynamsoft_barcode_reader_bundle import *
 
-   # Apply for a trial license: https://www.dynamsoft.com/customer/license/trialLicense/?product=dbr&utm_source=github
+   # Apply for a trial license: https://www.dynamsoft.com/customer/license/trialLicense/?product=dbr&utm_source=pypi
    license_key = "Input your own license"
    image = r"Please input your own image path"
    LicenseManager.init_license(license_key)
@@ -143,9 +143,9 @@ https://github.com/Dynamsoft/barcode-reader-python-samples
 Documentation
 -----------------
 
-- `API <https://www.dynamsoft.com/barcode-reader/programming/python/api-reference/?utm_source=pypi>`_
-- `User Guide <https://www.dynamsoft.com/barcode-reader/programming/python/user-guide.html?utm_source=pypi>`_
-- `Release Notes <https://www.dynamsoft.com/barcode-reader/programming/python/release-notes/python-9.html?utm_source=pypi>`_
+- `API <https://www.dynamsoft.com/barcode-reader/docs/server/programming/python/api-reference/?utm_source=pypi>`_
+- `User Guide <https://www.dynamsoft.com/barcode-reader/docs/server/programming/python/user-guide.html?utm_source=pypi>`_
+- `Release Notes <https://www.dynamsoft.com/barcode-reader/docs/server/programming/python/release-notes/python-10.html?utm_source=pypi>`_
 
 
 Contact Us

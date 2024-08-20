@@ -1,3 +1,5 @@
+__version__ = "3.2.40"
+
 if __package__ or "." in __name__:
     from . import _DynamsoftCore
 else:
@@ -6,7 +8,6 @@ else:
 from typing import List
 from enum import Enum, IntEnum
 from abc import ABC, abstractmethod
-
 
 class EnumErrorCode(IntEnum):
     EC_OK = _DynamsoftCore.EC_OK
@@ -228,7 +229,8 @@ class CoreModule(object):
         Returns:
             str: A string representing the version of the core module.
         """
-        return _DynamsoftCore.CCoreModule_GetVersion()
+        return __version__ + " (Algotithm " + _DynamsoftCore.CCoreModule_GetVersion() + ")"
+
 
     def __init__(self):
         _DynamsoftCore.CCoreModule_init(self, _DynamsoftCore.new_CCoreModule())
@@ -700,11 +702,10 @@ class ImageData(object):
             orientation: The orientation of the image.
             tag: The tag of the image.
         """
-        bytes_length = len(bytes)
         _DynamsoftCore.CImageData_init(
             self,
             _DynamsoftCore.new_CImageData(
-                bytes_length, bytes, width, height, stride, format, orientation, tag
+                bytes, width, height, stride, format, orientation, tag
             ),
         )
 

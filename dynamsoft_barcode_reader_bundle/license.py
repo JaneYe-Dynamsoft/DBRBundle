@@ -1,3 +1,5 @@
+__version__ = "3.2.30"
+
 if __package__ or "." in __name__:
     from . import _DynamsoftLicense
 else:
@@ -131,7 +133,7 @@ class LicenseModule(object):
         Returns:
             A string representing the version of the Dynamsoft License module.
         """
-        return _DynamsoftLicense.CLicenseModule_GetVersion()
+        return __version__ + " (Algotithm " + _DynamsoftLicense.CLicenseModule_GetVersion() + ")"
 
     def __init__(self):
         _DynamsoftLicense.CLicenseModule_init(

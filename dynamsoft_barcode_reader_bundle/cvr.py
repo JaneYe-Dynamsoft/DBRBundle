@@ -1,3 +1,5 @@
+__version__ = "2.4.10"
+
 if __package__ or "." in __name__:
     from .core import *
 else:
@@ -1051,7 +1053,7 @@ class CaptureVisionRouterModule(object):
         Returns:
             A string representing the version of the capture vision router module.
         """
-        return _DynamsoftCaptureVisionRouter.CCaptureVisionRouterModule_GetVersion()
+        return __version__ + " (Algotithm " + _DynamsoftCaptureVisionRouter.CCaptureVisionRouterModule_GetVersion() + ")"
 
     def __init__(self):
         _DynamsoftCaptureVisionRouter.CCaptureVisionRouterModule_init(

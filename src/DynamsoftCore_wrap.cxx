@@ -6560,7 +6560,7 @@ extern "C"
     resultobj = PyList_New(4);
     for(int i = 0; i < 4; i++) 
     {
-      PyObject *point = SWIG_NewPointerObj(SWIG_as_voidptr(&result[0]), SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t, 0 | 0);
+      PyObject *point = SWIG_NewPointerObj(SWIG_as_voidptr(&result[i]), SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t, 0 | 0);
       PyList_SetItem(resultobj, i, point);
     }
     // resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t, 0 | 0);    return resultobj;
