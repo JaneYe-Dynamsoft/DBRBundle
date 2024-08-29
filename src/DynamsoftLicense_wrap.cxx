@@ -4119,7 +4119,7 @@ extern "C"
     char *buf1 = 0;
     int alloc1 = 0;
     int result;
-    char errMsg[128]{0};
+    char errMsg[1024]{0};
     PyObject *obj2;
     PyObject *tuple;
     if ((nobjs < 1) || (nobjs > 1))
@@ -4138,7 +4138,7 @@ extern "C"
                                                "'");
     }
     arg1 = reinterpret_cast<char *>(buf1);
-    result = (int)dynamsoft::license::CLicenseManager::InitLicense((char const *)arg1, errMsg, 128);
+    result = (int)dynamsoft::license::CLicenseManager::InitLicense((char const *)arg1, errMsg, 1023);
     obj2 = PyUnicode_FromString(errMsg);
     resultobj = SWIG_From_int(static_cast<int>(result));
     tuple = PyTuple_New(2);

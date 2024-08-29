@@ -1,4 +1,4 @@
-__version__ = "1.2.30"
+__version__ = "1.4.20"
 
 if __package__ or "." in __name__:
     from .cvr import *
@@ -62,14 +62,18 @@ class MultiFrameResultCrossFilter(CapturedResultFilter):
         is_result_deduplication_enabled(self, type: int) -> bool: Determines whether the result deduplication feature is enabled for the specific result item type.
         set_duplicate_forget_time(self, result_item_types: int, duplicate_forget_time: int) -> None: Sets the duplicate forget time for the specific captured result item types.
         get_duplicate_forget_time(self, type: int) -> int: Gets the duplicate forget time for a specific captured result item type.
+        set_max_overlapping_frames(self, result_item_types: int, max_overlapping_frames: int) -> None: Sets the max referencing frames count for the to-the-latest overlapping feature.
+        get_max_overlapping_frames(self, type: int) -> int: Gets the max referencing frames count for the to-the-latest overlapping feature.
+        enable_latest_overlapping(self, result_item_types: int, enable: bool) -> None: Enable to-the-latest overlapping feature. The output decoded barcode result will become a combination of the recent results if the  latest frame is proved to be similar with the previous.
+        is_latest_overlapping_enabled(self, type: int) -> bool: Determines whether the to-the-latest overlapping feature is enabled for the specific result item type.
     """
     thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
-    def __init__(self):
+    def __init__(self, cvr: CaptureVisionRouter = None):
         _DynamsoftUtility.CMultiFrameResultCrossFilter_init(
-            self, _DynamsoftUtility.new_CMultiFrameResultCrossFilter()
+            self, _DynamsoftUtility.new_CMultiFrameResultCrossFilter(cvr)
         )
 
     __destroy__ = _DynamsoftUtility.delete_CMultiFrameResultCrossFilter
@@ -157,7 +161,58 @@ class MultiFrameResultCrossFilter(CapturedResultFilter):
             self, type
         )
 
+    def set_max_overlapping_frames(self, result_item_types: int, max_overlapping_frames: int) -> None:
+        """
+        Sets the max referencing frames count for the to-the-latest overlapping feature.
 
+        Args:
+            result_item_types (int): Specifies one or multiple specific result item types, which can be defined using CapturedResultItemType.
+            max_overlapping_frames (int): The max referencing frames count for the to-the-latest overlapping feature.
+        """
+        return _DynamsoftUtility.CMultiFrameResultCrossFilter_SetMaxOverlappingFrames(
+            self, result_item_types, max_overlapping_frames
+        )
+
+    def get_max_overlapping_frames(self, type: int) -> int:
+        """
+        Gets the max referencing frames count for the to-the-latest overlapping feature.
+
+        Args:
+            type (int): Specifies a specific result item type, which can be defined using CapturedResultItemType.
+
+        Returns:
+            The max referencing frames count for the to-the-latest overlapping feature.
+        """
+        return _DynamsoftUtility.CMultiFrameResultCrossFilter_GetMaxOverlappingFrames(
+            self, type
+        )
+
+    def enable_latest_overlapping(self, result_item_types: int, enabled: bool) -> None:
+        """
+        Enable to-the-latest overlapping feature. The output decoded barcode result will become a combination of the recent results if the  latest frame is proved to be similar with the previous.
+
+        Args:
+            result_item_types (int): The or value of the captured result item types.
+            enable (bool): Set whether to enable to-the-latest overlapping.
+        """
+        return _DynamsoftUtility.CMultiFrameResultCrossFilter_EnableLatestOverlapping(
+            self, result_item_types, enabled
+        )
+
+    def is_latest_overlapping_enabled(self, type: int) -> bool:
+        """
+        Determines whether the to-the-latest overlapping feature is enabled for the specific result item type.
+
+        Args:
+            type (int): The specific captured result item type.
+
+        Returns:
+            A bool value indicating whether to-the-latest overlapping is enabled for the specific captured result item type.
+        """
+        return _DynamsoftUtility.CMultiFrameResultCrossFilter_IsLatestOverlappingEnabled(
+            self, type
+        )
+    
 _DynamsoftUtility.CMultiFrameResultCrossFilter_register(MultiFrameResultCrossFilter)
 
 class ProactiveImageSourceAdapter(ImageSourceAdapter, ABC):
@@ -259,14 +314,15 @@ class DirectoryFetcher(ProactiveImageSourceAdapter):
 
     def _fetch_image():
         pass
-
     def set_directory(self, *args) -> Tuple[int, str]:
         """
         Sets the directory path and filter for the file search.
 
         Args:
             path (str): The path of the directory to search.
-
+            filter (str, optional): A string that specifies file extensions. For example: "*.BMP;*.JPG;*.GIF", or "*.*", etc. The default value is "*.bmp;*.jpg;*.jpeg;*.tif;*.png;*.tiff;*.gif;*.pdf".
+            recursive (bool, optional): Specifies whether to load files recursively. The default value is False.
+            
         Returns:
             A tuple containing following elements:
             - error_code <int>: The error code indicating the status of the operation.

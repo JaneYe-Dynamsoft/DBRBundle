@@ -18634,6 +18634,7 @@ void
   SWIG_Python_SetConstant(d, "EC_AXIS_DEFINITION_INCORRECT", SWIG_From_int(static_cast<int>(EC_AXIS_DEFINITION_INCORRECT)));
   SWIG_Python_SetConstant(d, "EC_RESULT_TYPE_MISMATCH_IRREPLACEABLE", SWIG_From_int(static_cast<int>(EC_RESULT_TYPE_MISMATCH_IRREPLACEABLE)));
   SWIG_Python_SetConstant(d, "EC_PDF_LIBRARY_LOAD_FAILED", SWIG_From_int(static_cast<int>(EC_PDF_LIBRARY_LOAD_FAILED)));
+  SWIG_Python_SetConstant(d, "EC_LICENSE_WARNING ", SWIG_From_int(static_cast<int>(EC_LICENSE_WARNING)));
   SWIG_Python_SetConstant(d, "EC_NO_LICENSE", SWIG_From_int(static_cast<int>(EC_NO_LICENSE)));
   SWIG_Python_SetConstant(d, "EC_HANDSHAKE_CODE_INVALID", SWIG_From_int(static_cast<int>(EC_HANDSHAKE_CODE_INVALID)));
   SWIG_Python_SetConstant(d, "EC_LICENSE_BUFFER_FAILED", SWIG_From_int(static_cast<int>(EC_LICENSE_BUFFER_FAILED)));
@@ -18664,10 +18665,13 @@ void
   SWIG_Python_SetConstant(d, "EC_GS1_COMPOSITE_LICENSE_INVALID", SWIG_From_int(static_cast<int>(EC_GS1_COMPOSITE_LICENSE_INVALID)));
   SWIG_Python_SetConstant(d, "EC_DOTCODE_LICENSE_INVALID", SWIG_From_int(static_cast<int>(EC_DOTCODE_LICENSE_INVALID)));
   SWIG_Python_SetConstant(d, "EC_PHARMACODE_LICENSE_INVALID", SWIG_From_int(static_cast<int>(EC_PHARMACODE_LICENSE_INVALID)));
+  SWIG_Python_SetConstant(d, "EC_DBR_LICENSE_NOT_FOUND", SWIG_From_int(static_cast<int>(EC_DBR_LICENSE_NOT_FOUND)));
   SWIG_Python_SetConstant(d, "EC_CHARACTER_MODEL_FILE_NOT_FOUND", SWIG_From_int(static_cast<int>(EC_CHARACTER_MODEL_FILE_NOT_FOUND)));
   SWIG_Python_SetConstant(d, "EC_TEXT_LINE_GROUP_LAYOUT_CONFLICT", SWIG_From_int(static_cast<int>(EC_TEXT_LINE_GROUP_LAYOUT_CONFLICT)));
   SWIG_Python_SetConstant(d, "EC_TEXT_LINE_GROUP_REGEX_CONFLICT", SWIG_From_int(static_cast<int>(EC_TEXT_LINE_GROUP_REGEX_CONFLICT)));
+  SWIG_Python_SetConstant(d, "EC_DLR_LICENSE_NOT_FOUND", SWIG_From_int(static_cast<int>(EC_DLR_LICENSE_NOT_FOUND)));
   SWIG_Python_SetConstant(d, "EC_QUADRILATERAL_INVALID", SWIG_From_int(static_cast<int>(EC_QUADRILATERAL_INVALID)));
+  SWIG_Python_SetConstant(d, "EC_DDN_LICENSE_NOT_FOUND", SWIG_From_int(static_cast<int>(EC_DDN_LICENSE_NOT_FOUND)));
   SWIG_Python_SetConstant(d, "EC_PANORAMA_LICENSE_INVALID", SWIG_From_int(static_cast<int>(EC_PANORAMA_LICENSE_INVALID)));
   SWIG_Python_SetConstant(d, "EC_RESOURCE_PATH_NOT_EXIST", SWIG_From_int(static_cast<int>(EC_RESOURCE_PATH_NOT_EXIST)));
   SWIG_Python_SetConstant(d, "EC_RESOURCE_LOAD_FAILED", SWIG_From_int(static_cast<int>(EC_RESOURCE_LOAD_FAILED)));
@@ -18680,6 +18684,7 @@ void
   SWIG_Python_SetConstant(d, "EC_MRTD_LICENSE_INVALID", SWIG_From_int(static_cast<int>(EC_MRTD_LICENSE_INVALID)));
   SWIG_Python_SetConstant(d, "EC_VIN_LICENSE_INVALID", SWIG_From_int(static_cast<int>(EC_VIN_LICENSE_INVALID)));
   SWIG_Python_SetConstant(d, "EC_CUSTOMIZED_CODE_TYPE_LICENSE_INVALID", SWIG_From_int(static_cast<int>(EC_CUSTOMIZED_CODE_TYPE_LICENSE_INVALID)));
+  SWIG_Python_SetConstant(d, "EC_DCP_LICENSE_NOT_FOUND", SWIG_From_int(static_cast<int>(EC_DCP_LICENSE_NOT_FOUND)));
   SWIG_Python_SetConstant(d, "IPF_BINARY", SWIG_From_int(static_cast<int>(IPF_BINARY)));
   SWIG_Python_SetConstant(d, "IPF_BINARYINVERTED", SWIG_From_int(static_cast<int>(IPF_BINARYINVERTED)));
   SWIG_Python_SetConstant(d, "IPF_GRAYSCALED", SWIG_From_int(static_cast<int>(IPF_GRAYSCALED)));

@@ -1,4 +1,4 @@
-__version__ = "2.4.10"
+__version__ = "2.4.20"
 
 if __package__ or "." in __name__:
     from .core import *

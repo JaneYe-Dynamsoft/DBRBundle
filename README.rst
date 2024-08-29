@@ -30,7 +30,7 @@ features of Dynamsoft Barcode Reader, bringing convenience for Python developers
 Version
 -------
 
--  10.4.1000
+-  10.4.2000
 
 Supported Platforms
 -------------------

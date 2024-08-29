@@ -9982,7 +9982,7 @@ extern "C"
     int result;
     PyObject *obj2;
     PyObject *tuple;
-    char errMsg[128]{0};
+    char errMsg[1024]{0};
     if ((nobjs < 2) || (nobjs > 2))
       SWIG_fail;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter, 0 | 0);
@@ -10009,7 +10009,7 @@ extern "C"
                                                "'");
     }
     arg2 = reinterpret_cast<char *>(buf2);
-    result = (int)(arg1)->InitSettings((char const *)arg2, errMsg, 128);
+    result = (int)(arg1)->InitSettings((char const *)arg2, errMsg, 1023);
     resultobj = SWIG_From_int(static_cast<int>(result));
     obj2 = PyUnicode_FromString(errMsg);
     tuple = PyTuple_New(2);
@@ -10220,7 +10220,7 @@ extern "C"
     int result;
     PyObject *obj2;
     PyObject *tuple;
-    char errMsg[128]{0};
+    char errMsg[1024]{0};
     if ((nobjs < 2) || (nobjs > 2))
       SWIG_fail;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter, 0 | 0);
@@ -10248,7 +10248,7 @@ extern "C"
     }
     arg2 = reinterpret_cast<char *>(buf2);
     
-    result = (int)(arg1)->InitSettingsFromFile((char const *)arg2, errMsg, 128);
+    result = (int)(arg1)->InitSettingsFromFile((char const *)arg2, errMsg, 1023);
     resultobj = SWIG_From_int(static_cast<int>(result));
     obj2 = PyUnicode_FromString(errMsg);
     tuple = PyTuple_New(2);
@@ -10798,7 +10798,7 @@ extern "C"
     void *argp3 = 0;
     int res3 = 0;
     int result;
-    char errMsg[128]{0};
+    char errMsg[1024]{0};
     PyObject *obj2;
     PyObject *tuple;
     if ((nobjs < 3) || (nobjs > 3))
@@ -10839,7 +10839,7 @@ extern "C"
                                                "'");
     }
     arg3 = reinterpret_cast<SimplifiedCaptureVisionSettings *>(argp3);
-    result = (int)(arg1)->UpdateSettings((char const *)arg2, (SimplifiedCaptureVisionSettings const *)arg3, errMsg, 128);
+    result = (int)(arg1)->UpdateSettings((char const *)arg2, (SimplifiedCaptureVisionSettings const *)arg3, errMsg, 1023);
     resultobj = SWIG_From_int(static_cast<int>(result));
     obj2 = PyUnicode_FromString(errMsg);
     tuple = PyTuple_New(2);
@@ -12149,7 +12149,7 @@ extern "C"
     bool val3;
     int ecode3 = 0;
     int result;
-    char errMsg[128] = {0};
+    char errMsg[1024] = {0};
     PyObject *obj2;
     PyObject *tuple;
     if ((nobjs < 3) || (nobjs > 3))
@@ -12193,7 +12193,7 @@ extern "C"
     arg3 = static_cast<bool>(val3);
     {
       AutoGILAllow aga;
-      result = (int)(arg1)->StartCapturing((char const *)arg2, arg3, errMsg, 128);
+      result = (int)(arg1)->StartCapturing((char const *)arg2, arg3, errMsg, 1023);
     }
     obj2 = PyUnicode_FromString(errMsg);
     resultobj = SWIG_From_int(static_cast<int>(result));

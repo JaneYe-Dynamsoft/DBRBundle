@@ -3415,25 +3415,26 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral swig_types[37]
 #define SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t swig_types[38]
 #define SWIGTYPE_p_dynamsoft__cvr__CCapturedResultFilter swig_types[39]
-#define SWIGTYPE_p_dynamsoft__dbr__CDecodedBarcodesResult swig_types[40]
-#define SWIGTYPE_p_dynamsoft__dcp__CParsedResult swig_types[41]
-#define SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadsResult swig_types[42]
-#define SWIGTYPE_p_dynamsoft__ddn__CNormalizedImagesResult swig_types[43]
-#define SWIGTYPE_p_dynamsoft__dlr__CRecognizedTextLinesResult swig_types[44]
-#define SWIGTYPE_p_dynamsoft__utility__CDirectoryFetcher swig_types[45]
-#define SWIGTYPE_p_dynamsoft__utility__CFileFetcher swig_types[46]
-#define SWIGTYPE_p_dynamsoft__utility__CImageManager swig_types[47]
-#define SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter swig_types[48]
-#define SWIGTYPE_p_dynamsoft__utility__CProactiveImageSourceAdapter swig_types[49]
-#define SWIGTYPE_p_dynamsoft__utility__CUtilityModule swig_types[50]
-#define SWIGTYPE_p_int swig_types[51]
-#define SWIGTYPE_p_signed_char swig_types[52]
-#define SWIGTYPE_p_tagSimplifiedBarcodeReaderSettings swig_types[53]
-#define SWIGTYPE_p_tagSimplifiedCaptureVisionSettings swig_types[54]
-#define SWIGTYPE_p_tagSimplifiedLabelRecognizerSettings swig_types[55]
-#define SWIGTYPE_p_unsigned_char swig_types[56]
-static swig_type_info *swig_types[58];
-static swig_module_info swig_module = {swig_types, 57, 0, 0, 0, 0};
+#define SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter swig_types[40]
+#define SWIGTYPE_p_dynamsoft__dbr__CDecodedBarcodesResult swig_types[41]
+#define SWIGTYPE_p_dynamsoft__dcp__CParsedResult swig_types[42]
+#define SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadsResult swig_types[43]
+#define SWIGTYPE_p_dynamsoft__ddn__CNormalizedImagesResult swig_types[44]
+#define SWIGTYPE_p_dynamsoft__dlr__CRecognizedTextLinesResult swig_types[45]
+#define SWIGTYPE_p_dynamsoft__utility__CDirectoryFetcher swig_types[46]
+#define SWIGTYPE_p_dynamsoft__utility__CFileFetcher swig_types[47]
+#define SWIGTYPE_p_dynamsoft__utility__CImageManager swig_types[48]
+#define SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter swig_types[49]
+#define SWIGTYPE_p_dynamsoft__utility__CProactiveImageSourceAdapter swig_types[50]
+#define SWIGTYPE_p_dynamsoft__utility__CUtilityModule swig_types[51]
+#define SWIGTYPE_p_int swig_types[52]
+#define SWIGTYPE_p_signed_char swig_types[53]
+#define SWIGTYPE_p_tagSimplifiedBarcodeReaderSettings swig_types[54]
+#define SWIGTYPE_p_tagSimplifiedCaptureVisionSettings swig_types[55]
+#define SWIGTYPE_p_tagSimplifiedLabelRecognizerSettings swig_types[56]
+#define SWIGTYPE_p_unsigned_char swig_types[57]
+static swig_type_info *swig_types[59];
+static swig_module_info swig_module = {swig_types, 58, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -4287,10 +4288,33 @@ extern "C"
   {
     PyObject *resultobj = 0;
     dynamsoft::utility::CMultiFrameResultCrossFilter *result = 0;
-    // PyObject *obj[1]{nullptr};
-    // if (!SWIG_Python_UnpackTuple(args, "new_CMultiFrameResultCrossFilter", 1, 1, obj))
-    //   SWIG_fail;
-    result = (dynamsoft::utility::CMultiFrameResultCrossFilter *)new dynamsoft::utility::CMultiFrameResultCrossFilter();
+    PyObject *obj[1]{nullptr};
+    int res1{0};
+    dynamsoft::cvr::CCaptureVisionRouter *arg1 = (dynamsoft::cvr::CCaptureVisionRouter *)0;
+    void *argp1 = 0;
+    if (!SWIG_Python_UnpackTuple(args, "new_CMultiFrameResultCrossFilter", 1, 1, obj))
+      SWIG_fail;
+    if(obj[0]==Py_None)
+    {
+      result = (dynamsoft::utility::CMultiFrameResultCrossFilter *)new dynamsoft::utility::CMultiFrameResultCrossFilter();
+    }
+    else
+    {
+      res1 = SWIG_ConvertPtr(obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter, 0 | 0);
+      if (!SWIG_IsOK(res1))
+      {
+        SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                                "new_CMultiFrameResultCrossFilter"
+                                                "', argument "
+                                                "1"
+                                                " of type '"
+                                                "dynamsoft::cvr::CCaptureVisionRouter *"
+                                                "'");
+      }
+      arg1 = reinterpret_cast<dynamsoft::cvr::CCaptureVisionRouter *>(argp1);
+
+      result = (dynamsoft::utility::CMultiFrameResultCrossFilter *)new dynamsoft::utility::CMultiFrameResultCrossFilter(arg1);
+    }
     resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, SWIG_POINTER_NEW | 0);
     return resultobj;
   fail:
@@ -4639,6 +4663,212 @@ extern "C"
     return NULL;
   }
 
+  SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_SetMaxOverlappingFrames(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
+    int arg2;
+    int arg3;
+    void *argp1 = 0;
+    int res1 = 0;
+    int val2;
+    int ecode2 = 0;
+    int val3;
+    int ecode3 = 0;
+    PyObject *swig_obj[3];
+
+    if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_SetMaxOverlappingFrames", 3, 3, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CMultiFrameResultCrossFilter_SetMaxOverlappingFrames"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CMultiFrameResultCrossFilter *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
+    ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+    if (!SWIG_IsOK(ecode2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '"
+                                                 "CMultiFrameResultCrossFilter_SetMaxOverlappingFrames"
+                                                 "', argument "
+                                                 "2"
+                                                 " of type '"
+                                                 "int"
+                                                 "'");
+    }
+    arg2 = static_cast<int>(val2);
+    ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    if (!SWIG_IsOK(ecode3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '"
+                                                 "CMultiFrameResultCrossFilter_SetMaxOverlappingFrames"
+                                                 "', argument "
+                                                 "3"
+                                                 " of type '"
+                                                 "int"
+                                                 "'");
+    }
+    arg3 = static_cast<int>(val3);
+    (arg1)->SetMaxOverlappingFrames(arg2, arg3);
+    resultobj = SWIG_Py_Void();
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_GetMaxOverlappingFrames(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
+    CapturedResultItemType arg2;
+    void *argp1 = 0;
+    int res1 = 0;
+    int val2;
+    int ecode2 = 0;
+    PyObject *swig_obj[2];
+    int result;
+
+    if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_GetMaxOverlappingFrames", 2, 2, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CMultiFrameResultCrossFilter_GetMaxOverlappingFrames"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CMultiFrameResultCrossFilter const *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
+    ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+    if (!SWIG_IsOK(ecode2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '"
+                                                 "CMultiFrameResultCrossFilter_GetMaxOverlappingFrames"
+                                                 "', argument "
+                                                 "2"
+                                                 " of type '"
+                                                 "CapturedResultItemType"
+                                                 "'");
+    }
+    arg2 = static_cast<CapturedResultItemType>(val2);
+    result = (int)((dynamsoft::utility::CMultiFrameResultCrossFilter const *)arg1)->GetMaxOverlappingFrames(arg2);
+    resultobj = SWIG_From_int(static_cast<int>(result));
+    return resultobj;
+  fail:
+    return NULL;
+  }
+SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
+    int arg2;
+    bool arg3;
+    void *argp1 = 0;
+    int res1 = 0;
+    int val2;
+    int ecode2 = 0;
+    bool val3;
+    int ecode3 = 0;
+    PyObject *swig_obj[3];
+
+    if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_EnableLatestOverlapping", 3, 3, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CMultiFrameResultCrossFilter_EnableLatestOverlapping"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CMultiFrameResultCrossFilter *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
+    ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+    if (!SWIG_IsOK(ecode2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '"
+                                                 "CMultiFrameResultCrossFilter_EnableLatestOverlapping"
+                                                 "', argument "
+                                                 "2"
+                                                 " of type '"
+                                                 "int"
+                                                 "'");
+    }
+    arg2 = static_cast<int>(val2);
+    ecode3 = SWIG_AsVal_bool(swig_obj[2], &val3);
+    if (!SWIG_IsOK(ecode3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '"
+                                                 "CMultiFrameResultCrossFilter_EnableLatestOverlapping"
+                                                 "', argument "
+                                                 "3"
+                                                 " of type '"
+                                                 "bool"
+                                                 "'");
+    }
+    arg3 = static_cast<bool>(val3);
+    (arg1)->EnableLatestOverlapping(arg2, arg3);
+    resultobj = SWIG_Py_Void();
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_IsLatestOverlappingEnabled(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
+    CapturedResultItemType arg2;
+    void *argp1 = 0;
+    int res1 = 0;
+    int val2;
+    int ecode2 = 0;
+    PyObject *swig_obj[2];
+    bool result;
+
+    if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_IsLatestOverlappingEnabled", 2, 2, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CMultiFrameResultCrossFilter_IsLatestOverlappingEnabled"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CMultiFrameResultCrossFilter const *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
+    ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+    if (!SWIG_IsOK(ecode2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '"
+                                                 "CMultiFrameResultCrossFilter_IsLatestOverlappingEnabled"
+                                                 "', argument "
+                                                 "2"
+                                                 " of type '"
+                                                 "CapturedResultItemType"
+                                                 "'");
+    }
+    arg2 = static_cast<CapturedResultItemType>(val2);
+    result = (bool)((dynamsoft::utility::CMultiFrameResultCrossFilter const *)arg1)->IsLatestOverlappingEnabled(arg2);
+    resultobj = SWIG_From_bool(static_cast<bool>(result));
+    return resultobj;
+  fail:
+    return NULL;
+  }
   SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnOriginalImageResultReceived(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
@@ -8826,7 +9056,7 @@ extern "C"
       {"delete_CUtilityModule", _wrap_delete_CUtilityModule, METH_O, NULL},
       {"CUtilityModule_register", CUtilityModule_swigregister, METH_O, NULL},
       {"CUtilityModule_init", CUtilityModule_swiginit, METH_VARARGS, NULL},
-      {"new_CMultiFrameResultCrossFilter", _wrap_new_CMultiFrameResultCrossFilter, METH_NOARGS, NULL},
+      {"new_CMultiFrameResultCrossFilter", _wrap_new_CMultiFrameResultCrossFilter, METH_O, NULL},
       {"delete_CMultiFrameResultCrossFilter", _wrap_delete_CMultiFrameResultCrossFilter, METH_O, NULL},
       {"CMultiFrameResultCrossFilter_EnableResultCrossVerification", _wrap_CMultiFrameResultCrossFilter_EnableResultCrossVerification, METH_VARARGS, NULL},
       {"CMultiFrameResultCrossFilter_IsResultCrossVerificationEnabled", _wrap_CMultiFrameResultCrossFilter_IsResultCrossVerificationEnabled, METH_VARARGS, NULL},
@@ -8834,6 +9064,10 @@ extern "C"
       {"CMultiFrameResultCrossFilter_IsResultDeduplicationEnabled", _wrap_CMultiFrameResultCrossFilter_IsResultDeduplicationEnabled, METH_VARARGS, NULL},
       {"CMultiFrameResultCrossFilter_SetDuplicateForgetTime", _wrap_CMultiFrameResultCrossFilter_SetDuplicateForgetTime, METH_VARARGS, NULL},
       {"CMultiFrameResultCrossFilter_GetDuplicateForgetTime", _wrap_CMultiFrameResultCrossFilter_GetDuplicateForgetTime, METH_VARARGS, NULL},
+      {"CMultiFrameResultCrossFilter_SetMaxOverlappingFrames", _wrap_CMultiFrameResultCrossFilter_SetMaxOverlappingFrames, METH_VARARGS, NULL},
+      {"CMultiFrameResultCrossFilter_GetMaxOverlappingFrames", _wrap_CMultiFrameResultCrossFilter_GetMaxOverlappingFrames, METH_VARARGS, NULL},
+      {"CMultiFrameResultCrossFilter_EnableLatestOverlapping", _wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping, METH_VARARGS, NULL},
+      {"CMultiFrameResultCrossFilter_IsLatestOverlappingEnabled", _wrap_CMultiFrameResultCrossFilter_IsLatestOverlappingEnabled, METH_VARARGS, NULL},
       {"CMultiFrameResultCrossFilter_OnOriginalImageResultReceived", _wrap_CMultiFrameResultCrossFilter_OnOriginalImageResultReceived, METH_VARARGS, NULL},
       {"CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived", _wrap_CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived, METH_VARARGS, NULL},
       {"CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived", _wrap_CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived, METH_VARARGS, NULL},
@@ -8938,6 +9172,7 @@ extern "C"
   static swig_type_info _swigt__p_dynamsoft__basic_structures__CQuadrilateral = {"_p_dynamsoft__basic_structures__CQuadrilateral", "dynamsoft::basic_structures::CQuadrilateral *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t = {"_p_dynamsoft__basic_structures__DMPoint_T_int_t", "dynamsoft::basic_structures::CPoint *|dynamsoft::basic_structures::DMPoint_< int > *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__cvr__CCapturedResultFilter = {"_p_dynamsoft__cvr__CCapturedResultFilter", "dynamsoft::cvr::CCapturedResultFilter *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft__cvr__CCaptureVisionRouter = {"_p_dynamsoft__cvr__CCaptureVisionRouter", "dynamsoft::cvr::CCaptureVisionRouter *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__dbr__CDecodedBarcodesResult = {"_p_dynamsoft__dbr__CDecodedBarcodesResult", "dynamsoft::dbr::CDecodedBarcodesResult *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__dcp__CParsedResult = {"_p_dynamsoft__dcp__CParsedResult", "dynamsoft::dcp::CParsedResult *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__ddn__CDetectedQuadsResult = {"_p_dynamsoft__ddn__CDetectedQuadsResult", "dynamsoft::ddn::CDetectedQuadsResult *", 0, 0, (void *)0, 0};
@@ -8997,6 +9232,7 @@ extern "C"
       &_swigt__p_dynamsoft__basic_structures__CQuadrilateral,
       &_swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t,
       &_swigt__p_dynamsoft__cvr__CCapturedResultFilter,
+      &_swigt__p_dynamsoft__cvr__CCaptureVisionRouter,
       &_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult,
       &_swigt__p_dynamsoft__dcp__CParsedResult,
       &_swigt__p_dynamsoft__ddn__CDetectedQuadsResult,
@@ -9056,6 +9292,7 @@ extern "C"
   static swig_cast_info _swigc__p_dynamsoft__basic_structures__CQuadrilateral[] = {{&_swigt__p_dynamsoft__basic_structures__CQuadrilateral, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__basic_structures__DMPoint_T_int_t[] = {{&_swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__cvr__CCapturedResultFilter[] = {{&_swigt__p_dynamsoft__cvr__CCapturedResultFilter, 0, 0, 0}, {&_swigt__p_dynamsoft__utility__CMultiFrameResultCrossFilter, _p_dynamsoft__utility__CMultiFrameResultCrossFilterTo_p_dynamsoft__cvr__CCapturedResultFilter, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__cvr__CCaptureVisionRouter[] = {{&_swigt__p_dynamsoft__cvr__CCaptureVisionRouter, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__dbr__CDecodedBarcodesResult[] = {{&_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__dcp__CParsedResult[] = {{&_swigt__p_dynamsoft__dcp__CParsedResult, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__ddn__CDetectedQuadsResult[] = {{&_swigt__p_dynamsoft__ddn__CDetectedQuadsResult, 0, 0, 0}, {0, 0, 0, 0}};
@@ -9115,6 +9352,7 @@ extern "C"
       _swigc__p_dynamsoft__basic_structures__CQuadrilateral,
       _swigc__p_dynamsoft__basic_structures__DMPoint_T_int_t,
       _swigc__p_dynamsoft__cvr__CCapturedResultFilter,
+      _swigc__p_dynamsoft__cvr__CCaptureVisionRouter,
       _swigc__p_dynamsoft__dbr__CDecodedBarcodesResult,
       _swigc__p_dynamsoft__dcp__CParsedResult,
       _swigc__p_dynamsoft__ddn__CDetectedQuadsResult,

@@ -19,17 +19,17 @@ resource_dir = 'resource'
 if sys.platform == "linux" or sys.platform == "linux2":
         # linux
         if platform.uname()[4] == 'AMD64' or platform.uname()[4] == 'x86_64':
-                lib_dir = 'lib/linux'
+                lib_dir = 'lib/linux/x64'
         elif platform.uname()[4] == 'aarch64':
-                lib_dir = 'lib/aarch64'
+                lib_dir = 'lib/linux/arm64'
         else:
-                lib_dir = 'lib/arm32'
+                lib_dir = 'lib/linux/arm32'
 elif sys.platform == "darwin":
     # OS X
     if sys.version_info < (3, 8):
-        lib_dir = 'lib/macos'
+        lib_dir = 'lib/macos/x64'
     elif sys.version_info >= (3, 8):
-        lib_dir = 'lib/macos_universal2'
+        lib_dir = 'lib/macos/universal2'
 
 elif sys.platform == "win32":
     # Windows
@@ -44,14 +44,14 @@ elif sys.platform == "win32":
 if sys.platform == "linux" or sys.platform == "linux2":
     ext_args = dict(
         library_dirs = [lib_dir],
-        extra_compile_args = ['-std=c99','-DBUILD_BUNDLE=1'],
+        extra_compile_args = ['-std=c++11','-DBUILD_BUNDLE=1'],
         extra_link_args = ["-Wl,-rpath=$ORIGIN"],
         include_dirs=['include']
     )
 elif sys.platform == "darwin":
     ext_args = dict(
         library_dirs = [lib_dir],
-        extra_compile_args = ['-std=c99','-DBUILD_BUNDLE=1'],
+        extra_compile_args = ['-std=c++11','-DBUILD_BUNDLE=1'],
         extra_link_args = ["-Wl,-rpath,@loader_path"],
         include_dirs=['include']
     )
@@ -126,7 +126,7 @@ class CustomInstall(install):
         install.run(self)
 
 setup (name = 'dynamsoft_barcode_reader_bundle',
-            version = '10.4.1000',
+            version = '10.4.2000',
             description = 'Dynamsoft Barcode Reader SDK for Python',
             long_description=long_description,
             long_description_content_type="text/x-rst",

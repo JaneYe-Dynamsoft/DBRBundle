@@ -24,7 +24,7 @@ typedef void* HANDLE;
 #endif
 #include "DynamsoftCore.h"
 
-#define DBR_VERSION "10.4.10.1677"
+#define DBR_VERSION "10.4.20.2037"
 
 /**Enumeration section*/
 
@@ -520,6 +520,13 @@ namespace dynamsoft
 			CPDF417Details(int _rows = -1, int _columns = -1, int _level = -1,
 				int _hasLeftRowIndicator = -1, int _hasRightRowIndicator = -1);
 
+			CPDF417Details& operator=(const CPDF417Details& other);
+
+			/**
+			 * Destructor for the CPDF417Details class.
+			 */
+			~CPDF417Details();
+
 			/*The row count of the barcode*/
 			int rows;
 
@@ -534,6 +541,10 @@ namespace dynamsoft
 
 			/*Whether the right row indicator of the PDF417 code exists*/
 			int hasRightRowIndicator;
+
+			unsigned int * codewords;
+
+			int codewordsCount;
 		};
 		
 		/**

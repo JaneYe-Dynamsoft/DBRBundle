@@ -1,4 +1,4 @@
-__version__ = "3.2.30"
+__version__ = "3.4.20"
 
 if __package__ or "." in __name__:
     from . import _DynamsoftLicense
