@@ -27,9 +27,9 @@ if sys.platform == "linux" or sys.platform == "linux2":
 elif sys.platform == "darwin":
     # OS X
     if sys.version_info < (3, 8):
-        lib_dir = 'lib/macos/x64'
+        lib_dir = 'lib/mac/x64'
     elif sys.version_info >= (3, 8):
-        lib_dir = 'lib/macos/universal2'
+        lib_dir = 'lib/mac/universal2'
 
 elif sys.platform == "win32":
     # Windows
