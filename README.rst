@@ -41,15 +41,15 @@ Supported Platforms
 
 Supported Python Versions
 -------------------------
--  Python3.8
-
--  Python3.9
-
--  Python3.10
+-  Python3.12
 
 -  Python3.11
 
--  Python3.12
+-  Python3.10
+
+-  Python3.9
+
+-  Python3.8
 
 Installation
 ------------
