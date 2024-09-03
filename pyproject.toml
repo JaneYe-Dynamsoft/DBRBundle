@@ -19,9 +19,10 @@ repair-wheel-command = "auditwheel repair --lib-sdir . -w {dest_dir} {wheel}"
 
 [tool.cibuildwheel.macos]
 archs = ["universal2"]
-
 repair-wheel-command = [
   "delocate-listdeps {wheel}",
   "delocate-wheel --require-archs {delocate_archs} -w {dest_dir} {wheel}",
 ]
 
+[all]
+skip = repair
