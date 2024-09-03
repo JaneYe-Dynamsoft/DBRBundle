@@ -25,4 +25,4 @@ repair-wheel-command = [
 ]
 
 [all]
-skip = repair
+skip = "repair"
