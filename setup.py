@@ -52,7 +52,7 @@ elif sys.platform == "darwin":
     ext_args = dict(
         library_dirs = [lib_dir],
         extra_compile_args = ['-std=c++11','-DBUILD_BUNDLE=1'],
-        extra_link_args = ["-Wl,-rpath,@rpath"],
+        extra_link_args = ["-Wl,-rpath,@loader_path"],
         include_dirs=['include']
     )
 
