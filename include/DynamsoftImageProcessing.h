@@ -13,7 +13,7 @@
 #endif
 #include "DynamsoftCore.h"
 
-#define DIP_VERSION                  "2.4.20.2065"
+#define DIP_VERSION                  "2.4.20.2075"
 
 namespace dynamsoft
 {

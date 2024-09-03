@@ -19,7 +19,7 @@
 #endif
 #include "DynamsoftCore.h"
 
-#define DDN_VERSION                  "2.4.20.2065"
+#define DDN_VERSION                  "2.4.20.2075"
 
 /**Enums section*/
 

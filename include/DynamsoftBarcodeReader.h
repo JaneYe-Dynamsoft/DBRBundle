@@ -24,7 +24,7 @@ typedef void* HANDLE;
 #endif
 #include "DynamsoftCore.h"
 
-#define DBR_VERSION "10.4.20.2065"
+#define DBR_VERSION "10.4.20.2075"
 
 /**Enumeration section*/
 
@@ -39,7 +39,7 @@ enum BarcodeFormat : unsigned long long
 	BF_NULL = 0x00,
 
 	/**All supported formats in BarcodeFormat*/
-	BF_ALL = 0xFFFFFFFFFFFFFFFF,
+	BF_ALL = 0xFFFFFFFEFFFFFFFF,
 
 	/**Use the default barcode format settings*/
 	BF_DEFAULT = 0xFE3BFFFF,

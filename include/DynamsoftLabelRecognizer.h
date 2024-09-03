@@ -20,7 +20,7 @@
 
 #include "DynamsoftCore.h"
 
-#define DLR_VERSION                  "3.4.20.2065"
+#define DLR_VERSION                  "3.4.20.2075"
 
 /**Enumeration section*/
 
