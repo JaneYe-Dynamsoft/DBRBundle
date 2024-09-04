@@ -13,7 +13,7 @@
 
 
 #include"DynamsoftCaptureVisionRouter.h"
-#define DISA_VERSION "1.4.20.2075"
+#define DISA_VERSION "1.4.20.2092"
 
 #ifdef __cplusplus
 
