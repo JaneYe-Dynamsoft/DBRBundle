@@ -27,6 +27,14 @@ The Python Barcode SDK is a wrapper for Dynamsoft C++ Barcode SDK. It comes with
 features of Dynamsoft Barcode Reader, bringing convenience for Python developers.
 
 
+Notice: Package Renamed and Updated
+-----------------------------------
+`dynamsoft_barcode_reader_bundle` is the successor to the `dbr` package, starting from version 10.
+This new version introduces significant architectural improvements and a redesigned API to integrate with
+`DynamsoftCaptureVision (DCV) <https://www.dynamsoft.com/capture-vision/docs/core/introduction/index.html?lang=python>`_ architecture,
+which is newly established to aggregate the features of functional products powered by Dynamsoft.
+
+
 Version
 -------
 
@@ -37,7 +45,9 @@ Supported Platforms
 
 - Windows x64
 
-- Linux(x64)
+- Linux(x64, ARM32, ARM64)
+
+- macOS (10.15+)
 
 Supported Python Versions
 -------------------------
