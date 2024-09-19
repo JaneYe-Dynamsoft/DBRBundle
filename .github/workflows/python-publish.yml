@@ -37,7 +37,7 @@ jobs:
 #           python --version
 #           python test.py
       - name: Publish package
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
            name: package
            path: ./wheelhouse/
@@ -52,7 +52,7 @@ jobs:
 
 
       - name: Publish package
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: package
           path: dist/        
