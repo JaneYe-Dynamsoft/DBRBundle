@@ -45,7 +45,7 @@ Supported Platforms
 
 - Windows x64
 
-- Linux(x64, ARM32, ARM64)
+- Linux(x64, ARM64)
 
 - macOS (10.15+)
 
