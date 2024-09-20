@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-20.04]
+        os: [ubuntu-20.04, windows-2019]
 #         os: [ubuntu-20.04]
 
     steps:
@@ -41,6 +41,21 @@ jobs:
         with:
            name: wheel
            path: ./wheelhouse/
+  build_sdist:
+     name: Build source distribution
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v2
+
+       - name: Build sdist
+         run: pipx run build --sdist
+
+
+       - name: Publish package
+         uses: actions/upload-artifact@v2
+         with:
+           name: package
+           path: dist/        
   
 
 
