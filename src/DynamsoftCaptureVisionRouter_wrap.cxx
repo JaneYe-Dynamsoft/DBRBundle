@@ -11064,7 +11064,7 @@ extern "C"
     int alloc4 = 0;
     dynamsoft::cvr::CCapturedResult *result = 0;
 
-    if ((nobjs < 4) || (nobjs > 4))
+    if ((nobjs < 3) || (nobjs > 3))
       SWIG_fail;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter, 0 | 0);
     if (!SWIG_IsOK(res1))
@@ -11091,29 +11091,29 @@ extern "C"
                                                "'");
     }
     // arg2 = reinterpret_cast<unsigned char *>(argp2);
-    ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
-    if (!SWIG_IsOK(ecode3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '"
-                                                 "CCaptureVisionRouter_Capture"
-                                                 "', argument "
-                                                 "3"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    if (val3 < arg3)
-    {
-      arg3 = val3;
-    }
+    // ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    // if (!SWIG_IsOK(ecode3))
+    // {
+    //   SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '"
+    //                                              "CCaptureVisionRouter_Capture"
+    //                                              "', argument "
+    //                                              "3"
+    //                                              " of type '"
+    //                                              "int"
+    //                                              "'");
+    // }
+    // if (val3 < arg3)
+    // {
+    //   arg3 = val3;
+    // }
     // arg3 = static_cast<int>(val3);
-    res4 = SWIG_AsCharPtrAndSize(swig_obj[3], &buf4, NULL, &alloc4);
+    res4 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf4, NULL, &alloc4);
     if (!SWIG_IsOK(res4))
     {
       SWIG_exception_fail(SWIG_ArgError(res4), "in method '"
                                                "CCaptureVisionRouter_Capture"
                                                "', argument "
-                                               "4"
+                                               "3"
                                                " of type '"
                                                "char const *"
                                                "'");
@@ -11144,7 +11144,7 @@ extern "C"
     int ecode3 = 0;
     dynamsoft::cvr::CCapturedResult *result = 0;
 
-    if ((nobjs < 3) || (nobjs > 3))
+    if ((nobjs < 2) || (nobjs > 2))
       SWIG_fail;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter, 0 | 0);
     if (!SWIG_IsOK(res1))
@@ -11171,19 +11171,19 @@ extern "C"
                                                "'");
     }
     // arg2 = reinterpret_cast<unsigned char *>(argp2);
-    ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
-    if (!SWIG_IsOK(ecode3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '"
-                                                 "CCaptureVisionRouter_Capture"
-                                                 "', argument "
-                                                 "3"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    if (val3 < arg3)
-      arg3 = val3;
+    // ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    // if (!SWIG_IsOK(ecode3))
+    // {
+    //   SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '"
+    //                                              "CCaptureVisionRouter_Capture"
+    //                                              "', argument "
+    //                                              "3"
+    //                                              " of type '"
+    //                                              "int"
+    //                                              "'");
+    // }
+    // if (val3 < arg3)
+    //   arg3 = val3;
     // arg3 = static_cast<int>(val3);
     result = (dynamsoft::cvr::CCapturedResult *)(arg1)->Capture((unsigned char const *)arg2, arg3);
     resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__cvr__CCapturedResult, SWIG_POINTER_OWN | 0);
@@ -11342,7 +11342,7 @@ extern "C"
         }
       }
     }
-    if (argc == 3)
+    if (argc == 2)
     {
       int _v = 0;
       void *vptr = 0;
@@ -11356,14 +11356,14 @@ extern "C"
         _v = PyBytes_Check(argv[1]);
         if (_v)
         {
-          {
-            int res = SWIG_AsVal_int(argv[2], NULL);
-            _v = SWIG_CheckState(res);
-          }
-          if (_v)
-          {
+          // {
+          //   int res = SWIG_AsVal_int(argv[2], NULL);
+          //   _v = SWIG_CheckState(res);
+          // }
+          // if (_v)
+          // {
             return _wrap_CCaptureVisionRouter_Capture__SWIG_3(self, argc, argv);
-          }
+          // }
         }
       }
     }
@@ -11410,7 +11410,7 @@ extern "C"
         }
       }
     }
-    if (argc == 4)
+    if (argc == 3)
     {
       int _v = 0;
       void *vptr = 0;
@@ -11424,19 +11424,19 @@ extern "C"
         _v = PyBytes_Check(argv[1]);
         if (_v)
         {
-          {
-            int res = SWIG_AsVal_int(argv[2], NULL);
-            _v = SWIG_CheckState(res);
-          }
-          if (_v)
-          {
-            int res = SWIG_AsCharPtrAndSize(argv[3], 0, NULL, 0);
+          // {
+          //   int res = SWIG_AsVal_int(argv[2], NULL);
+          //   _v = SWIG_CheckState(res);
+          // }
+          // if (_v)
+          // {
+            int res = SWIG_AsCharPtrAndSize(argv[2], 0, NULL, 0);
             _v = SWIG_CheckState(res);
             if (_v)
             {
               return _wrap_CCaptureVisionRouter_Capture__SWIG_2(self, argc, argv);
             }
-          }
+          // }
         }
       }
     }
@@ -11446,8 +11446,8 @@ extern "C"
                                        "  Possible C/C++ prototypes are:\n"
                                        "    dynamsoft::cvr::CCaptureVisionRouter::Capture(char const *,char const *)\n"
                                        "    dynamsoft::cvr::CCaptureVisionRouter::Capture(char const *)\n"
-                                       "    dynamsoft::cvr::CCaptureVisionRouter::Capture(unsigned char const *,int,char const *)\n"
-                                       "    dynamsoft::cvr::CCaptureVisionRouter::Capture(unsigned char const *,int)\n"
+                                       "    dynamsoft::cvr::CCaptureVisionRouter::Capture(unsigned char const *,char const *)\n"
+                                       "    dynamsoft::cvr::CCaptureVisionRouter::Capture(unsigned char const *)\n"
                                        "    dynamsoft::cvr::CCaptureVisionRouter::Capture(dynamsoft::basic_structures::CImageData const *,char const *)\n"
                                        "    dynamsoft::cvr::CCaptureVisionRouter::Capture(dynamsoft::basic_structures::CImageData const *)\n");
     return 0;
