@@ -8190,7 +8190,7 @@ extern "C"
   {
     PyObject *resultobj = 0;
     unsigned long long arg1;
-    unsigned char *arg2 = (unsigned char *)0;
+    char *arg2 = (char *)0;
     int arg3;
     int arg4;
     int arg5;
@@ -8230,8 +8230,11 @@ extern "C"
     // }
     // arg1 = static_cast<unsigned long long>(val1);
     // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
-    res2 = PyBytes_AsStringAndSize(swig_obj[0], (char**)&arg2, (Py_ssize_t *)&arg1);
-    if (!SWIG_IsOK(res2))
+    // res2 = PyBytes_AsStringAndSize(swig_obj[0], (char**)&arg2, (Py_ssize_t *)&arg1);
+    // if (!SWIG_IsOK(res2))
+    arg2 = PyBytes_AsString(swig_obj[0]);
+    arg1 = PyBytes_Size(swig_obj[0]);
+    if (!arg2 || arg1 == 0)
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
                                                "new_CImageData"
@@ -8325,7 +8328,7 @@ extern "C"
   {
     PyObject *resultobj = 0;
     unsigned long long arg1;
-    unsigned char *arg2 = (unsigned char *)0;
+    char *arg2 = (char *)0;
     int arg3;
     int arg4;
     int arg5;
@@ -8362,8 +8365,11 @@ extern "C"
     // }
     // arg1 = static_cast<unsigned long long>(val1);
     // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
-    res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg1);
-    if (!SWIG_IsOK(res2))
+    // res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg1);
+    // if (!SWIG_IsOK(res2))
+    arg2 = PyBytes_AsString(swig_obj[0]);
+    arg1 = PyBytes_Size(swig_obj[0]);
+    if (!arg2 || arg1 == 0)
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
                                                "new_CImageData"
@@ -8373,7 +8379,7 @@ extern "C"
                                                "unsigned char const *"
                                                "'");
     }
-    arg2 = reinterpret_cast<unsigned char *>(argp2);
+    //arg2 = reinterpret_cast<unsigned char *>(argp2);
     ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
     if (!SWIG_IsOK(ecode3))
     {
@@ -8445,7 +8451,7 @@ extern "C"
   {
     PyObject *resultobj = 0;
     unsigned long long arg1;
-    unsigned char *arg2 = (unsigned char *)0;
+    char *arg2 = (char *)0;
     int arg3;
     int arg4;
     int arg5;
@@ -8479,8 +8485,11 @@ extern "C"
     // }
     // arg1 = static_cast<unsigned long long>(val1);
     // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
-    res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg1);
-    if (!SWIG_IsOK(res2))
+    // res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg1);
+    // if (!SWIG_IsOK(res2))
+    arg2 = PyBytes_AsString(swig_obj[0]);
+    arg1 = PyBytes_Size(swig_obj[0]);
+    if (!arg2 || arg1 == 0)
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
                                                "new_CImageData"
@@ -8490,7 +8499,7 @@ extern "C"
                                                "unsigned char const *"
                                                "'");
     }
-    arg2 = reinterpret_cast<unsigned char *>(argp2);
+    //arg2 = reinterpret_cast<unsigned char *>(argp2);
     ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
     if (!SWIG_IsOK(ecode3))
     {
@@ -8546,407 +8555,416 @@ extern "C"
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_new_CImageData__SWIG_4(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    unsigned long long arg1;
-    unsigned char *arg2 = (unsigned char *)0;
-    dynamsoft::basic_structures::FreeBytesFunc arg3 = (dynamsoft::basic_structures::FreeBytesFunc)0;
-    int arg4;
-    int arg5;
-    int arg6;
-    ImagePixelFormat arg7;
-    int arg8;
-    dynamsoft::basic_structures::CImageTag *arg9 = (dynamsoft::basic_structures::CImageTag *)0;
-    unsigned long long val1;
-    int ecode1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    int val4;
-    int ecode4 = 0;
-    int val5;
-    int ecode5 = 0;
-    int val6;
-    int ecode6 = 0;
-    int val7;
-    int ecode7 = 0;
-    int val8;
-    int ecode8 = 0;
-    void *argp9 = 0;
-    int res9 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
+  // SWIGINTERN PyObject *_wrap_new_CImageData__SWIG_4(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  // {
+  //   PyObject *resultobj = 0;
+  //   unsigned long long arg1;
+  //   char *arg2 = (char *)0;
+  //   dynamsoft::basic_structures::FreeBytesFunc arg3 = (dynamsoft::basic_structures::FreeBytesFunc)0;
+  //   int arg4;
+  //   int arg5;
+  //   int arg6;
+  //   ImagePixelFormat arg7;
+  //   int arg8;
+  //   dynamsoft::basic_structures::CImageTag *arg9 = (dynamsoft::basic_structures::CImageTag *)0;
+  //   unsigned long long val1;
+  //   int ecode1 = 0;
+  //   void *argp2 = 0;
+  //   int res2 = 0;
+  //   int val4;
+  //   int ecode4 = 0;
+  //   int val5;
+  //   int ecode5 = 0;
+  //   int val6;
+  //   int ecode6 = 0;
+  //   int val7;
+  //   int ecode7 = 0;
+  //   int val8;
+  //   int ecode8 = 0;
+  //   void *argp9 = 0;
+  //   int res9 = 0;
+  //   dynamsoft::basic_structures::CImageData *result = 0;
 
-    if ((nobjs < 9) || (nobjs > 9))
-      SWIG_fail;
-    ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(swig_obj[0], &val1);
-    if (!SWIG_IsOK(ecode1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "1"
-                                                 " of type '"
-                                                 "unsigned long long"
-                                                 "'");
-    }
-    arg1 = static_cast<unsigned long long>(val1);
-    // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
-    res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg1);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "new_CImageData"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "unsigned char const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<unsigned char *>(argp2);
-    {
-      int res = SWIG_ConvertFunctionPtr(swig_obj[2], (void **)(&arg3), SWIGTYPE_p_f_p_q_const__unsigned_char__void);
-      if (!SWIG_IsOK(res))
-      {
-        SWIG_exception_fail(SWIG_ArgError(res), "in method '"
-                                                "new_CImageData"
-                                                "', argument "
-                                                "3"
-                                                " of type '"
-                                                "dynamsoft::basic_structures::FreeBytesFunc"
-                                                "'");
-      }
-    }
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
-    if (!SWIG_IsOK(ecode5))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "5"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg5 = static_cast<int>(val5);
-    ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
-    if (!SWIG_IsOK(ecode6))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "6"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg6 = static_cast<int>(val6);
-    ecode7 = SWIG_AsVal_int(swig_obj[6], &val7);
-    if (!SWIG_IsOK(ecode7))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "7"
-                                                 " of type '"
-                                                 "ImagePixelFormat"
-                                                 "'");
-    }
-    arg7 = static_cast<ImagePixelFormat>(val7);
-    ecode8 = SWIG_AsVal_int(swig_obj[7], &val8);
-    if (!SWIG_IsOK(ecode8))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "8"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg8 = static_cast<int>(val8);
-    res9 = SWIG_ConvertPtr(swig_obj[8], &argp9, SWIGTYPE_p_dynamsoft__basic_structures__CImageTag, 0 | 0);
-    if (!SWIG_IsOK(res9))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res9), "in method '"
-                                               "new_CImageData"
-                                               "', argument "
-                                               "9"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageTag const *"
-                                               "'");
-    }
-    arg9 = reinterpret_cast<dynamsoft::basic_structures::CImageTag *>(argp9);
-    result = (dynamsoft::basic_structures::CImageData *)new dynamsoft::basic_structures::CImageData(arg1, (unsigned char const *)arg2, arg3, arg4, arg5, arg6, arg7, arg8, (dynamsoft::basic_structures::CImageTag const *)arg9);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_NEW | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
+  //   if ((nobjs < 9) || (nobjs > 9))
+  //     SWIG_fail;
+  //   ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(swig_obj[0], &val1);
+  //   if (!SWIG_IsOK(ecode1))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "1"
+  //                                                " of type '"
+  //                                                "unsigned long long"
+  //                                                "'");
+  //   }
+  //   arg1 = static_cast<unsigned long long>(val1);
+  //   // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
+  //   // res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg1);
+  //   // if (!SWIG_IsOK(res2))
+  //   arg2 = PyBytes_AsString(swig_obj[0]);
+  //   arg1 = PyBytes_Size(swig_obj[0]);
+  //   if (!arg2 || arg1 == 0)
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+  //                                              "new_CImageData"
+  //                                              "', argument "
+  //                                              "2"
+  //                                              " of type '"
+  //                                              "unsigned char const *"
+  //                                              "'");
+  //   }
+  //   arg2 = reinterpret_cast<unsigned char *>(argp2);
+  //   {
+  //     int res = SWIG_ConvertFunctionPtr(swig_obj[2], (void **)(&arg3), SWIGTYPE_p_f_p_q_const__unsigned_char__void);
+  //     if (!SWIG_IsOK(res))
+  //     {
+  //       SWIG_exception_fail(SWIG_ArgError(res), "in method '"
+  //                                               "new_CImageData"
+  //                                               "', argument "
+  //                                               "3"
+  //                                               " of type '"
+  //                                               "dynamsoft::basic_structures::FreeBytesFunc"
+  //                                               "'");
+  //     }
+  //   }
+  //   ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+  //   if (!SWIG_IsOK(ecode4))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "4"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg4 = static_cast<int>(val4);
+  //   ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
+  //   if (!SWIG_IsOK(ecode5))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "5"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg5 = static_cast<int>(val5);
+  //   ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
+  //   if (!SWIG_IsOK(ecode6))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "6"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg6 = static_cast<int>(val6);
+  //   ecode7 = SWIG_AsVal_int(swig_obj[6], &val7);
+  //   if (!SWIG_IsOK(ecode7))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "7"
+  //                                                " of type '"
+  //                                                "ImagePixelFormat"
+  //                                                "'");
+  //   }
+  //   arg7 = static_cast<ImagePixelFormat>(val7);
+  //   ecode8 = SWIG_AsVal_int(swig_obj[7], &val8);
+  //   if (!SWIG_IsOK(ecode8))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "8"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg8 = static_cast<int>(val8);
+  //   res9 = SWIG_ConvertPtr(swig_obj[8], &argp9, SWIGTYPE_p_dynamsoft__basic_structures__CImageTag, 0 | 0);
+  //   if (!SWIG_IsOK(res9))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res9), "in method '"
+  //                                              "new_CImageData"
+  //                                              "', argument "
+  //                                              "9"
+  //                                              " of type '"
+  //                                              "dynamsoft::basic_structures::CImageTag const *"
+  //                                              "'");
+  //   }
+  //   arg9 = reinterpret_cast<dynamsoft::basic_structures::CImageTag *>(argp9);
+  //   result = (dynamsoft::basic_structures::CImageData *)new dynamsoft::basic_structures::CImageData(arg1, (unsigned char const *)arg2, arg3, arg4, arg5, arg6, arg7, arg8, (dynamsoft::basic_structures::CImageTag const *)arg9);
+  //   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_NEW | 0);
+  //   return resultobj;
+  // fail:
+  //   return NULL;
+  // }
 
-  SWIGINTERN PyObject *_wrap_new_CImageData__SWIG_5(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    unsigned long long arg1;
-    unsigned char *arg2 = (unsigned char *)0;
-    dynamsoft::basic_structures::FreeBytesFunc arg3 = (dynamsoft::basic_structures::FreeBytesFunc)0;
-    int arg4;
-    int arg5;
-    int arg6;
-    ImagePixelFormat arg7;
-    int arg8;
-    unsigned long long val1;
-    int ecode1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    int val4;
-    int ecode4 = 0;
-    int val5;
-    int ecode5 = 0;
-    int val6;
-    int ecode6 = 0;
-    int val7;
-    int ecode7 = 0;
-    int val8;
-    int ecode8 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
+  // SWIGINTERN PyObject *_wrap_new_CImageData__SWIG_5(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  // {
+  //   PyObject *resultobj = 0;
+  //   unsigned long long arg1;
+  //   char *arg2 = (char *)0;
+  //   dynamsoft::basic_structures::FreeBytesFunc arg3 = (dynamsoft::basic_structures::FreeBytesFunc)0;
+  //   int arg4;
+  //   int arg5;
+  //   int arg6;
+  //   ImagePixelFormat arg7;
+  //   int arg8;
+  //   unsigned long long val1;
+  //   int ecode1 = 0;
+  //   void *argp2 = 0;
+  //   int res2 = 0;
+  //   int val4;
+  //   int ecode4 = 0;
+  //   int val5;
+  //   int ecode5 = 0;
+  //   int val6;
+  //   int ecode6 = 0;
+  //   int val7;
+  //   int ecode7 = 0;
+  //   int val8;
+  //   int ecode8 = 0;
+  //   dynamsoft::basic_structures::CImageData *result = 0;
 
-    if ((nobjs < 8) || (nobjs > 8))
-      SWIG_fail;
-    ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(swig_obj[0], &val1);
-    if (!SWIG_IsOK(ecode1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "1"
-                                                 " of type '"
-                                                 "unsigned long long"
-                                                 "'");
-    }
-    arg1 = static_cast<unsigned long long>(val1);
-    // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
-    res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg1);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "new_CImageData"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "unsigned char const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<unsigned char *>(argp2);
-    {
-      int res = SWIG_ConvertFunctionPtr(swig_obj[2], (void **)(&arg3), SWIGTYPE_p_f_p_q_const__unsigned_char__void);
-      if (!SWIG_IsOK(res))
-      {
-        SWIG_exception_fail(SWIG_ArgError(res), "in method '"
-                                                "new_CImageData"
-                                                "', argument "
-                                                "3"
-                                                " of type '"
-                                                "dynamsoft::basic_structures::FreeBytesFunc"
-                                                "'");
-      }
-    }
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
-    if (!SWIG_IsOK(ecode5))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "5"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg5 = static_cast<int>(val5);
-    ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
-    if (!SWIG_IsOK(ecode6))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "6"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg6 = static_cast<int>(val6);
-    ecode7 = SWIG_AsVal_int(swig_obj[6], &val7);
-    if (!SWIG_IsOK(ecode7))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "7"
-                                                 " of type '"
-                                                 "ImagePixelFormat"
-                                                 "'");
-    }
-    arg7 = static_cast<ImagePixelFormat>(val7);
-    ecode8 = SWIG_AsVal_int(swig_obj[7], &val8);
-    if (!SWIG_IsOK(ecode8))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "8"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg8 = static_cast<int>(val8);
-    result = (dynamsoft::basic_structures::CImageData *)new dynamsoft::basic_structures::CImageData(arg1, (unsigned char const *)arg2, arg3, arg4, arg5, arg6, arg7, arg8);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_NEW | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
+  //   if ((nobjs < 8) || (nobjs > 8))
+  //     SWIG_fail;
+  //   ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(swig_obj[0], &val1);
+  //   if (!SWIG_IsOK(ecode1))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "1"
+  //                                                " of type '"
+  //                                                "unsigned long long"
+  //                                                "'");
+  //   }
+  //   arg1 = static_cast<unsigned long long>(val1);
+  //   // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
+  //   // res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg1);
+  //   // if (!SWIG_IsOK(res2))
+  //   arg2 = PyBytes_AsString(swig_obj[0]);
+  //   arg1 = PyBytes_Size(swig_obj[0]);
+  //   if (!arg2 || arg1 == 0)
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+  //                                              "new_CImageData"
+  //                                              "', argument "
+  //                                              "2"
+  //                                              " of type '"
+  //                                              "unsigned char const *"
+  //                                              "'");
+  //   }
+  //   arg2 = reinterpret_cast<unsigned char *>(argp2);
+  //   {
+  //     int res = SWIG_ConvertFunctionPtr(swig_obj[2], (void **)(&arg3), SWIGTYPE_p_f_p_q_const__unsigned_char__void);
+  //     if (!SWIG_IsOK(res))
+  //     {
+  //       SWIG_exception_fail(SWIG_ArgError(res), "in method '"
+  //                                               "new_CImageData"
+  //                                               "', argument "
+  //                                               "3"
+  //                                               " of type '"
+  //                                               "dynamsoft::basic_structures::FreeBytesFunc"
+  //                                               "'");
+  //     }
+  //   }
+  //   ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+  //   if (!SWIG_IsOK(ecode4))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "4"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg4 = static_cast<int>(val4);
+  //   ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
+  //   if (!SWIG_IsOK(ecode5))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "5"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg5 = static_cast<int>(val5);
+  //   ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
+  //   if (!SWIG_IsOK(ecode6))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "6"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg6 = static_cast<int>(val6);
+  //   ecode7 = SWIG_AsVal_int(swig_obj[6], &val7);
+  //   if (!SWIG_IsOK(ecode7))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "7"
+  //                                                " of type '"
+  //                                                "ImagePixelFormat"
+  //                                                "'");
+  //   }
+  //   arg7 = static_cast<ImagePixelFormat>(val7);
+  //   ecode8 = SWIG_AsVal_int(swig_obj[7], &val8);
+  //   if (!SWIG_IsOK(ecode8))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "8"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg8 = static_cast<int>(val8);
+  //   result = (dynamsoft::basic_structures::CImageData *)new dynamsoft::basic_structures::CImageData(arg1, (unsigned char const *)arg2, arg3, arg4, arg5, arg6, arg7, arg8);
+  //   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_NEW | 0);
+  //   return resultobj;
+  // fail:
+  //   return NULL;
+  // }
 
-  SWIGINTERN PyObject *_wrap_new_CImageData__SWIG_6(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    unsigned long long arg1;
-    unsigned char *arg2 = (unsigned char *)0;
-    dynamsoft::basic_structures::FreeBytesFunc arg3 = (dynamsoft::basic_structures::FreeBytesFunc)0;
-    int arg4;
-    int arg5;
-    int arg6;
-    ImagePixelFormat arg7;
-    unsigned long long val1;
-    int ecode1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    int val4;
-    int ecode4 = 0;
-    int val5;
-    int ecode5 = 0;
-    int val6;
-    int ecode6 = 0;
-    int val7;
-    int ecode7 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
+  // SWIGINTERN PyObject *_wrap_new_CImageData__SWIG_6(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  // {
+  //   PyObject *resultobj = 0;
+  //   unsigned long long arg1;
+  //   char *arg2 = (char *)0;
+  //   dynamsoft::basic_structures::FreeBytesFunc arg3 = (dynamsoft::basic_structures::FreeBytesFunc)0;
+  //   int arg4;
+  //   int arg5;
+  //   int arg6;
+  //   ImagePixelFormat arg7;
+  //   unsigned long long val1;
+  //   int ecode1 = 0;
+  //   void *argp2 = 0;
+  //   int res2 = 0;
+  //   int val4;
+  //   int ecode4 = 0;
+  //   int val5;
+  //   int ecode5 = 0;
+  //   int val6;
+  //   int ecode6 = 0;
+  //   int val7;
+  //   int ecode7 = 0;
+  //   dynamsoft::basic_structures::CImageData *result = 0;
 
-    if ((nobjs < 7) || (nobjs > 7))
-      SWIG_fail;
-    ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(swig_obj[0], &val1);
-    if (!SWIG_IsOK(ecode1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "1"
-                                                 " of type '"
-                                                 "unsigned long long"
-                                                 "'");
-    }
-    arg1 = static_cast<unsigned long long>(val1);
-    // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
-    res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg1);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "new_CImageData"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "unsigned char const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<unsigned char *>(argp2);
-    {
-      int res = SWIG_ConvertFunctionPtr(swig_obj[2], (void **)(&arg3), SWIGTYPE_p_f_p_q_const__unsigned_char__void);
-      if (!SWIG_IsOK(res))
-      {
-        SWIG_exception_fail(SWIG_ArgError(res), "in method '"
-                                                "new_CImageData"
-                                                "', argument "
-                                                "3"
-                                                " of type '"
-                                                "dynamsoft::basic_structures::FreeBytesFunc"
-                                                "'");
-      }
-    }
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
-    if (!SWIG_IsOK(ecode5))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "5"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg5 = static_cast<int>(val5);
-    ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
-    if (!SWIG_IsOK(ecode6))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "6"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg6 = static_cast<int>(val6);
-    ecode7 = SWIG_AsVal_int(swig_obj[6], &val7);
-    if (!SWIG_IsOK(ecode7))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '"
-                                                 "new_CImageData"
-                                                 "', argument "
-                                                 "7"
-                                                 " of type '"
-                                                 "ImagePixelFormat"
-                                                 "'");
-    }
-    arg7 = static_cast<ImagePixelFormat>(val7);
-    result = (dynamsoft::basic_structures::CImageData *)new dynamsoft::basic_structures::CImageData(arg1, (unsigned char const *)arg2, arg3, arg4, arg5, arg6, arg7);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_NEW | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
+  //   if ((nobjs < 7) || (nobjs > 7))
+  //     SWIG_fail;
+  //   ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(swig_obj[0], &val1);
+  //   if (!SWIG_IsOK(ecode1))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "1"
+  //                                                " of type '"
+  //                                                "unsigned long long"
+  //                                                "'");
+  //   }
+  //   arg1 = static_cast<unsigned long long>(val1);
+  //   // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
+  //   // res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg1);
+  //   // if (!SWIG_IsOK(res2))
+  //   arg2 = PyBytes_AsString(swig_obj[0]);
+  //   arg1 = PyBytes_Size(swig_obj[0]);
+  //   if (!arg2 || arg1 == 0)
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+  //                                              "new_CImageData"
+  //                                              "', argument "
+  //                                              "2"
+  //                                              " of type '"
+  //                                              "unsigned char const *"
+  //                                              "'");
+  //   }
+  //   arg2 = reinterpret_cast<unsigned char *>(argp2);
+  //   {
+  //     int res = SWIG_ConvertFunctionPtr(swig_obj[2], (void **)(&arg3), SWIGTYPE_p_f_p_q_const__unsigned_char__void);
+  //     if (!SWIG_IsOK(res))
+  //     {
+  //       SWIG_exception_fail(SWIG_ArgError(res), "in method '"
+  //                                               "new_CImageData"
+  //                                               "', argument "
+  //                                               "3"
+  //                                               " of type '"
+  //                                               "dynamsoft::basic_structures::FreeBytesFunc"
+  //                                               "'");
+  //     }
+  //   }
+  //   ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+  //   if (!SWIG_IsOK(ecode4))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "4"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg4 = static_cast<int>(val4);
+  //   ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
+  //   if (!SWIG_IsOK(ecode5))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "5"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg5 = static_cast<int>(val5);
+  //   ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
+  //   if (!SWIG_IsOK(ecode6))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "6"
+  //                                                " of type '"
+  //                                                "int"
+  //                                                "'");
+  //   }
+  //   arg6 = static_cast<int>(val6);
+  //   ecode7 = SWIG_AsVal_int(swig_obj[6], &val7);
+  //   if (!SWIG_IsOK(ecode7))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '"
+  //                                                "new_CImageData"
+  //                                                "', argument "
+  //                                                "7"
+  //                                                " of type '"
+  //                                                "ImagePixelFormat"
+  //                                                "'");
+  //   }
+  //   arg7 = static_cast<ImagePixelFormat>(val7);
+  //   result = (dynamsoft::basic_structures::CImageData *)new dynamsoft::basic_structures::CImageData(arg1, (unsigned char const *)arg2, arg3, arg4, arg5, arg6, arg7);
+  //   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_NEW | 0);
+  //   return resultobj;
+  // fail:
+  //   return NULL;
+  // }
 
   SWIGINTERN PyObject *_wrap_new_CImageData(PyObject *self, PyObject *args)
   {

@@ -6465,9 +6465,12 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg1 = reinterpret_cast<dynamsoft::utility::CFileFetcher *>(argp1);
-    res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg3);
+    // res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg3);
     // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
-    if (!SWIG_IsOK(res2))
+    // if (!SWIG_IsOK(res2))
+    arg2 = PyBytes_AsString(swig_obj[1]);
+    arg3 = PyBytes_Size(swig_obj[1]);
+    if (!arg2 || arg3 == 0)
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
                                                "CFileFetcher_SetFile"
