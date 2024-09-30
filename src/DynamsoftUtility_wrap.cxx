@@ -6439,7 +6439,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   {
     PyObject *resultobj = 0;
     dynamsoft::utility::CFileFetcher *arg1 = (dynamsoft::utility::CFileFetcher *)0;
-    unsigned char *arg2 = (unsigned char *)0;
+    char *arg2 = (char *)0;
     int arg3;
     void *argp1 = 0;
     int res1 = 0;
