@@ -5178,7 +5178,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   }
   int SetThisOwn(PyObject *obj, bool own)
   {
-    PyObject *attr_name = PyUnicode_FromString("thisown");
+    PyObject *attr_name = PyUnicode_FromString("_thisown");
 
     // Get the attribute using PyObject_GetAttr
     PyObject *attr_value = PyObject_GetAttr(obj, attr_name);
@@ -9054,11 +9054,12 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   }
 
   static PyMethodDef SwigMethods[] = {
+      {"Class_init", CUtilityModule_swiginit, METH_VARARGS, NULL},
       {"CUtilityModule_GetVersion", _wrap_CUtilityModule_GetVersion, METH_NOARGS, NULL},
       {"new_CUtilityModule", _wrap_new_CUtilityModule, METH_NOARGS, NULL},
       {"delete_CUtilityModule", _wrap_delete_CUtilityModule, METH_O, NULL},
       {"CUtilityModule_register", CUtilityModule_swigregister, METH_O, NULL},
-      {"CUtilityModule_init", CUtilityModule_swiginit, METH_VARARGS, NULL},
+      // {"CUtilityModule_init", CUtilityModule_swiginit, METH_VARARGS, NULL},
       {"new_CMultiFrameResultCrossFilter", _wrap_new_CMultiFrameResultCrossFilter, METH_O, NULL},
       {"delete_CMultiFrameResultCrossFilter", _wrap_delete_CMultiFrameResultCrossFilter, METH_O, NULL},
       {"CMultiFrameResultCrossFilter_EnableResultCrossVerification", _wrap_CMultiFrameResultCrossFilter_EnableResultCrossVerification, METH_VARARGS, NULL},
@@ -9079,7 +9080,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       {"CMultiFrameResultCrossFilter_OnParsedResultsReceived", _wrap_CMultiFrameResultCrossFilter_OnParsedResultsReceived, METH_VARARGS, NULL},
       {"CMultiFrameResultCrossFilter_ClearStatus", _wrap_CMultiFrameResultCrossFilter_ClearStatus, METH_O, NULL},
       {"CMultiFrameResultCrossFilter_register", CMultiFrameResultCrossFilter_swigregister, METH_O, NULL},
-      {"CMultiFrameResultCrossFilter_init", CMultiFrameResultCrossFilter_swiginit, METH_VARARGS, NULL},
+      // {"CMultiFrameResultCrossFilter_init", CMultiFrameResultCrossFilter_swiginit, METH_VARARGS, NULL},
       {"delete_CProactiveImageSourceAdapter", _wrap_delete_CProactiveImageSourceAdapter, METH_O, NULL},
       {"new_CProactiveImageSourceAdapter", _wrap_new_CProactiveImageSourceAdapter, METH_VARARGS, NULL},
       {"CProactiveImageSourceAdapter_HasNextImageToFetch", _wrap_CProactiveImageSourceAdapter_HasNextImageToFetch, METH_O, NULL},
@@ -9095,7 +9096,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       {"CDirectoryFetcher_HasNextImageToFetch", _wrap_CDirectoryFetcher_HasNextImageToFetch, METH_O, NULL},
       {"CDirectoryFetcher_SetPages", _wrap_CDirectoryFetcher_SetPages, METH_VARARGS, NULL},
       {"CDirectoryFetcher_register", CDirectoryFetcher_swigregister, METH_O, NULL},
-      {"CDirectoryFetcher_init", CDirectoryFetcher_swiginit, METH_VARARGS, NULL},
+      // {"CDirectoryFetcher_init", CDirectoryFetcher_swiginit, METH_VARARGS, NULL},
       {"new_CFileFetcher", _wrap_new_CFileFetcher, METH_VARARGS, NULL},
       {"delete_CFileFetcher", _wrap_delete_CFileFetcher, METH_O, NULL},
       {"CFileFetcher_SetFile", _wrap_CFileFetcher_SetFile, METH_VARARGS, NULL},
@@ -9104,13 +9105,13 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       {"CFileFetcher_GetImage", _wrap_CFileFetcher_GetImage, METH_O, NULL},
       {"CFileFetcher_SetPages", _wrap_CFileFetcher_SetPages, METH_VARARGS, NULL},
       {"CFileFetcher_register", CFileFetcher_swigregister, METH_O, NULL},
-      {"CFileFetcher_init", CFileFetcher_swiginit, METH_VARARGS, NULL},
+      // {"CFileFetcher_init", CFileFetcher_swiginit, METH_VARARGS, NULL},
       {"CImageManager_SaveToFile", _wrap_CImageManager_SaveToFile, METH_VARARGS, NULL},
       {"CImageManager_DrawOnImage", _wrap_CImageManager_DrawOnImage, METH_VARARGS, NULL},
       {"new_CImageManager", _wrap_new_CImageManager, METH_NOARGS, NULL},
       {"delete_CImageManager", _wrap_delete_CImageManager, METH_O, NULL},
       {"CImageManager_register", CImageManager_swigregister, METH_O, NULL},
-      {"CImageManager_init", CImageManager_swiginit, METH_VARARGS, NULL},
+      // {"CImageManager_init", CImageManager_swiginit, METH_VARARGS, NULL},
       {NULL, NULL, 0, NULL}};
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
@@ -9788,7 +9789,7 @@ void
       SwigPyObject_own,
       SwigPyObject_own};
   static PyGetSetDef thisown_getset_def = {
-      (char *)"thisown", SwigPyBuiltin_GetterClosure, SwigPyBuiltin_SetterClosure, NULL, &thisown_getset_closure};
+      (char *)"_thisown", SwigPyBuiltin_GetterClosure, SwigPyBuiltin_SetterClosure, NULL, &thisown_getset_closure};
   PyTypeObject *builtin_pytype;
   int builtin_base_count;
   swig_type_info *builtin_basetype;

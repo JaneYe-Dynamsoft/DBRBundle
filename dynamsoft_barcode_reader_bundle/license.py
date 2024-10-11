@@ -6,7 +6,7 @@ else:
     import _DynamsoftLicense
 from typing import Tuple
 
-class LicenseManager(object):
+class LicenseManager:
     """
     The LicenseManager class provides a set of APIs to manage SDK licensing.
 
@@ -17,7 +17,7 @@ class LicenseManager(object):
         get_device_uuid(uuid_generation_method: int) -> Tuple[int, str, str]: Gets the unique identifier of the device.
         set_license_cache_path(directory_path: str) -> Tuple[int, str]: Sets the directory path for the license cache.
     """
-    thisown = property(
+    _thisown = property(
         lambda self: self.this.own(),
         lambda self, value: self.this.own(value),
         doc="The membership flag",
@@ -104,7 +104,7 @@ class LicenseManager(object):
         return _DynamsoftLicense.CLicenseManager_SetLicenseCachePath(directory_path)
 
     def __init__(self):
-        _DynamsoftLicense.CLicenseManager_init(
+        _DynamsoftLicense.Class_init(
             self, _DynamsoftLicense.new_CLicenseManager()
         )
 
@@ -114,14 +114,14 @@ class LicenseManager(object):
 _DynamsoftLicense.CLicenseManager_register(LicenseManager)
 
 
-class LicenseModule(object):
+class LicenseModule:
     """
     The LicenseModule class represents the Dynamsoft License module.
 
     Methods:
         get_version() -> str: Gets the version of the Dynamsoft License module.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -136,7 +136,7 @@ class LicenseModule(object):
         return __version__ + " (Algotithm " + _DynamsoftLicense.CLicenseModule_GetVersion() + ")"
 
     def __init__(self):
-        _DynamsoftLicense.CLicenseModule_init(
+        _DynamsoftLicense.Class_init(
             self, _DynamsoftLicense.new_CLicenseModule()
         )
 

@@ -20,14 +20,14 @@ from abc import ABC, abstractmethod
 from typing import List, Tuple
 
 
-class UtilityModule(object):
+class UtilityModule:
     """
     The UtilityModule class contains utility functions.
 
     Methods:
         get_version() -> str: Returns the version of the utility module.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -42,7 +42,7 @@ class UtilityModule(object):
         return __version__ + " (Algotithm " + _DynamsoftUtility.CUtilityModule_GetVersion() + ")"
 
     def __init__(self):
-        _DynamsoftUtility.CUtilityModule_init(
+        _DynamsoftUtility.Class_init(
             self, _DynamsoftUtility.new_CUtilityModule()
         )
 
@@ -67,12 +67,12 @@ class MultiFrameResultCrossFilter(CapturedResultFilter):
         enable_latest_overlapping(self, result_item_types: int, enable: bool) -> None: Enable to-the-latest overlapping feature. The output decoded barcode result will become a combination of the recent results if the  latest frame is proved to be similar with the previous.
         is_latest_overlapping_enabled(self, type: int) -> bool: Determines whether the to-the-latest overlapping feature is enabled for the specific result item type.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
     def __init__(self, cvr: CaptureVisionRouter = None):
-        _DynamsoftUtility.CMultiFrameResultCrossFilter_init(
+        _DynamsoftUtility.Class_init(
             self, _DynamsoftUtility.new_CMultiFrameResultCrossFilter(cvr)
         )
 
@@ -227,12 +227,12 @@ class ProactiveImageSourceAdapter(ImageSourceAdapter, ABC):
         start_fetching(self) -> None: Starts fetching images.
         stop_fetching(self) -> None: Stops fetching images.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
     def __init__(self):
-        _DynamsoftUtility.CMultiFrameResultCrossFilter_init(
+        _DynamsoftUtility.Class_init(
             self, _DynamsoftUtility.new_CProactiveImageSourceAdapter(self)
         )
 
@@ -301,12 +301,12 @@ class DirectoryFetcher(ProactiveImageSourceAdapter):
         set_pages(self, pages: List[int]) -> Tuple[int, str]: Sets the 0-based page indexes of a file (.tiff or .pdf) for barcode searching.
         has_next_image_to_fetch(self) -> bool: Determines whether there are more images left to fetch.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
     def __init__(self):
-        _DynamsoftUtility.CDirectoryFetcher_init(
+        _DynamsoftUtility.Class_init(
             self, _DynamsoftUtility.new_CDirectoryFetcher()
         )
 
@@ -383,12 +383,12 @@ class FileFetcher(ImageSourceAdapter):
         get_image(self) -> ImageData: Gets the next image.
     """
 
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
     def __init__(self):
-        _DynamsoftUtility.CFileFetcher_init(self, _DynamsoftUtility.new_CFileFetcher())
+        _DynamsoftUtility.Class_init(self, _DynamsoftUtility.new_CFileFetcher())
 
     __destroy__ = _DynamsoftUtility.delete_CFileFetcher
 
@@ -459,7 +459,7 @@ class FileFetcher(ImageSourceAdapter):
 _DynamsoftUtility.CFileFetcher_register(FileFetcher)
 
 
-class ImageManager(object):
+class ImageManager:
     """
     The ImageManager class is a utility class for managing and manipulating images. It provides functionality for saving images to files and drawing various shapes on images.
 
@@ -468,7 +468,7 @@ class ImageManager(object):
         draw_on_image(self, *args) -> Tuple[int, str]: Draws an image on an image.
     """
 
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -499,7 +499,7 @@ class ImageManager(object):
         return _DynamsoftUtility.CImageManager_DrawOnImage(self, *args)
 
     def __init__(self):
-        _DynamsoftUtility.CImageManager_init(
+        _DynamsoftUtility.Class_init(
             self, _DynamsoftUtility.new_CImageManager()
         )
 

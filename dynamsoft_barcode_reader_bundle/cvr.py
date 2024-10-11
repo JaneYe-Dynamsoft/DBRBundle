@@ -57,7 +57,7 @@ class EnumImageSourceState(IntEnum):
     ISS_BUFFER_EMPTY = _DynamsoftCaptureVisionRouter.ISS_BUFFER_EMPTY
     ISS_EXHAUSTED = _DynamsoftCaptureVisionRouter.ISS_EXHAUSTED
 
-class SimplifiedCaptureVisionSettings(object):
+class SimplifiedCaptureVisionSettings:
     """
     The SimplifiedCaptureVisionSettings class contains settings for capturing and recognizing images with the CaptureVisionRouter class.
 
@@ -73,7 +73,7 @@ class SimplifiedCaptureVisionSettings(object):
         min_image_capture_interval (int): Specifies the minimum time interval (in milliseconds) allowed between consecutive image captures.
     """
 
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -130,7 +130,7 @@ class SimplifiedCaptureVisionSettings(object):
     )
 
     def __init__(self):
-        _DynamsoftCaptureVisionRouter.SimplifiedCaptureVisionSettings_init(
+        _DynamsoftCaptureVisionRouter.Class_init(
             self, _DynamsoftCaptureVisionRouter.new_SimplifiedCaptureVisionSettings()
         )
 
@@ -141,7 +141,7 @@ _DynamsoftCaptureVisionRouter.SimplifiedCaptureVisionSettings_register(
     SimplifiedCaptureVisionSettings
 )
 
-class CapturedResult(object):
+class CapturedResult:
     """
     The CapturedResult class represents the result of a capture operation on an image.
     Internally, CaptureResult stores an array that contains multiple items, each of which may be a barcode, text line, detected quad, normalized image, original image, parsed item, etc.
@@ -159,7 +159,7 @@ class CapturedResult(object):
         get_normalized_images_result(self) -> NormalizedImagesResult: Gets the normalized images items from the CapturedResult.
         get_parsed_result(self) -> ParsedResult: Gets the parsed result items from the CapturedResult.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -291,7 +291,7 @@ class CapturedResult(object):
 
 _DynamsoftCaptureVisionRouter.CCapturedResult_register(CapturedResult)
 
-class CapturedResultReceiver(object):
+class CapturedResultReceiver:
     """
     The CapturedResultReceiver class is responsible for receiving captured results.
     It contains several callback functions for different types of results, including original image, decoded barcodes, recognized text lines, detected quads, normalized images, and parsed results.
@@ -307,7 +307,7 @@ class CapturedResultReceiver(object):
         on_normalized_images_received(self, normalized_images_result: NormalizedImagesResult) -> None: Callback function triggered after processing each image and returns all normalized images results.
         on_parsed_results_received(self, parsed_result: ParsedResult) -> None: Callback function triggered after processing each image and returns all parsed results.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -315,7 +315,7 @@ class CapturedResultReceiver(object):
          if type(self) is CapturedResultReceiver:
             raise TypeError("Cannot create an instance of an abstract class.")
          else:
-            _DynamsoftCaptureVisionRouter.CCaptureVisionRouterModule_init(
+            _DynamsoftCaptureVisionRouter.Class_init(
                 self, _DynamsoftCaptureVisionRouter.new_CCapturedResultReceiver(self)
             )
 
@@ -428,7 +428,7 @@ class CapturedResultReceiver(object):
 
 _DynamsoftCaptureVisionRouter.CCapturedResultReceiver_register(CapturedResultReceiver)
 
-class CapturedResultFilter(object):
+class CapturedResultFilter:
     """
     The CapturedResultFilter class is responsible for filtering captured results.
     It contains several callback functions for different types of results, including original image, decoded barcodes, recognized text lines, detected quads, normalized images, and parsed results.
@@ -437,7 +437,7 @@ class CapturedResultFilter(object):
         get_name(self): Gets the name of the captured result filter.
         set_name(self, name: str): Sets the name of the captured result filter.        
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -445,7 +445,7 @@ class CapturedResultFilter(object):
         if type(self) is CapturedResultFilter:
             raise TypeError("Cannot create an instance of an abstract class.")
         else:
-            _DynamsoftCaptureVisionRouter.CCaptureVisionRouterModule_init(
+            _DynamsoftCaptureVisionRouter.Class_init(
                 self, _DynamsoftCaptureVisionRouter.new_CCapturedResultFilter(self)
             )
 
@@ -517,12 +517,12 @@ class CaptureStateListener(ABC):
     Methods:
         on_capture_state_changed(self, state: int) -> None: Called when the capture state changes.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
     def __init__(self):
-        _DynamsoftCaptureVisionRouter.CCaptureVisionRouterModule_init(
+        _DynamsoftCaptureVisionRouter.Class_init(
             self, _DynamsoftCaptureVisionRouter.new_CCaptureStateListener(self)
         )
 
@@ -548,12 +548,12 @@ class ImageSourceStateListener(ABC):
     Methods:
         on_image_source_state_received(self, state: int) -> None: This method is called when the state of the image source changes.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
     def __init__(self):
-        _DynamsoftCaptureVisionRouter.CCaptureVisionRouterModule_init(
+        _DynamsoftCaptureVisionRouter.Class_init(
             self, _DynamsoftCaptureVisionRouter.new_CImageSourceStateListener(self)
         )
 
@@ -584,7 +584,7 @@ class BufferedItemsManager:
         get_buffered_character_item_set(self) -> "BufferedCharacterItemSet": Gets the buffered recognized character items.
     """
 
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -634,8 +634,140 @@ class BufferedItemsManager:
         
 _DynamsoftCaptureVisionRouter.CBufferedItemsManager_register(BufferedItemsManager)
 
+#new
 
-class CaptureVisionRouter(object):
+class IntermediateResultReceiver(AbstractIntermediateResultReceiver):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self):
+         if type(self) is IntermediateResultReceiver:
+            raise TypeError("Cannot create an instance of an abstract class.")
+         else:
+            _DynamsoftCaptureVisionRouter.Class_init(
+                self, _DynamsoftCaptureVisionRouter.new_CIntermediateResultReceiver(self)
+            )
+
+    __destroy__ = _DynamsoftCaptureVisionRouter.delete_CIntermediateResultReceiver
+
+    def on_task_results_received(self, result: IntermediateResult, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnTaskResultsReceived(self, result, info)
+
+    def on_predetected_regions_received(self, result: PredetectedRegionsUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnPredetectedRegionsReceived(self, result, info)
+
+    def on_localized_barcodes_received(self, result: "LocalizedBarcodesUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnLocalizedBarcodesReceived(self, result, info)
+
+    def on_decoded_barcodes_received(self, result: "DecodedBarcodesUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnDecodedBarcodesReceived(self, result, info)
+
+    def on_localized_text_lines_received(self, result: "LocalizedTextLinesUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnLocalizedTextLinesReceived(self, result, info)
+
+    def on_recognized_text_lines_received(self, result: "RecognizedTextLinesUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnRecognizedTextLinesReceived(self, result, info)
+
+    def on_detected_quads_received(self, result: "DetectedQuadsUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnDetectedQuadsReceived(self, result, info)
+
+    def on_normalized_images_received(self, result: "NormalizedImagesUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnNormalizedImagesReceived(self, result, info)
+
+    def on_colour_image_unit_received(self, result: ColourImageUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnColourImageUnitReceived(self, result, info)
+
+    def on_scaled_down_colour_image_unit_received(self, result: ScaledDownColourImageUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnScaledDownColourImageUnitReceived(self, result, info)
+
+    def on_grayscale_image_unit_received(self, result: GrayscaleImageUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnGrayscaleImageUnitReceived(self, result, info)
+
+    def on_transformed_grayscale_image_unit_received(self, result: TransformedGrayscaleImageUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnTransformedGrayscaleImageUnitReceived(self, result, info)
+
+    def on_enhanced_grayscale_image_unit_received(self, result: EnhancedGrayscaleImageUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnEnhancedGrayscaleImageUnitReceived(self, result, info)
+
+    def on_binary_image_unit_received(self, result: BinaryImageUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnBinaryImageUnitReceived(self, result, info)
+
+    def on_texture_detection_result_unit_received(self, result: TextureDetectionResultUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnTextureDetectionResultUnitReceived(self, result, info)
+
+    def on_texture_removed_grayscale_image_unit_received(self, result: TextureRemovedGrayscaleImageUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnTextureRemovedGrayscaleImageUnitReceived(self, result, info)
+
+    def on_texture_removed_binary_image_unit_received(self, result: TextureRemovedBinaryImageUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnTextureRemovedBinaryImageUnitReceived(self, result, info)
+
+    def on_contours_unit_received(self, result: ContoursUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnContoursUnitReceived(self, result, info)
+
+    def on_short_lines_unit_received(self, result: ShortLinesUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnShortLinesUnitReceived(self, result, info)
+
+    def on_line_segments_unit_received(self, result: LineSegmentsUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnLineSegmentsUnitReceived(self, result, info)
+
+    def on_text_zones_unit_received(self, result: TextZonesUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnTextZonesUnitReceived(self, result, info)
+
+    def on_text_removed_binary_image_unit_received(self, result: TextRemovedBinaryImageUnit, info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnTextRemovedBinaryImageUnitReceived(self, result, info)
+
+    def on_long_lines_unit_received(self, result: "LongLinesUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnLongLinesUnitReceived(self, result, info)
+
+    def on_corners_unit_received(self, result: "CornersUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnCornersUnitReceived(self, result, info)
+
+    def on_candidate_quad_edges_unit_received(self, result: "CandidateQuadEdgesUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnCandidateQuadEdgesUnitReceived(self, result, info)
+
+    def on_candidate_barcode_zones_unit_received(self, result: "CandidateBarcodeZonesUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnCandidateBarcodeZonesUnitReceived(self, result, info)
+
+    def on_scaled_up_barcode_image_unit_received(self, result: "ScaledUpBarcodeImageUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnScaledUpBarcodeImageUnitReceived(self, result, info)
+
+    def on_deformation_resisted_barcode_image_unit_received(self, result: "DeformationResistedBarcodeImageUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnDeformationResistedBarcodeImageUnitReceived(self, result, info)
+
+    def on_complemented_barcode_image_unit_received(self, result: "ComplementedBarcodeImageUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnComplementedBarcodeImageUnitReceived(self, result, info)
+
+    def on_raw_text_lines_received(self, result: "RawTextLinesUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnRawTextLinesReceived(self, result, info)
+
+    def get_encrypted_string(self) -> str:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_GetEncryptedString(self)
+    
+    def on_unit_result_received(self, unit: IntermediateResultUnit, info: IntermediateResultExtraInfo) -> None:
+        pass
+
+# Register CIntermediateResultReceiver in _DynamsoftCaptureVisionRouter:
+_DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_register(IntermediateResultReceiver)
+class IntermediateResultManager:
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self):
+        raise AttributeError("No constructor defined - class is abstract")
+    __destroy__ = _DynamsoftCaptureVisionRouter.delete_CIntermediateResultManager
+
+    def add_result_receiver(self, receiver: IntermediateResultReceiver) -> int:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultManager_AddResultReceiver(self, receiver)
+
+    def remove_result_receiver(self, receiver: IntermediateResultReceiver) -> int:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultManager_RemoveResultReceiver(self, receiver)
+    
+    def get_original_image(self, image_hash_id: str)->ImageData:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultManager_GetOriginalImage(self, image_hash_id)
+
+# Register CIntermediateResultManager in _DynamsoftCaptureVisionRouter:
+_DynamsoftCaptureVisionRouter.CIntermediateResultManager_register(IntermediateResultManager)
+
+#new end
+class CaptureVisionRouter:
     """
     The CaptureVisionRouter class is what a user uses to interact with image-processing and semantic-processing products in their applications.
     It accepts an image source and returns processing results which may contain Final results.
@@ -666,16 +798,16 @@ class CaptureVisionRouter(object):
         get_buffered_items_manager(self) -> BufferedItemsManager: Gets a BufferedItemsManager object.
     """
 
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
     def __init__(self):
-        _DynamsoftCaptureVisionRouter.CCaptureVisionRouter_init(
+        _DynamsoftCaptureVisionRouter.Class_init(
             self, _DynamsoftCaptureVisionRouter.new_CCaptureVisionRouter()
         )
         self._input = None
-
+        self._intermediate_result_manager = None
     __destroy__ = _DynamsoftCaptureVisionRouter.delete_CCaptureVisionRouter
 
     def init_settings(self, content: str) -> Tuple[int, str]:
@@ -1029,19 +1161,23 @@ class CaptureVisionRouter(object):
                 self
             )
         )
+    def get_intermediate_result_manager(self)->IntermediateResultManager:
+        if self._intermediate_result_manager is None:
+            self._intermediate_result_manager = _DynamsoftCaptureVisionRouter.CCaptureVisionRouter_GetIntermediateResultManager(self)
+        return self._intermediate_result_manager
 
 
 _DynamsoftCaptureVisionRouter.CCaptureVisionRouter_register(CaptureVisionRouter)
 
 
-class CaptureVisionRouterModule(object):
+class CaptureVisionRouterModule:
     """
     The CaptureVisionRouterModule class defines general functions in the capture vision router module.
 
     Methods:
         get_version() -> str: Returns the version of the capture vision router module.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -1056,7 +1192,7 @@ class CaptureVisionRouterModule(object):
         return __version__ + " (Algotithm " + _DynamsoftCaptureVisionRouter.CCaptureVisionRouterModule_GetVersion() + ")"
 
     def __init__(self):
-        _DynamsoftCaptureVisionRouter.CCaptureVisionRouterModule_init(
+        _DynamsoftCaptureVisionRouter.Class_init(
             self, _DynamsoftCaptureVisionRouter.new_CCaptureVisionRouterModule()
         )
 

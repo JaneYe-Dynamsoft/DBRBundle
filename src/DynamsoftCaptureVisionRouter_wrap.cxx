@@ -3429,45 +3429,45 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit swig_types[52]
 #define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit swig_types[53]
 #define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit swig_types[54]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit swig_types[55]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit swig_types[56]
-#define SWIGTYPE_p_dynamsoft__dcp__CParsedResult swig_types[57]
-#define SWIGTYPE_p_dynamsoft__dcp__CParsedResultItem swig_types[58]
-#define SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadResultItem swig_types[59]
-#define SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadsResult swig_types[60]
-#define SWIGTYPE_p_dynamsoft__ddn__CNormalizedImageResultItem swig_types[61]
-#define SWIGTYPE_p_dynamsoft__ddn__CNormalizedImagesResult swig_types[62]
-#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit swig_types[63]
-#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CCornersUnit swig_types[64]
-#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit swig_types[65]
-#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CLongLinesUnit swig_types[66]
-#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit swig_types[67]
-#define SWIGTYPE_p_dynamsoft__dlr__CBufferedCharacterItemSet swig_types[68]
-#define SWIGTYPE_p_dynamsoft__dlr__CRecognizedTextLinesResult swig_types[69]
-#define SWIGTYPE_p_dynamsoft__dlr__CTextLineResultItem swig_types[70]
-#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit swig_types[71]
-#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit swig_types[72]
-#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit swig_types[73]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver swig_types[74]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CBinaryImageUnit swig_types[75]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CColourImageUnit swig_types[76]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CContoursUnit swig_types[77]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit swig_types[78]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CGrayscaleImageUnit swig_types[79]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResult swig_types[80]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResultUnit swig_types[81]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CLineSegmentsUnit swig_types[82]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit swig_types[83]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CScaledDownColourImageUnit swig_types[84]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CShortLinesUnit swig_types[85]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit swig_types[86]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextZonesUnit swig_types[87]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureDetectionResultUnit swig_types[88]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit swig_types[89]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit swig_types[90]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit swig_types[91]
-#define SWIGTYPE_p_int swig_types[92]
-#define SWIGTYPE_p_signed_char swig_types[93]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit swig_types[55]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit swig_types[56]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit swig_types[57]
+#define SWIGTYPE_p_dynamsoft__dcp__CParsedResult swig_types[58]
+#define SWIGTYPE_p_dynamsoft__dcp__CParsedResultItem swig_types[59]
+#define SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadResultItem swig_types[60]
+#define SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadsResult swig_types[61]
+#define SWIGTYPE_p_dynamsoft__ddn__CNormalizedImageResultItem swig_types[62]
+#define SWIGTYPE_p_dynamsoft__ddn__CNormalizedImagesResult swig_types[63]
+#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit swig_types[64]
+#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CCornersUnit swig_types[65]
+#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit swig_types[66]
+#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CLongLinesUnit swig_types[67]
+#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit swig_types[68]
+#define SWIGTYPE_p_dynamsoft__dlr__CBufferedCharacterItemSet swig_types[69]
+#define SWIGTYPE_p_dynamsoft__dlr__CRecognizedTextLinesResult swig_types[70]
+#define SWIGTYPE_p_dynamsoft__dlr__CTextLineResultItem swig_types[71]
+#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit swig_types[72]
+#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit swig_types[73]
+#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit swig_types[74]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver swig_types[75]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CBinaryImageUnit swig_types[76]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CColourImageUnit swig_types[77]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CContoursUnit swig_types[78]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit swig_types[79]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CGrayscaleImageUnit swig_types[80]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResult swig_types[81]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResultUnit swig_types[82]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CLineSegmentsUnit swig_types[83]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit swig_types[84]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CScaledDownColourImageUnit swig_types[85]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CShortLinesUnit swig_types[86]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit swig_types[87]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextZonesUnit swig_types[88]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureDetectionResultUnit swig_types[89]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit swig_types[90]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit swig_types[91]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit swig_types[92]
+#define SWIGTYPE_p_int swig_types[93]
 #define SWIGTYPE_p_tagSimplifiedBarcodeReaderSettings swig_types[94]
 #define SWIGTYPE_p_tagSimplifiedCaptureVisionSettings swig_types[95]
 #define SWIGTYPE_p_tagSimplifiedLabelRecognizerSettings swig_types[96]
@@ -3978,7 +3978,6 @@ SWIG_AsVal_int(PyObject *obj, int *val)
   }
   return res;
 }
-
 SWIGINTERN int
 SWIG_AsCharPtrAndSize(PyObject *obj, char **cptr, size_t *psize, int *alloc)
 {
@@ -5289,7 +5288,7 @@ extern "C"
   {
     PyObject *resultobj = 0;
     dynamsoft::cvr::CCapturedResult *arg1 = (dynamsoft::cvr::CCapturedResult *)0;
-    double *arg2;
+    // double *arg2;
     void *argp1 = 0;
     int res1 = 0;
     void *argp2 = 0;
@@ -5857,6 +5856,1026 @@ extern "C"
     return SWIG_Py_Void();
   }
 
+  thread_local int thread_local_value = 0;
+
+  class AutoGIL
+  {
+  public:
+	  AutoGIL() : m_state(PyGILState_Ensure()) {thread_local_value++;}
+    ~AutoGIL()
+    {
+      thread_local_value--;
+      if (thread_local_value == 0)
+        PyGILState_Release(m_state);
+    }
+    static void Pause()
+    {
+      if(thread_local_value > 0)
+      {
+        auto state = PyGILState_Ensure();
+        PyGILState_Release(state);
+      }
+      thread_local_value--;
+    }
+    static void Resume()
+    {
+      thread_local_value++;
+      if (thread_local_value > 0)
+        PyGILState_Ensure();
+    }
+  private:
+    PyGILState_STATE m_state;
+  };
+  class AutoGILAllow
+  {
+  public:
+	  AutoGILAllow() : m_state(PyEval_SaveThread()) {}
+	  ~AutoGILAllow() { PyEval_RestoreThread(m_state); }
+
+  private:
+	  PyThreadState *m_state;
+  };
+  class CIntermediateResultReceiver_helper : public dynamsoft::cvr::CIntermediateResultReceiver
+  {
+  public:
+    CIntermediateResultReceiver_helper(PyObject *object) : object(object)
+    {
+    }
+
+    virtual void OnTaskResultsReceived(CIntermediateResult *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_task_results_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_task_results_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResult, 0 | 0);
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_task_results_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_task_results_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnTaskResultsReceived(pResult, info);
+      }
+    }
+
+    virtual void OnPredetectedRegionsReceived(CPredetectedRegionsUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_predetected_regions_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_predetected_regions_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_predetected_regions_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_predetected_regions_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnPredetectedRegionsReceived(pResult, info);
+      }
+    }
+    virtual void OnLocalizedBarcodesReceived(dynamsoft::dbr::intermediate_results::CLocalizedBarcodesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_localized_barcodes_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_localized_barcodes_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_localized_barcodes_received", "OO", result, result2);
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_localized_barcodes_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnLocalizedBarcodesReceived(pResult, info);
+      }
+    }
+    virtual void OnDecodedBarcodesReceived(dynamsoft::dbr::intermediate_results::CDecodedBarcodesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "OnDecodedBarcodesReceived"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'OnDecodedBarcodesReceived' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit, SWIG_POINTER_OWN | 0);
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "OnDecodedBarcodesReceived", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'OnDecodedBarcodesReceived' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnDecodedBarcodesReceived(pResult, info);
+      }
+    }
+    virtual void OnLocalizedTextLinesReceived(dynamsoft::dlr::intermediate_results::CLocalizedTextLinesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_predetected_regions_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_predetected_regions_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_predetected_regions_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_predetected_regions_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnLocalizedTextLinesReceived(pResult, info);
+      }
+    }
+    virtual void OnRecognizedTextLinesReceived(dynamsoft::dlr::intermediate_results::CRecognizedTextLinesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_recognized_text_lines_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_recognized_text_lines_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_recognized_text_lines_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_recognized_text_lines_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnRecognizedTextLinesReceived(pResult, info);
+      }
+    }
+    virtual void OnDetectedQuadsReceived(dynamsoft::ddn::intermediate_results::CDetectedQuadsUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_detected_quads_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_detected_quads_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_detected_quads_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_detected_quads_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnDetectedQuadsReceived(pResult, info);
+      }
+    }
+    virtual void OnNormalizedImagesReceived(dynamsoft::ddn::intermediate_results::CNormalizedImagesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_normalized_images_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_normalized_images_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_normalized_images_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_normalized_images_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnNormalizedImagesReceived(pResult, info);
+      }
+    }
+    virtual void OnColourImageUnitReceived(CColourImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_colour_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_colour_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CColourImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_colour_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_colour_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnColourImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnScaledDownColourImageUnitReceived(CScaledDownColourImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_scaled_down_colour_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_scaled_down_colour_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_scaled_down_colour_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_scaled_down_colour_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnScaledDownColourImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnGrayscaleImageUnitReceived(CGrayscaleImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_grayscale_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_grayscale_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CGrayscaleImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_grayscale_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_grayscale_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnGrayscaleImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnTransformedGrayscaleImageUnitReceived(CTransformedGrayscaleImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_transformed_grayscale_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_transformed_grayscale_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_transformed_grayscale_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_transformed_grayscale_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnTransformedGrayscaleImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnEnhancedGrayscaleImageUnitReceived(CEnhancedGrayscaleImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_enhanced_grayscale_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_enhanced_grayscale_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_enhanced_grayscale_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_enhanced_grayscale_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnEnhancedGrayscaleImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnBinaryImageUnitReceived(CBinaryImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_binary_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_binary_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CBinaryImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_binary_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_binary_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnBinaryImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnTextureDetectionResultUnitReceived(CTextureDetectionResultUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_texture_detection_result_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_texture_detection_result_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CTextureDetectionResultUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_texture_detection_result_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_texture_detection_result_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnTextureDetectionResultUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnTextureRemovedGrayscaleImageUnitReceived(CTextureRemovedGrayscaleImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_texture_removed_grayscale_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_texture_removed_grayscale_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_texture_removed_grayscale_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_texture_removed_grayscale_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnTextureRemovedGrayscaleImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnTextureRemovedBinaryImageUnitReceived(CTextureRemovedBinaryImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_texture_removed_binary_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_texture_removed_binary_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_texture_removed_binary_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_texture_removed_binary_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnTextureRemovedBinaryImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnContoursUnitReceived(CContoursUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_contours_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_contours_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CContoursUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_contours_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_contours_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnContoursUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnShortLinesUnitReceived(CShortLinesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_short_lines_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_short_lines_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CShortLinesUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_short_lines_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_short_lines_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnShortLinesUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnLineSegmentsUnitReceived(CLineSegmentsUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_line_segments_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_line_segments_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CLineSegmentsUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_line_segments_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_line_segments_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnLineSegmentsUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnTextZonesUnitReceived(CTextZonesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_text_zones_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_text_zones_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CTextZonesUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_text_zones_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_text_zones_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnTextZonesUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnTextRemovedBinaryImageUnitReceived(CTextRemovedBinaryImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_text_removed_binary_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_text_removed_binary_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_text_removed_binary_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_text_removed_binary_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnTextRemovedBinaryImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnLongLinesUnitReceived(dynamsoft::ddn::intermediate_results::CLongLinesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_long_lines_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_long_lines_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CLongLinesUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_long_lines_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_long_lines_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnLongLinesUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnCornersUnitReceived(dynamsoft::ddn::intermediate_results::CCornersUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_corners_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_corners_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CCornersUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_corners_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_corners_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnCornersUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnCandidateQuadEdgesUnitReceived(dynamsoft::ddn::intermediate_results::CCandidateQuadEdgesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_candidate_quad_edges_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_candidate_quad_edges_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_candidate_quad_edges_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_candidate_quad_edges_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnCandidateQuadEdgesUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnCandidateBarcodeZonesUnitReceived(dynamsoft::dbr::intermediate_results::CCandidateBarcodeZonesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_candidate_barcode_zones_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_candidate_barcode_zones_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_candidate_barcode_zones_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_candidate_barcode_zones_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnCandidateBarcodeZonesUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnScaledUpBarcodeImageUnitReceived(dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_scaled_up_barcode_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_scaled_up_barcode_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_scaled_up_barcode_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_scaled_up_barcode_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnScaledUpBarcodeImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnDeformationResistedBarcodeImageUnitReceived(dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_deformation_resisted_barcode_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_deformation_resisted_barcode_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_deformation_resisted_barcode_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_deformation_resisted_barcode_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnDeformationResistedBarcodeImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnComplementedBarcodeImageUnitReceived(dynamsoft::dbr::intermediate_results::CComplementedBarcodeImageUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_complemented_barcode_image_unit_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_complemented_barcode_image_unit_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_complemented_barcode_image_unit_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_complemented_barcode_image_unit_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnComplementedBarcodeImageUnitReceived(pResult, info);
+      }
+    }
+    virtual void OnRawTextLinesReceived(dynamsoft::dlr::intermediate_results::CRawTextLinesUnit *pResult, const IntermediateResultExtraInfo* info)
+    {
+      if (object)
+      {
+        AutoGIL ag;
+        if (!PyObject_HasAttrString(object, "on_raw_text_lines_received"))
+        {
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_raw_text_lines_received' method");
+          return;
+        }
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
+        PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+        PyObject *method_result = PyObject_CallMethod(object, "on_raw_text_lines_received", "OO", result, result2);
+
+        if (!method_result)
+        {
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_raw_text_lines_received' method on class object");
+          Py_DECREF(result);
+          Py_DECREF(result2);
+          return;
+        }
+        Py_DECREF(method_result);
+        Py_DECREF(result);
+        Py_DECREF(result2);
+      }
+      else
+      {
+        dynamsoft::cvr::CIntermediateResultReceiver::OnRawTextLinesReceived(pResult, info);
+      }
+    }
+    // virtual const char* GetEncryptedString()
+    // {
+    //   if (object)
+    //   {
+    //     AutoGIL ag;
+    //     if (!PyObject_HasAttrString(object, "get_encrypted_string"))
+    //     {
+    //       PyErr_SetString(PyExc_TypeError, "Argument must have 'get_encrypted_string' method");
+    //       return;
+    //     }
+    //     PyObject *method_result = PyObject_CallMethod(object, "get_encrypted_string", NULL);
+
+    //     if (!method_result)
+    //     {
+    //       PyErr_SetString(PyExc_RuntimeError, "Failed to call 'get_encrypted_string' method on class object");
+    //       return;
+    //     }
+
+    //     Py_DECREF(method_result);
+    //   }
+    //   else
+    //   {
+    //     return dynamsoft::cvr::CIntermediateResultReceiver::GetEncryptedString();
+    //   }
+    // }
+
+    void SetPyObject(PyObject *obj) { object = obj; }
+
+  private:
+    PyObject *object{nullptr};
+    // std::string encryptedString;
+  };
+
+  SWIGINTERN PyObject *_wrap_new_CIntermediateResultReceiver(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    CIntermediateResultReceiver_helper *result = 0;
+    PyObject *obj[1]{nullptr};
+    if (!SWIG_Python_UnpackTuple(args, "new_CIntermediateResultReceiver", 1, 1, obj))
+      SWIG_fail;
+    result = (CIntermediateResultReceiver_helper *)new CIntermediateResultReceiver_helper(obj[0]);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__cvr__CIntermediateResultReceiver, SWIG_POINTER_NEW | 0);
+    return resultobj;
+  fail:
+    return NULL;
+  }
   SWIGINTERN PyObject *_wrap_delete_CIntermediateResultReceiver(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
@@ -7479,6 +8498,64 @@ extern "C"
   fail:
     return NULL;
   }
+  SWIGINTERN PyObject *_wrap_CIntermediateResultReceiver_OnDeformationResistedBarcodeImageUnitReceived(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::cvr::CIntermediateResultReceiver *arg1 = (dynamsoft::cvr::CIntermediateResultReceiver *)0;
+    dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *arg2 = (dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *)0;
+    IntermediateResultExtraInfo *arg3 = (IntermediateResultExtraInfo *)0;
+    void *argp1 = 0;
+    int res1 = 0;
+    void *argp2 = 0;
+    int res2 = 0;
+    void *argp3 = 0;
+    int res3 = 0;
+    PyObject *swig_obj[3];
+
+    if (!SWIG_Python_UnpackTuple(args, "CIntermediateResultReceiver_OnDeformationResistedBarcodeImageUnitReceived", 3, 3, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CIntermediateResultReceiver, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CIntermediateResultReceiver_OnDeformationResistedBarcodeImageUnitReceived"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::cvr::CIntermediateResultReceiver *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::cvr::CIntermediateResultReceiver *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CIntermediateResultReceiver_OnDeformationResistedBarcodeImageUnitReceived"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *>(argp2);
+    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
+    if (!SWIG_IsOK(res3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
+                                               "CIntermediateResultReceiver_OnDeformationResistedBarcodeImageUnitReceived"
+                                               "', argument "
+                                               "3"
+                                               " of type '"
+                                               "IntermediateResultExtraInfo const *"
+                                               "'");
+    }
+    arg3 = reinterpret_cast<IntermediateResultExtraInfo *>(argp3);
+    (arg1)->OnDeformationResistedBarcodeImageUnitReceived(arg2, (IntermediateResultExtraInfo const *)arg3);
+    resultobj = SWIG_Py_Void();
+    return resultobj;
+  fail:
+    return NULL;
+  }
 
   SWIGINTERN PyObject *_wrap_CIntermediateResultReceiver_OnComplementedBarcodeImageUnitReceived(PyObject *self, PyObject *args)
   {
@@ -7934,44 +9011,7 @@ extern "C"
     SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft__cvr__CIntermediateResultManager, SWIG_NewClientData(obj));
     return SWIG_Py_Void();
   }
-  thread_local int thread_local_value = 0;
-  class AutoGIL
-  {
-  public:
-	  AutoGIL() : m_state(PyGILState_Ensure()) {thread_local_value++;}
-    ~AutoGIL()
-    {
-      thread_local_value--;
-      if (thread_local_value == 0)
-        PyGILState_Release(m_state);
-    }
-    static void Pause()
-    {
-      if(thread_local_value > 0)
-      {
-        auto state = PyGILState_Ensure();
-        PyGILState_Release(state);
-      }
-      thread_local_value--;
-    }
-    static void Resume()
-    {
-      thread_local_value++;
-      if (thread_local_value > 0)
-        PyGILState_Ensure();
-    }
-  private:
-    PyGILState_STATE m_state;
-  };
-  class AutoGILAllow
-  {
-  public:
-	  AutoGILAllow() : m_state(PyEval_SaveThread()) {}
-	  ~AutoGILAllow() { PyEval_RestoreThread(m_state); }
-
-  private:
-	  PyThreadState *m_state;
-  };
+  
   class CCapturedResultReceiver_helper : public dynamsoft::cvr::CCapturedResultReceiver
   {
   public:
@@ -11080,10 +12120,10 @@ extern "C"
     arg1 = reinterpret_cast<dynamsoft::cvr::CCaptureVisionRouter *>(argp1);
     // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
     //res2 = PyBytes_AsStringAndSize(swig_obj[1], (char **)&arg2, (Py_ssize_t *)&arg3);
-	arg2 = PyBytes_AsString(swig_obj[1]);
-	arg3 = PyBytes_Size(swig_obj[1]);
-	//if (!SWIG_IsOK(res2))
-	if (!arg2||arg3==0)
+    arg2 = PyBytes_AsString(swig_obj[1]);
+    arg3 = PyBytes_Size(swig_obj[1]);
+    //if (!SWIG_IsOK(res2))
+    if (!arg2||arg3==0)
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
                                                "CCaptureVisionRouter_Capture"
@@ -12752,6 +13792,7 @@ extern "C"
   }
 
   static PyMethodDef SwigMethods[] = {
+      {"Class_init", SimplifiedCaptureVisionSettings_swiginit, METH_VARARGS, NULL},
       {"getPT_DEFAULT", _wrap_getPT_DEFAULT, METH_NOARGS, NULL},
       {"getPT_READ_BARCODES", _wrap_getPT_READ_BARCODES, METH_NOARGS, NULL},
       {"getPT_RECOGNIZE_TEXT_LINES", _wrap_getPT_RECOGNIZE_TEXT_LINES, METH_NOARGS, NULL},
@@ -12789,7 +13830,7 @@ extern "C"
       {"new_SimplifiedCaptureVisionSettings", _wrap_new_SimplifiedCaptureVisionSettings, METH_NOARGS, NULL},
       {"delete_SimplifiedCaptureVisionSettings", _wrap_delete_SimplifiedCaptureVisionSettings, METH_O, NULL},
       {"SimplifiedCaptureVisionSettings_register", SimplifiedCaptureVisionSettings_swigregister, METH_O, NULL},
-      {"SimplifiedCaptureVisionSettings_init", SimplifiedCaptureVisionSettings_swiginit, METH_VARARGS, NULL},
+      // {"SimplifiedCaptureVisionSettings_init", SimplifiedCaptureVisionSettings_swiginit, METH_VARARGS, NULL},
       {"CCapturedResult_GetOriginalImageHashId", _wrap_CCapturedResult_GetOriginalImageHashId, METH_O, NULL},
       {"CCapturedResult_GetOriginalImageTag", _wrap_CCapturedResult_GetOriginalImageTag, METH_O, NULL},
       {"CCapturedResult_GetRotationTransformMatrix", _wrap_CCapturedResult_GetRotationTransformMatrix, METH_VARARGS, NULL},
@@ -12808,45 +13849,47 @@ extern "C"
       {"CCapturedResult_GetParsedResult", _wrap_CCapturedResult_GetParsedResult, METH_O, NULL},
       // {"CCapturedResult_AddItem", _wrap_CCapturedResult_AddItem, METH_VARARGS, NULL},
       {"CCapturedResult_register", CCapturedResult_swigregister, METH_O, NULL},
-      // {"delete_CIntermediateResultReceiver", _wrap_delete_CIntermediateResultReceiver, METH_O, NULL},
+      {"new_CIntermediateResultReceiver", _wrap_new_CIntermediateResultReceiver, METH_VARARGS, NULL},
+      {"delete_CIntermediateResultReceiver", _wrap_delete_CIntermediateResultReceiver, METH_O, NULL},
       // {"CIntermediateResultReceiver_OnTaskResultsReceived", _wrap_CIntermediateResultReceiver_OnTaskResultsReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnPredetectedRegionsReceived", _wrap_CIntermediateResultReceiver_OnPredetectedRegionsReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnLocalizedBarcodesReceived", _wrap_CIntermediateResultReceiver_OnLocalizedBarcodesReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnDecodedBarcodesReceived", _wrap_CIntermediateResultReceiver_OnDecodedBarcodesReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnLocalizedTextLinesReceived", _wrap_CIntermediateResultReceiver_OnLocalizedTextLinesReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnRecognizedTextLinesReceived", _wrap_CIntermediateResultReceiver_OnRecognizedTextLinesReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnDetectedQuadsReceived", _wrap_CIntermediateResultReceiver_OnDetectedQuadsReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnNormalizedImagesReceived", _wrap_CIntermediateResultReceiver_OnNormalizedImagesReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnColourImageUnitReceived", _wrap_CIntermediateResultReceiver_OnColourImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnScaledDownColourImageUnitReceived", _wrap_CIntermediateResultReceiver_OnScaledDownColourImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnGrayscaleImageUnitReceived", _wrap_CIntermediateResultReceiver_OnGrayscaleImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnTransformedGrayscaleImageUnitReceived", _wrap_CIntermediateResultReceiver_OnTransformedGrayscaleImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnEnhancedGrayscaleImageUnitReceived", _wrap_CIntermediateResultReceiver_OnEnhancedGrayscaleImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnBinaryImageUnitReceived", _wrap_CIntermediateResultReceiver_OnBinaryImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnTextureDetectionResultUnitReceived", _wrap_CIntermediateResultReceiver_OnTextureDetectionResultUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnTextureRemovedGrayscaleImageUnitReceived", _wrap_CIntermediateResultReceiver_OnTextureRemovedGrayscaleImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnTextureRemovedBinaryImageUnitReceived", _wrap_CIntermediateResultReceiver_OnTextureRemovedBinaryImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnContoursUnitReceived", _wrap_CIntermediateResultReceiver_OnContoursUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnShortLinesUnitReceived", _wrap_CIntermediateResultReceiver_OnShortLinesUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnLineSegmentsUnitReceived", _wrap_CIntermediateResultReceiver_OnLineSegmentsUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnTextZonesUnitReceived", _wrap_CIntermediateResultReceiver_OnTextZonesUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnTextRemovedBinaryImageUnitReceived", _wrap_CIntermediateResultReceiver_OnTextRemovedBinaryImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnLongLinesUnitReceived", _wrap_CIntermediateResultReceiver_OnLongLinesUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnCornersUnitReceived", _wrap_CIntermediateResultReceiver_OnCornersUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnCandidateQuadEdgesUnitReceived", _wrap_CIntermediateResultReceiver_OnCandidateQuadEdgesUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnCandidateBarcodeZonesUnitReceived", _wrap_CIntermediateResultReceiver_OnCandidateBarcodeZonesUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnScaledUpBarcodeImageUnitReceived", _wrap_CIntermediateResultReceiver_OnScaledUpBarcodeImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnComplementedBarcodeImageUnitReceived", _wrap_CIntermediateResultReceiver_OnComplementedBarcodeImageUnitReceived, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_OnRawTextLinesReceived", _wrap_CIntermediateResultReceiver_OnRawTextLinesReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnPredetectedRegionsReceived", _wrap_CIntermediateResultReceiver_OnPredetectedRegionsReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnLocalizedBarcodesReceived", _wrap_CIntermediateResultReceiver_OnLocalizedBarcodesReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnDecodedBarcodesReceived", _wrap_CIntermediateResultReceiver_OnDecodedBarcodesReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnLocalizedTextLinesReceived", _wrap_CIntermediateResultReceiver_OnLocalizedTextLinesReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnRecognizedTextLinesReceived", _wrap_CIntermediateResultReceiver_OnRecognizedTextLinesReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnDetectedQuadsReceived", _wrap_CIntermediateResultReceiver_OnDetectedQuadsReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnNormalizedImagesReceived", _wrap_CIntermediateResultReceiver_OnNormalizedImagesReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnColourImageUnitReceived", _wrap_CIntermediateResultReceiver_OnColourImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnScaledDownColourImageUnitReceived", _wrap_CIntermediateResultReceiver_OnScaledDownColourImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnGrayscaleImageUnitReceived", _wrap_CIntermediateResultReceiver_OnGrayscaleImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnTransformedGrayscaleImageUnitReceived", _wrap_CIntermediateResultReceiver_OnTransformedGrayscaleImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnEnhancedGrayscaleImageUnitReceived", _wrap_CIntermediateResultReceiver_OnEnhancedGrayscaleImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnBinaryImageUnitReceived", _wrap_CIntermediateResultReceiver_OnBinaryImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnTextureDetectionResultUnitReceived", _wrap_CIntermediateResultReceiver_OnTextureDetectionResultUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnTextureRemovedGrayscaleImageUnitReceived", _wrap_CIntermediateResultReceiver_OnTextureRemovedGrayscaleImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnTextureRemovedBinaryImageUnitReceived", _wrap_CIntermediateResultReceiver_OnTextureRemovedBinaryImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnContoursUnitReceived", _wrap_CIntermediateResultReceiver_OnContoursUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnShortLinesUnitReceived", _wrap_CIntermediateResultReceiver_OnShortLinesUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnLineSegmentsUnitReceived", _wrap_CIntermediateResultReceiver_OnLineSegmentsUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnTextZonesUnitReceived", _wrap_CIntermediateResultReceiver_OnTextZonesUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnTextRemovedBinaryImageUnitReceived", _wrap_CIntermediateResultReceiver_OnTextRemovedBinaryImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnLongLinesUnitReceived", _wrap_CIntermediateResultReceiver_OnLongLinesUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnCornersUnitReceived", _wrap_CIntermediateResultReceiver_OnCornersUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnCandidateQuadEdgesUnitReceived", _wrap_CIntermediateResultReceiver_OnCandidateQuadEdgesUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnCandidateBarcodeZonesUnitReceived", _wrap_CIntermediateResultReceiver_OnCandidateBarcodeZonesUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnScaledUpBarcodeImageUnitReceived", _wrap_CIntermediateResultReceiver_OnScaledUpBarcodeImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnDeformationResistedBarcodeImageUnitReceived", _wrap_CIntermediateResultReceiver_OnDeformationResistedBarcodeImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnComplementedBarcodeImageUnitReceived", _wrap_CIntermediateResultReceiver_OnComplementedBarcodeImageUnitReceived, METH_VARARGS, NULL},
+      {"CIntermediateResultReceiver_OnRawTextLinesReceived", _wrap_CIntermediateResultReceiver_OnRawTextLinesReceived, METH_VARARGS, NULL},
       // {"CIntermediateResultReceiver_GetEncryptedString", _wrap_CIntermediateResultReceiver_GetEncryptedString, METH_O, NULL},
       // {"CIntermediateResultReceiver_OnUnitResultReceived", _wrap_CIntermediateResultReceiver_OnUnitResultReceived, METH_VARARGS, NULL},
       // {"CIntermediateResultReceiver_OnTaskResultsReceivedInner", _wrap_CIntermediateResultReceiver_OnTaskResultsReceivedInner, METH_VARARGS, NULL},
-      // {"CIntermediateResultReceiver_register", CIntermediateResultReceiver_swigregister, METH_O, NULL},
-      // {"delete_CIntermediateResultManager", _wrap_delete_CIntermediateResultManager, METH_O, NULL},
-      // {"CIntermediateResultManager_AddResultReceiver", _wrap_CIntermediateResultManager_AddResultReceiver, METH_VARARGS, NULL},
-      // {"CIntermediateResultManager_RemoveResultReceiver", _wrap_CIntermediateResultManager_RemoveResultReceiver, METH_VARARGS, NULL},
-      // {"CIntermediateResultManager_GetOriginalImage", _wrap_CIntermediateResultManager_GetOriginalImage, METH_VARARGS, NULL},
-      // {"CIntermediateResultManager_register", CIntermediateResultManager_swigregister, METH_O, NULL},
+      {"CIntermediateResultReceiver_register", CIntermediateResultReceiver_swigregister, METH_O, NULL},
+      {"delete_CIntermediateResultManager", _wrap_delete_CIntermediateResultManager, METH_O, NULL},
+      {"CIntermediateResultManager_AddResultReceiver", _wrap_CIntermediateResultManager_AddResultReceiver, METH_VARARGS, NULL},
+      {"CIntermediateResultManager_RemoveResultReceiver", _wrap_CIntermediateResultManager_RemoveResultReceiver, METH_VARARGS, NULL},
+      {"CIntermediateResultManager_GetOriginalImage", _wrap_CIntermediateResultManager_GetOriginalImage, METH_VARARGS, NULL},
+      {"CIntermediateResultManager_register", CIntermediateResultManager_swigregister, METH_O, NULL},
       {"delete_CCapturedResultReceiver", _wrap_delete_CCapturedResultReceiver, METH_O, NULL},
       {"new_CCapturedResultReceiver", _wrap_new_CCapturedResultReceiver, METH_VARARGS, NULL},
       {"CCapturedResultReceiver_GetObservedResultItemTypes", _wrap_CCapturedResultReceiver_GetObservedResultItemTypes, METH_O, NULL},
@@ -12884,7 +13927,7 @@ extern "C"
       {"new_CPresetTemplate", _wrap_new_CPresetTemplate, METH_NOARGS, NULL},
       {"delete_CPresetTemplate", _wrap_delete_CPresetTemplate, METH_O, NULL},
       {"CPresetTemplate_register", CPresetTemplate_swigregister, METH_O, NULL},
-      {"CPresetTemplate_init", CPresetTemplate_swiginit, METH_VARARGS, NULL},
+      // {"CPresetTemplate_init", CPresetTemplate_swiginit, METH_VARARGS, NULL},
       {"delete_CBufferedItemsManager", _wrap_delete_CBufferedItemsManager, METH_O, NULL},
       {"CBufferedItemsManager_SetMaxBufferedItems", _wrap_CBufferedItemsManager_SetMaxBufferedItems, METH_VARARGS, NULL},
       {"CBufferedItemsManager_GetMaxBufferedItems", _wrap_CBufferedItemsManager_GetMaxBufferedItems, METH_O, NULL},
@@ -12918,563 +13961,529 @@ extern "C"
       {"CCaptureVisionRouter_ResumeCapturing", _wrap_CCaptureVisionRouter_ResumeCapturing, METH_O, NULL},
       {"CCaptureVisionRouter_GetBufferedItemsManager", _wrap_CCaptureVisionRouter_GetBufferedItemsManager, METH_O, NULL},
       {"CCaptureVisionRouter_register", CCaptureVisionRouter_swigregister, METH_O, NULL},
-      {"CCaptureVisionRouter_init", CCaptureVisionRouter_swiginit, METH_VARARGS, NULL},
+      // {"CCaptureVisionRouter_init", CCaptureVisionRouter_swiginit, METH_VARARGS, NULL},
       {"CCaptureVisionRouterModule_GetVersion", _wrap_CCaptureVisionRouterModule_GetVersion, METH_NOARGS, NULL},
       {"new_CCaptureVisionRouterModule", _wrap_new_CCaptureVisionRouterModule, METH_NOARGS, NULL},
       {"delete_CCaptureVisionRouterModule", _wrap_delete_CCaptureVisionRouterModule, METH_O, NULL},
       {"CCaptureVisionRouterModule_register", CCaptureVisionRouterModule_swigregister, METH_O, NULL},
-      {"CCaptureVisionRouterModule_init", CCaptureVisionRouterModule_swiginit, METH_VARARGS, NULL},
+      // {"CCaptureVisionRouterModule_init", CCaptureVisionRouterModule_swiginit, METH_VARARGS, NULL},
       {NULL, NULL, 0, NULL}};
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
-  static void *_p_dynamsoft__basic_structures__COriginalImageResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)((dynamsoft::basic_structures::COriginalImageResultItem *)x));
-  }
-  static void *_p_dynamsoft__dbr__CBarcodeResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)((dynamsoft::dbr::CBarcodeResultItem *)x));
-  }
-  static void *_p_dynamsoft__dcp__CParsedResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)((dynamsoft::dcp::CParsedResultItem *)x));
-  }
-  static void *_p_dynamsoft__ddn__CDetectedQuadResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)((dynamsoft::ddn::CDetectedQuadResultItem *)x));
-  }
-  static void *_p_dynamsoft__ddn__CNormalizedImageResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)((dynamsoft::ddn::CNormalizedImageResultItem *)x));
-  }
-  static void *_p_dynamsoft__dlr__CTextLineResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)((dynamsoft::dlr::CTextLineResultItem *)x));
-  }
-  static void *_p_dynamsoft__basic_structures__CFileImageTagTo_p_dynamsoft__basic_structures__CImageTag(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::basic_structures::CImageTag *)((dynamsoft::basic_structures::CFileImageTag *)x));
-  }
-  static void *_p_dynamsoft__basic_structures__CVideoFrameTagTo_p_dynamsoft__basic_structures__CImageTag(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::basic_structures::CImageTag *)((dynamsoft::basic_structures::CVideoFrameTag *)x));
-  }
-  static void *_p_dynamsoft__cvr__CIntermediateResultReceiverTo_p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CAbstractIntermediateResultReceiver *)((dynamsoft::cvr::CIntermediateResultReceiver *)x));
-  }
-  static void *_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::dbr::intermediate_results::CCandidateBarcodeZonesUnit *)x));
-  }
-  static void *_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::dbr::intermediate_results::CComplementedBarcodeImageUnit *)x));
-  }
-  static void *_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::dbr::intermediate_results::CDecodedBarcodesUnit *)x));
-  }
-  static void *_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::dbr::intermediate_results::CLocalizedBarcodesUnit *)x));
-  }
-  static void *_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *)x));
-  }
-  static void *_p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::ddn::intermediate_results::CCandidateQuadEdgesUnit *)x));
-  }
-  static void *_p_dynamsoft__ddn__intermediate_results__CCornersUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::ddn::intermediate_results::CCornersUnit *)x));
-  }
-  static void *_p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::ddn::intermediate_results::CDetectedQuadsUnit *)x));
-  }
-  static void *_p_dynamsoft__ddn__intermediate_results__CLongLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::ddn::intermediate_results::CLongLinesUnit *)x));
-  }
-  static void *_p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::ddn::intermediate_results::CNormalizedImagesUnit *)x));
-  }
-  static void *_p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::dlr::intermediate_results::CLocalizedTextLinesUnit *)x));
-  }
-  static void *_p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::dlr::intermediate_results::CRawTextLinesUnit *)x));
-  }
-  static void *_p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::dlr::intermediate_results::CRecognizedTextLinesUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CBinaryImageUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CColourImageUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CContoursUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CContoursUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CEnhancedGrayscaleImageUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CGrayscaleImageUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CLineSegmentsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CLineSegmentsUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CPredetectedRegionsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CPredetectedRegionsUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CScaledDownColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CScaledDownColourImageUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CShortLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CShortLinesUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CTextRemovedBinaryImageUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CTextZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CTextZonesUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CTextureDetectionResultUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CTextureDetectionResultUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CTextureRemovedBinaryImageUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CTextureRemovedGrayscaleImageUnit *)x));
-  }
-  static void *_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CTransformedGrayscaleImageUnit *)x));
-  }
-  static swig_type_info _swigt__p_BufferOverflowProtectionMode = {"_p_BufferOverflowProtectionMode", "BufferOverflowProtectionMode *|enum BufferOverflowProtectionMode *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_CaptureState = {"_p_CaptureState", "CaptureState *|enum CaptureState *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_CapturedResultItemType = {"_p_CapturedResultItemType", "CapturedResultItemType *|enum CapturedResultItemType *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_ColourChannelUsageType = {"_p_ColourChannelUsageType", "ColourChannelUsageType *|enum ColourChannelUsageType *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_CornerType = {"_p_CornerType", "CornerType *|enum CornerType *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_DeblurMode = {"_p_DeblurMode", "DeblurMode *|enum DeblurMode *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_ErrorCode = {"_p_ErrorCode", "ErrorCode *|enum ErrorCode *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_ExtendedBarcodeResultType = {"_p_ExtendedBarcodeResultType", "ExtendedBarcodeResultType *|enum ExtendedBarcodeResultType *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_GrayscaleEnhancementMode = {"_p_GrayscaleEnhancementMode", "GrayscaleEnhancementMode *|enum GrayscaleEnhancementMode *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_GrayscaleTransformationMode = {"_p_GrayscaleTransformationMode", "GrayscaleTransformationMode *|enum GrayscaleTransformationMode *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_ImageCaptureDistanceMode = {"_p_ImageCaptureDistanceMode", "ImageCaptureDistanceMode *|enum ImageCaptureDistanceMode *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_ImageColourMode = {"_p_ImageColourMode", "ImageColourMode *|enum ImageColourMode *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_ImagePixelFormat = {"_p_ImagePixelFormat", "ImagePixelFormat *|enum ImagePixelFormat *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_ImageSourceState = {"_p_ImageSourceState", "ImageSourceState *|enum ImageSourceState *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_ImageTagType = {"_p_ImageTagType", "ImageTagType *|enum ImageTagType *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_IntermediateResultExtraInfo = {"_p_IntermediateResultExtraInfo", "IntermediateResultExtraInfo *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_LocalizationMode = {"_p_LocalizationMode", "LocalizationMode *|enum LocalizationMode *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_MappingStatus = {"_p_MappingStatus", "MappingStatus *|enum MappingStatus *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_PDFReadingMode = {"_p_PDFReadingMode", "PDFReadingMode *|enum PDFReadingMode *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_QRCodeErrorCorrectionLevel = {"_p_QRCodeErrorCorrectionLevel", "QRCodeErrorCorrectionLevel *|enum QRCodeErrorCorrectionLevel *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_RasterDataSource = {"_p_RasterDataSource", "RasterDataSource *|enum RasterDataSource *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_RawTextLineStatus = {"_p_RawTextLineStatus", "RawTextLineStatus *|enum RawTextLineStatus *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_RegionObjectElementType = {"_p_RegionObjectElementType", "RegionObjectElementType *|enum RegionObjectElementType *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_SectionType = {"_p_SectionType", "SectionType *|enum SectionType *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_SimplifiedDocumentNormalizerSettings = {"_p_SimplifiedDocumentNormalizerSettings", "SimplifiedDocumentNormalizerSettings *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_TransformMatrixType = {"_p_TransformMatrixType", "TransformMatrixType *|enum TransformMatrixType *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_ValidationStatus = {"_p_ValidationStatus", "ValidationStatus *|enum ValidationStatus *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_VideoFrameQuality = {"_p_VideoFrameQuality", "VideoFrameQuality *|enum VideoFrameQuality *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__basic_structures__CCapturedResultItem = {"_p_dynamsoft__basic_structures__CCapturedResultItem", "dynamsoft::basic_structures::CCapturedResultItem *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dbr__CBarcodeResultItem = {"_p_dynamsoft__dbr__CBarcodeResultItem", 0, 0, 0, 0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dcp__CParsedResultItem = {"_p_dynamsoft__dcp__CParsedResultItem", 0, 0, 0, 0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__CDetectedQuadResultItem = {"_p_dynamsoft__ddn__CDetectedQuadResultItem", 0, 0, 0, 0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__CNormalizedImageResultItem = {"_p_dynamsoft__ddn__CNormalizedImageResultItem", 0, 0, 0, 0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dlr__CTextLineResultItem = {"_p_dynamsoft__dlr__CTextLineResultItem", 0, 0, 0, 0, 0};
-  static swig_type_info _swigt__p_dynamsoft__basic_structures__CImageData = {"_p_dynamsoft__basic_structures__CImageData", "dynamsoft::basic_structures::CImageData *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__basic_structures__CImageSourceAdapter = {"_p_dynamsoft__basic_structures__CImageSourceAdapter", "dynamsoft::basic_structures::CImageSourceAdapter *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__basic_structures__CImageTag = {"_p_dynamsoft__basic_structures__CImageTag", "dynamsoft::basic_structures::CImageTag *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__basic_structures__CFileImageTag = {"_p_dynamsoft__basic_structures__CFileImageTag", 0, 0, 0, 0, 0};
-  static swig_type_info _swigt__p_dynamsoft__basic_structures__CVideoFrameTag = {"_p_dynamsoft__basic_structures__CVideoFrameTag", 0, 0, 0, 0, 0};
-  static swig_type_info _swigt__p_dynamsoft__basic_structures__COriginalImageResultItem = {"_p_dynamsoft__basic_structures__COriginalImageResultItem", "dynamsoft::basic_structures::COriginalImageResultItem *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__basic_structures__CQuadrilateral = {"_p_dynamsoft__basic_structures__CQuadrilateral", "dynamsoft::basic_structures::CQuadrilateral *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t = {"_p_dynamsoft__basic_structures__DMPoint_T_int_t", "dynamsoft::basic_structures::CPoint *|dynamsoft::basic_structures::DMPoint_< int > *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CBufferedItemsManager = {"_p_dynamsoft__cvr__CBufferedItemsManager", "dynamsoft::cvr::CBufferedItemsManager *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CCaptureStateListener = {"_p_dynamsoft__cvr__CCaptureStateListener", "dynamsoft::cvr::CCaptureStateListener *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CCaptureVisionRouter = {"_p_dynamsoft__cvr__CCaptureVisionRouter", "dynamsoft::cvr::CCaptureVisionRouter *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CCaptureVisionRouterModule = {"_p_dynamsoft__cvr__CCaptureVisionRouterModule", "dynamsoft::cvr::CCaptureVisionRouterModule *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CCapturedResult = {"_p_dynamsoft__cvr__CCapturedResult", "dynamsoft::cvr::CCapturedResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CCapturedResultFilter = {"_p_dynamsoft__cvr__CCapturedResultFilter", "dynamsoft::cvr::CCapturedResultFilter *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CCapturedResultReceiver = {"_p_dynamsoft__cvr__CCapturedResultReceiver", "dynamsoft::cvr::CCapturedResultReceiver *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CImageSourceStateListener = {"_p_dynamsoft__cvr__CImageSourceStateListener", "dynamsoft::cvr::CImageSourceStateListener *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CIntermediateResultManager = {"_p_dynamsoft__cvr__CIntermediateResultManager", "dynamsoft::cvr::CIntermediateResultManager *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CIntermediateResultReceiver = {"_p_dynamsoft__cvr__CIntermediateResultReceiver", "dynamsoft::cvr::CIntermediateResultReceiver *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__cvr__CPresetTemplate = {"_p_dynamsoft__cvr__CPresetTemplate", "dynamsoft::cvr::CPresetTemplate *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dbr__CDecodedBarcodesResult = {"_p_dynamsoft__dbr__CDecodedBarcodesResult", "dynamsoft::dbr::CDecodedBarcodesResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit = {"_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit", "dynamsoft::dbr::intermediate_results::CCandidateBarcodeZonesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit = {"_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit", "dynamsoft::dbr::intermediate_results::CComplementedBarcodeImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit = {"_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit", "dynamsoft::dbr::intermediate_results::CDecodedBarcodesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit = {"_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit", "dynamsoft::dbr::intermediate_results::CLocalizedBarcodesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit = {"_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit", "dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dcp__CParsedResult = {"_p_dynamsoft__dcp__CParsedResult", "dynamsoft::dcp::CParsedResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__CDetectedQuadsResult = {"_p_dynamsoft__ddn__CDetectedQuadsResult", "dynamsoft::ddn::CDetectedQuadsResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__CNormalizedImagesResult = {"_p_dynamsoft__ddn__CNormalizedImagesResult", "dynamsoft::ddn::CNormalizedImagesResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit = {"_p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit", "dynamsoft::ddn::intermediate_results::CCandidateQuadEdgesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__intermediate_results__CCornersUnit = {"_p_dynamsoft__ddn__intermediate_results__CCornersUnit", "dynamsoft::ddn::intermediate_results::CCornersUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit = {"_p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit", "dynamsoft::ddn::intermediate_results::CDetectedQuadsUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit = {"_p_dynamsoft__ddn__intermediate_results__CLongLinesUnit", "dynamsoft::ddn::intermediate_results::CLongLinesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit = {"_p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit", "dynamsoft::ddn::intermediate_results::CNormalizedImagesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dlr__CBufferedCharacterItemSet = {"_p_dynamsoft__dlr__CBufferedCharacterItemSet", "dynamsoft::dlr::CBufferedCharacterItemSet *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dlr__CRecognizedTextLinesResult = {"_p_dynamsoft__dlr__CRecognizedTextLinesResult", "dynamsoft::dlr::CRecognizedTextLinesResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit = {"_p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit", "dynamsoft::dlr::intermediate_results::CLocalizedTextLinesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit = {"_p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit", "dynamsoft::dlr::intermediate_results::CRawTextLinesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit = {"_p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit", "dynamsoft::dlr::intermediate_results::CRecognizedTextLinesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver = {"_p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver", "dynamsoft::intermediate_results::CAbstractIntermediateResultReceiver *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit = {"_p_dynamsoft__intermediate_results__CBinaryImageUnit", "dynamsoft::intermediate_results::CBinaryImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CColourImageUnit = {"_p_dynamsoft__intermediate_results__CColourImageUnit", "dynamsoft::intermediate_results::CColourImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CContoursUnit = {"_p_dynamsoft__intermediate_results__CContoursUnit", "dynamsoft::intermediate_results::CContoursUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit = {"_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit", "dynamsoft::intermediate_results::CEnhancedGrayscaleImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit = {"_p_dynamsoft__intermediate_results__CGrayscaleImageUnit", "dynamsoft::intermediate_results::CGrayscaleImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CIntermediateResult = {"_p_dynamsoft__intermediate_results__CIntermediateResult", "dynamsoft::intermediate_results::CIntermediateResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit = {"_p_dynamsoft__intermediate_results__CIntermediateResultUnit", "dynamsoft::intermediate_results::CIntermediateResultUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit = {"_p_dynamsoft__intermediate_results__CLineSegmentsUnit", "dynamsoft::intermediate_results::CLineSegmentsUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit = {"_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit", "dynamsoft::intermediate_results::CPredetectedRegionsUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit = {"_p_dynamsoft__intermediate_results__CScaledDownColourImageUnit", "dynamsoft::intermediate_results::CScaledDownColourImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CShortLinesUnit = {"_p_dynamsoft__intermediate_results__CShortLinesUnit", "dynamsoft::intermediate_results::CShortLinesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit = {"_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit", "dynamsoft::intermediate_results::CTextRemovedBinaryImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextZonesUnit = {"_p_dynamsoft__intermediate_results__CTextZonesUnit", "dynamsoft::intermediate_results::CTextZonesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit = {"_p_dynamsoft__intermediate_results__CTextureDetectionResultUnit", "dynamsoft::intermediate_results::CTextureDetectionResultUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit = {"_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit", "dynamsoft::intermediate_results::CTextureRemovedBinaryImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit = {"_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit", "dynamsoft::intermediate_results::CTextureRemovedGrayscaleImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit = {"_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit", "dynamsoft::intermediate_results::CTransformedGrayscaleImageUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_signed_char = {"_p_signed_char", "BOOL *|signed char *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_tagSimplifiedBarcodeReaderSettings = {"_p_tagSimplifiedBarcodeReaderSettings", "SimplifiedBarcodeReaderSettings *|tagSimplifiedBarcodeReaderSettings *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_tagSimplifiedCaptureVisionSettings = {"_p_tagSimplifiedCaptureVisionSettings", "SimplifiedCaptureVisionSettings *|tagSimplifiedCaptureVisionSettings *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_tagSimplifiedLabelRecognizerSettings = {"_p_tagSimplifiedLabelRecognizerSettings", "SimplifiedLabelRecognizerSettings *|tagSimplifiedLabelRecognizerSettings *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *", 0, 0, (void *)0, 0};
+static void *_p_dynamsoft__basic_structures__COriginalImageResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)  ((dynamsoft::basic_structures::COriginalImageResultItem *) x));
+}
+static void *_p_dynamsoft__dbr__CBarcodeResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)  ((dynamsoft::dbr::CBarcodeResultItem *) x));
+}
+static void *_p_dynamsoft__dcp__CParsedResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)  ((dynamsoft::dcp::CParsedResultItem *) x));
+}
+static void *_p_dynamsoft__ddn__CDetectedQuadResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)  ((dynamsoft::ddn::CDetectedQuadResultItem *) x));
+}
+static void *_p_dynamsoft__ddn__CNormalizedImageResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)  ((dynamsoft::ddn::CNormalizedImageResultItem *) x));
+}
+static void *_p_dynamsoft__dlr__CTextLineResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultItem *)  ((dynamsoft::dlr::CTextLineResultItem *) x));
+}
+static void *_p_dynamsoft__basic_structures__CFileImageTagTo_p_dynamsoft__basic_structures__CImageTag(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::basic_structures::CImageTag *)  ((dynamsoft::basic_structures::CFileImageTag *) x));
+}
+static void *_p_dynamsoft__basic_structures__CVideoFrameTagTo_p_dynamsoft__basic_structures__CImageTag(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::basic_structures::CImageTag *)  ((dynamsoft::basic_structures::CVideoFrameTag *) x));
+}
+static void *_p_dynamsoft__cvr__CIntermediateResultReceiverTo_p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CAbstractIntermediateResultReceiver *)  ((dynamsoft::cvr::CIntermediateResultReceiver *) x));
+}
+static void *_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::dbr::intermediate_results::CCandidateBarcodeZonesUnit *) x));
+}
+static void *_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::dbr::intermediate_results::CComplementedBarcodeImageUnit *) x));
+}
+static void *_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::dbr::intermediate_results::CDecodedBarcodesUnit *) x));
+}
+static void *_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *) x));
+}
+static void *_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::dbr::intermediate_results::CLocalizedBarcodesUnit *) x));
+}
+static void *_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *) x));
+}
+static void *_p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::ddn::intermediate_results::CCandidateQuadEdgesUnit *) x));
+}
+static void *_p_dynamsoft__ddn__intermediate_results__CCornersUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::ddn::intermediate_results::CCornersUnit *) x));
+}
+static void *_p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::ddn::intermediate_results::CDetectedQuadsUnit *) x));
+}
+static void *_p_dynamsoft__ddn__intermediate_results__CLongLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::ddn::intermediate_results::CLongLinesUnit *) x));
+}
+static void *_p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::ddn::intermediate_results::CNormalizedImagesUnit *) x));
+}
+static void *_p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::dlr::intermediate_results::CLocalizedTextLinesUnit *) x));
+}
+static void *_p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::dlr::intermediate_results::CRawTextLinesUnit *) x));
+}
+static void *_p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::dlr::intermediate_results::CRecognizedTextLinesUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CBinaryImageUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CColourImageUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CContoursUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CContoursUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CEnhancedGrayscaleImageUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CGrayscaleImageUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CLineSegmentsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CLineSegmentsUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CPredetectedRegionsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CPredetectedRegionsUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CScaledDownColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CScaledDownColourImageUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CShortLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CShortLinesUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CTextRemovedBinaryImageUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CTextZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CTextZonesUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CTextureDetectionResultUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CTextureDetectionResultUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CTextureRemovedBinaryImageUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CTextureRemovedGrayscaleImageUnit *) x));
+}
+static void *_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::intermediate_results::CTransformedGrayscaleImageUnit *) x));
+}
+static swig_type_info _swigt__p_BufferOverflowProtectionMode = {"_p_BufferOverflowProtectionMode", "BufferOverflowProtectionMode *|enum BufferOverflowProtectionMode *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_CaptureState = {"_p_CaptureState", "CaptureState *|enum CaptureState *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_CapturedResultItemType = {"_p_CapturedResultItemType", "CapturedResultItemType *|enum CapturedResultItemType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ColourChannelUsageType = {"_p_ColourChannelUsageType", "ColourChannelUsageType *|enum ColourChannelUsageType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_CornerType = {"_p_CornerType", "CornerType *|enum CornerType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_DeblurMode = {"_p_DeblurMode", "DeblurMode *|enum DeblurMode *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ErrorCode = {"_p_ErrorCode", "ErrorCode *|enum ErrorCode *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ExtendedBarcodeResultType = {"_p_ExtendedBarcodeResultType", "ExtendedBarcodeResultType *|enum ExtendedBarcodeResultType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_GrayscaleEnhancementMode = {"_p_GrayscaleEnhancementMode", "GrayscaleEnhancementMode *|enum GrayscaleEnhancementMode *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_GrayscaleTransformationMode = {"_p_GrayscaleTransformationMode", "GrayscaleTransformationMode *|enum GrayscaleTransformationMode *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ImageCaptureDistanceMode = {"_p_ImageCaptureDistanceMode", "ImageCaptureDistanceMode *|enum ImageCaptureDistanceMode *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ImageColourMode = {"_p_ImageColourMode", "ImageColourMode *|enum ImageColourMode *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ImagePixelFormat = {"_p_ImagePixelFormat", "ImagePixelFormat *|enum ImagePixelFormat *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ImageSourceState = {"_p_ImageSourceState", "ImageSourceState *|enum ImageSourceState *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ImageTagType = {"_p_ImageTagType", "ImageTagType *|enum ImageTagType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_IntermediateResultExtraInfo = {"_p_IntermediateResultExtraInfo", "IntermediateResultExtraInfo *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_LocalizationMode = {"_p_LocalizationMode", "LocalizationMode *|enum LocalizationMode *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_MappingStatus = {"_p_MappingStatus", "MappingStatus *|enum MappingStatus *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_PDFReadingMode = {"_p_PDFReadingMode", "PDFReadingMode *|enum PDFReadingMode *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_QRCodeErrorCorrectionLevel = {"_p_QRCodeErrorCorrectionLevel", "QRCodeErrorCorrectionLevel *|enum QRCodeErrorCorrectionLevel *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_RasterDataSource = {"_p_RasterDataSource", "RasterDataSource *|enum RasterDataSource *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_RawTextLineStatus = {"_p_RawTextLineStatus", "RawTextLineStatus *|enum RawTextLineStatus *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_RegionObjectElementType = {"_p_RegionObjectElementType", "RegionObjectElementType *|enum RegionObjectElementType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_SectionType = {"_p_SectionType", "SectionType *|enum SectionType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_SimplifiedDocumentNormalizerSettings = {"_p_SimplifiedDocumentNormalizerSettings", "SimplifiedDocumentNormalizerSettings *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_TransformMatrixType = {"_p_TransformMatrixType", "TransformMatrixType *|enum TransformMatrixType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ValidationStatus = {"_p_ValidationStatus", "ValidationStatus *|enum ValidationStatus *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_VideoFrameQuality = {"_p_VideoFrameQuality", "VideoFrameQuality *|enum VideoFrameQuality *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__basic_structures__CCapturedResultItem = {"_p_dynamsoft__basic_structures__CCapturedResultItem", "dynamsoft::basic_structures::CCapturedResultItem *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dbr__CBarcodeResultItem = {"_p_dynamsoft__dbr__CBarcodeResultItem", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_dynamsoft__dcp__CParsedResultItem = {"_p_dynamsoft__dcp__CParsedResultItem", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_dynamsoft__ddn__CDetectedQuadResultItem = {"_p_dynamsoft__ddn__CDetectedQuadResultItem", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_dynamsoft__ddn__CNormalizedImageResultItem = {"_p_dynamsoft__ddn__CNormalizedImageResultItem", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_dynamsoft__dlr__CTextLineResultItem = {"_p_dynamsoft__dlr__CTextLineResultItem", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_dynamsoft__basic_structures__CImageData = {"_p_dynamsoft__basic_structures__CImageData", "dynamsoft::basic_structures::CImageData *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__basic_structures__CImageSourceAdapter = {"_p_dynamsoft__basic_structures__CImageSourceAdapter", "dynamsoft::basic_structures::CImageSourceAdapter *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__basic_structures__CImageTag = {"_p_dynamsoft__basic_structures__CImageTag", "dynamsoft::basic_structures::CImageTag *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__basic_structures__CFileImageTag = {"_p_dynamsoft__basic_structures__CFileImageTag", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_dynamsoft__basic_structures__CVideoFrameTag = {"_p_dynamsoft__basic_structures__CVideoFrameTag", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_dynamsoft__basic_structures__COriginalImageResultItem = {"_p_dynamsoft__basic_structures__COriginalImageResultItem", "dynamsoft::basic_structures::COriginalImageResultItem *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__basic_structures__CQuadrilateral = {"_p_dynamsoft__basic_structures__CQuadrilateral", "dynamsoft::basic_structures::CQuadrilateral *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t = {"_p_dynamsoft__basic_structures__DMPoint_T_int_t", "dynamsoft::basic_structures::CPoint *|dynamsoft::basic_structures::DMPoint_< int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CBufferedItemsManager = {"_p_dynamsoft__cvr__CBufferedItemsManager", "dynamsoft::cvr::CBufferedItemsManager *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CCaptureStateListener = {"_p_dynamsoft__cvr__CCaptureStateListener", "dynamsoft::cvr::CCaptureStateListener *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CCaptureVisionRouter = {"_p_dynamsoft__cvr__CCaptureVisionRouter", "dynamsoft::cvr::CCaptureVisionRouter *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CCaptureVisionRouterModule = {"_p_dynamsoft__cvr__CCaptureVisionRouterModule", "dynamsoft::cvr::CCaptureVisionRouterModule *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CCapturedResult = {"_p_dynamsoft__cvr__CCapturedResult", "dynamsoft::cvr::CCapturedResult *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CCapturedResultFilter = {"_p_dynamsoft__cvr__CCapturedResultFilter", "dynamsoft::cvr::CCapturedResultFilter *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CCapturedResultReceiver = {"_p_dynamsoft__cvr__CCapturedResultReceiver", "dynamsoft::cvr::CCapturedResultReceiver *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CImageSourceStateListener = {"_p_dynamsoft__cvr__CImageSourceStateListener", "dynamsoft::cvr::CImageSourceStateListener *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CIntermediateResultManager = {"_p_dynamsoft__cvr__CIntermediateResultManager", "dynamsoft::cvr::CIntermediateResultManager *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CIntermediateResultReceiver = {"_p_dynamsoft__cvr__CIntermediateResultReceiver", "dynamsoft::cvr::CIntermediateResultReceiver *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__cvr__CPresetTemplate = {"_p_dynamsoft__cvr__CPresetTemplate", "dynamsoft::cvr::CPresetTemplate *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dbr__CDecodedBarcodesResult = {"_p_dynamsoft__dbr__CDecodedBarcodesResult", "dynamsoft::dbr::CDecodedBarcodesResult *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit = {"_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit", "dynamsoft::dbr::intermediate_results::CCandidateBarcodeZonesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit = {"_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit", "dynamsoft::dbr::intermediate_results::CComplementedBarcodeImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit = {"_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit", "dynamsoft::dbr::intermediate_results::CDecodedBarcodesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit = {"_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit", "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit = {"_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit", "dynamsoft::dbr::intermediate_results::CLocalizedBarcodesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit = {"_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit", "dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dcp__CParsedResult = {"_p_dynamsoft__dcp__CParsedResult", "dynamsoft::dcp::CParsedResult *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__ddn__CDetectedQuadsResult = {"_p_dynamsoft__ddn__CDetectedQuadsResult", "dynamsoft::ddn::CDetectedQuadsResult *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__ddn__CNormalizedImagesResult = {"_p_dynamsoft__ddn__CNormalizedImagesResult", "dynamsoft::ddn::CNormalizedImagesResult *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit = {"_p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit", "dynamsoft::ddn::intermediate_results::CCandidateQuadEdgesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__ddn__intermediate_results__CCornersUnit = {"_p_dynamsoft__ddn__intermediate_results__CCornersUnit", "dynamsoft::ddn::intermediate_results::CCornersUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit = {"_p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit", "dynamsoft::ddn::intermediate_results::CDetectedQuadsUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit = {"_p_dynamsoft__ddn__intermediate_results__CLongLinesUnit", "dynamsoft::ddn::intermediate_results::CLongLinesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit = {"_p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit", "dynamsoft::ddn::intermediate_results::CNormalizedImagesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dlr__CBufferedCharacterItemSet = {"_p_dynamsoft__dlr__CBufferedCharacterItemSet", "dynamsoft::dlr::CBufferedCharacterItemSet *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dlr__CRecognizedTextLinesResult = {"_p_dynamsoft__dlr__CRecognizedTextLinesResult", "dynamsoft::dlr::CRecognizedTextLinesResult *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit = {"_p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit", "dynamsoft::dlr::intermediate_results::CLocalizedTextLinesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit = {"_p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit", "dynamsoft::dlr::intermediate_results::CRawTextLinesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit = {"_p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit", "dynamsoft::dlr::intermediate_results::CRecognizedTextLinesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver = {"_p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver", "dynamsoft::intermediate_results::CAbstractIntermediateResultReceiver *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit = {"_p_dynamsoft__intermediate_results__CBinaryImageUnit", "dynamsoft::intermediate_results::CBinaryImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CColourImageUnit = {"_p_dynamsoft__intermediate_results__CColourImageUnit", "dynamsoft::intermediate_results::CColourImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CContoursUnit = {"_p_dynamsoft__intermediate_results__CContoursUnit", "dynamsoft::intermediate_results::CContoursUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit = {"_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit", "dynamsoft::intermediate_results::CEnhancedGrayscaleImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit = {"_p_dynamsoft__intermediate_results__CGrayscaleImageUnit", "dynamsoft::intermediate_results::CGrayscaleImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CIntermediateResult = {"_p_dynamsoft__intermediate_results__CIntermediateResult", "dynamsoft::intermediate_results::CIntermediateResult *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit = {"_p_dynamsoft__intermediate_results__CIntermediateResultUnit", "dynamsoft::intermediate_results::CIntermediateResultUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit = {"_p_dynamsoft__intermediate_results__CLineSegmentsUnit", "dynamsoft::intermediate_results::CLineSegmentsUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit = {"_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit", "dynamsoft::intermediate_results::CPredetectedRegionsUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit = {"_p_dynamsoft__intermediate_results__CScaledDownColourImageUnit", "dynamsoft::intermediate_results::CScaledDownColourImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CShortLinesUnit = {"_p_dynamsoft__intermediate_results__CShortLinesUnit", "dynamsoft::intermediate_results::CShortLinesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit = {"_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit", "dynamsoft::intermediate_results::CTextRemovedBinaryImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextZonesUnit = {"_p_dynamsoft__intermediate_results__CTextZonesUnit", "dynamsoft::intermediate_results::CTextZonesUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit = {"_p_dynamsoft__intermediate_results__CTextureDetectionResultUnit", "dynamsoft::intermediate_results::CTextureDetectionResultUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit = {"_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit", "dynamsoft::intermediate_results::CTextureRemovedBinaryImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit = {"_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit", "dynamsoft::intermediate_results::CTextureRemovedGrayscaleImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit = {"_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit", "dynamsoft::intermediate_results::CTransformedGrayscaleImageUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_tagSimplifiedBarcodeReaderSettings = {"_p_tagSimplifiedBarcodeReaderSettings", "SimplifiedBarcodeReaderSettings *|tagSimplifiedBarcodeReaderSettings *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_tagSimplifiedCaptureVisionSettings = {"_p_tagSimplifiedCaptureVisionSettings", "SimplifiedCaptureVisionSettings *|tagSimplifiedCaptureVisionSettings *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_tagSimplifiedLabelRecognizerSettings = {"_p_tagSimplifiedLabelRecognizerSettings", "SimplifiedLabelRecognizerSettings *|tagSimplifiedLabelRecognizerSettings *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *", 0, 0, (void*)0, 0};
 
-  static swig_type_info *swig_type_initial[] = {
-      &_swigt__p_BufferOverflowProtectionMode,
-      &_swigt__p_CaptureState,
-      &_swigt__p_CapturedResultItemType,
-      &_swigt__p_ColourChannelUsageType,
-      &_swigt__p_CornerType,
-      &_swigt__p_DeblurMode,
-      &_swigt__p_ErrorCode,
-      &_swigt__p_ExtendedBarcodeResultType,
-      &_swigt__p_GrayscaleEnhancementMode,
-      &_swigt__p_GrayscaleTransformationMode,
-      &_swigt__p_ImageCaptureDistanceMode,
-      &_swigt__p_ImageColourMode,
-      &_swigt__p_ImagePixelFormat,
-      &_swigt__p_ImageSourceState,
-      &_swigt__p_ImageTagType,
-      &_swigt__p_IntermediateResultExtraInfo,
-      &_swigt__p_LocalizationMode,
-      &_swigt__p_MappingStatus,
-      &_swigt__p_PDFReadingMode,
-      &_swigt__p_QRCodeErrorCorrectionLevel,
-      &_swigt__p_RasterDataSource,
-      &_swigt__p_RawTextLineStatus,
-      &_swigt__p_RegionObjectElementType,
-      &_swigt__p_SectionType,
-      &_swigt__p_SimplifiedDocumentNormalizerSettings,
-      &_swigt__p_TransformMatrixType,
-      &_swigt__p_ValidationStatus,
-      &_swigt__p_VideoFrameQuality,
-      &_swigt__p_char,
-      &_swigt__p_double,
-      &_swigt__p_dynamsoft__basic_structures__CCapturedResultItem,
-      &_swigt__p_dynamsoft__basic_structures__CFileImageTag,
-      &_swigt__p_dynamsoft__basic_structures__CImageData,
-      &_swigt__p_dynamsoft__basic_structures__CImageSourceAdapter,
-      &_swigt__p_dynamsoft__basic_structures__CImageTag,
-      &_swigt__p_dynamsoft__basic_structures__COriginalImageResultItem,
-      &_swigt__p_dynamsoft__basic_structures__CQuadrilateral,
-      &_swigt__p_dynamsoft__basic_structures__CVideoFrameTag,
-      &_swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t,
-      &_swigt__p_dynamsoft__cvr__CBufferedItemsManager,
-      &_swigt__p_dynamsoft__cvr__CCaptureStateListener,
-      &_swigt__p_dynamsoft__cvr__CCaptureVisionRouter,
-      &_swigt__p_dynamsoft__cvr__CCaptureVisionRouterModule,
-      &_swigt__p_dynamsoft__cvr__CCapturedResult,
-      &_swigt__p_dynamsoft__cvr__CCapturedResultFilter,
-      &_swigt__p_dynamsoft__cvr__CCapturedResultReceiver,
-      &_swigt__p_dynamsoft__cvr__CImageSourceStateListener,
-      &_swigt__p_dynamsoft__cvr__CIntermediateResultManager,
-      &_swigt__p_dynamsoft__cvr__CIntermediateResultReceiver,
-      &_swigt__p_dynamsoft__cvr__CPresetTemplate,
-      &_swigt__p_dynamsoft__dbr__CBarcodeResultItem,
-      &_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult,
-      &_swigt__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit,
-      &_swigt__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit,
-      &_swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit,
-      &_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit,
-      &_swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit,
-      &_swigt__p_dynamsoft__dcp__CParsedResult,
-      &_swigt__p_dynamsoft__dcp__CParsedResultItem,
-      &_swigt__p_dynamsoft__ddn__CDetectedQuadResultItem,
-      &_swigt__p_dynamsoft__ddn__CDetectedQuadsResult,
-      &_swigt__p_dynamsoft__ddn__CNormalizedImageResultItem,
-      &_swigt__p_dynamsoft__ddn__CNormalizedImagesResult,
-      &_swigt__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit,
-      &_swigt__p_dynamsoft__ddn__intermediate_results__CCornersUnit,
-      &_swigt__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit,
-      &_swigt__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit,
-      &_swigt__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit,
-      &_swigt__p_dynamsoft__dlr__CBufferedCharacterItemSet,
-      &_swigt__p_dynamsoft__dlr__CRecognizedTextLinesResult,
-      &_swigt__p_dynamsoft__dlr__CTextLineResultItem,
-      &_swigt__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit,
-      &_swigt__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit,
-      &_swigt__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver,
-      &_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CColourImageUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CContoursUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CIntermediateResult,
-      &_swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit,
-      &_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit,
-      &_swigt__p_int,
-      &_swigt__p_signed_char,
-      &_swigt__p_tagSimplifiedBarcodeReaderSettings,
-      &_swigt__p_tagSimplifiedCaptureVisionSettings,
-      &_swigt__p_tagSimplifiedLabelRecognizerSettings,
-      &_swigt__p_unsigned_char,
-  };
+static swig_type_info *swig_type_initial[] = {
+  &_swigt__p_BufferOverflowProtectionMode,
+  &_swigt__p_CaptureState,
+  &_swigt__p_CapturedResultItemType,
+  &_swigt__p_ColourChannelUsageType,
+  &_swigt__p_CornerType,
+  &_swigt__p_DeblurMode,
+  &_swigt__p_ErrorCode,
+  &_swigt__p_ExtendedBarcodeResultType,
+  &_swigt__p_GrayscaleEnhancementMode,
+  &_swigt__p_GrayscaleTransformationMode,
+  &_swigt__p_ImageCaptureDistanceMode,
+  &_swigt__p_ImageColourMode,
+  &_swigt__p_ImagePixelFormat,
+  &_swigt__p_ImageSourceState,
+  &_swigt__p_ImageTagType,
+  &_swigt__p_IntermediateResultExtraInfo,
+  &_swigt__p_LocalizationMode,
+  &_swigt__p_MappingStatus,
+  &_swigt__p_PDFReadingMode,
+  &_swigt__p_QRCodeErrorCorrectionLevel,
+  &_swigt__p_RasterDataSource,
+  &_swigt__p_RawTextLineStatus,
+  &_swigt__p_RegionObjectElementType,
+  &_swigt__p_SectionType,
+  &_swigt__p_SimplifiedDocumentNormalizerSettings,
+  &_swigt__p_TransformMatrixType,
+  &_swigt__p_ValidationStatus,
+  &_swigt__p_VideoFrameQuality,
+  &_swigt__p_char,
+  &_swigt__p_double,
+  &_swigt__p_dynamsoft__basic_structures__CCapturedResultItem,
+  &_swigt__p_dynamsoft__basic_structures__CFileImageTag,
+  &_swigt__p_dynamsoft__basic_structures__CImageData,
+  &_swigt__p_dynamsoft__basic_structures__CImageSourceAdapter,
+  &_swigt__p_dynamsoft__basic_structures__CImageTag,
+  &_swigt__p_dynamsoft__basic_structures__COriginalImageResultItem,
+  &_swigt__p_dynamsoft__basic_structures__CQuadrilateral,
+  &_swigt__p_dynamsoft__basic_structures__CVideoFrameTag,
+  &_swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t,
+  &_swigt__p_dynamsoft__cvr__CBufferedItemsManager,
+  &_swigt__p_dynamsoft__cvr__CCaptureStateListener,
+  &_swigt__p_dynamsoft__cvr__CCaptureVisionRouter,
+  &_swigt__p_dynamsoft__cvr__CCaptureVisionRouterModule,
+  &_swigt__p_dynamsoft__cvr__CCapturedResult,
+  &_swigt__p_dynamsoft__cvr__CCapturedResultFilter,
+  &_swigt__p_dynamsoft__cvr__CCapturedResultReceiver,
+  &_swigt__p_dynamsoft__cvr__CImageSourceStateListener,
+  &_swigt__p_dynamsoft__cvr__CIntermediateResultManager,
+  &_swigt__p_dynamsoft__cvr__CIntermediateResultReceiver,
+  &_swigt__p_dynamsoft__cvr__CPresetTemplate,
+  &_swigt__p_dynamsoft__dbr__CBarcodeResultItem,
+  &_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult,
+  &_swigt__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit,
+  &_swigt__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit,
+  &_swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit,
+  &_swigt__p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit,
+  &_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit,
+  &_swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit,
+  &_swigt__p_dynamsoft__dcp__CParsedResult,
+  &_swigt__p_dynamsoft__dcp__CParsedResultItem,
+  &_swigt__p_dynamsoft__ddn__CDetectedQuadResultItem,
+  &_swigt__p_dynamsoft__ddn__CDetectedQuadsResult,
+  &_swigt__p_dynamsoft__ddn__CNormalizedImageResultItem,
+  &_swigt__p_dynamsoft__ddn__CNormalizedImagesResult,
+  &_swigt__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit,
+  &_swigt__p_dynamsoft__ddn__intermediate_results__CCornersUnit,
+  &_swigt__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit,
+  &_swigt__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit,
+  &_swigt__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit,
+  &_swigt__p_dynamsoft__dlr__CBufferedCharacterItemSet,
+  &_swigt__p_dynamsoft__dlr__CRecognizedTextLinesResult,
+  &_swigt__p_dynamsoft__dlr__CTextLineResultItem,
+  &_swigt__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit,
+  &_swigt__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit,
+  &_swigt__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver,
+  &_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CColourImageUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CContoursUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CIntermediateResult,
+  &_swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit,
+  &_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit,
+  &_swigt__p_int,
+  &_swigt__p_tagSimplifiedBarcodeReaderSettings,
+  &_swigt__p_tagSimplifiedCaptureVisionSettings,
+  &_swigt__p_tagSimplifiedLabelRecognizerSettings,
+  &_swigt__p_unsigned_char,
+};
 
-  static swig_cast_info _swigc__p_BufferOverflowProtectionMode[] = {{&_swigt__p_BufferOverflowProtectionMode, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_CaptureState[] = {{&_swigt__p_CaptureState, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_CapturedResultItemType[] = {{&_swigt__p_CapturedResultItemType, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_ColourChannelUsageType[] = {{&_swigt__p_ColourChannelUsageType, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_CornerType[] = {{&_swigt__p_CornerType, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_DeblurMode[] = {{&_swigt__p_DeblurMode, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_ErrorCode[] = {{&_swigt__p_ErrorCode, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_ExtendedBarcodeResultType[] = {{&_swigt__p_ExtendedBarcodeResultType, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_GrayscaleEnhancementMode[] = {{&_swigt__p_GrayscaleEnhancementMode, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_GrayscaleTransformationMode[] = {{&_swigt__p_GrayscaleTransformationMode, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_ImageCaptureDistanceMode[] = {{&_swigt__p_ImageCaptureDistanceMode, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_ImageColourMode[] = {{&_swigt__p_ImageColourMode, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_ImagePixelFormat[] = {{&_swigt__p_ImagePixelFormat, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_ImageSourceState[] = {{&_swigt__p_ImageSourceState, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_ImageTagType[] = {{&_swigt__p_ImageTagType, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_IntermediateResultExtraInfo[] = {{&_swigt__p_IntermediateResultExtraInfo, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_LocalizationMode[] = {{&_swigt__p_LocalizationMode, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_MappingStatus[] = {{&_swigt__p_MappingStatus, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_PDFReadingMode[] = {{&_swigt__p_PDFReadingMode, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_QRCodeErrorCorrectionLevel[] = {{&_swigt__p_QRCodeErrorCorrectionLevel, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_RasterDataSource[] = {{&_swigt__p_RasterDataSource, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_RawTextLineStatus[] = {{&_swigt__p_RawTextLineStatus, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_RegionObjectElementType[] = {{&_swigt__p_RegionObjectElementType, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_SectionType[] = {{&_swigt__p_SectionType, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_SimplifiedDocumentNormalizerSettings[] = {{&_swigt__p_SimplifiedDocumentNormalizerSettings, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_TransformMatrixType[] = {{&_swigt__p_TransformMatrixType, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_ValidationStatus[] = {{&_swigt__p_ValidationStatus, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_VideoFrameQuality[] = {{&_swigt__p_VideoFrameQuality, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_char[] = {{&_swigt__p_char, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_double[] = {{&_swigt__p_double, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dbr__CBarcodeResultItem[] = {{&_swigt__p_dynamsoft__dbr__CBarcodeResultItem, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dcp__CParsedResultItem[] = {{&_swigt__p_dynamsoft__dcp__CParsedResultItem, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__CDetectedQuadResultItem[] = {{&_swigt__p_dynamsoft__ddn__CDetectedQuadResultItem, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__CNormalizedImageResultItem[] = {{&_swigt__p_dynamsoft__ddn__CNormalizedImageResultItem, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dlr__CTextLineResultItem[] = {{&_swigt__p_dynamsoft__dlr__CTextLineResultItem, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__basic_structures__CCapturedResultItem[] = {{&_swigt__p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0, 0}, {&_swigt__p_dynamsoft__basic_structures__COriginalImageResultItem, _p_dynamsoft__basic_structures__COriginalImageResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0}, {&_swigt__p_dynamsoft__dbr__CBarcodeResultItem, _p_dynamsoft__dbr__CBarcodeResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0}, {&_swigt__p_dynamsoft__dcp__CParsedResultItem, _p_dynamsoft__dcp__CParsedResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0}, {&_swigt__p_dynamsoft__ddn__CDetectedQuadResultItem, _p_dynamsoft__ddn__CDetectedQuadResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0}, {&_swigt__p_dynamsoft__ddn__CNormalizedImageResultItem, _p_dynamsoft__ddn__CNormalizedImageResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0}, {&_swigt__p_dynamsoft__dlr__CTextLineResultItem, _p_dynamsoft__dlr__CTextLineResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__basic_structures__CImageData[] = {{&_swigt__p_dynamsoft__basic_structures__CImageData, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__basic_structures__CImageSourceAdapter[] = {{&_swigt__p_dynamsoft__basic_structures__CImageSourceAdapter, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__basic_structures__CFileImageTag[] = {{&_swigt__p_dynamsoft__basic_structures__CFileImageTag, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__basic_structures__CVideoFrameTag[] = {{&_swigt__p_dynamsoft__basic_structures__CVideoFrameTag, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__basic_structures__CImageTag[] = {{&_swigt__p_dynamsoft__basic_structures__CImageTag, 0, 0, 0}, {&_swigt__p_dynamsoft__basic_structures__CFileImageTag, _p_dynamsoft__basic_structures__CFileImageTagTo_p_dynamsoft__basic_structures__CImageTag, 0, 0}, {&_swigt__p_dynamsoft__basic_structures__CVideoFrameTag, _p_dynamsoft__basic_structures__CVideoFrameTagTo_p_dynamsoft__basic_structures__CImageTag, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__basic_structures__COriginalImageResultItem[] = {{&_swigt__p_dynamsoft__basic_structures__COriginalImageResultItem, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__basic_structures__CQuadrilateral[] = {{&_swigt__p_dynamsoft__basic_structures__CQuadrilateral, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__basic_structures__DMPoint_T_int_t[] = {{&_swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CBufferedItemsManager[] = {{&_swigt__p_dynamsoft__cvr__CBufferedItemsManager, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CCaptureStateListener[] = {{&_swigt__p_dynamsoft__cvr__CCaptureStateListener, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CCaptureVisionRouter[] = {{&_swigt__p_dynamsoft__cvr__CCaptureVisionRouter, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CCaptureVisionRouterModule[] = {{&_swigt__p_dynamsoft__cvr__CCaptureVisionRouterModule, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CCapturedResult[] = {{&_swigt__p_dynamsoft__cvr__CCapturedResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CCapturedResultFilter[] = {{&_swigt__p_dynamsoft__cvr__CCapturedResultFilter, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CCapturedResultReceiver[] = {{&_swigt__p_dynamsoft__cvr__CCapturedResultReceiver, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CImageSourceStateListener[] = {{&_swigt__p_dynamsoft__cvr__CImageSourceStateListener, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CIntermediateResultManager[] = {{&_swigt__p_dynamsoft__cvr__CIntermediateResultManager, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CIntermediateResultReceiver[] = {{&_swigt__p_dynamsoft__cvr__CIntermediateResultReceiver, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__cvr__CPresetTemplate[] = {{&_swigt__p_dynamsoft__cvr__CPresetTemplate, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dbr__CDecodedBarcodesResult[] = {{&_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit[] = {{&_swigt__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit[] = {{&_swigt__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit[] = {{&_swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit[] = {{&_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit[] = {{&_swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dcp__CParsedResult[] = {{&_swigt__p_dynamsoft__dcp__CParsedResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__CDetectedQuadsResult[] = {{&_swigt__p_dynamsoft__ddn__CDetectedQuadsResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__CNormalizedImagesResult[] = {{&_swigt__p_dynamsoft__ddn__CNormalizedImagesResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit[] = {{&_swigt__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__intermediate_results__CCornersUnit[] = {{&_swigt__p_dynamsoft__ddn__intermediate_results__CCornersUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit[] = {{&_swigt__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit[] = {{&_swigt__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit[] = {{&_swigt__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dlr__CBufferedCharacterItemSet[] = {{&_swigt__p_dynamsoft__dlr__CBufferedCharacterItemSet, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dlr__CRecognizedTextLinesResult[] = {{&_swigt__p_dynamsoft__dlr__CRecognizedTextLinesResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit[] = {{&_swigt__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit[] = {{&_swigt__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit[] = {{&_swigt__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver[] = {{&_swigt__p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver, 0, 0, 0}, {&_swigt__p_dynamsoft__cvr__CIntermediateResultReceiver, _p_dynamsoft__cvr__CIntermediateResultReceiverTo_p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CBinaryImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CColourImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CColourImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CContoursUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CContoursUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CGrayscaleImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CIntermediateResult[] = {{&_swigt__p_dynamsoft__intermediate_results__CIntermediateResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CIntermediateResultUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0, 0}, {&_swigt__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit, _p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit, _p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit, _p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit, _p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__ddn__intermediate_results__CCornersUnit, _p_dynamsoft__ddn__intermediate_results__CCornersUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit, _p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit, _p_dynamsoft__ddn__intermediate_results__CLongLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit, _p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit, _p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit, _p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit, _p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit, _p_dynamsoft__intermediate_results__CBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CColourImageUnit, _p_dynamsoft__intermediate_results__CColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CContoursUnit, _p_dynamsoft__intermediate_results__CContoursUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit, _p_dynamsoft__intermediate_results__CLineSegmentsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, _p_dynamsoft__intermediate_results__CPredetectedRegionsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit, _p_dynamsoft__intermediate_results__CScaledDownColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit, _p_dynamsoft__intermediate_results__CShortLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit, _p_dynamsoft__intermediate_results__CTextZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit, _p_dynamsoft__intermediate_results__CTextureDetectionResultUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CLineSegmentsUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CShortLinesUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextZonesUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_int[] = {{&_swigt__p_int, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_signed_char[] = {{&_swigt__p_signed_char, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_tagSimplifiedBarcodeReaderSettings[] = {{&_swigt__p_tagSimplifiedBarcodeReaderSettings, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_tagSimplifiedCaptureVisionSettings[] = {{&_swigt__p_tagSimplifiedCaptureVisionSettings, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_tagSimplifiedLabelRecognizerSettings[] = {{&_swigt__p_tagSimplifiedLabelRecognizerSettings, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_unsigned_char[] = {{&_swigt__p_unsigned_char, 0, 0, 0}, {0, 0, 0, 0}};
+static swig_cast_info _swigc__p_BufferOverflowProtectionMode[] = {  {&_swigt__p_BufferOverflowProtectionMode, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CaptureState[] = {  {&_swigt__p_CaptureState, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CapturedResultItemType[] = {  {&_swigt__p_CapturedResultItemType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ColourChannelUsageType[] = {  {&_swigt__p_ColourChannelUsageType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_CornerType[] = {  {&_swigt__p_CornerType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_DeblurMode[] = {  {&_swigt__p_DeblurMode, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ErrorCode[] = {  {&_swigt__p_ErrorCode, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ExtendedBarcodeResultType[] = {  {&_swigt__p_ExtendedBarcodeResultType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_GrayscaleEnhancementMode[] = {  {&_swigt__p_GrayscaleEnhancementMode, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_GrayscaleTransformationMode[] = {  {&_swigt__p_GrayscaleTransformationMode, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ImageCaptureDistanceMode[] = {  {&_swigt__p_ImageCaptureDistanceMode, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ImageColourMode[] = {  {&_swigt__p_ImageColourMode, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ImagePixelFormat[] = {  {&_swigt__p_ImagePixelFormat, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ImageSourceState[] = {  {&_swigt__p_ImageSourceState, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ImageTagType[] = {  {&_swigt__p_ImageTagType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_IntermediateResultExtraInfo[] = {  {&_swigt__p_IntermediateResultExtraInfo, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_LocalizationMode[] = {  {&_swigt__p_LocalizationMode, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MappingStatus[] = {  {&_swigt__p_MappingStatus, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_PDFReadingMode[] = {  {&_swigt__p_PDFReadingMode, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_QRCodeErrorCorrectionLevel[] = {  {&_swigt__p_QRCodeErrorCorrectionLevel, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_RasterDataSource[] = {  {&_swigt__p_RasterDataSource, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_RawTextLineStatus[] = {  {&_swigt__p_RawTextLineStatus, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_RegionObjectElementType[] = {  {&_swigt__p_RegionObjectElementType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_SectionType[] = {  {&_swigt__p_SectionType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_SimplifiedDocumentNormalizerSettings[] = {  {&_swigt__p_SimplifiedDocumentNormalizerSettings, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_TransformMatrixType[] = {  {&_swigt__p_TransformMatrixType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ValidationStatus[] = {  {&_swigt__p_ValidationStatus, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_VideoFrameQuality[] = {  {&_swigt__p_VideoFrameQuality, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dbr__CBarcodeResultItem[] = {{&_swigt__p_dynamsoft__dbr__CBarcodeResultItem, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dcp__CParsedResultItem[] = {{&_swigt__p_dynamsoft__dcp__CParsedResultItem, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__ddn__CDetectedQuadResultItem[] = {{&_swigt__p_dynamsoft__ddn__CDetectedQuadResultItem, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__ddn__CNormalizedImageResultItem[] = {{&_swigt__p_dynamsoft__ddn__CNormalizedImageResultItem, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dlr__CTextLineResultItem[] = {{&_swigt__p_dynamsoft__dlr__CTextLineResultItem, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__basic_structures__CCapturedResultItem[] = {  {&_swigt__p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0, 0},  {&_swigt__p_dynamsoft__basic_structures__COriginalImageResultItem, _p_dynamsoft__basic_structures__COriginalImageResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0},  {&_swigt__p_dynamsoft__dbr__CBarcodeResultItem, _p_dynamsoft__dbr__CBarcodeResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0},  {&_swigt__p_dynamsoft__dcp__CParsedResultItem, _p_dynamsoft__dcp__CParsedResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0},  {&_swigt__p_dynamsoft__ddn__CDetectedQuadResultItem, _p_dynamsoft__ddn__CDetectedQuadResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0},  {&_swigt__p_dynamsoft__ddn__CNormalizedImageResultItem, _p_dynamsoft__ddn__CNormalizedImageResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0},  {&_swigt__p_dynamsoft__dlr__CTextLineResultItem, _p_dynamsoft__dlr__CTextLineResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__basic_structures__CImageData[] = {  {&_swigt__p_dynamsoft__basic_structures__CImageData, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__basic_structures__CImageSourceAdapter[] = {  {&_swigt__p_dynamsoft__basic_structures__CImageSourceAdapter, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__basic_structures__CFileImageTag[] = {{&_swigt__p_dynamsoft__basic_structures__CFileImageTag, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__basic_structures__CVideoFrameTag[] = {{&_swigt__p_dynamsoft__basic_structures__CVideoFrameTag, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__basic_structures__CImageTag[] = {  {&_swigt__p_dynamsoft__basic_structures__CImageTag, 0, 0, 0},  {&_swigt__p_dynamsoft__basic_structures__CFileImageTag, _p_dynamsoft__basic_structures__CFileImageTagTo_p_dynamsoft__basic_structures__CImageTag, 0, 0},  {&_swigt__p_dynamsoft__basic_structures__CVideoFrameTag, _p_dynamsoft__basic_structures__CVideoFrameTagTo_p_dynamsoft__basic_structures__CImageTag, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__basic_structures__COriginalImageResultItem[] = {  {&_swigt__p_dynamsoft__basic_structures__COriginalImageResultItem, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__basic_structures__CQuadrilateral[] = {  {&_swigt__p_dynamsoft__basic_structures__CQuadrilateral, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__basic_structures__DMPoint_T_int_t[] = {  {&_swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CBufferedItemsManager[] = {  {&_swigt__p_dynamsoft__cvr__CBufferedItemsManager, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CCaptureStateListener[] = {  {&_swigt__p_dynamsoft__cvr__CCaptureStateListener, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CCaptureVisionRouter[] = {  {&_swigt__p_dynamsoft__cvr__CCaptureVisionRouter, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CCaptureVisionRouterModule[] = {  {&_swigt__p_dynamsoft__cvr__CCaptureVisionRouterModule, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CCapturedResult[] = {  {&_swigt__p_dynamsoft__cvr__CCapturedResult, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CCapturedResultFilter[] = {  {&_swigt__p_dynamsoft__cvr__CCapturedResultFilter, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CCapturedResultReceiver[] = {  {&_swigt__p_dynamsoft__cvr__CCapturedResultReceiver, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CImageSourceStateListener[] = {  {&_swigt__p_dynamsoft__cvr__CImageSourceStateListener, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CIntermediateResultManager[] = {  {&_swigt__p_dynamsoft__cvr__CIntermediateResultManager, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CIntermediateResultReceiver[] = {  {&_swigt__p_dynamsoft__cvr__CIntermediateResultReceiver, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__cvr__CPresetTemplate[] = {  {&_swigt__p_dynamsoft__cvr__CPresetTemplate, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dbr__CDecodedBarcodesResult[] = {  {&_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit[] = {  {&_swigt__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit[] = {  {&_swigt__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit[] = {  {&_swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit[] = {  {&_swigt__p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit[] = {  {&_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit[] = {  {&_swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dcp__CParsedResult[] = {  {&_swigt__p_dynamsoft__dcp__CParsedResult, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__ddn__CDetectedQuadsResult[] = {  {&_swigt__p_dynamsoft__ddn__CDetectedQuadsResult, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__ddn__CNormalizedImagesResult[] = {  {&_swigt__p_dynamsoft__ddn__CNormalizedImagesResult, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit[] = {  {&_swigt__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__ddn__intermediate_results__CCornersUnit[] = {  {&_swigt__p_dynamsoft__ddn__intermediate_results__CCornersUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit[] = {  {&_swigt__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit[] = {  {&_swigt__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit[] = {  {&_swigt__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dlr__CBufferedCharacterItemSet[] = {  {&_swigt__p_dynamsoft__dlr__CBufferedCharacterItemSet, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dlr__CRecognizedTextLinesResult[] = {  {&_swigt__p_dynamsoft__dlr__CRecognizedTextLinesResult, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit[] = {  {&_swigt__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit[] = {  {&_swigt__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit[] = {  {&_swigt__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver[] = {  {&_swigt__p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver, 0, 0, 0},  {&_swigt__p_dynamsoft__cvr__CIntermediateResultReceiver, _p_dynamsoft__cvr__CIntermediateResultReceiverTo_p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CBinaryImageUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CColourImageUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CColourImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CContoursUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CContoursUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CGrayscaleImageUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CIntermediateResult[] = {  {&_swigt__p_dynamsoft__intermediate_results__CIntermediateResult, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CIntermediateResultUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit, _p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit, _p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit, _p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit, _p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__ddn__intermediate_results__CCornersUnit, _p_dynamsoft__ddn__intermediate_results__CCornersUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit, _p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit, _p_dynamsoft__ddn__intermediate_results__CLongLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit, _p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit, _p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit, _p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit, _p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit, _p_dynamsoft__intermediate_results__CBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CColourImageUnit, _p_dynamsoft__intermediate_results__CColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CContoursUnit, _p_dynamsoft__intermediate_results__CContoursUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit, _p_dynamsoft__intermediate_results__CLineSegmentsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, _p_dynamsoft__intermediate_results__CPredetectedRegionsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit, _p_dynamsoft__intermediate_results__CScaledDownColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit, _p_dynamsoft__intermediate_results__CShortLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit, _p_dynamsoft__intermediate_results__CTextZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit, _p_dynamsoft__intermediate_results__CTextureDetectionResultUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CLineSegmentsUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CShortLinesUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextZonesUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_tagSimplifiedBarcodeReaderSettings[] = {  {&_swigt__p_tagSimplifiedBarcodeReaderSettings, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_tagSimplifiedCaptureVisionSettings[] = {  {&_swigt__p_tagSimplifiedCaptureVisionSettings, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_tagSimplifiedLabelRecognizerSettings[] = {  {&_swigt__p_tagSimplifiedLabelRecognizerSettings, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
 
-  static swig_cast_info *swig_cast_initial[] = {
-      _swigc__p_BufferOverflowProtectionMode,
-      _swigc__p_CaptureState,
-      _swigc__p_CapturedResultItemType,
-      _swigc__p_ColourChannelUsageType,
-      _swigc__p_CornerType,
-      _swigc__p_DeblurMode,
-      _swigc__p_ErrorCode,
-      _swigc__p_ExtendedBarcodeResultType,
-      _swigc__p_GrayscaleEnhancementMode,
-      _swigc__p_GrayscaleTransformationMode,
-      _swigc__p_ImageCaptureDistanceMode,
-      _swigc__p_ImageColourMode,
-      _swigc__p_ImagePixelFormat,
-      _swigc__p_ImageSourceState,
-      _swigc__p_ImageTagType,
-      _swigc__p_IntermediateResultExtraInfo,
-      _swigc__p_LocalizationMode,
-      _swigc__p_MappingStatus,
-      _swigc__p_PDFReadingMode,
-      _swigc__p_QRCodeErrorCorrectionLevel,
-      _swigc__p_RasterDataSource,
-      _swigc__p_RawTextLineStatus,
-      _swigc__p_RegionObjectElementType,
-      _swigc__p_SectionType,
-      _swigc__p_SimplifiedDocumentNormalizerSettings,
-      _swigc__p_TransformMatrixType,
-      _swigc__p_ValidationStatus,
-      _swigc__p_VideoFrameQuality,
-      _swigc__p_char,
-      _swigc__p_double,
-      _swigc__p_dynamsoft__basic_structures__CCapturedResultItem,
-      _swigc__p_dynamsoft__basic_structures__CFileImageTag,
-      _swigc__p_dynamsoft__basic_structures__CImageData,
-      _swigc__p_dynamsoft__basic_structures__CImageSourceAdapter,
-      _swigc__p_dynamsoft__basic_structures__CImageTag,
-      _swigc__p_dynamsoft__basic_structures__COriginalImageResultItem,
-      _swigc__p_dynamsoft__basic_structures__CQuadrilateral,
-      _swigc__p_dynamsoft__basic_structures__CVideoFrameTag,
-      _swigc__p_dynamsoft__basic_structures__DMPoint_T_int_t,
-      _swigc__p_dynamsoft__cvr__CBufferedItemsManager,
-      _swigc__p_dynamsoft__cvr__CCaptureStateListener,
-      _swigc__p_dynamsoft__cvr__CCaptureVisionRouter,
-      _swigc__p_dynamsoft__cvr__CCaptureVisionRouterModule,
-      _swigc__p_dynamsoft__cvr__CCapturedResult,
-      _swigc__p_dynamsoft__cvr__CCapturedResultFilter,
-      _swigc__p_dynamsoft__cvr__CCapturedResultReceiver,
-      _swigc__p_dynamsoft__cvr__CImageSourceStateListener,
-      _swigc__p_dynamsoft__cvr__CIntermediateResultManager,
-      _swigc__p_dynamsoft__cvr__CIntermediateResultReceiver,
-      _swigc__p_dynamsoft__cvr__CPresetTemplate,
-      _swigc__p_dynamsoft__dbr__CBarcodeResultItem,
-      _swigc__p_dynamsoft__dbr__CDecodedBarcodesResult,
-      _swigc__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit,
-      _swigc__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit,
-      _swigc__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit,
-      _swigc__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit,
-      _swigc__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit,
-      _swigc__p_dynamsoft__dcp__CParsedResult,
-      _swigc__p_dynamsoft__dcp__CParsedResultItem,
-      _swigc__p_dynamsoft__ddn__CDetectedQuadResultItem,
-      _swigc__p_dynamsoft__ddn__CDetectedQuadsResult,
-      _swigc__p_dynamsoft__ddn__CNormalizedImageResultItem,
-      _swigc__p_dynamsoft__ddn__CNormalizedImagesResult,
-      _swigc__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit,
-      _swigc__p_dynamsoft__ddn__intermediate_results__CCornersUnit,
-      _swigc__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit,
-      _swigc__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit,
-      _swigc__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit,
-      _swigc__p_dynamsoft__dlr__CBufferedCharacterItemSet,
-      _swigc__p_dynamsoft__dlr__CRecognizedTextLinesResult,
-      _swigc__p_dynamsoft__dlr__CTextLineResultItem,
-      _swigc__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit,
-      _swigc__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit,
-      _swigc__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit,
-      _swigc__p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver,
-      _swigc__p_dynamsoft__intermediate_results__CBinaryImageUnit,
-      _swigc__p_dynamsoft__intermediate_results__CColourImageUnit,
-      _swigc__p_dynamsoft__intermediate_results__CContoursUnit,
-      _swigc__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit,
-      _swigc__p_dynamsoft__intermediate_results__CGrayscaleImageUnit,
-      _swigc__p_dynamsoft__intermediate_results__CIntermediateResult,
-      _swigc__p_dynamsoft__intermediate_results__CIntermediateResultUnit,
-      _swigc__p_dynamsoft__intermediate_results__CLineSegmentsUnit,
-      _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit,
-      _swigc__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit,
-      _swigc__p_dynamsoft__intermediate_results__CShortLinesUnit,
-      _swigc__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit,
-      _swigc__p_dynamsoft__intermediate_results__CTextZonesUnit,
-      _swigc__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit,
-      _swigc__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit,
-      _swigc__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit,
-      _swigc__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit,
-      _swigc__p_int,
-      _swigc__p_signed_char,
-      _swigc__p_tagSimplifiedBarcodeReaderSettings,
-      _swigc__p_tagSimplifiedCaptureVisionSettings,
-      _swigc__p_tagSimplifiedLabelRecognizerSettings,
-      _swigc__p_unsigned_char,
-  };
+static swig_cast_info *swig_cast_initial[] = {
+  _swigc__p_BufferOverflowProtectionMode,
+  _swigc__p_CaptureState,
+  _swigc__p_CapturedResultItemType,
+  _swigc__p_ColourChannelUsageType,
+  _swigc__p_CornerType,
+  _swigc__p_DeblurMode,
+  _swigc__p_ErrorCode,
+  _swigc__p_ExtendedBarcodeResultType,
+  _swigc__p_GrayscaleEnhancementMode,
+  _swigc__p_GrayscaleTransformationMode,
+  _swigc__p_ImageCaptureDistanceMode,
+  _swigc__p_ImageColourMode,
+  _swigc__p_ImagePixelFormat,
+  _swigc__p_ImageSourceState,
+  _swigc__p_ImageTagType,
+  _swigc__p_IntermediateResultExtraInfo,
+  _swigc__p_LocalizationMode,
+  _swigc__p_MappingStatus,
+  _swigc__p_PDFReadingMode,
+  _swigc__p_QRCodeErrorCorrectionLevel,
+  _swigc__p_RasterDataSource,
+  _swigc__p_RawTextLineStatus,
+  _swigc__p_RegionObjectElementType,
+  _swigc__p_SectionType,
+  _swigc__p_SimplifiedDocumentNormalizerSettings,
+  _swigc__p_TransformMatrixType,
+  _swigc__p_ValidationStatus,
+  _swigc__p_VideoFrameQuality,
+  _swigc__p_char,
+  _swigc__p_double,
+  _swigc__p_dynamsoft__basic_structures__CCapturedResultItem,
+  _swigc__p_dynamsoft__basic_structures__CFileImageTag,
+  _swigc__p_dynamsoft__basic_structures__CImageData,
+  _swigc__p_dynamsoft__basic_structures__CImageSourceAdapter,
+  _swigc__p_dynamsoft__basic_structures__CImageTag,
+  _swigc__p_dynamsoft__basic_structures__COriginalImageResultItem,
+  _swigc__p_dynamsoft__basic_structures__CQuadrilateral,
+  _swigc__p_dynamsoft__basic_structures__CVideoFrameTag,
+  _swigc__p_dynamsoft__basic_structures__DMPoint_T_int_t,
+  _swigc__p_dynamsoft__cvr__CBufferedItemsManager,
+  _swigc__p_dynamsoft__cvr__CCaptureStateListener,
+  _swigc__p_dynamsoft__cvr__CCaptureVisionRouter,
+  _swigc__p_dynamsoft__cvr__CCaptureVisionRouterModule,
+  _swigc__p_dynamsoft__cvr__CCapturedResult,
+  _swigc__p_dynamsoft__cvr__CCapturedResultFilter,
+  _swigc__p_dynamsoft__cvr__CCapturedResultReceiver,
+  _swigc__p_dynamsoft__cvr__CImageSourceStateListener,
+  _swigc__p_dynamsoft__cvr__CIntermediateResultManager,
+  _swigc__p_dynamsoft__cvr__CIntermediateResultReceiver,
+  _swigc__p_dynamsoft__cvr__CPresetTemplate,
+  _swigc__p_dynamsoft__dbr__CBarcodeResultItem,
+  _swigc__p_dynamsoft__dbr__CDecodedBarcodesResult,
+  _swigc__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit,
+  _swigc__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit,
+  _swigc__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit,
+  _swigc__p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit,
+  _swigc__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit,
+  _swigc__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit,
+  _swigc__p_dynamsoft__dcp__CParsedResult,
+  _swigc__p_dynamsoft__dcp__CParsedResultItem,
+  _swigc__p_dynamsoft__ddn__CDetectedQuadResultItem,
+  _swigc__p_dynamsoft__ddn__CDetectedQuadsResult,
+  _swigc__p_dynamsoft__ddn__CNormalizedImageResultItem,
+  _swigc__p_dynamsoft__ddn__CNormalizedImagesResult,
+  _swigc__p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit,
+  _swigc__p_dynamsoft__ddn__intermediate_results__CCornersUnit,
+  _swigc__p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit,
+  _swigc__p_dynamsoft__ddn__intermediate_results__CLongLinesUnit,
+  _swigc__p_dynamsoft__ddn__intermediate_results__CNormalizedImagesUnit,
+  _swigc__p_dynamsoft__dlr__CBufferedCharacterItemSet,
+  _swigc__p_dynamsoft__dlr__CRecognizedTextLinesResult,
+  _swigc__p_dynamsoft__dlr__CTextLineResultItem,
+  _swigc__p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit,
+  _swigc__p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit,
+  _swigc__p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit,
+  _swigc__p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver,
+  _swigc__p_dynamsoft__intermediate_results__CBinaryImageUnit,
+  _swigc__p_dynamsoft__intermediate_results__CColourImageUnit,
+  _swigc__p_dynamsoft__intermediate_results__CContoursUnit,
+  _swigc__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit,
+  _swigc__p_dynamsoft__intermediate_results__CGrayscaleImageUnit,
+  _swigc__p_dynamsoft__intermediate_results__CIntermediateResult,
+  _swigc__p_dynamsoft__intermediate_results__CIntermediateResultUnit,
+  _swigc__p_dynamsoft__intermediate_results__CLineSegmentsUnit,
+  _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit,
+  _swigc__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit,
+  _swigc__p_dynamsoft__intermediate_results__CShortLinesUnit,
+  _swigc__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit,
+  _swigc__p_dynamsoft__intermediate_results__CTextZonesUnit,
+  _swigc__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit,
+  _swigc__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit,
+  _swigc__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit,
+  _swigc__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit,
+  _swigc__p_int,
+  _swigc__p_tagSimplifiedBarcodeReaderSettings,
+  _swigc__p_tagSimplifiedCaptureVisionSettings,
+  _swigc__p_tagSimplifiedLabelRecognizerSettings,
+  _swigc__p_unsigned_char,
+};
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
@@ -13889,7 +14898,7 @@ void
       SwigPyObject_own,
       SwigPyObject_own};
   static PyGetSetDef thisown_getset_def = {
-      (char *)"thisown", SwigPyBuiltin_GetterClosure, SwigPyBuiltin_SetterClosure, NULL, &thisown_getset_closure};
+      (char *)"_thisown", SwigPyBuiltin_GetterClosure, SwigPyBuiltin_SetterClosure, NULL, &thisown_getset_closure};
   PyTypeObject *builtin_pytype;
   int builtin_base_count;
   swig_type_info *builtin_basetype;

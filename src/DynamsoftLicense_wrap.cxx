@@ -4473,6 +4473,7 @@ extern "C"
   }
 
   static PyMethodDef SwigMethods[] = {
+      {"Class_init", CLicenseManager_swiginit, METH_VARARGS, NULL},
       {"CLicenseManager_InitLicense", _wrap_CLicenseManager_InitLicense, METH_VARARGS, NULL},
       {"CLicenseManager_SetDeviceFriendlyName", _wrap_CLicenseManager_SetDeviceFriendlyName, METH_O, NULL},
       {"CLicenseManager_SetMaxConcurrentInstanceCount", _wrap_CLicenseManager_SetMaxConcurrentInstanceCount, METH_O, NULL},
@@ -4481,12 +4482,12 @@ extern "C"
       {"new_CLicenseManager", _wrap_new_CLicenseManager, METH_NOARGS, NULL},
       {"delete_CLicenseManager", _wrap_delete_CLicenseManager, METH_O, NULL},
       {"CLicenseManager_register", CLicenseManager_swigregister, METH_O, NULL},
-      {"CLicenseManager_init", CLicenseManager_swiginit, METH_VARARGS, NULL},
+      // {"CLicenseManager_init", CLicenseManager_swiginit, METH_VARARGS, NULL},
       {"CLicenseModule_GetVersion", _wrap_CLicenseModule_GetVersion, METH_NOARGS, NULL},
       {"new_CLicenseModule", _wrap_new_CLicenseModule, METH_NOARGS, NULL},
       {"delete_CLicenseModule", _wrap_delete_CLicenseModule, METH_O, NULL},
       {"CLicenseModule_register", CLicenseModule_swigregister, METH_O, NULL},
-      {"CLicenseModule_init", CLicenseModule_swiginit, METH_VARARGS, NULL},
+      // {"CLicenseModule_init", CLicenseModule_swiginit, METH_VARARGS, NULL},
       {NULL, NULL, 0, NULL}};
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
@@ -4924,7 +4925,7 @@ void
       SwigPyObject_own,
       SwigPyObject_own};
   static PyGetSetDef thisown_getset_def = {
-      (char *)"thisown", SwigPyBuiltin_GetterClosure, SwigPyBuiltin_SetterClosure, NULL, &thisown_getset_closure};
+      (char *)"_thisown", SwigPyBuiltin_GetterClosure, SwigPyBuiltin_SetterClosure, NULL, &thisown_getset_closure};
   PyTypeObject *builtin_pytype;
   int builtin_base_count;
   swig_type_info *builtin_basetype;

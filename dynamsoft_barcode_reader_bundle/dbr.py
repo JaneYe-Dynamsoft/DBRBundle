@@ -115,7 +115,7 @@ class EnumExtendedBarcodeResultType(IntEnum):
     EBRT_PARTIAL_RESULT = _DynamsoftBarcodeReader.EBRT_PARTIAL_RESULT
 
 
-class SimplifiedBarcodeReaderSettings(object):
+class SimplifiedBarcodeReaderSettings:
     """
     The SimplifiedBarcodeReaderSettings class contains settings for barcode decoding. It is a sub-parameter of SimplifiedCaptureVisionSettings.
 
@@ -132,7 +132,7 @@ class SimplifiedBarcodeReaderSettings(object):
         max_threads_in_one_task (int): Specifies the maximum available threads count in one barcode decoding task.
         scale_down_threshold (int): Specifies the threshold for image shrinking.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -224,7 +224,7 @@ class SimplifiedBarcodeReaderSettings(object):
     )
 
     def __init__(self):
-        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_init(
+        _DynamsoftBarcodeReader.Class_init(
             self, _DynamsoftBarcodeReader.new_SimplifiedBarcodeReaderSettings()
         )
 
@@ -236,18 +236,18 @@ _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_register(
 )
 
 
-class BarcodeDetails(object):
+class BarcodeDetails:
     """
     The BarcodeDetails class represents the details of a barcode. It is an abstract base class.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
     __destroy__ = _DynamsoftBarcodeReader.delete_CBarcodeDetails
 
     def __init__(self):
-        _DynamsoftBarcodeReader.CBarcodeDetails_init(
+        _DynamsoftBarcodeReader.Class_init(
             self, _DynamsoftBarcodeReader.new_CBarcodeDetails()
         )
 
@@ -266,12 +266,12 @@ class OneDCodeDetails(BarcodeDetails):
         middle_pattern_range (List[float]): The position of the middle pattern relative to the barcode location.
         end_pattern_range (List[float]): The position of the end pattern relative to the barcode location.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
     def __init__(self):
-        _DynamsoftBarcodeReader.COneDCodeDetails_init(
+        _DynamsoftBarcodeReader.Class_init(
             self, _DynamsoftBarcodeReader.new_COneDCodeDetails()
         )
 
@@ -347,7 +347,7 @@ class QRCodeDetails(BarcodeDetails):
     Methods:
         __init__(self, rows: int, columns: int, error_correction_level: int, version: int, model: int, mode: int, page: int, total_page: int, parity_data: int): Initializes a new instance of the QRCodeDetails class.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -363,7 +363,7 @@ class QRCodeDetails(BarcodeDetails):
         total_page: int = -1,
         parity_data: int = -1,
     ):
-        _DynamsoftBarcodeReader.CQRCodeDetails_init(
+        _DynamsoftBarcodeReader.Class_init(
             self,
             _DynamsoftBarcodeReader.new_CQRCodeDetails(
                 rows,
@@ -443,7 +443,7 @@ class PDF417Details(BarcodeDetails):
     Methods:
         __init__(self, rows: int = -1, columns: int = -1, level: int = -1, has_left_row_indicator: int = -1, has_right_row_indicator: int = -1): Initializes a new instance of the PDF417Details class.
     """
-    thisown = property(
+    _thisown = property(
         lambda self: self.this.own(),
         lambda self, v: self.this.own(v),
         doc="The membership flag",
@@ -457,7 +457,7 @@ class PDF417Details(BarcodeDetails):
         has_left_row_indicator: int = -1,
         has_right_row_indicator: int = -1,
     ):
-        _DynamsoftBarcodeReader.CPDF417Details_init(
+        _DynamsoftBarcodeReader.Class_init(
             self,
             _DynamsoftBarcodeReader.new_CPDF417Details(
                 rows, columns, level, has_left_row_indicator, has_right_row_indicator
@@ -509,7 +509,7 @@ class DataMatrixDetails(BarcodeDetails):
     Methods:
         __init__(self, rows: int = -1, columns: int = -1, data_region_rows: int = -1, data_region_columns: int = -1, data_region_number: int = -1): Initialize a new instance of the CDataMatrixDetails class.
     """
-    thisown = property(
+    _thisown = property(
         lambda self: self.this.own(),
         lambda self, v: self.this.own(v),
         doc="The membership flag",
@@ -523,7 +523,7 @@ class DataMatrixDetails(BarcodeDetails):
         data_region_columns: int = -1,
         data_region_number: int = -1,
     ):
-        _DynamsoftBarcodeReader.CDataMatrixDetails_init(
+        _DynamsoftBarcodeReader.Class_init(
             self,
             _DynamsoftBarcodeReader.new_CDataMatrixDetails(
                 rows, columns, data_region_rows, data_region_columns, data_region_number
@@ -569,12 +569,12 @@ class AztecDetails(BarcodeDetails):
         columns (int): The number of columns in the Aztec barcode.
         layer_number (int): Specifies the layer number of the Aztec barcode.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
     def __init__(self, rows: int = -1, columns: int = -1, layer_number: int = -1):
-        _DynamsoftBarcodeReader.CAztecDetails_init(
+        _DynamsoftBarcodeReader.Class_init(
             self, _DynamsoftBarcodeReader.new_CAztecDetails(rows, columns, layer_number)
         )
 
@@ -615,7 +615,7 @@ class BarcodeResultItem(CapturedResultItem):
         is_dpm(self) -> bool: Gets whether the decoded barcode is a DPM code.
         is_mirrored(self) -> bool: Gets whether the decoded barcode is mirrored.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -724,7 +724,7 @@ class BarcodeResultItem(CapturedResultItem):
 
 _DynamsoftBarcodeReader.CBarcodeResultItem_register(BarcodeResultItem)
 
-class DecodedBarcodesResult(object):
+class DecodedBarcodesResult:
     """
     The DecodedBarcodesResult class represents the result of a barcode reading process.
     It provides access to information about the decoded barcodes, the source image, and any errors that occurred during the barcode reading process.
@@ -737,7 +737,7 @@ class DecodedBarcodesResult(object):
         get_original_image_tag(self) -> ImageTag: Gets the tag of the source image.
         get_rotation_transform_matrix(self) -> List[float]: Gets the 3x3 rotation transformation matrix of the original image relative to the rotated image.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -813,15 +813,293 @@ class DecodedBarcodesResult(object):
 
 _DynamsoftBarcodeReader.CDecodedBarcodesResult_register(DecodedBarcodesResult)
 
+#new 
 
-class BarcodeReaderModule(object):
+class LocalizedBarcodeElement(RegionObjectElement):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self, *args, **kwargs):
+        _DynamsoftBarcodeReader.Class_init(self,  _DynamsoftBarcodeReader.CBarcodeReaderModule_CreateLocalizedBarcodeElement())
+    
+    def get_possible_formats(self) -> int:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodeElement_GetPossibleFormats(self)
+
+    def get_possible_formats_string(self) -> str:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodeElement_GetPossibleFormatsString(self)
+
+    def get_angle(self) -> int:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodeElement_GetAngle(self)
+
+    def get_module_size(self) -> int:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodeElement_GetModuleSize(self)
+
+    def get_confidence(self) -> int:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodeElement_GetConfidence(self)
+
+    def set_possible_formats(self, possible_formats: int) -> None:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodeElement_SetPossibleFormats(self, possible_formats)
+
+# Register CLocalizedBarcodeElement in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CLocalizedBarcodeElement_register(LocalizedBarcodeElement)
+class DecodedBarcodeElement(RegionObjectElement):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    def __init__(self, *args, **kwargs):
+        _DynamsoftBarcodeReader.Class_init(self, _DynamsoftBarcodeReader.CBarcodeReaderModule_CreateDecodedBarcodeElement())
+
+    def get_format(self) -> int:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_GetFormat(self)
+
+    def get_format_string(self) -> str:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_GetFormatString(self)
+
+    def get_text(self) -> str:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_GetText(self)
+
+    def get_bytes(self) -> bytes:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_GetBytes(self)
+
+    def get_details(self)  -> BarcodeDetails:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_GetDetails(self)
+
+    def is_dpm(self) -> bool:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_IsDPM(self)
+
+    def is_mirrored(self) -> bool:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_IsMirrored(self)
+
+    def get_angle(self) -> int:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_GetAngle(self)
+
+    def get_module_size(self) -> int:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_GetModuleSize(self)
+
+    def get_confidence(self) -> int:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_GetConfidence(self)
+
+    def get_extended_barcode_results_count(self) -> int:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_GetExtendedBarcodeResultsCount(self)
+
+    def get_extended_barcode_result(self, index: int) -> "ExtendedBarcodeResult":
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_GetExtendedBarcodeResult(self, index)
+
+    def set_format(self, format: int) -> None:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_SetFormat(self, format)
+
+    def set_text(self, text: str) -> None:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_SetText(self, text)
+
+    def set_bytes(self, bytes: bytes):
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_SetBytes(self, bytes)
+
+    def set_confidence(self, confidence: int) -> None:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_SetConfidence(self, confidence)
+
+# Register CDecodedBarcodeElement in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CDecodedBarcodeElement_register(DecodedBarcodeElement)
+class ExtendedBarcodeResult(DecodedBarcodeElement):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined - class is abstract")
+    
+
+    def get_extended_barcode_result_type(self) -> int:
+        return _DynamsoftBarcodeReader.CExtendedBarcodeResult_GetExtendedBarcodeResultType(self)
+
+    def get_deformation(self) -> int:
+        return _DynamsoftBarcodeReader.CExtendedBarcodeResult_GetDeformation(self)
+
+    def get_clarity(self) -> int:
+        return _DynamsoftBarcodeReader.CExtendedBarcodeResult_GetClarity(self)
+
+    def get_sampling_image(self) -> ImageData:
+        return _DynamsoftBarcodeReader.CExtendedBarcodeResult_GetSamplingImage(self)
+
+# Register CExtendedBarcodeResult in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CExtendedBarcodeResult_register(ExtendedBarcodeResult)
+class CandidateBarcodeZone(object):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    
+    def __init__(self, location: Quadrilateral=None, possibleFormats: int=None):
+        if (location is not None) != (possibleFormats is not None):
+            raise TypeError("CandidateBarcodeZone() requires either 0 or 2 arguments")
+        _DynamsoftBarcodeReader.Class_init(self, _DynamsoftBarcodeReader.new_CCandidateBarcodeZone(location, possibleFormats))
+
+    def get_location(self) -> Quadrilateral:
+        return _DynamsoftBarcodeReader.CCandidateBarcodeZone_GetLocation(self)
+
+    def set_location(self, loc: Quadrilateral) -> None:
+        return _DynamsoftBarcodeReader.CCandidateBarcodeZone_SetLocation(self, loc)
+
+    def get_possible_formats(self) -> int:
+        return _DynamsoftBarcodeReader.CCandidateBarcodeZone_GetPossibleFormats(self)
+
+    def set_possible_formats(self, formats: int) -> None:
+        return _DynamsoftBarcodeReader.CCandidateBarcodeZone_SetPossibleFormats(self, formats)
+    __destroy__ = _DynamsoftBarcodeReader.delete_CCandidateBarcodeZone
+
+# Register CCandidateBarcodeZone in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CCandidateBarcodeZone_register(CandidateBarcodeZone)
+class CandidateBarcodeZonesUnit(IntermediateResultUnit):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined - class is abstract")
+    
+
+    def get_count(self) -> int:
+        return _DynamsoftBarcodeReader.CCandidateBarcodeZonesUnit_GetCount(self)
+    
+    def get_candidate_barcode_zone(self, index: int) -> Tuple[int, CandidateBarcodeZone]:
+        return _DynamsoftBarcodeReader.CCandidateBarcodeZonesUnit_GetCandidateBarcodeZone(self, index)
+
+    def remove_all_candidate_barcode_zones(self) -> None:
+        return _DynamsoftBarcodeReader.CCandidateBarcodeZonesUnit_RemoveAllCandidateBarcodeZones(self)
+
+    def remove_candidate_barcode_zone(self, index: int) -> None:
+        return _DynamsoftBarcodeReader.CCandidateBarcodeZonesUnit_RemoveCandidateBarcodeZone(self, index)
+    def add_candidate_barcode_zone(self, barcode_zone: CandidateBarcodeZone, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
+        return _DynamsoftBarcodeReader.CCandidateBarcodeZonesUnit_AddCandidateBarcodeZone(self, barcode_zone, matrix_to_original_image)
+
+    def set_candidate_barcode_zone(self, index: int, barcode_zone: CandidateBarcodeZone, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
+        return _DynamsoftBarcodeReader.CCandidateBarcodeZonesUnit_SetCandidateBarcodeZone(self, index, barcode_zone, matrix_to_original_image)
+
+# Register CCandidateBarcodeZonesUnit in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CCandidateBarcodeZonesUnit_register(CandidateBarcodeZonesUnit)
+
+class LocalizedBarcodesUnit(IntermediateResultUnit):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined - class is abstract")
+    
+
+    def get_count(self) -> int:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodesUnit_GetCount(self)
+
+    def get_localized_barcode(self, index: int) -> LocalizedBarcodeElement:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodesUnit_GetLocalizedBarcode(self, index)
+
+    def remove_all_localized_barcodes(self) -> None:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodesUnit_RemoveAllLocalizedBarcodes(self)
+
+    def remove_localized_barcode(self, index: int) -> None:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodesUnit_RemoveLocalizedBarcode(self, index)
+
+    def add_localized_barcode(self, element: LocalizedBarcodeElement, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodesUnit_AddLocalizedBarcode(self, element, matrix_to_original_image)
+
+    def set_localized_barcode(self, index: int, element: LocalizedBarcodeElement, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodesUnit_SetLocalizedBarcode(self, index, element, matrix_to_original_image)
+
+# Register CLocalizedBarcodesUnit in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CLocalizedBarcodesUnit_register(LocalizedBarcodesUnit)
+
+class ScaledUpBarcodeImageUnit(IntermediateResultUnit):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined - class is abstract")
+    
+    def get_image_data(self) -> ImageData:
+        return _DynamsoftBarcodeReader.CScaledUpBarcodeImageUnit_GetImageData(self)
+
+    def set_image_data(self, image_data: ImageData) -> int:
+        return _DynamsoftBarcodeReader.CScaledUpBarcodeImageUnit_SetImageData(self, image_data)
+
+# Register CScaledUpBarcodeImageUnit in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CScaledUpBarcodeImageUnit_register(ScaledUpBarcodeImageUnit)
+class DeformationResistedBarcode(object):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    
+    __destroy__ = _DynamsoftBarcodeReader.delete_CDeformationResistedBarcode
+
+    def __init__(self, *args):
+        _DynamsoftBarcodeReader.Class_init(self, _DynamsoftBarcodeReader.new_CDeformationResistedBarcode(*args))
+
+    def get_image_data(self)  -> ImageData:
+        return _DynamsoftBarcodeReader.CDeformationResistedBarcode_GetImageData(self)
+
+    def set_image_data(self, img: ImageData) -> None:
+        return _DynamsoftBarcodeReader.CDeformationResistedBarcode_SetImageData(self, img)
+
+    def get_location(self) -> Quadrilateral:
+        return _DynamsoftBarcodeReader.CDeformationResistedBarcode_GetLocation(self)
+
+    def set_location(self, loc: Quadrilateral) -> None:
+        return _DynamsoftBarcodeReader.CDeformationResistedBarcode_SetLocation(self, loc)
+
+    def get_format(self) -> int:
+        return _DynamsoftBarcodeReader.CDeformationResistedBarcode_GetFormat(self)
+
+    def set_format(self, format: int) -> None:
+        return _DynamsoftBarcodeReader.CDeformationResistedBarcode_SetFormat(self, format)
+
+# Register CDeformationResistedBarcode in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CDeformationResistedBarcode_register(DeformationResistedBarcode)
+
+class DeformationResistedBarcodeImageUnit(IntermediateResultUnit):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined - class is abstract")
+    
+    def get_deformation_resisted_barcode(self) -> DeformationResistedBarcode:
+        return _DynamsoftBarcodeReader.CDeformationResistedBarcodeImageUnit_GetDeformationResistedBarcode(self)
+
+    def set_deformation_resisted_barcode(self, barcode: DeformationResistedBarcode, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
+        return _DynamsoftBarcodeReader.CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode(self, barcode, matrix_to_original_image)
+
+# Register CDeformationResistedBarcodeImageUnit in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CDeformationResistedBarcodeImageUnit_register(DeformationResistedBarcodeImageUnit)
+
+class ComplementedBarcodeImageUnit(IntermediateResultUnit):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined - class is abstract")
+    
+    def get_image_data(self) -> ImageData:
+        return _DynamsoftBarcodeReader.CComplementedBarcodeImageUnit_GetImageData(self)
+
+    def get_location(self) -> Quadrilateral:
+        return _DynamsoftBarcodeReader.CComplementedBarcodeImageUnit_GetLocation(self)
+
+    def set_location(self, location: Quadrilateral, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
+        return _DynamsoftBarcodeReader.CComplementedBarcodeImageUnit_SetLocation(self, location, matrix_to_original_image)
+
+# Register CComplementedBarcodeImageUnit in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CComplementedBarcodeImageUnit_register(ComplementedBarcodeImageUnit)
+class DecodedBarcodesUnit(IntermediateResultUnit):
+    _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined - class is abstract")
+    
+
+    def get_count(self) -> int:
+        return _DynamsoftBarcodeReader.CDecodedBarcodesUnit_GetCount(self)
+
+    def get_decoded_barcode(self, index: int) -> DecodedBarcodeElement:
+        return _DynamsoftBarcodeReader.CDecodedBarcodesUnit_GetDecodedBarcode(self, index)
+
+    def remove_all_decoded_barcodes(self) -> None:
+        return _DynamsoftBarcodeReader.CDecodedBarcodesUnit_RemoveAllDecodedBarcodes(self)
+
+    def set_decoded_barcode(self, element: DecodedBarcodeElement, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
+        return _DynamsoftBarcodeReader.CDecodedBarcodesUnit_SetDecodedBarcode(self, element, matrix_to_original_image)
+
+# Register CDecodedBarcodesUnit in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CDecodedBarcodesUnit_register(DecodedBarcodesUnit)
+
+class BarcodeReaderModule:
     """
     The BarcodeReaderModule class defines general functions in the barcode reader module.
 
     Methods:
         get_version() -> str: Returns the version of the barcode reader module.
     """
-    thisown = property(
+    _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
@@ -836,7 +1114,7 @@ class BarcodeReaderModule(object):
         return __version__ + " (Algotithm " + _DynamsoftBarcodeReader.CBarcodeReaderModule_GetVersion() + ")"
 
     def __init__(self):
-        _DynamsoftBarcodeReader.CBarcodeReaderModule_init(
+        _DynamsoftBarcodeReader.Class_init(
             self, _DynamsoftBarcodeReader.new_CBarcodeReaderModule()
         )
 
