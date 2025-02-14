@@ -5019,7 +5019,6 @@ void
 
   SWIG_InstallConstants(d, swig_const_table);
 
-  SWIG_Python_SetConstant(d, "DYNAMSOFT_LICENSE_VERSION", SWIG_FromCharPtr("3.2.30.1028"));
   DC_SetClientRemark("{\"edition\":\"python\"}");
 #if PY_VERSION_HEX >= 0x03000000
   return m;

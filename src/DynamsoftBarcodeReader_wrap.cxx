@@ -3426,7 +3426,7 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResult swig_types[47]
 #define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement swig_types[48]
 #define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit swig_types[49]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit swig_types[50]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit swig_types[50]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CBinaryImageUnit swig_types[51]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CColourImageUnit swig_types[52]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CContoursUnit swig_types[53]
@@ -3437,7 +3437,7 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionElement swig_types[58]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit swig_types[59]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CRegionObjectElement swig_types[60]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CScaledDownColourImageUnit swig_types[61]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CScaledColourImageUnit swig_types[61]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CShortLinesUnit swig_types[62]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit swig_types[63]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CTextZonesUnit swig_types[64]
@@ -3449,8 +3449,9 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_float swig_types[70]
 #define SWIGTYPE_p_tagSimplifiedBarcodeReaderSettings swig_types[71]
 #define SWIGTYPE_p_unsigned_char swig_types[72]
-static swig_type_info *swig_types[74];
-static swig_module_info swig_module = {swig_types, 73, 0, 0, 0, 0};
+#define SWIGTYPE_p_dynamsoft_basic_structures_CCapturedResultBase swig_types[73]
+static swig_type_info *swig_types[75];
+static swig_module_info swig_module = {swig_types, 74, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -11031,6 +11032,126 @@ extern "C"
     return NULL;
   }
 
+  PyObject* PyObject_GetAttrString_withNoException(PyObject* obj, const char* attr)
+  {
+    PyObject* attr_value = PyObject_GetAttrString(obj, attr);
+    if (!attr_value)
+    {
+      if (PyErr_Occurred())
+      {
+        PyErr_Clear();
+      }
+    }
+    return attr_value;
+  }
+  
+  static bool getCpointArraryFromPyList(PyObject *list, dynamsoft::basic_structures::CPoint **array, int *length)
+  {
+    (*length) = 0;
+    Py_ssize_t list_size;
+    if (!PyList_Check(list))
+    {
+      return false;
+    }
+    list_size = PyList_Size(list);
+    (*array) = new dynamsoft::basic_structures::CPoint[list_size];
+    for (Py_ssize_t i = 0; i < list_size; ++i)
+    {
+      PyObject *item = PyList_GetItem(list, i);
+      if (item == NULL)
+      {
+        delete[] (*array);
+        return false;
+      }
+      dynamsoft::basic_structures::CPoint *p = 0;
+      int res3 = SWIG_ConvertPtr(item, (void **)&p, SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t, 0 | 0);
+      if (!SWIG_IsOK(res3))
+      {
+        delete[] (*array);
+        return false;
+      }
+      (*array)[i].Set((*p)[0], (*p)[1]);
+    }
+    (*length) = (int)list_size;
+    return true;
+  }
+
+  static void UpdateCQuadrilateralPointsFromPythonObject(dynamsoft::basic_structures::CQuadrilateral *quad, PyObject *obj)
+  {
+    if (quad == NULL || obj == NULL) 
+        return;
+
+    PyObject* attr_value = PyObject_GetAttrString_withNoException(obj, "_point_list");
+    if (!attr_value)
+        return;
+    dynamsoft::basic_structures::CPoint* array = nullptr;
+    int length = 0;
+    if(getCpointArraryFromPyList(attr_value, &array, &length) && length==4)
+    {
+      for(int i = 0; i < 4; i++)
+        quad->points[i] = array[i];
+      delete[] array, array = nullptr;
+    }
+    Py_DECREF(attr_value);
+  }
+
+  SWIGINTERN PyObject *_wrap_CLocalizedBarcodeElement_SetLocation(PyObject *self, PyObject *args)
+  {
+    int result = 0;
+    PyObject *resultobj = 0;
+    dynamsoft::dbr::intermediate_results::CLocalizedBarcodeElement *arg1 = (dynamsoft::dbr::intermediate_results::CLocalizedBarcodeElement *)0;
+    dynamsoft::basic_structures::CQuadrilateral *arg2 = 0;
+    void *argp1 = 0;
+    int res1 = 0;
+    void *argp2 = 0;
+    int res2 = 0;
+    PyObject *swig_obj[2];
+
+    if (!SWIG_Python_UnpackTuple(args, "CLocalizedBarcodeElement_SetLocation", 2, 2, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CLocalizedBarcodeElement_SetLocation"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::dbr::intermediate_results::CLocalizedBarcodeElement *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CLocalizedBarcodeElement *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CLocalizedBarcodeElement_SetLocation"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CQuadrilateral const &"
+                                               "'");
+    }
+    if (!argp2)
+    {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference "
+                                           "in method '"
+                                           "CLocalizedBarcodeElement_SetLocation"
+                                           "', argument "
+                                           "2"
+                                           " of type '"
+                                           "dynamsoft::basic_structures::CQuadrilateral const &"
+                                           "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp2);
+    UpdateCQuadrilateralPointsFromPythonObject(arg2, swig_obj[1]);
+    result = (arg1)->SetLocation((dynamsoft::basic_structures::CQuadrilateral const &)*arg2);
+    resultobj = SWIG_From_int(static_cast<int>(result));
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
   SWIGINTERN PyObject *CLocalizedBarcodeElement_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
   {
     PyObject *obj;
@@ -11570,7 +11691,7 @@ extern "C"
   {
     PyObject *resultobj = 0;
     dynamsoft::dbr::intermediate_results::CDecodedBarcodeElement *arg1 = (dynamsoft::dbr::intermediate_results::CDecodedBarcodeElement *)0;
-    unsigned char *arg2 = (unsigned char *)0;
+    char *arg2 = (char *)0;
     int arg3;
     void *argp1 = 0;
     int res1 = 0;
@@ -11578,9 +11699,9 @@ extern "C"
     int res2 = 0;
     int val3;
     int ecode3 = 0;
-    PyObject *swig_obj[3];
+    PyObject *swig_obj[2];
 
-    if (!SWIG_Python_UnpackTuple(args, "CDecodedBarcodeElement_SetBytes", 3, 3, swig_obj))
+    if (!SWIG_Python_UnpackTuple(args, "CDecodedBarcodeElement_SetBytes", 2, 2, swig_obj))
       SWIG_fail;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodeElement, 0 | 0);
     if (!SWIG_IsOK(res1))
@@ -11595,8 +11716,11 @@ extern "C"
     }
     arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CDecodedBarcodeElement *>(argp1);
     // res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_unsigned_char, 0 | 0);
-    res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg3);
-    if (!SWIG_IsOK(res2))
+    // res2 = PyBytes_AsStringAndSize(swig_obj[1], (char**)&arg2, (Py_ssize_t *)&arg3);
+    // if (!SWIG_IsOK(res2))
+    arg2 = PyBytes_AsString(swig_obj[1]);
+    arg3 = PyBytes_Size(swig_obj[1]);
+    if (!arg2 || arg3 == 0)
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
                                                "CDecodedBarcodeElement_SetBytes"
@@ -11619,7 +11743,7 @@ extern "C"
     //                                              "'");
     // }
     // arg3 = static_cast<int>(val3);
-    (arg1)->SetBytes(arg2, arg3);
+    (arg1)->SetBytes((unsigned char*)arg2, arg3);
     resultobj = SWIG_Py_Void();
     return resultobj;
   fail:
@@ -11665,6 +11789,62 @@ extern "C"
     arg2 = static_cast<int>(val2);
     (arg1)->SetConfidence(arg2);
     resultobj = SWIG_Py_Void();
+    return resultobj;
+  fail:
+    return NULL;
+  }
+  SWIGINTERN PyObject *_wrap_CDecodedBarcodeElement_SetLocation(PyObject *self, PyObject *args)
+  {
+    int result = 0;
+    PyObject *resultobj = 0;
+    dynamsoft::dbr::intermediate_results::CDecodedBarcodeElement *arg1 = (dynamsoft::dbr::intermediate_results::CDecodedBarcodeElement *)0;
+    dynamsoft::basic_structures::CQuadrilateral *arg2 = 0;
+    void *argp1 = 0;
+    int res1 = 0;
+    void *argp2 = 0;
+    int res2 = 0;
+    PyObject *swig_obj[2];
+
+    if (!SWIG_Python_UnpackTuple(args, "CDecodedBarcodeElement_SetLocation", 2, 2, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodeElement, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CDecodedBarcodeElement_SetLocation"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::dbr::intermediate_results::CDecodedBarcodeElement *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CDecodedBarcodeElement *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CDecodedBarcodeElement_SetLocation"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CQuadrilateral const &"
+                                               "'");
+    }
+    if (!argp2)
+    {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference "
+                                           "in method '"
+                                           "CDecodedBarcodeElement_SetLocation"
+                                           "', argument "
+                                           "2"
+                                           " of type '"
+                                           "dynamsoft::basic_structures::CQuadrilateral const &"
+                                           "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp2);
+    UpdateCQuadrilateralPointsFromPythonObject(arg2, swig_obj[1]);
+    result = (arg1)->SetLocation((dynamsoft::basic_structures::CQuadrilateral const &)*arg2);
+    resultobj = SWIG_From_int(static_cast<int>(result));
     return resultobj;
   fail:
     return NULL;
@@ -11850,31 +12030,39 @@ extern "C"
                                                "dynamsoft::basic_structures::CQuadrilateral const &"
                                                "'");
     }
-    if (!argp1)
-    {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference "
-                                           "in method '"
-                                           "new_CCandidateBarcodeZone"
-                                           "', argument "
-                                           "1"
-                                           " of type '"
-                                           "dynamsoft::basic_structures::CQuadrilateral const &"
-                                           "'");
-    }
+    // if (!argp1)
+    // {
+    //   SWIG_exception_fail(SWIG_ValueError, "invalid null reference "
+    //                                        "in method '"
+    //                                        "new_CCandidateBarcodeZone"
+    //                                        "', argument "
+    //                                        "1"
+    //                                        " of type '"
+    //                                        "dynamsoft::basic_structures::CQuadrilateral const &"
+    //                                        "'");
+    // }
     arg1 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp1);
-    ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(swig_obj[1], &val2);
-    if (!SWIG_IsOK(ecode2))
+    if(arg1)
     {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '"
-                                                 "new_CCandidateBarcodeZone"
-                                                 "', argument "
-                                                 "2"
-                                                 " of type '"
-                                                 "unsigned long long"
-                                                 "'");
+      UpdateCQuadrilateralPointsFromPythonObject(arg1, swig_obj[0]);
+      ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(swig_obj[1], &val2);
+      if (!SWIG_IsOK(ecode2))
+      {
+        SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '"
+                                                  "new_CCandidateBarcodeZone"
+                                                  "', argument "
+                                                  "2"
+                                                  " of type '"
+                                                  "unsigned long long"
+                                                  "'");
+      }
+      arg2 = static_cast<unsigned long long>(val2);
+      result = (dynamsoft::dbr::intermediate_results::CCandidateBarcodeZone *)new dynamsoft::dbr::intermediate_results::CCandidateBarcodeZone((dynamsoft::basic_structures::CQuadrilateral const &)*arg1, arg2);
     }
-    arg2 = static_cast<unsigned long long>(val2);
-    result = (dynamsoft::dbr::intermediate_results::CCandidateBarcodeZone *)new dynamsoft::dbr::intermediate_results::CCandidateBarcodeZone((dynamsoft::basic_structures::CQuadrilateral const &)*arg1, arg2);
+    else
+    {
+      result = (dynamsoft::dbr::intermediate_results::CCandidateBarcodeZone *)new dynamsoft::dbr::intermediate_results::CCandidateBarcodeZone();
+    }
     resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZone, SWIG_POINTER_NEW | 0);
     return resultobj;
   fail:
@@ -11887,31 +12075,10 @@ extern "C"
     PyObject *argv[3] = {
         0};
 
-    if (!(argc = SWIG_Python_UnpackTuple(args, "new_CCandidateBarcodeZone", 0, 2, argv)))
+    if (!(argc = SWIG_Python_UnpackTuple(args, "new_CCandidateBarcodeZone", 2, 2, argv)))
       SWIG_fail;
     --argc;
-    if (argc == 0)
-    {
-      return _wrap_new_CCandidateBarcodeZone__SWIG_0(self, argc, argv);
-    }
-    if (argc == 2)
-    {
-      int _v = 0;
-      int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, SWIG_POINTER_NO_NULL | 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        {
-          int res = SWIG_AsVal_unsigned_SS_long_SS_long(argv[1], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v)
-        {
-          return _wrap_new_CCandidateBarcodeZone__SWIG_1(self, argc, argv);
-        }
-      }
-    }
-
+    return _wrap_new_CCandidateBarcodeZone__SWIG_1(self, argc, argv);
   fail:
     SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'new_CCandidateBarcodeZone'.\n"
                                        "  Possible C/C++ prototypes are:\n"
@@ -11999,6 +12166,7 @@ extern "C"
                                            "'");
     }
     arg2 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp2);
+    UpdateCQuadrilateralPointsFromPythonObject(arg2, swig_obj[1]);
     (arg1)->SetLocation((dynamsoft::basic_structures::CQuadrilateral const &)*arg2);
     resultobj = SWIG_Py_Void();
     return resultobj;
@@ -12214,7 +12382,7 @@ extern "C"
     arg3 = new dynamsoft::dbr::intermediate_results::CCandidateBarcodeZone();
     result = (int)((dynamsoft::dbr::intermediate_results::CCandidateBarcodeZonesUnit const *)arg1)->GetCandidateBarcodeZone(arg2, arg3);
     resultobj = SWIG_From_int(static_cast<int>(result));
-    resultobj2 = SWIG_NewPointerObj(SWIG_as_voidptr(arg3), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZone, SWIG_POINTER_NEW | 0);
+    resultobj2 = SWIG_NewPointerObj(SWIG_as_voidptr(arg3), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZone, SWIG_POINTER_OWN | 0);
     tuple = PyTuple_New(2);
     PyTuple_SetItem(tuple, 0, resultobj);
     PyTuple_SetItem(tuple, 1, resultobj2);
@@ -12720,7 +12888,8 @@ extern "C"
     }
     arg2 = static_cast<int>(val2);
     result = (dynamsoft::dbr::intermediate_results::CLocalizedBarcodeElement *)((dynamsoft::dbr::intermediate_results::CLocalizedBarcodesUnit const *)arg1)->GetLocalizedBarcode(arg2);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement, 0 | 0);
+    result->Retain();
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement, SWIG_POINTER_OWN | 0);
     return resultobj;
   fail:
     return NULL;
@@ -13108,41 +13277,57 @@ extern "C"
     return SWIG_Py_Void();
   }
 
-  SWIGINTERN PyObject *_wrap_CScaledUpBarcodeImageUnit_GetImageData(PyObject *self, PyObject *args)
+  dynamsoft::basic_structures::CImageData * CImageData_Clone(const dynamsoft::basic_structures::CImageData *imgData)
+  {
+    return new dynamsoft::basic_structures::CImageData(
+      imgData->GetBytesLength(),
+      imgData->GetBytes(),
+      imgData->GetWidth(),
+      imgData->GetHeight(),
+      imgData->GetStride(),
+      imgData->GetImagePixelFormat(),
+      imgData->GetOrientation(),
+      imgData->GetImageTag()
+    );
+  }
+
+  SWIGINTERN PyObject *_wrap_CScaledBarcodeImageUnit_GetImageData(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
-    dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *arg1 = (dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *)0;
+    dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit *arg1 = (dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit *)0;
     void *argp1 = 0;
     int res1 = 0;
     PyObject *swig_obj[1];
     dynamsoft::basic_structures::CImageData *result = 0;
+    dynamsoft::basic_structures::CImageData *result2 = 0;
 
     if (!args)
       SWIG_fail;
     swig_obj[0] = args;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CScaledUpBarcodeImageUnit_GetImageData"
+                                               "CScaledBarcodeImageUnit_GetImageData"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit const *"
+                                               "dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit const *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *>(argp1);
-    result = (dynamsoft::basic_structures::CImageData *)((dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit const *)arg1)->GetImageData();
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit *>(argp1);
+    result = (dynamsoft::basic_structures::CImageData *)((dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit const *)arg1)->GetImageData();
+    result2 = CImageData_Clone(result);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result2), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
     return resultobj;
   fail:
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CScaledUpBarcodeImageUnit_SetImageData(PyObject *self, PyObject *args)
+  SWIGINTERN PyObject *_wrap_CScaledBarcodeImageUnit_SetImageData(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
-    dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *arg1 = (dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *)0;
+    dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit *arg1 = (dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     void *argp1 = 0;
     int res1 = 0;
@@ -13151,25 +13336,25 @@ extern "C"
     PyObject *swig_obj[2];
     int result;
 
-    if (!SWIG_Python_UnpackTuple(args, "CScaledUpBarcodeImageUnit_SetImageData", 2, 2, swig_obj))
+    if (!SWIG_Python_UnpackTuple(args, "CScaledBarcodeImageUnit_SetImageData", 2, 2, swig_obj))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CScaledUpBarcodeImageUnit_SetImageData"
+                                               "CScaledBarcodeImageUnit_SetImageData"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *"
+                                               "dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CScaledUpBarcodeImageUnit_SetImageData"
+                                               "CScaledBarcodeImageUnit_SetImageData"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -13184,12 +13369,12 @@ extern "C"
     return NULL;
   }
 
-  SWIGINTERN PyObject *CScaledUpBarcodeImageUnit_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
+  SWIGINTERN PyObject *CScaledBarcodeImageUnit_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
   {
     PyObject *obj;
     if (!SWIG_Python_UnpackTuple(args, "dynamsoftregister", 1, 1, &obj))
       return NULL;
-    SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit, SWIG_NewClientData(obj));
+    SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit, SWIG_NewClientData(obj));
     return SWIG_Py_Void();
   }
 
@@ -13291,19 +13476,6 @@ extern "C"
   fail:
     return NULL;
   }
-  dynamsoft::basic_structures::CImageData * CImageData_Clone(const dynamsoft::basic_structures::CImageData *imgData)
-  {
-    return new dynamsoft::basic_structures::CImageData(
-      imgData->GetBytesLength(),
-      imgData->GetBytes(),
-      imgData->GetWidth(),
-      imgData->GetHeight(),
-      imgData->GetStride(),
-      imgData->GetImagePixelFormat(),
-      imgData->GetOrientation(),
-      imgData->GetImageTag()
-    );
-  }
 
   SWIGINTERN PyObject *_wrap_new_CDeformationResistedBarcode__SWIG_2(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
@@ -13374,6 +13546,7 @@ extern "C"
                                            "'");
     }
     arg3 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp3);
+    UpdateCQuadrilateralPointsFromPythonObject(arg3, swig_obj[2]);
     ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
     if (!SWIG_IsOK(ecode4))
     {
@@ -13478,8 +13651,8 @@ extern "C"
     int res1 = 0;
     void *argp2 = 0;
     int res2 = 0;
-    PyObject *swig_obj[3];
-    if (!SWIG_Python_UnpackTuple(args, "CDeformationResistedBarcode_SetImageData", 3, 3, swig_obj))
+    PyObject *swig_obj[2];
+    if (!SWIG_Python_UnpackTuple(args, "CDeformationResistedBarcode_SetImageData", 2, 2, swig_obj))
       SWIG_fail;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcode, 0 | 0);
     if (!SWIG_IsOK(res1))
@@ -13610,6 +13783,7 @@ extern "C"
                                            "'");
     }
     arg2 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp2);
+    UpdateCQuadrilateralPointsFromPythonObject(arg2, swig_obj[1]);
     (arg1)->SetLocation((dynamsoft::basic_structures::CQuadrilateral const &)*arg2);
     resultobj = SWIG_Py_Void();
     return resultobj;
@@ -13841,6 +14015,7 @@ extern "C"
     int res1 = 0;
     PyObject *swig_obj[1];
     dynamsoft::basic_structures::CImageData *result = 0;
+    dynamsoft::basic_structures::CImageData *result2 = 0;
 
     if (!args)
       SWIG_fail;
@@ -13858,7 +14033,8 @@ extern "C"
     }
     arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CComplementedBarcodeImageUnit *>(argp1);
     result = (dynamsoft::basic_structures::CImageData *)((dynamsoft::dbr::intermediate_results::CComplementedBarcodeImageUnit const *)arg1)->GetImageData();
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    result2 = CImageData_Clone(result);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result2), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
     return resultobj;
   fail:
     return NULL;
@@ -13946,6 +14122,7 @@ extern "C"
                                            "'");
     }
     arg2 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp2);
+    UpdateCQuadrilateralPointsFromPythonObject(arg2, swig_obj[1]);
     // res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_double, 0 | 0);
     // if (!SWIG_IsOK(res3))
     // {
@@ -14026,6 +14203,7 @@ extern "C"
                                            "'");
     }
     arg2 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp2);
+    UpdateCQuadrilateralPointsFromPythonObject(arg2, swig_obj[1]);
     result = (int)(arg1)->SetLocation((dynamsoft::basic_structures::CQuadrilateral const &)*arg2);
     resultobj = SWIG_From_int(static_cast<int>(result));
     return resultobj;
@@ -14042,45 +14220,7 @@ extern "C"
     if (!(argc = SWIG_Python_UnpackTuple(args, "CComplementedBarcodeImageUnit_SetLocation", 0, 3, argv)))
       SWIG_fail;
     --argc;
-    if (argc == 2)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, SWIG_POINTER_NO_NULL | 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          return _wrap_CComplementedBarcodeImageUnit_SetLocation__SWIG_1(self, argc, argv);
-        }
-      }
-    }
-    if (argc == 3)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, SWIG_POINTER_NO_NULL | 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_double, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            return _wrap_CComplementedBarcodeImageUnit_SetLocation__SWIG_0(self, argc, argv);
-          }
-        }
-      }
-    }
-
+    return _wrap_CComplementedBarcodeImageUnit_SetLocation__SWIG_0(self, argc, argv);
   fail:
     SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'CComplementedBarcodeImageUnit_SetLocation'.\n"
                                        "  Possible C/C++ prototypes are:\n"
@@ -14168,7 +14308,8 @@ extern "C"
     }
     arg2 = static_cast<int>(val2);
     result = (dynamsoft::dbr::intermediate_results::CDecodedBarcodeElement *)((dynamsoft::dbr::intermediate_results::CDecodedBarcodesUnit const *)arg1)->GetDecodedBarcode(arg2);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodeElement, 0 | 0);
+    result->Retain();
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodeElement, SWIG_POINTER_OWN | 0);
     return resultobj;
   fail:
     return NULL;
@@ -14529,7 +14670,7 @@ extern "C"
     }
     arg1 = reinterpret_cast<dynamsoft::dbr::CBarcodeResultItem *>(argp1);
     result = ((dynamsoft::dbr::CBarcodeResultItem const *)arg1)->GetLocation();
-    resultobj = SWIG_NewPointerObj((new dynamsoft::basic_structures::CQuadrilateral(result)), SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, SWIG_POINTER_OWN | 0);
+    resultobj = SWIG_NewPointerObj((new dynamsoft::basic_structures::CQuadrilateral(result)), SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, SWIG_POINTER_NEW | 0);
     return resultobj;
   fail:
     return NULL;
@@ -14783,6 +14924,7 @@ extern "C"
                                            "'");
     }
     arg2 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp2);
+    UpdateCQuadrilateralPointsFromPythonObject(arg2, swig_obj[1]);
     result = (int)(arg1)->SetLocation((dynamsoft::basic_structures::CQuadrilateral const &)*arg2);
     resultobj = SWIG_From_int(static_cast<int>(result));
     return resultobj;
@@ -14993,7 +15135,8 @@ extern "C"
     }
     arg2 = static_cast<int>(val2);
     result = (dynamsoft::dbr::CBarcodeResultItem *)((dynamsoft::dbr::CDecodedBarcodesResult const *)arg1)->GetItem(arg2);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__dbr__CBarcodeResultItem, 0 | 0);
+    result->Retain();
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__dbr__CBarcodeResultItem, SWIG_POINTER_OWN | 0);
     return resultobj;
   fail:
     return NULL;
@@ -15496,6 +15639,7 @@ extern "C"
       {"CLocalizedBarcodeElement_GetModuleSize", _wrap_CLocalizedBarcodeElement_GetModuleSize, METH_O, NULL},
       {"CLocalizedBarcodeElement_GetConfidence", _wrap_CLocalizedBarcodeElement_GetConfidence, METH_O, NULL},
       {"CLocalizedBarcodeElement_SetPossibleFormats", _wrap_CLocalizedBarcodeElement_SetPossibleFormats, METH_VARARGS, NULL},
+      {"CLocalizedBarcodeElement_SetLocation", _wrap_CLocalizedBarcodeElement_SetLocation, METH_VARARGS, NULL},
       {"CLocalizedBarcodeElement_register", CLocalizedBarcodeElement_swigregister, METH_O, NULL},
       {"CDecodedBarcodeElement_GetFormat", _wrap_CDecodedBarcodeElement_GetFormat, METH_O, NULL},
       {"CDecodedBarcodeElement_GetFormatString", _wrap_CDecodedBarcodeElement_GetFormatString, METH_O, NULL},
@@ -15514,6 +15658,7 @@ extern "C"
       {"CDecodedBarcodeElement_SetText", _wrap_CDecodedBarcodeElement_SetText, METH_VARARGS, NULL},
       {"CDecodedBarcodeElement_SetBytes", _wrap_CDecodedBarcodeElement_SetBytes, METH_VARARGS, NULL},
       {"CDecodedBarcodeElement_SetConfidence", _wrap_CDecodedBarcodeElement_SetConfidence, METH_VARARGS, NULL},
+      {"CDecodedBarcodeElement_SetLocation", _wrap_CDecodedBarcodeElement_SetLocation, METH_VARARGS, NULL},
       {"CDecodedBarcodeElement_register", CDecodedBarcodeElement_swigregister, METH_O, NULL},
       {"CExtendedBarcodeResult_GetExtendedBarcodeResultType", _wrap_CExtendedBarcodeResult_GetExtendedBarcodeResultType, METH_O, NULL},
       {"CExtendedBarcodeResult_GetDeformation", _wrap_CExtendedBarcodeResult_GetDeformation, METH_O, NULL},
@@ -15542,9 +15687,9 @@ extern "C"
       {"CLocalizedBarcodesUnit_AddLocalizedBarcode", _wrap_CLocalizedBarcodesUnit_AddLocalizedBarcode, METH_VARARGS, NULL},
       {"CLocalizedBarcodesUnit_SetLocalizedBarcode", _wrap_CLocalizedBarcodesUnit_SetLocalizedBarcode, METH_VARARGS, NULL},
       {"CLocalizedBarcodesUnit_register", CLocalizedBarcodesUnit_swigregister, METH_O, NULL},
-      {"CScaledUpBarcodeImageUnit_GetImageData", _wrap_CScaledUpBarcodeImageUnit_GetImageData, METH_O, NULL},
-      {"CScaledUpBarcodeImageUnit_SetImageData", _wrap_CScaledUpBarcodeImageUnit_SetImageData, METH_VARARGS, NULL},
-      {"CScaledUpBarcodeImageUnit_register", CScaledUpBarcodeImageUnit_swigregister, METH_O, NULL},
+      {"CScaledBarcodeImageUnit_GetImageData", _wrap_CScaledBarcodeImageUnit_GetImageData, METH_O, NULL},
+      {"CScaledBarcodeImageUnit_SetImageData", _wrap_CScaledBarcodeImageUnit_SetImageData, METH_VARARGS, NULL},
+      {"CScaledBarcodeImageUnit_register", CScaledBarcodeImageUnit_swigregister, METH_O, NULL},
       {"delete_CDeformationResistedBarcode", _wrap_delete_CDeformationResistedBarcode, METH_O, NULL},
       {"new_CDeformationResistedBarcode", _wrap_new_CDeformationResistedBarcode, METH_VARARGS, NULL},
       {"CDeformationResistedBarcode_GetImageData", _wrap_CDeformationResistedBarcode_GetImageData, METH_O, NULL},
@@ -15664,9 +15809,9 @@ extern "C"
   static void *_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)  ((dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *) x));
   }
-  static void *_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
+  static void *_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
   {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *)x));
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit *)x));
   }
   static void *_p_dynamsoft__intermediate_results__CBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
   {
@@ -15696,9 +15841,9 @@ extern "C"
   {
     return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CPredetectedRegionsUnit *)x));
   }
-  static void *_p_dynamsoft__intermediate_results__CScaledDownColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
+  static void *_p_dynamsoft__intermediate_results__CScaledColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
   {
-    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CScaledDownColourImageUnit *)x));
+    return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CScaledColourImageUnit *)x));
   }
   static void *_p_dynamsoft__intermediate_results__CShortLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
   {
@@ -15744,6 +15889,11 @@ extern "C"
   {
     return (void *)((dynamsoft::intermediate_results::CRegionObjectElement *)((dynamsoft::intermediate_results::CPredetectedRegionElement *)x));
   }
+  static void *_p_dynamsoft__dbr__CDecodedBarcodesResultTo_p_dynamsoft_basic_structures_CCapturedResultBase(void *x, int *SWIGUNUSEDPARM(newmemory))
+  {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultBase *)((dynamsoft::dbr::CDecodedBarcodesResult *)x));
+  }
+
   static swig_type_info _swigt__p_BufferOverflowProtectionMode = {"_p_BufferOverflowProtectionMode", "BufferOverflowProtectionMode *|enum BufferOverflowProtectionMode *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_CapturedResultItemType = {"_p_CapturedResultItemType", "CapturedResultItemType *|enum CapturedResultItemType *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_ColourChannelUsageType = {"_p_ColourChannelUsageType", "ColourChannelUsageType *|enum ColourChannelUsageType *", 0, 0, (void *)0, 0};
@@ -15794,7 +15944,7 @@ extern "C"
   static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResult = {"_p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResult", "dynamsoft::dbr::intermediate_results::CExtendedBarcodeResult *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement = {"_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement", "dynamsoft::dbr::intermediate_results::CLocalizedBarcodeElement *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit = {"_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit", "dynamsoft::dbr::intermediate_results::CLocalizedBarcodesUnit *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit = {"_p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit", "dynamsoft::dbr::intermediate_results::CScaledUpBarcodeImageUnit *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit = {"_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit", "dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit = {"_p_dynamsoft__intermediate_results__CIntermediateResultUnit", "dynamsoft::intermediate_results::CIntermediateResultUnit *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit = {"_p_dynamsoft__intermediate_results__CBinaryImageUnit", 0, 0, 0, 0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CColourImageUnit = {"_p_dynamsoft__intermediate_results__CColourImageUnit", 0, 0, 0, 0, 0};
@@ -15803,7 +15953,7 @@ extern "C"
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit = {"_p_dynamsoft__intermediate_results__CGrayscaleImageUnit", 0, 0, 0, 0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit = {"_p_dynamsoft__intermediate_results__CLineSegmentsUnit", 0, 0, 0, 0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit = {"_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit", 0, 0, 0, 0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit = {"_p_dynamsoft__intermediate_results__CScaledDownColourImageUnit", 0, 0, 0, 0, 0};
+  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CScaledColourImageUnit = {"_p_dynamsoft__intermediate_results__CScaledColourImageUnit", 0, 0, 0, 0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CShortLinesUnit = {"_p_dynamsoft__intermediate_results__CShortLinesUnit", 0, 0, 0, 0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit = {"_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit", 0, 0, 0, 0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextZonesUnit = {"_p_dynamsoft__intermediate_results__CTextZonesUnit", 0, 0, 0, 0, 0};
@@ -15815,9 +15965,9 @@ extern "C"
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CPredetectedRegionElement = {"_p_dynamsoft__intermediate_results__CPredetectedRegionElement", 0, 0, 0, 0, 0};
   static swig_type_info _swigt__p_f_p_q_const__dynamsoft__basic_structures__CImageData__void = {"_p_f_p_q_const__dynamsoft__basic_structures__CImageData__void", "dynamsoft::dbr::intermediate_results::FreeImageFunc|void (*)(dynamsoft::basic_structures::CImageData const *)", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_signed_char = {"_p_signed_char", "BOOL *|signed char *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_tagSimplifiedBarcodeReaderSettings = {"_p_tagSimplifiedBarcodeReaderSettings", "SimplifiedBarcodeReaderSettings *|tagSimplifiedBarcodeReaderSettings *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_tagSimplifiedBarcodeReaderSettings = { "_p_tagSimplifiedBarcodeReaderSettings", "SimplifiedBarcodeReaderSettings *|tagSimplifiedBarcodeReaderSettings *", 0, 0, (void *)0, 0 };
   static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft_basic_structures_CCapturedResultBase = {"_p_dynamsoft_basic_structures_CCapturedResultBase", "dynamsoft::basic_structures::CCapturedResultBase *", 0, 0, (void *)0, 0};
 
   static swig_type_info *swig_type_initial[] = {
       &_swigt__p_BufferOverflowProtectionMode,
@@ -15870,7 +16020,7 @@ extern "C"
       &_swigt__p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResult,
       &_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement,
       &_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit,
-      &_swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit,
+      &_swigt__p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit,
       &_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit,
       &_swigt__p_dynamsoft__intermediate_results__CColourImageUnit,
       &_swigt__p_dynamsoft__intermediate_results__CContoursUnit,
@@ -15881,7 +16031,7 @@ extern "C"
       &_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionElement,
       &_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit,
       &_swigt__p_dynamsoft__intermediate_results__CRegionObjectElement,
-      &_swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit,
+      &_swigt__p_dynamsoft__intermediate_results__CScaledColourImageUnit,
       &_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit,
       &_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit,
       &_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit,
@@ -15891,9 +16041,9 @@ extern "C"
       &_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit,
       &_swigt__p_f_p_q_const__dynamsoft__basic_structures__CImageData__void,
       &_swigt__p_float,
-      &_swigt__p_signed_char,
       &_swigt__p_tagSimplifiedBarcodeReaderSettings,
       &_swigt__p_unsigned_char,
+      &_swigt__p_dynamsoft_basic_structures_CCapturedResultBase,
   };
 
   static swig_cast_info _swigc__p_BufferOverflowProtectionMode[] = {{&_swigt__p_BufferOverflowProtectionMode, 0, 0, 0}, {0, 0, 0, 0}};
@@ -15946,7 +16096,7 @@ extern "C"
   static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResult[] = {{&_swigt__p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResult, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement[] = {{&_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit[] = {{&_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit[] = {{&_swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit[] = {{&_swigt__p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CBinaryImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CColourImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CColourImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CContoursUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CContoursUnit, 0, 0, 0}, {0, 0, 0, 0}};
@@ -15954,7 +16104,7 @@ extern "C"
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CGrayscaleImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CLineSegmentsUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CScaledColourImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CScaledColourImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CShortLinesUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextZonesUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit, 0, 0, 0}, {0, 0, 0, 0}};
@@ -15962,14 +16112,15 @@ extern "C"
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CIntermediateResultUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit, _p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit, _p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit, _p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit, _p_dynamsoft__intermediate_results__CBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CColourImageUnit, _p_dynamsoft__intermediate_results__CColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CContoursUnit, _p_dynamsoft__intermediate_results__CContoursUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit, _p_dynamsoft__intermediate_results__CLineSegmentsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, _p_dynamsoft__intermediate_results__CPredetectedRegionsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit, _p_dynamsoft__intermediate_results__CScaledDownColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit, _p_dynamsoft__intermediate_results__CShortLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit, _p_dynamsoft__intermediate_results__CTextZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit, _p_dynamsoft__intermediate_results__CTextureDetectionResultUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},{0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CIntermediateResultUnit[] = {  {&_swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit, _p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit, _p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit, _p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit, _p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit, _p_dynamsoft__intermediate_results__CBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CColourImageUnit, _p_dynamsoft__intermediate_results__CColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CContoursUnit, _p_dynamsoft__intermediate_results__CContoursUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit, _p_dynamsoft__intermediate_results__CLineSegmentsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, _p_dynamsoft__intermediate_results__CPredetectedRegionsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CScaledColourImageUnit, _p_dynamsoft__intermediate_results__CScaledColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit, _p_dynamsoft__intermediate_results__CShortLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit, _p_dynamsoft__intermediate_results__CTextZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit, _p_dynamsoft__intermediate_results__CTextureDetectionResultUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},  {&_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0},{0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionElement[] = {{&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionElement, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CRegionObjectElement[] = {{&_swigt__p_dynamsoft__intermediate_results__CRegionObjectElement, 0, 0, 0}, {&_swigt__p_dynamsoft__dbr__intermediate_results__CDecodedBarcodeElement, _p_dynamsoft__dbr__intermediate_results__CDecodedBarcodeElementTo_p_dynamsoft__intermediate_results__CRegionObjectElement, 0, 0}, {&_swigt__p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResult, _p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResultTo_p_dynamsoft__intermediate_results__CRegionObjectElement, 0, 0}, {&_swigt__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement, _p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElementTo_p_dynamsoft__intermediate_results__CRegionObjectElement, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionElement, _p_dynamsoft__intermediate_results__CPredetectedRegionElementTo_p_dynamsoft__intermediate_results__CRegionObjectElement, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_f_p_q_const__dynamsoft__basic_structures__CImageData__void[] = {{&_swigt__p_f_p_q_const__dynamsoft__basic_structures__CImageData__void, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_float[] = {{&_swigt__p_float, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_signed_char[] = {{&_swigt__p_signed_char, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_tagSimplifiedBarcodeReaderSettings[] = {{&_swigt__p_tagSimplifiedBarcodeReaderSettings, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_unsigned_char[] = {{&_swigt__p_unsigned_char, 0, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft_basic_structures_CCapturedResultBase[] = {{&_swigt__p_dynamsoft_basic_structures_CCapturedResultBase, 0, 0, 0}, {&_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult, _p_dynamsoft__dbr__CDecodedBarcodesResultTo_p_dynamsoft_basic_structures_CCapturedResultBase, 0, 0}, {0, 0, 0, 0}};
+
 
   static swig_cast_info *swig_cast_initial[] = {
       _swigc__p_BufferOverflowProtectionMode,
@@ -16022,7 +16173,7 @@ extern "C"
       _swigc__p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResult,
       _swigc__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement,
       _swigc__p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit,
-      _swigc__p_dynamsoft__dbr__intermediate_results__CScaledUpBarcodeImageUnit,
+      _swigc__p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit,
       _swigc__p_dynamsoft__intermediate_results__CBinaryImageUnit,
       _swigc__p_dynamsoft__intermediate_results__CColourImageUnit,
       _swigc__p_dynamsoft__intermediate_results__CContoursUnit,
@@ -16033,7 +16184,7 @@ extern "C"
       _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionElement,
       _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit,
       _swigc__p_dynamsoft__intermediate_results__CRegionObjectElement,
-      _swigc__p_dynamsoft__intermediate_results__CScaledDownColourImageUnit,
+      _swigc__p_dynamsoft__intermediate_results__CScaledColourImageUnit,
       _swigc__p_dynamsoft__intermediate_results__CShortLinesUnit,
       _swigc__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit,
       _swigc__p_dynamsoft__intermediate_results__CTextZonesUnit,
@@ -16043,9 +16194,9 @@ extern "C"
       _swigc__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit,
       _swigc__p_f_p_q_const__dynamsoft__basic_structures__CImageData__void,
       _swigc__p_float,
-      _swigc__p_signed_char,
       _swigc__p_tagSimplifiedBarcodeReaderSettings,
       _swigc__p_unsigned_char,
+      _swigc__p_dynamsoft_basic_structures_CCapturedResultBase,
   };
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
@@ -16555,7 +16706,6 @@ void
 
   SWIG_InstallConstants(d, swig_const_table);
 
-  SWIG_Python_SetConstant(d, "DBR_VERSION", SWIG_FromCharPtr("10.4.10.1028"));
   SWIG_Python_SetConstant(d, "BF_NULL", PyLong_FromUnsignedLongLong((BF_NULL)));
   SWIG_Python_SetConstant(d, "BF_ALL", PyLong_FromUnsignedLongLong((BF_ALL)));
   SWIG_Python_SetConstant(d, "BF_DEFAULT", PyLong_FromUnsignedLongLong((BF_DEFAULT)));
@@ -16594,6 +16744,8 @@ void
   SWIG_Python_SetConstant(d, "BF_TWO_DIGIT_ADD_ON", PyLong_FromUnsignedLongLong((BF_TWO_DIGIT_ADD_ON)));
   SWIG_Python_SetConstant(d, "BF_FIVE_DIGIT_ADD_ON", PyLong_FromUnsignedLongLong((BF_FIVE_DIGIT_ADD_ON)));
   SWIG_Python_SetConstant(d, "BF_MATRIX_25", PyLong_FromUnsignedLongLong((BF_MATRIX_25)));
+  SWIG_Python_SetConstant(d, "BF_TELEPEN", PyLong_FromUnsignedLongLong((BF_TELEPEN)));
+  SWIG_Python_SetConstant(d, "BF_TELEPEN_NUMERIC", PyLong_FromUnsignedLongLong((BF_TELEPEN_NUMERIC)));
   SWIG_Python_SetConstant(d, "BF_POSTALCODE", PyLong_FromUnsignedLongLong((BF_POSTALCODE)));
   SWIG_Python_SetConstant(d, "BF_NONSTANDARD_BARCODE", PyLong_FromUnsignedLongLong((BF_NONSTANDARD_BARCODE)));
   SWIG_Python_SetConstant(d, "BF_USPSINTELLIGENTMAIL", PyLong_FromUnsignedLongLong((BF_USPSINTELLIGENTMAIL)));
@@ -16615,7 +16767,9 @@ void
   SWIG_Python_SetConstant(d, "LM_STATISTICS_POSTAL_CODE", SWIG_From_int(static_cast<int>(LM_STATISTICS_POSTAL_CODE)));
   SWIG_Python_SetConstant(d, "LM_CENTRE", SWIG_From_int(static_cast<int>(LM_CENTRE)));
   SWIG_Python_SetConstant(d, "LM_ONED_FAST_SCAN", SWIG_From_int(static_cast<int>(LM_ONED_FAST_SCAN)));
+  SWIG_Python_SetConstant(d, "LM_NEURAL_NETWORK", SWIG_From_int(static_cast<int>(LM_NEURAL_NETWORK)));
   SWIG_Python_SetConstant(d, "LM_REV", SWIG_From_int(static_cast<int>(LM_REV)));
+  SWIG_Python_SetConstant(d, "LM_END", SWIG_From_int(static_cast<int>(LM_END)));
   SWIG_Python_SetConstant(d, "LM_SKIP", SWIG_From_int(static_cast<int>(LM_SKIP)));
   SWIG_Python_SetConstant(d, "DM_DIRECT_BINARIZATION", SWIG_From_int(static_cast<int>(DM_DIRECT_BINARIZATION)));
   SWIG_Python_SetConstant(d, "DM_THRESHOLD_BINARIZATION", SWIG_From_int(static_cast<int>(DM_THRESHOLD_BINARIZATION)));
@@ -16626,7 +16780,9 @@ void
   SWIG_Python_SetConstant(d, "DM_SHARPENING", SWIG_From_int(static_cast<int>(DM_SHARPENING)));
   SWIG_Python_SetConstant(d, "DM_BASED_ON_LOC_BIN", SWIG_From_int(static_cast<int>(DM_BASED_ON_LOC_BIN)));
   SWIG_Python_SetConstant(d, "DM_SHARPENING_SMOOTHING", SWIG_From_int(static_cast<int>(DM_SHARPENING_SMOOTHING)));
+  SWIG_Python_SetConstant(d, "DM_NEURAL_NETWORK", SWIG_From_int(static_cast<int>(DM_NEURAL_NETWORK)));
   SWIG_Python_SetConstant(d, "DM_REV", SWIG_From_int(static_cast<int>(DM_REV)));
+  SWIG_Python_SetConstant(d, "DM_END", SWIG_From_int(static_cast<int>(DM_END)));
   SWIG_Python_SetConstant(d, "DM_SKIP", SWIG_From_int(static_cast<int>(DM_SKIP)));
   SWIG_Python_SetConstant(d, "QRECL_ERROR_CORRECTION_H", SWIG_From_int(static_cast<int>(QRECL_ERROR_CORRECTION_H)));
   SWIG_Python_SetConstant(d, "QRECL_ERROR_CORRECTION_L", SWIG_From_int(static_cast<int>(QRECL_ERROR_CORRECTION_L)));

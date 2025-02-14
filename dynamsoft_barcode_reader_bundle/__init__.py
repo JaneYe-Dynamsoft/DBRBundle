@@ -5,4 +5,4 @@ from .dip import *
 from .license import *
 from .utility import *
 
-__version__ = "10.4.2000"
+__version__ = "11.0.1000"

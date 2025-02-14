@@ -3433,8 +3433,9 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_tagSimplifiedCaptureVisionSettings swig_types[55]
 #define SWIGTYPE_p_tagSimplifiedLabelRecognizerSettings swig_types[56]
 #define SWIGTYPE_p_unsigned_char swig_types[57]
-static swig_type_info *swig_types[59];
-static swig_module_info swig_module = {swig_types, 58, 0, 0, 0, 0};
+#define SWIGTYPE_p_dynamsoft__basic_structures__CRect swig_types[58]
+static swig_type_info *swig_types[60];
+static swig_module_info swig_module = {swig_types, 59, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -4869,269 +4870,269 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   fail:
     return NULL;
   }
-  SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnOriginalImageResultReceived(PyObject *self, PyObject *args)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
-    dynamsoft::basic_structures::COriginalImageResultItem *arg2 = (dynamsoft::basic_structures::COriginalImageResultItem *)0;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    PyObject *swig_obj[2];
+  // SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnOriginalImageResultReceived(PyObject *self, PyObject *args)
+  // {
+  //   PyObject *resultobj = 0;
+  //   dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
+  //   dynamsoft::basic_structures::COriginalImageResultItem *arg2 = (dynamsoft::basic_structures::COriginalImageResultItem *)0;
+  //   void *argp1 = 0;
+  //   int res1 = 0;
+  //   void *argp2 = 0;
+  //   int res2 = 0;
+  //   PyObject *swig_obj[2];
 
-    if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnOriginalImageResultReceived", 2, 2, swig_obj))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnOriginalImageResultReceived"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CMultiFrameResultCrossFilter *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__COriginalImageResultItem, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnOriginalImageResultReceived"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::COriginalImageResultItem *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::COriginalImageResultItem *>(argp2);
-    (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnOriginalImageResultReceived(arg2);
-    resultobj = SWIG_Py_Void();
-    return resultobj;
-  fail:
-    return NULL;
-  }
+  //   if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnOriginalImageResultReceived", 2, 2, swig_obj))
+  //     SWIG_fail;
+  //   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
+  //   if (!SWIG_IsOK(res1))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnOriginalImageResultReceived"
+  //                                              "', argument "
+  //                                              "1"
+  //                                              " of type '"
+  //                                              "dynamsoft::utility::CMultiFrameResultCrossFilter *"
+  //                                              "'");
+  //   }
+  //   arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
+  //   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__COriginalImageResultItem, 0 | 0);
+  //   if (!SWIG_IsOK(res2))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnOriginalImageResultReceived"
+  //                                              "', argument "
+  //                                              "2"
+  //                                              " of type '"
+  //                                              "dynamsoft::basic_structures::COriginalImageResultItem *"
+  //                                              "'");
+  //   }
+  //   arg2 = reinterpret_cast<dynamsoft::basic_structures::COriginalImageResultItem *>(argp2);
+  //   (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnOriginalImageResultReceived(arg2);
+  //   resultobj = SWIG_Py_Void();
+  //   return resultobj;
+  // fail:
+  //   return NULL;
+  // }
 
-  SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived(PyObject *self, PyObject *args)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
-    dynamsoft::dbr::CDecodedBarcodesResult *arg2 = (dynamsoft::dbr::CDecodedBarcodesResult *)0;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    PyObject *swig_obj[2];
+  // SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived(PyObject *self, PyObject *args)
+  // {
+  //   PyObject *resultobj = 0;
+  //   dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
+  //   dynamsoft::dbr::CDecodedBarcodesResult *arg2 = (dynamsoft::dbr::CDecodedBarcodesResult *)0;
+  //   void *argp1 = 0;
+  //   int res1 = 0;
+  //   void *argp2 = 0;
+  //   int res2 = 0;
+  //   PyObject *swig_obj[2];
 
-    if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived", 2, 2, swig_obj))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CMultiFrameResultCrossFilter *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__dbr__CDecodedBarcodesResult, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::dbr::CDecodedBarcodesResult *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::dbr::CDecodedBarcodesResult *>(argp2);
-    (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnDecodedBarcodesReceived(arg2);
-    resultobj = SWIG_Py_Void();
-    return resultobj;
-  fail:
-    return NULL;
-  }
+  //   if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived", 2, 2, swig_obj))
+  //     SWIG_fail;
+  //   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
+  //   if (!SWIG_IsOK(res1))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived"
+  //                                              "', argument "
+  //                                              "1"
+  //                                              " of type '"
+  //                                              "dynamsoft::utility::CMultiFrameResultCrossFilter *"
+  //                                              "'");
+  //   }
+  //   arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
+  //   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__dbr__CDecodedBarcodesResult, 0 | 0);
+  //   if (!SWIG_IsOK(res2))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived"
+  //                                              "', argument "
+  //                                              "2"
+  //                                              " of type '"
+  //                                              "dynamsoft::dbr::CDecodedBarcodesResult *"
+  //                                              "'");
+  //   }
+  //   arg2 = reinterpret_cast<dynamsoft::dbr::CDecodedBarcodesResult *>(argp2);
+  //   (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnDecodedBarcodesReceived(arg2);
+  //   resultobj = SWIG_Py_Void();
+  //   return resultobj;
+  // fail:
+  //   return NULL;
+  // }
 
-  SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived(PyObject *self, PyObject *args)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
-    dynamsoft::dlr::CRecognizedTextLinesResult *arg2 = (dynamsoft::dlr::CRecognizedTextLinesResult *)0;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    PyObject *swig_obj[2];
+  // SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived(PyObject *self, PyObject *args)
+  // {
+  //   PyObject *resultobj = 0;
+  //   dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
+  //   dynamsoft::dlr::CRecognizedTextLinesResult *arg2 = (dynamsoft::dlr::CRecognizedTextLinesResult *)0;
+  //   void *argp1 = 0;
+  //   int res1 = 0;
+  //   void *argp2 = 0;
+  //   int res2 = 0;
+  //   PyObject *swig_obj[2];
 
-    if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived", 2, 2, swig_obj))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CMultiFrameResultCrossFilter *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__dlr__CRecognizedTextLinesResult, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::dlr::CRecognizedTextLinesResult *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::dlr::CRecognizedTextLinesResult *>(argp2);
-    (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnRecognizedTextLinesReceived(arg2);
-    resultobj = SWIG_Py_Void();
-    return resultobj;
-  fail:
-    return NULL;
-  }
+  //   if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived", 2, 2, swig_obj))
+  //     SWIG_fail;
+  //   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
+  //   if (!SWIG_IsOK(res1))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived"
+  //                                              "', argument "
+  //                                              "1"
+  //                                              " of type '"
+  //                                              "dynamsoft::utility::CMultiFrameResultCrossFilter *"
+  //                                              "'");
+  //   }
+  //   arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
+  //   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__dlr__CRecognizedTextLinesResult, 0 | 0);
+  //   if (!SWIG_IsOK(res2))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived"
+  //                                              "', argument "
+  //                                              "2"
+  //                                              " of type '"
+  //                                              "dynamsoft::dlr::CRecognizedTextLinesResult *"
+  //                                              "'");
+  //   }
+  //   arg2 = reinterpret_cast<dynamsoft::dlr::CRecognizedTextLinesResult *>(argp2);
+  //   (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnRecognizedTextLinesReceived(arg2);
+  //   resultobj = SWIG_Py_Void();
+  //   return resultobj;
+  // fail:
+  //   return NULL;
+  // }
 
-  SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnDetectedQuadsReceived(PyObject *self, PyObject *args)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
-    dynamsoft::ddn::CDetectedQuadsResult *arg2 = (dynamsoft::ddn::CDetectedQuadsResult *)0;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    PyObject *swig_obj[2];
+  // SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnDetectedQuadsReceived(PyObject *self, PyObject *args)
+  // {
+  //   PyObject *resultobj = 0;
+  //   dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
+  //   dynamsoft::ddn::CDetectedQuadsResult *arg2 = (dynamsoft::ddn::CDetectedQuadsResult *)0;
+  //   void *argp1 = 0;
+  //   int res1 = 0;
+  //   void *argp2 = 0;
+  //   int res2 = 0;
+  //   PyObject *swig_obj[2];
 
-    if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnDetectedQuadsReceived", 2, 2, swig_obj))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnDetectedQuadsReceived"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CMultiFrameResultCrossFilter *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadsResult, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnDetectedQuadsReceived"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::ddn::CDetectedQuadsResult *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::ddn::CDetectedQuadsResult *>(argp2);
-    (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnDetectedQuadsReceived(arg2);
-    resultobj = SWIG_Py_Void();
-    return resultobj;
-  fail:
-    return NULL;
-  }
+  //   if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnDetectedQuadsReceived", 2, 2, swig_obj))
+  //     SWIG_fail;
+  //   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
+  //   if (!SWIG_IsOK(res1))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnDetectedQuadsReceived"
+  //                                              "', argument "
+  //                                              "1"
+  //                                              " of type '"
+  //                                              "dynamsoft::utility::CMultiFrameResultCrossFilter *"
+  //                                              "'");
+  //   }
+  //   arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
+  //   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadsResult, 0 | 0);
+  //   if (!SWIG_IsOK(res2))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnDetectedQuadsReceived"
+  //                                              "', argument "
+  //                                              "2"
+  //                                              " of type '"
+  //                                              "dynamsoft::ddn::CDetectedQuadsResult *"
+  //                                              "'");
+  //   }
+  //   arg2 = reinterpret_cast<dynamsoft::ddn::CDetectedQuadsResult *>(argp2);
+  //   (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnDetectedQuadsReceived(arg2);
+  //   resultobj = SWIG_Py_Void();
+  //   return resultobj;
+  // fail:
+  //   return NULL;
+  // }
 
-  SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnNormalizedImagesReceived(PyObject *self, PyObject *args)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
-    dynamsoft::ddn::CNormalizedImagesResult *arg2 = (dynamsoft::ddn::CNormalizedImagesResult *)0;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    PyObject *swig_obj[2];
+  // SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnNormalizedImagesReceived(PyObject *self, PyObject *args)
+  // {
+  //   PyObject *resultobj = 0;
+  //   dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
+  //   dynamsoft::ddn::CNormalizedImagesResult *arg2 = (dynamsoft::ddn::CNormalizedImagesResult *)0;
+  //   void *argp1 = 0;
+  //   int res1 = 0;
+  //   void *argp2 = 0;
+  //   int res2 = 0;
+  //   PyObject *swig_obj[2];
 
-    if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnNormalizedImagesReceived", 2, 2, swig_obj))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnNormalizedImagesReceived"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CMultiFrameResultCrossFilter *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__ddn__CNormalizedImagesResult, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnNormalizedImagesReceived"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::ddn::CNormalizedImagesResult *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::ddn::CNormalizedImagesResult *>(argp2);
-    (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnNormalizedImagesReceived(arg2);
-    resultobj = SWIG_Py_Void();
-    return resultobj;
-  fail:
-    return NULL;
-  }
+  //   if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnNormalizedImagesReceived", 2, 2, swig_obj))
+  //     SWIG_fail;
+  //   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
+  //   if (!SWIG_IsOK(res1))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnNormalizedImagesReceived"
+  //                                              "', argument "
+  //                                              "1"
+  //                                              " of type '"
+  //                                              "dynamsoft::utility::CMultiFrameResultCrossFilter *"
+  //                                              "'");
+  //   }
+  //   arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
+  //   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__ddn__CNormalizedImagesResult, 0 | 0);
+  //   if (!SWIG_IsOK(res2))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnNormalizedImagesReceived"
+  //                                              "', argument "
+  //                                              "2"
+  //                                              " of type '"
+  //                                              "dynamsoft::ddn::CNormalizedImagesResult *"
+  //                                              "'");
+  //   }
+  //   arg2 = reinterpret_cast<dynamsoft::ddn::CNormalizedImagesResult *>(argp2);
+  //   (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnNormalizedImagesReceived(arg2);
+  //   resultobj = SWIG_Py_Void();
+  //   return resultobj;
+  // fail:
+  //   return NULL;
+  // }
 
-  SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnParsedResultsReceived(PyObject *self, PyObject *args)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
-    dynamsoft::dcp::CParsedResult *arg2 = (dynamsoft::dcp::CParsedResult *)0;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    PyObject *swig_obj[2];
+  // SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_OnParsedResultsReceived(PyObject *self, PyObject *args)
+  // {
+  //   PyObject *resultobj = 0;
+  //   dynamsoft::utility::CMultiFrameResultCrossFilter *arg1 = (dynamsoft::utility::CMultiFrameResultCrossFilter *)0;
+  //   dynamsoft::dcp::CParsedResult *arg2 = (dynamsoft::dcp::CParsedResult *)0;
+  //   void *argp1 = 0;
+  //   int res1 = 0;
+  //   void *argp2 = 0;
+  //   int res2 = 0;
+  //   PyObject *swig_obj[2];
 
-    if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnParsedResultsReceived", 2, 2, swig_obj))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnParsedResultsReceived"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CMultiFrameResultCrossFilter *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__dcp__CParsedResult, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CMultiFrameResultCrossFilter_OnParsedResultsReceived"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::dcp::CParsedResult *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::dcp::CParsedResult *>(argp2);
-    (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnParsedResultsReceived(arg2);
-    resultobj = SWIG_Py_Void();
-    return resultobj;
-  fail:
-    return NULL;
-  }
+  //   if (!SWIG_Python_UnpackTuple(args, "CMultiFrameResultCrossFilter_OnParsedResultsReceived", 2, 2, swig_obj))
+  //     SWIG_fail;
+  //   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0 | 0);
+  //   if (!SWIG_IsOK(res1))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnParsedResultsReceived"
+  //                                              "', argument "
+  //                                              "1"
+  //                                              " of type '"
+  //                                              "dynamsoft::utility::CMultiFrameResultCrossFilter *"
+  //                                              "'");
+  //   }
+  //   arg1 = reinterpret_cast<dynamsoft::utility::CMultiFrameResultCrossFilter *>(argp1);
+  //   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__dcp__CParsedResult, 0 | 0);
+  //   if (!SWIG_IsOK(res2))
+  //   {
+  //     SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+  //                                              "CMultiFrameResultCrossFilter_OnParsedResultsReceived"
+  //                                              "', argument "
+  //                                              "2"
+  //                                              " of type '"
+  //                                              "dynamsoft::dcp::CParsedResult *"
+  //                                              "'");
+  //   }
+  //   arg2 = reinterpret_cast<dynamsoft::dcp::CParsedResult *>(argp2);
+  //   (arg1)->dynamsoft::utility::CMultiFrameResultCrossFilter::OnParsedResultsReceived(arg2);
+  //   resultobj = SWIG_Py_Void();
+  //   return resultobj;
+  // fail:
+  //   return NULL;
+  // }
 
   SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_ClearStatus(PyObject *self, PyObject *args)
   {
@@ -7073,6 +7074,68 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                        "    dynamsoft::utility::CImageManager::SaveToFile(dynamsoft::basic_structures::CImageData const *,char const *)\n");
     return 0;
   }
+  static bool getCpointArraryFromPyList(PyObject *list, dynamsoft::basic_structures::CPoint **array, int *length)
+  {
+    (*length) = 0;
+    Py_ssize_t list_size;
+    if (!PyList_Check(list))
+    {
+      return false;
+    }
+    list_size = PyList_Size(list);
+    (*array) = new dynamsoft::basic_structures::CPoint[list_size];
+    for (Py_ssize_t i = 0; i < list_size; ++i)
+    {
+      PyObject *item = PyList_GetItem(list, i);
+      if (item == NULL)
+      {
+        delete[] (*array);
+        return false;
+      }
+      dynamsoft::basic_structures::CPoint *p = 0;
+      int res3 = SWIG_ConvertPtr(item, (void **)&p, SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t, 0 | 0);
+      if (!SWIG_IsOK(res3))
+      {
+        delete[] (*array);
+        return false;
+      }
+      (*array)[i].Set((*p)[0], (*p)[1]);
+    }
+    (*length) = (int)list_size;
+    return true;
+  }
+
+  PyObject* PyObject_GetAttrString_withNoException(PyObject* obj, const char* attr)
+  {
+    PyObject* attr_value = PyObject_GetAttrString(obj, attr);
+    if (!attr_value)
+    {
+      if (PyErr_Occurred())
+      {
+        PyErr_Clear();
+      }
+    }
+    return attr_value;
+  }
+
+  static void UpdateCQuadrilateralPointsFromPythonObject(dynamsoft::basic_structures::CQuadrilateral *quad, PyObject *obj)
+  {
+    if (quad == NULL || obj == NULL) 
+        return;
+
+    PyObject* attr_value = PyObject_GetAttrString_withNoException(obj, "_point_list");
+    if (!attr_value)
+        return;        
+    dynamsoft::basic_structures::CPoint* array = nullptr;
+    int length = 0;
+    if(getCpointArraryFromPyList(attr_value, &array, &length) && length==4)
+    {
+      for(int i = 0; i < 4; i++)
+        quad->points[i] = array[i];
+      delete[] array, array = nullptr;
+    }
+    Py_DECREF(attr_value);
+  }
 
   SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
@@ -7135,6 +7198,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg3 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp3);
+    UpdateCQuadrilateralPointsFromPythonObject(arg3, swig_obj[2]);
     ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
     if (!SWIG_IsOK(ecode4))
     {
@@ -7236,6 +7300,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg3 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp3);
+    UpdateCQuadrilateralPointsFromPythonObject(arg3, swig_obj[2]);
     ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
     if (!SWIG_IsOK(ecode4))
     {
@@ -7322,6 +7387,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg3 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp3);
+    UpdateCQuadrilateralPointsFromPythonObject(arg3, swig_obj[2]);
     ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
     if (!SWIG_IsOK(ecode4))
     {
@@ -8995,6 +9061,319 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return 0;
   }
 
+  SWIGINTERN PyObject *_wrap_CImageManager_ReadFromFile(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+
+    void *argp1 = 0;
+    int res1 = 0;
+
+    char *arg2 = (char *)0;
+    int res2;
+    char *buf2 = 0;
+    int alloc2 = 0;
+    PyObject *swig_obj[2];
+    dynamsoft::basic_structures::CImageData *result = (dynamsoft::basic_structures::CImageData *)0;
+    int error = 0;
+    PyObject *err;
+    PyObject *tuple;
+    if (!SWIG_Python_UnpackTuple(args, "CImageManager_ReadFromFile", 2, 2, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageManager_ReadFromFile"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageManager *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CImageManager_ReadFromFile"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "char const *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<char *>(buf2);
+    result = arg1->ReadFromFile(arg2, &error);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    err = SWIG_From_int(static_cast<int>(error));
+    tuple = PyTuple_New(2);
+    PyTuple_SetItem(tuple, 0, err);
+    PyTuple_SetItem(tuple, 1, resultobj);
+    if (alloc2 == SWIG_NEWOBJ)
+      delete[] buf2;
+    return tuple;
+  fail:
+    if (alloc2 == SWIG_NEWOBJ)
+      delete[] buf2;
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_CImageManager_ReadFromMemory(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+
+    void *argp1 = 0;
+    int res1 = 0;
+    char *arg2 = (char *)0;
+    int arg3 = 0;
+    PyObject *swig_obj[2];
+    dynamsoft::basic_structures::CImageData *result = (dynamsoft::basic_structures::CImageData *)0;
+    int error = 0;
+    PyObject *err;
+    PyObject *tuple;
+    if (!SWIG_Python_UnpackTuple(args, "CImageManager_ReadFromMemory", 2, 2, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageManager_ReadFromMemory"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageManager *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg2 = PyBytes_AsString(swig_obj[1]);
+    arg3 = PyBytes_Size(swig_obj[1]);
+    //if (!SWIG_IsOK(res2))
+    if (!arg2||arg3==0)
+    {
+      SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '"
+                                               "CImageManager_ReadFromMemory"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "unsigned char const *"
+                                               "'");
+    }
+    result = arg1->ReadFromMemory((unsigned char*)arg2, arg3, &error);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    err = SWIG_From_int(static_cast<int>(error));
+    tuple = PyTuple_New(2);
+    PyTuple_SetItem(tuple, 0, err);
+    PyTuple_SetItem(tuple, 1, resultobj);
+    return tuple;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_CImageManager_SaveToMemory(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    PyObject *bytesobj = 0;
+    PyObject *tuple = 0;
+    
+    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
+    int arg3 = 0;
+    unsigned char *arg4 = (unsigned char *)0;
+    int arg5 = 0;
+    void *argp1 = 0;
+    void *argp2 = 0;
+    int val3 = 0;
+    int res1 = 0;
+    int res2 = 0;
+    int res3 = 0;
+    PyObject *swig_obj[3];
+    int result;
+    if (!SWIG_Python_UnpackTuple(args, "CImageManager_SaveToMemory", 3, 3, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageManager_SaveToMemory"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageManager *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CImageManager_SaveToMemory"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CImageData *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
+    res3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    if (!SWIG_IsOK(res3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
+                                                 "CImageManager_SaveToMemory"
+                                                 "', argument "
+                                                 "3"
+                                                 " of type '"
+                                                 "int"
+                                                 "'");
+    }
+    arg3 = static_cast<int>(val3);
+    result = arg1->SaveToMemory(arg2, (ImageFileFormat)arg3, &arg4, &arg5);
+    resultobj = SWIG_From_int(static_cast<int>(result));
+    bytesobj = PyBytes_FromStringAndSize(reinterpret_cast<const char*>(arg4), arg5);
+    dynamsoft::basic_structures::CCoreModule::FreeBytes((void*)arg4);
+    tuple = PyTuple_New(2);
+    PyTuple_SetItem(tuple, 0, resultobj);
+    PyTuple_SetItem(tuple, 1, bytesobj);
+    return tuple;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_CImageManager_CropImageWithRect(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
+    dynamsoft::basic_structures::CRect *arg3 = (dynamsoft::basic_structures::CRect *)0;
+    void *argp1 = 0;
+    void *argp2 = 0;
+    void *argp3 = 0;
+    int res1 = 0;
+    int res2 = 0;
+    int res3 = 0;
+    PyObject *swig_obj[3];
+    dynamsoft::basic_structures::CImageData *result = (dynamsoft::basic_structures::CImageData *)0;
+    int error = 0;
+    PyObject *err;
+    PyObject *tuple;
+    if (!SWIG_Python_UnpackTuple(args, "CImageManager_CropImageWithRect", 3, 3, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageManager_CropImageWithRect"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageManager *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CImageManager_CropImageWithRect"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CImageData *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
+    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CRect, 0 | 0);
+    if (!SWIG_IsOK(res3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
+                                               "CImageManager_CropImageWithRect"
+                                               "', argument "
+                                               "3"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CRect *"
+                                               "'");
+    }
+    arg3 = reinterpret_cast<dynamsoft::basic_structures::CRect *>(argp3);
+
+    result = arg1->CropImage(arg2, (*arg3), &error);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    err = SWIG_From_int(static_cast<int>(error));
+    tuple = PyTuple_New(2);
+    PyTuple_SetItem(tuple, 0, err);
+    PyTuple_SetItem(tuple, 1, resultobj);
+    return tuple;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_CImageManager_CropImageWithQuadrilateral(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
+    dynamsoft::basic_structures::CQuadrilateral *arg3 = (dynamsoft::basic_structures::CQuadrilateral *)0;
+    void *argp1 = 0;
+    void *argp2 = 0;
+    void *argp3 = 0;
+    int res1 = 0;
+    int res2 = 0;
+    int res3 = 0;
+    PyObject *swig_obj[3];
+    dynamsoft::basic_structures::CImageData *result = (dynamsoft::basic_structures::CImageData *)0;
+    int error = 0;
+    PyObject *err;
+    PyObject *tuple;
+    if (!SWIG_Python_UnpackTuple(args, "CImageManager_CropImageWithQuadrilateral", 3, 3, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageManager_CropImageWithQuadrilateral"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageManager *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CImageManager_CropImageWithQuadrilateral"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CImageData *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
+    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0 | 0);
+    if (!SWIG_IsOK(res3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
+                                               "CImageManager_CropImageWithQuadrilateral"
+                                               "', argument "
+                                               "3"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CQuadrilateral *"
+                                               "'");
+    }
+    arg3 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp3);
+    UpdateCQuadrilateralPointsFromPythonObject(arg3, swig_obj[2]);
+    result = arg1->CropImage(arg2, (*arg3), &error);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    err = SWIG_From_int(static_cast<int>(error));
+    tuple = PyTuple_New(2);
+    PyTuple_SetItem(tuple, 0, err);
+    PyTuple_SetItem(tuple, 1, resultobj);
+    return tuple;
+  fail:
+    return NULL;
+  }
+
   SWIGINTERN PyObject *_wrap_new_CImageManager(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
@@ -9072,12 +9451,12 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       {"CMultiFrameResultCrossFilter_GetMaxOverlappingFrames", _wrap_CMultiFrameResultCrossFilter_GetMaxOverlappingFrames, METH_VARARGS, NULL},
       {"CMultiFrameResultCrossFilter_EnableLatestOverlapping", _wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping, METH_VARARGS, NULL},
       {"CMultiFrameResultCrossFilter_IsLatestOverlappingEnabled", _wrap_CMultiFrameResultCrossFilter_IsLatestOverlappingEnabled, METH_VARARGS, NULL},
-      {"CMultiFrameResultCrossFilter_OnOriginalImageResultReceived", _wrap_CMultiFrameResultCrossFilter_OnOriginalImageResultReceived, METH_VARARGS, NULL},
-      {"CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived", _wrap_CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived, METH_VARARGS, NULL},
-      {"CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived", _wrap_CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived, METH_VARARGS, NULL},
-      {"CMultiFrameResultCrossFilter_OnDetectedQuadsReceived", _wrap_CMultiFrameResultCrossFilter_OnDetectedQuadsReceived, METH_VARARGS, NULL},
-      {"CMultiFrameResultCrossFilter_OnNormalizedImagesReceived", _wrap_CMultiFrameResultCrossFilter_OnNormalizedImagesReceived, METH_VARARGS, NULL},
-      {"CMultiFrameResultCrossFilter_OnParsedResultsReceived", _wrap_CMultiFrameResultCrossFilter_OnParsedResultsReceived, METH_VARARGS, NULL},
+      // {"CMultiFrameResultCrossFilter_OnOriginalImageResultReceived", _wrap_CMultiFrameResultCrossFilter_OnOriginalImageResultReceived, METH_VARARGS, NULL},
+      // {"CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived", _wrap_CMultiFrameResultCrossFilter_OnDecodedBarcodesReceived, METH_VARARGS, NULL},
+      // {"CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived", _wrap_CMultiFrameResultCrossFilter_OnRecognizedTextLinesReceived, METH_VARARGS, NULL},
+      // {"CMultiFrameResultCrossFilter_OnDetectedQuadsReceived", _wrap_CMultiFrameResultCrossFilter_OnDetectedQuadsReceived, METH_VARARGS, NULL},
+      // {"CMultiFrameResultCrossFilter_OnNormalizedImagesReceived", _wrap_CMultiFrameResultCrossFilter_OnNormalizedImagesReceived, METH_VARARGS, NULL},
+      // {"CMultiFrameResultCrossFilter_OnParsedResultsReceived", _wrap_CMultiFrameResultCrossFilter_OnParsedResultsReceived, METH_VARARGS, NULL},
       {"CMultiFrameResultCrossFilter_ClearStatus", _wrap_CMultiFrameResultCrossFilter_ClearStatus, METH_O, NULL},
       {"CMultiFrameResultCrossFilter_register", CMultiFrameResultCrossFilter_swigregister, METH_O, NULL},
       // {"CMultiFrameResultCrossFilter_init", CMultiFrameResultCrossFilter_swiginit, METH_VARARGS, NULL},
@@ -9108,6 +9487,11 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       // {"CFileFetcher_init", CFileFetcher_swiginit, METH_VARARGS, NULL},
       {"CImageManager_SaveToFile", _wrap_CImageManager_SaveToFile, METH_VARARGS, NULL},
       {"CImageManager_DrawOnImage", _wrap_CImageManager_DrawOnImage, METH_VARARGS, NULL},
+      {"CImageManager_ReadFromFile", _wrap_CImageManager_ReadFromFile, METH_VARARGS, NULL},
+      {"CImageManager_ReadFromMemory", _wrap_CImageManager_ReadFromMemory, METH_VARARGS, NULL},
+      {"CImageManager_SaveToMemory", _wrap_CImageManager_SaveToMemory, METH_VARARGS, NULL},
+      {"CImageManager_CropImageWithRect", _wrap_CImageManager_CropImageWithRect, METH_VARARGS, NULL},
+      {"CImageManager_CropImageWithQuadrilateral", _wrap_CImageManager_CropImageWithQuadrilateral, METH_VARARGS, NULL},
       {"new_CImageManager", _wrap_new_CImageManager, METH_NOARGS, NULL},
       {"delete_CImageManager", _wrap_delete_CImageManager, METH_O, NULL},
       {"CImageManager_register", CImageManager_swigregister, METH_O, NULL},
@@ -9194,6 +9578,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   static swig_type_info _swigt__p_tagSimplifiedCaptureVisionSettings = {"_p_tagSimplifiedCaptureVisionSettings", "SimplifiedCaptureVisionSettings *|tagSimplifiedCaptureVisionSettings *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_tagSimplifiedLabelRecognizerSettings = {"_p_tagSimplifiedLabelRecognizerSettings", "SimplifiedLabelRecognizerSettings *|tagSimplifiedLabelRecognizerSettings *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft__basic_structures__CRect = {"_p_dynamsoft__basic_structures__CRect", "dynamsoft::basic_structures::CRect *", 0, 0, (void *)0, 0};
 
   static swig_type_info *swig_type_initial[] = {
       &_swigt__p_BufferOverflowProtectionMode,
@@ -9254,6 +9639,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       &_swigt__p_tagSimplifiedCaptureVisionSettings,
       &_swigt__p_tagSimplifiedLabelRecognizerSettings,
       &_swigt__p_unsigned_char,
+      &_swigt__p_dynamsoft__basic_structures__CRect,
   };
 
   static swig_cast_info _swigc__p_BufferOverflowProtectionMode[] = {{&_swigt__p_BufferOverflowProtectionMode, 0, 0, 0}, {0, 0, 0, 0}};
@@ -9314,6 +9700,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   static swig_cast_info _swigc__p_tagSimplifiedCaptureVisionSettings[] = {{&_swigt__p_tagSimplifiedCaptureVisionSettings, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_tagSimplifiedLabelRecognizerSettings[] = {{&_swigt__p_tagSimplifiedLabelRecognizerSettings, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_unsigned_char[] = {{&_swigt__p_unsigned_char, 0, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__basic_structures__CRect[] = {{&_swigt__p_dynamsoft__basic_structures__CRect, 0, 0, 0}, {0, 0, 0, 0}};
 
   static swig_cast_info *swig_cast_initial[] = {
       _swigc__p_BufferOverflowProtectionMode,
@@ -9374,6 +9761,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       _swigc__p_tagSimplifiedCaptureVisionSettings,
       _swigc__p_tagSimplifiedLabelRecognizerSettings,
       _swigc__p_unsigned_char,
+      _swigc__p_dynamsoft__basic_structures__CRect,
   };
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
@@ -9883,7 +10271,6 @@ void
 
   SWIG_InstallConstants(d, swig_const_table);
 
-  SWIG_Python_SetConstant(d, "DISA_VERSION", SWIG_FromCharPtr("1.4.10.1028"));
 #if PY_VERSION_HEX >= 0x03000000
   return m;
 #else

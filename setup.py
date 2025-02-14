@@ -59,7 +59,7 @@ elif sys.platform == "darwin":
 long_description = io.open("README.rst", encoding="utf-8").read()
 
 if sys.platform == "linux" or sys.platform == "linux2" or sys.platform == "darwin":
-    module_core = Extension('_DynamsoftCore', ['src/DynamsoftCore_wrap.cxx'],libraries = [core_lib_name], **ext_args)
+    module_core = Extension('_DynamsoftCore', ['src/DynamsoftCore_wrap.cxx'],libraries = [core_lib_name, dip_lib_name], **ext_args)
     module_cvr = Extension('_DynamsoftCaptureVisionRouter', ['src/DynamsoftCaptureVisionRouter_wrap.cxx'], libraries = [cvr_lib_name,core_lib_name], **ext_args)
     module_dbr = Extension('_DynamsoftBarcodeReader', ['src/DynamsoftBarcodeReader_wrap.cxx'], libraries = [dbr_lib_name,core_lib_name], **ext_args)
     module_dip = Extension('_DynamsoftImageProcessing', ['src/DynamsoftImageProcessing_wrap.cxx'], libraries = [dip_lib_name], **ext_args)
@@ -67,7 +67,7 @@ if sys.platform == "linux" or sys.platform == "linux2" or sys.platform == "darwi
     module_utility = Extension('_DynamsoftUtility', ['src/DynamsoftUtility_wrap.cxx'], libraries = [utility_lib_name,core_lib_name], **ext_args)
 
 else:      
-	module_core = Extension('_DynamsoftCore', sources=['src/DynamsoftCore_wrap.cxx'], include_dirs=['include'], library_dirs=[lib_dir],libraries=[core_lib_name])
+	module_core = Extension('_DynamsoftCore', sources=['src/DynamsoftCore_wrap.cxx'], include_dirs=['include'], library_dirs=[lib_dir],libraries=[core_lib_name, dip_lib_name])
 	module_cvr = Extension('_DynamsoftCaptureVisionRouter', sources=['src/DynamsoftCaptureVisionRouter_wrap.cxx'], include_dirs=['include'], library_dirs=[lib_dir],libraries=[cvr_lib_name,core_lib_name])
 	module_dbr = Extension('_DynamsoftBarcodeReader', sources=['src/DynamsoftBarcodeReader_wrap.cxx'], include_dirs=['include'], library_dirs=[lib_dir],libraries=[dbr_lib_name,core_lib_name])
 	module_dip = Extension('_DynamsoftImageProcessing', sources=['src/DynamsoftImageProcessing_wrap.cxx'], include_dirs=['include'], library_dirs=[lib_dir],libraries=[dip_lib_name])
@@ -126,7 +126,7 @@ class CustomInstall(install):
         install.run(self)
 
 setup (name = 'dynamsoft_barcode_reader_bundle',
-            version = '10.4.2000',
+            version = '11.0.1000',
             description = 'Dynamsoft Barcode Reader SDK for Python',
             long_description=long_description,
             long_description_content_type="text/x-rst",
@@ -154,6 +154,7 @@ setup (name = 'dynamsoft_barcode_reader_bundle',
                 "Programming Language :: Python :: 3.10",
                 "Programming Language :: Python :: 3.11",
                 "Programming Language :: Python :: 3.12",
+                "Programming Language :: Python :: 3.13",
                 "Programming Language :: C++",
                 "Programming Language :: Python :: Implementation :: CPython",
                 "Topic :: Scientific/Engineering",

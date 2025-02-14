@@ -3,7 +3,7 @@ Dynamsoft Barcode Reader SDK for Python
 |version| |python| |pypi| 
 
 .. |version| image:: https://img.shields.io/pypi/v/dynamsoft_barcode_reader_bundle?color=orange
-.. |python| image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue
+.. |python| image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue
 .. |pypi| image:: https://img.shields.io/pypi/dm/dynamsoft_barcode_reader_bundle
 
 
@@ -38,7 +38,7 @@ which is newly established to aggregate the features of functional products powe
 Version
 -------
 
--  10.4.2000
+-  11.0.1000
 
 Supported Platforms
 -------------------
@@ -51,6 +51,8 @@ Supported Platforms
 
 Supported Python Versions
 -------------------------
+-  Python3.13
+
 -  Python3.12
 
 -  Python3.11

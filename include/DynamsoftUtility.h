@@ -13,7 +13,7 @@
 
 
 #include"DynamsoftCaptureVisionRouter.h"
-#define DISA_VERSION "1.4.20.2248"
+#define DISA_VERSION "2.0.10.3625"
 
 #ifdef __cplusplus
 
@@ -22,7 +22,8 @@ using namespace dynamsoft::cvr;
 
 namespace dynamsoft {
 	namespace utility {
-
+#pragma pack(push)
+#pragma pack(4)
 		/**
 		 * The CUtilityModule class defines general functions in the utility module.
 		 */
@@ -30,7 +31,7 @@ namespace dynamsoft {
 		{
 		public:
 			/**
-			 * Get version information of utility module.
+			 * Gets version information of utility module.
 			 *
 			 * @return Returns the version information string.
 			 *
@@ -41,7 +42,7 @@ namespace dynamsoft {
 		/**
 		* The CMultiFrameResultCrossFilter class is responsible for filtering captured results.It contains 
 		* several callback functions for different types of results,including raw image,decoded barcodes, 
-		* recognized text lines,detected quads,normalized images,and parsed results.
+		* recognized text lines,detected quads,deskewed images,and parsed results.
 		*
 		*/
 		class UTIL_API CMultiFrameResultCrossFilter : public CCapturedResultFilter
@@ -56,7 +57,7 @@ namespace dynamsoft {
 			virtual ~CMultiFrameResultCrossFilter();
 
 			/**
-			* Enable result verification feature to improve the accuracy 
+			* Enables result verification feature to improve the accuracy 
 			* of video streaming recognition results.
 			*
 			* @param [in] resultItemTypes The or value of the captured result item types.
@@ -76,7 +77,7 @@ namespace dynamsoft {
 			bool IsResultCrossVerificationEnabled(CapturedResultItemType type) const;
 
 			/**
-			* Enable duplicate filter feature to filter out the duplicate results in 
+			* Enables duplicate filter feature to filter out the duplicate results in 
 			* the period of duplicateForgetTime for video streaming recognition. The 
 			* default value of duplicateForgetTime is 3000ms.
 			*
@@ -142,7 +143,7 @@ namespace dynamsoft {
 			int GetMaxOverlappingFrames(CapturedResultItemType resultItemType) const;
 
 			/**
-			* Enable to-the-latest overlapping feature. The output decoded barcode result will become a combination of the recent results if the  latest frame is proved to be similar with the previous.
+			* Enables to-the-latest overlapping feature. The output decoded barcode result will become a combination of the recent results if the  latest frame is proved to be similar with the previous.
 			*
 			* @param [in] resultItemTypes The or value of the captured result item types.
 			* @param [in] enabled Set whether to enable to-the-latest overlapping.
@@ -159,21 +160,51 @@ namespace dynamsoft {
 			*/
 			bool IsLatestOverlappingEnabled(CapturedResultItemType type) const;
 
+			/**
+			* Callback function for original image result. It will be called once for each original image result.
+			*
+			* @param [in] pResult The original image result.
+			*
+			*/
 			virtual void OnOriginalImageResultReceived(COriginalImageResultItem* pResult);
 
+			/**
+			* Callback function for decoded barcodes results. It will be called once for each decoded barcodes result.
+			*
+			* @param [in] pResult The decoded barcodes result.
+			*
+			*/
 			virtual void OnDecodedBarcodesReceived(dbr::CDecodedBarcodesResult* pResult);
 
+			/**
+			* Callback function for recognized text lines results. It will be called once for each recognized text lines result.
+			*
+			* @param [in] pResult The recognized text lines result.
+			*
+			*/
 			virtual void OnRecognizedTextLinesReceived(dlr::CRecognizedTextLinesResult* pResult);
 
-			virtual void OnDetectedQuadsReceived(ddn::CDetectedQuadsResult* pResult);
+			/**
+			* Callback function for processed document results. It will be called once for each processed document result.
+			*
+			* @param [in] pResult The processed document result.
+			*
+			*/
+			virtual void OnProcessedDocumentResultReceived(ddn::CProcessedDocumentResult* pResult);
 
-			virtual void OnNormalizedImagesReceived(ddn::CNormalizedImagesResult* pResult);
-
+			/**
+			* Callback function for parsed results. It will be called once for each parsed result.
+			*
+			* @param [in] pResult The parsed result.
+			*
+			*/
 			virtual void OnParsedResultsReceived(dcp::CParsedResult* pResult);
 
 			virtual void ClearStatus();
 
 			virtual void Init();
+
+			virtual const char* GetEncryptedString();
 
 		};
 
@@ -414,7 +445,60 @@ namespace dynamsoft {
 			CImageData* DrawOnImage(const CImageData* pImageData, CCorner corners[], int cornersCount, int color = 0xFFFF0000, int thickness = 1);
 			CImageData* DrawOnImage(const CImageData* pImageData, CEdge edges[], int edgesCount, int color = 0xFFFF0000, int thickness = 1);
 
+			/**
+			* Reads an image from a file.
+			* @param [in] filePath The path of the image file.
+			* @param [out] pErrorCode The error code.
+			*
+			* @return Returns a pointer to a CImageData object representing the image if succeeds, nullptr otherwise.
+			* @remarks If the file format is gif, pdf or tiff, we read the first page of the image file. The caller is responsible for freeing the memory allocated for the image.
+			*/
+			CImageData* ReadFromFile(const char* filePath, int* pErrorCode = NULL);
+
+			/**
+			* Reads an image from a file in memory.
+			* @param [in] imageFileBytes An array of unsigned char representing the image file in memory.
+			* @param [in] imageFileBytesLength The length of the image file in bytes.
+			* @param [out] pErrorCode The error code.
+			*
+			* @return Returns a pointer to a CImageData object representing the image if succeeds, nullptr otherwise.
+			* @remarks If the file format is gif, pdf or tiff, we read the first page of the image file. The caller is responsible for freeing the memory allocated for the image.
+			*/
+			CImageData* ReadFromMemory(const unsigned char* imageFileBytes, int imageFileBytesLength, int* pErrorCode = NULL);
+
+			/**
+			* Saves an image to a file in memory.
+			*
+			* @param [in] imageData The image data to be saved.
+			* @param [in] imageFormat The image file format to be saved.
+			* @param [out] imageFileBytes An array of unsigned char representing the image file in memory.
+			* @param [out] imageFileBytesLength The length of the image file in bytes.
+			*
+			* @return Returns 0 if succeeds, nonzero otherwise.
+			*
+			*/
+			int SaveToMemory(const CImageData* imageData, ImageFileFormat imageFormat, unsigned char** imageFileBytes, int* imageFileBytesLength);
+
+			/**
+			* Crops an image.
+			* @param [in] imageData The image data to be cropped.
+			* @param [in] rect The rectangle to be cropped.
+			* @param [in] quad The quadrilateral to be cropped.
+			* @param [out] ppCroppedImage A pointer to a CImageData object representing the cropped image.
+			*
+			* @return Returns 0 if succeeds, nonzero otherwise.
+			* EC_NULL_POINTER
+			* EC_IMAGE_DATA_INVALID
+			* EC_QUADRILATERAL_INVALID
+			* EC_RECT_INVALID
+			* 
+			* @remarks The caller is resposible for freeing the memory allocated for the cropped image.
+			* The function will automatically calculate the perspective transform matrix and use it to crop the image.
+			*/
+			CImageData* CropImage(const CImageData* imageData, const CRect& rect, int* pErrorCode = NULL);
+			CImageData* CropImage(const CImageData* imageData, const CQuadrilateral& quad, int* pErrorCode = NULL);
 		};
+#pragma pack(pop)
 	}
 }
 

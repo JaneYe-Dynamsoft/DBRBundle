@@ -1,4 +1,4 @@
-__version__ = "1.4.20"
+__version__ = "2.0.10.7501"
 
 if __package__ or "." in __name__:
     from .cvr import *
@@ -17,7 +17,7 @@ else:
 
 
 from abc import ABC, abstractmethod
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 
 class UtilityModule:
@@ -471,7 +471,11 @@ class ImageManager:
     _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
-
+    
+    def __init__(self):
+        _DynamsoftUtility.Class_init(
+            self, _DynamsoftUtility.new_CImageManager()
+        )
     def save_to_file(
         self, image_data: ImageData, path: str, overwrite: bool = True
     ) -> Tuple[int, str]:
@@ -497,11 +501,126 @@ class ImageManager:
         Draws an image on an image.
         """
         return _DynamsoftUtility.CImageManager_DrawOnImage(self, *args)
+    
+    def read_from_file(self, file_path: str) -> Tuple[int, ImageData]:
+        """
+        Reads an image from a file.
+        If the file format is gif, pdf or tiff, we read the first page of the image file.
+        The caller is responsible for freeing the memory allocated for the image.
 
-    def __init__(self):
-        _DynamsoftUtility.Class_init(
-            self, _DynamsoftUtility.new_CImageManager()
-        )
+        Args:
+            file_path (str): The path of the image file.
+
+        Returns:
+            A tuple containing following elements:
+            - error_code <int>: The error code indicating the status of the operation.
+            - image_data (ImageData): An ImageData object representing the image if succeeds, None otherwise.
+        """
+        return _DynamsoftUtility.CImageManager_ReadFromFile(self, file_path)
+    
+    def read_from_numpy(self, image: "numpy.ndarray", image_pixel_format: EnumImagePixelFormat) -> Tuple[int, str, ImageData]:
+        """
+        Reads an image from a numpy array.
+
+        Args:
+            image (np.ndarray): A numpy array representing the image.
+            image_pixel_format (EnumImagePixelFormat): The pixel format of the numpy array.
+
+        Returns:
+            A tuple containing following elements:
+            - error_code <int>: The error code indicating the status of the operation.
+            - error_message <str>: A descriptive message explaining the error.
+            - image_data (ImageData): An ImageData object representing the image if succeeds, None otherwise.
+        """
+        return 0, "Success.", ImageData(image.tobytes(),image.shape[1],image.shape[0],image.strides[0], image_pixel_format)
+    
+    def save_to_numpy(self, image_data: ImageData) -> Tuple[int, str, "numpy.ndarray"]:
+        """
+        Saves an image to a numpy array.
+
+        Args:
+            image_data (ImageData): The image data to be saved.
+
+        Returns:
+            A tuple containing following elements:
+            - error_code <int>: The error code indicating the status of the operation.
+            - error_message <str>: A descriptive message explaining the error.
+            - image (np.ndarray): A numpy array representing the saved image if succeeds, None otherwise.
+        """
+        import numpy as np
+        width = image_data.get_width()
+        height = image_data.get_height()
+        image_bytes = image_data.get_bytes()
+        format = image_data.get_image_pixel_format()
+        err = 0
+        err_str = "Success."
+        if format == EnumImagePixelFormat.IPF_RGB_888:
+            arr = np.frombuffer(image_bytes, dtype=np.uint8).reshape((height, width, 3))
+        elif format == EnumImagePixelFormat.IPF_BGR_888:
+            arr = np.frombuffer(image_bytes, dtype=np.uint8).reshape((height, width, 3))
+            arr = arr[:, :, ::-1]
+        else:
+            err = EnumErrorCode.EC_IMAGE_PIXEL_FORMAT_NOT_MATCH
+            if __package__ or "." in __name__:
+                from . import _DynamsoftCore
+            else:
+                import _DynamsoftCore
+            err_str = _DynamsoftCore.DC_GetErrorString()
+            arr = None
+        return err, err_str, arr
+            
+    def read_from_memory(self, image_file_bytes: bytes) -> Tuple[int, ImageData]:
+        """
+        Reads an image from a file in memory.
+        If the file format is gif, pdf or tiff, we read the first page of the image file.
+        The caller is responsible for freeing the memory allocated for the image.
+
+        Args:
+            image_file_bytes (bytes): A bytes representing the image file in memory.
+
+        Returns:
+            A tuple containing following elements:
+            - error_code <int>: The error code indicating the status of the operation.
+            - image_data (ImageData): An ImageData object representing the image if succeeds, None otherwise.
+        """
+        return _DynamsoftUtility.CImageManager_ReadFromMemory(self, image_file_bytes)
+    
+    def save_to_memory(self, image_data: ImageData,image_format: EnumImageFileFormat) -> Tuple[int, bytes]:
+        """
+        Saves an image to memory in the specified format.
+
+        Args:
+            image_data (ImageData): The image data to be saved.
+            image_format (EnumImageFileFormat): The desired image format.
+
+        Returns:
+            A tuple containing following elements:
+            - error_code <int>: The error code indicating the status of the operation.
+            - image_file_bytes (bytes): The byte array representing the saved image file if succeeds, None otherwise.
+        """
+        return _DynamsoftUtility.CImageManager_SaveToMemory(self, image_data, image_format)
+    
+    def crop_image(self, image_data:ImageData, crop_form: Union[Rect,Quadrilateral]) -> Tuple[int, ImageData]:
+        """
+        Crops an image.
+        The caller is resposible for freeing the memory allocated for the cropped image.
+        The function will automatically calculate the perspective transform matrix and use it to crop the image.
+
+        Args:
+            image_data (ImageData): The image data to be cropped.
+            crop_form (Union[Rect, Quadrilateral]): The cropping form.
+
+        Returns:
+            A tuple containing following elements:
+            - error_code <int>: The error code indicating the status of the operation.
+            - cropped_image_data (ImageData): A ImageData object representing the cropped image if succeeds, None otherwise.
+        """
+        if isinstance(crop_form, Rect):
+            return _DynamsoftUtility.CImageManager_CropImageWithRect(self, image_data, crop_form)
+        elif isinstance(crop_form, Quadrilateral):
+            return _DynamsoftUtility.CImageManager_CropImageWithQuadrilateral(self, image_data, crop_form)
+        else:
+            raise TypeError("Unsupported crop form type")
 
     __destroy__ = _DynamsoftUtility.delete_CImageManager
 

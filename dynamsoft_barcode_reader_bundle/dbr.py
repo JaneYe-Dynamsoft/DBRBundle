@@ -1,4 +1,4 @@
-__version__ = "10.4.20"
+__version__ = "11.0.10.7501"
 
 if __package__ or "." in __name__:
     from .core import *
@@ -11,11 +11,11 @@ else:
     import _DynamsoftBarcodeReader
 
 
-from enum import Enum, IntEnum
+from enum import IntEnum
 from typing import List
 
 
-class EnumBarcodeFormat(Enum):
+class EnumBarcodeFormat(IntEnum):
     BF_NULL = _DynamsoftBarcodeReader.BF_NULL
     BF_ALL = _DynamsoftBarcodeReader.BF_ALL
     BF_DEFAULT = _DynamsoftBarcodeReader.BF_DEFAULT
@@ -60,6 +60,8 @@ class EnumBarcodeFormat(Enum):
     BF_TWO_DIGIT_ADD_ON = _DynamsoftBarcodeReader.BF_TWO_DIGIT_ADD_ON
     BF_FIVE_DIGIT_ADD_ON = _DynamsoftBarcodeReader.BF_FIVE_DIGIT_ADD_ON
     BF_MATRIX_25 = _DynamsoftBarcodeReader.BF_MATRIX_25
+    BF_TELEPEN = _DynamsoftBarcodeReader.BF_TELEPEN
+    BF_TELEPEN_NUMERIC = _DynamsoftBarcodeReader.BF_TELEPEN_NUMERIC
     BF_POSTALCODE = _DynamsoftBarcodeReader.BF_POSTALCODE
     BF_NONSTANDARD_BARCODE = _DynamsoftBarcodeReader.BF_NONSTANDARD_BARCODE
     BF_USPSINTELLIGENTMAIL = _DynamsoftBarcodeReader.BF_USPSINTELLIGENTMAIL
@@ -84,7 +86,9 @@ class EnumLocalizationMode(IntEnum):
     LM_STATISTICS_POSTAL_CODE = _DynamsoftBarcodeReader.LM_STATISTICS_POSTAL_CODE
     LM_CENTRE = _DynamsoftBarcodeReader.LM_CENTRE
     LM_ONED_FAST_SCAN = _DynamsoftBarcodeReader.LM_ONED_FAST_SCAN
+    LM_NEURAL_NETWORK = _DynamsoftBarcodeReader.LM_NEURAL_NETWORK
     LM_REV = _DynamsoftBarcodeReader.LM_REV
+    LM_END = _DynamsoftBarcodeReader.LM_END
     LM_SKIP = _DynamsoftBarcodeReader.LM_SKIP
 
 
@@ -98,7 +102,9 @@ class EnumDeblurMode(IntEnum):
     DM_SHARPENING = _DynamsoftBarcodeReader.DM_SHARPENING
     DM_BASED_ON_LOC_BIN = _DynamsoftBarcodeReader.DM_BASED_ON_LOC_BIN
     DM_SHARPENING_SMOOTHING = _DynamsoftBarcodeReader.DM_SHARPENING_SMOOTHING
+    DM_NEURAL_NETWORK = _DynamsoftBarcodeReader.DM_NEURAL_NETWORK
     DM_REV = _DynamsoftBarcodeReader.DM_REV
+    DM_END = _DynamsoftBarcodeReader.DM_END
     DM_SKIP = _DynamsoftBarcodeReader.DM_SKIP
 
 
@@ -155,38 +161,102 @@ class SimplifiedBarcodeReaderSettings:
             Set expected_barcodes_count to the highest expected value if there exists multiple barcode but the exact count is not confirmed.            
             """,
     )
-    grayscale_transformation_modes: List[int] = property(
-        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleTransformationModes_get,
-        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleTransformationModes_set,
-        doc="""
-            Specifies how grayscale transformations should be applied, including whether to process inverted grayscale images and the specific transformation mode to use.
-            It is a list of 8 integers, where each integer represents a mode specified by the EnumGrayscaleTransformationMode enumeration.
-            """,
-    )
-    grayscale_enhancement_modes: List[int] = property(
-        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleEnhancementModes_get,
-        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleEnhancementModes_set,
-        doc="""
-            Specifies how to enhance the quality of the grayscale image.
-            It is a list of 8 integers, where each integer represents a mode specified by the EnumGrayscaleEnhancementMode enumeration.
-            """,
-    )
-    localization_modes: List[int] = property(
-        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_localizationModes_get,
-        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_localizationModes_set,
-        doc="""
-            Specifies how to localize barcodes.
-            It is a list of 8 integers, where each integer represents a mode specified by the EnumLocalizationMode enumeration.
-            """,
-    )
-    deblur_modes: List[int] = property(
-        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_deblurModes_get,
-        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_deblurModes_set,
-        doc="""
-            Specifies the mode and priority for deblurring.
-            It is a list of 8 integers, where each integer represents a mode specified by the EnumDeblurMode enumeration.
-            """,
-    )
+
+    @property
+    def grayscale_transformation_modes(self) -> List[int]:
+        """
+        Specifies how grayscale transformations should be applied, including whether to process inverted grayscale images and the specific transformation mode to use.
+        It is a list of 8 integers, where each integer represents a mode specified by the EnumGrayscaleTransformationMode enumeration.
+        """
+        if not hasattr(self, "_grayscale_transformation_modes") or self._grayscale_transformation_modes is None:
+            self._grayscale_transformation_modes = _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleTransformationModes_get(self)
+        return self._grayscale_transformation_modes
+    @grayscale_transformation_modes.setter
+    def grayscale_transformation_modes(self, value: List[int]):
+        if not hasattr(self, "_grayscale_transformation_modes") or self._grayscale_transformation_modes is None:
+            self._grayscale_transformation_modes = _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleTransformationModes_get(self)
+        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleTransformationModes_set(self, value)
+        self._grayscale_transformation_modes = value
+
+    @property
+    def grayscale_enhancement_modes(self) -> List[int]:
+        """
+        Specifies how to enhance the quality of the grayscale image.
+        It is a list of 8 integers, where each integer represents a mode specified by the EnumGrayscaleEnhancementMode enumeration.
+        """
+        if not hasattr(self, "_grayscale_enhancement_modes") or self._grayscale_enhancement_modes is None:
+            self._grayscale_enhancement_modes = _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleEnhancementModes_get(self)
+        return self._grayscale_enhancement_modes
+    @grayscale_enhancement_modes.setter
+    def grayscale_enhancement_modes(self, value: List[int]):
+        if not hasattr(self, "_grayscale_enhancement_modes") or self._grayscale_enhancement_modes is None:
+            self._grayscale_enhancement_modes = _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleEnhancementModes_get(self)
+        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleEnhancementModes_set(self, value)
+        self._grayscale_enhancement_modes = value
+    
+    @property
+    def localization_modes(self) -> List[int]:
+        """
+        Specifies how to localize barcodes.
+        It is a list of 8 integers, where each integer represents a mode specified by the EnumLocalizationMode enumeration.
+        """
+        if not hasattr(self, "_localization_modes") or self._localization_modes is None:
+            self._localization_modes = _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_localizationModes_get(self)
+        return self._localization_modes
+    @localization_modes.setter
+    def localization_modes(self, value: List[int]):
+        if not hasattr(self, "_localization_modes") or self._localization_modes is None:
+            self._localization_modes = _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_localizationModes_get(self)
+        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_localizationModes_set(self, value)
+        self._localization_modes = value
+    
+    @property
+    def deblur_modes(self) -> List[int]:
+        """
+        Specifies the mode and priority for deblurring.
+        It is a list of 8 integers, where each integer represents a mode specified by the EnumDeblurMode enumeration.
+        """
+        if not hasattr(self, "_deblur_modes") or self._deblur_modes is None:
+            self._deblur_modes = _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_deblurModes_get(self)
+        return self._deblur_modes
+    @deblur_modes.setter
+    def deblur_modes(self, value: List[int]):
+        if not hasattr(self, "_deblur_modes") or self._deblur_modes is None:
+            self._deblur_modes = _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_deblurModes_get(self)
+        _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_deblurModes_set(self, value)
+        self._deblur_modes = value
+    # grayscale_transformation_modes: List[int] = property(
+    #     _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleTransformationModes_get,
+    #     _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleTransformationModes_set,
+    #     doc="""
+    #         Specifies how grayscale transformations should be applied, including whether to process inverted grayscale images and the specific transformation mode to use.
+    #         It is a list of 8 integers, where each integer represents a mode specified by the EnumGrayscaleTransformationMode enumeration.
+    #         """,
+    # )
+    # grayscale_enhancement_modes: List[int] = property(
+    #     _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleEnhancementModes_get,
+    #     _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_grayscaleEnhancementModes_set,
+    #     doc="""
+    #         Specifies how to enhance the quality of the grayscale image.
+    #         It is a list of 8 integers, where each integer represents a mode specified by the EnumGrayscaleEnhancementMode enumeration.
+    #         """,
+    # )
+    # localization_modes: List[int] = property(
+    #     _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_localizationModes_get,
+    #     _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_localizationModes_set,
+    #     doc="""
+    #         Specifies how to localize barcodes.
+    #         It is a list of 8 integers, where each integer represents a mode specified by the EnumLocalizationMode enumeration.
+    #         """,
+    # )
+    # deblur_modes: List[int] = property(
+    #     _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_deblurModes_get,
+    #     _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_deblurModes_set,
+    #     doc="""
+    #         Specifies the mode and priority for deblurring.
+    #         It is a list of 8 integers, where each integer represents a mode specified by the EnumDeblurMode enumeration.
+    #         """,
+    # )
     min_result_confidence: int = property(
         _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_minResultConfidence_get,
         _DynamsoftBarcodeReader.SimplifiedBarcodeReaderSettings_minResultConfidence_set,
@@ -724,7 +794,7 @@ class BarcodeResultItem(CapturedResultItem):
 
 _DynamsoftBarcodeReader.CBarcodeResultItem_register(BarcodeResultItem)
 
-class DecodedBarcodesResult:
+class DecodedBarcodesResult(CapturedResultBase):
     """
     The DecodedBarcodesResult class represents the result of a barcode reading process.
     It provides access to information about the decoded barcodes, the source image, and any errors that occurred during the barcode reading process.
@@ -746,39 +816,6 @@ class DecodedBarcodesResult:
 
     __destroy__ = _DynamsoftBarcodeReader.CDecodedBarcodesResult_Release
 
-    def get_original_image_hash_id(self) -> str:
-        """
-        Gets the hash ID of the source image.
-
-        Returns:
-            The hash ID of the source image as a string.
-        """
-        return _DynamsoftBarcodeReader.CDecodedBarcodesResult_GetOriginalImageHashId(
-            self
-        )
-
-    def get_original_image_tag(self) -> ImageTag:
-        """
-        Gets the tag of the source image.
-
-        Returns:
-            An ImageTag object containing the tag of the source image.
-        """
-        return _DynamsoftBarcodeReader.CDecodedBarcodesResult_GetOriginalImageTag(self)
-
-    def get_rotation_transform_matrix(self) -> List[float]:
-        """
-        Gets the 3x3 rotation transformation matrix of the original image relative to the rotated image.
-
-        Returns:
-            A float list of length 9 which represents a 3x3 rotation matrix.
-        """
-        return (
-            _DynamsoftBarcodeReader.CDecodedBarcodesResult_GetRotationTransformMatrix(
-                self
-            )
-        )
-
     def get_items(self) -> List[BarcodeResultItem]:
         """
         Gets all the decoded barcode result items.
@@ -791,26 +828,7 @@ class DecodedBarcodesResult:
         for i in range(count):
             list.append(_DynamsoftBarcodeReader.CDecodedBarcodesResult_GetItem(self, i))
         return list
-
-    def get_error_code(self) -> int:
-        """
-        Gets the error code of the barcode reading result, if an error occurred.
-
-        Returns:
-            The error code of the barcode reading result, or 0 if no error occurred.
-        """
-        return _DynamsoftBarcodeReader.CDecodedBarcodesResult_GetErrorCode(self)
-
-    def get_error_string(self) -> str:
-        """
-        Gets the error message of the barcode reading result, if an error occurred.
-
-        Returns:
-            A string containing the error message of the barcode reading result, or an empty string if no error occurred.
-        """
-        return _DynamsoftBarcodeReader.CDecodedBarcodesResult_GetErrorString(self)
-
-
+    
 _DynamsoftBarcodeReader.CDecodedBarcodesResult_register(DecodedBarcodesResult)
 
 #new 
@@ -838,6 +856,9 @@ class LocalizedBarcodeElement(RegionObjectElement):
 
     def set_possible_formats(self, possible_formats: int) -> None:
         return _DynamsoftBarcodeReader.CLocalizedBarcodeElement_SetPossibleFormats(self, possible_formats)
+    
+    def set_location(self, location: Quadrilateral) -> int:
+        return _DynamsoftBarcodeReader.CLocalizedBarcodeElement_SetLocation(self, location)
 
 # Register CLocalizedBarcodeElement in _DynamsoftBarcodeReader:
 _DynamsoftBarcodeReader.CLocalizedBarcodeElement_register(LocalizedBarcodeElement)
@@ -894,6 +915,10 @@ class DecodedBarcodeElement(RegionObjectElement):
     def set_confidence(self, confidence: int) -> None:
         return _DynamsoftBarcodeReader.CDecodedBarcodeElement_SetConfidence(self, confidence)
 
+    def set_location(self, location: Quadrilateral) -> int:
+        return _DynamsoftBarcodeReader.CDecodedBarcodeElement_SetLocation(self, location)
+
+
 # Register CDecodedBarcodeElement in _DynamsoftBarcodeReader:
 _DynamsoftBarcodeReader.CDecodedBarcodeElement_register(DecodedBarcodeElement)
 class ExtendedBarcodeResult(DecodedBarcodeElement):
@@ -917,7 +942,7 @@ class ExtendedBarcodeResult(DecodedBarcodeElement):
 
 # Register CExtendedBarcodeResult in _DynamsoftBarcodeReader:
 _DynamsoftBarcodeReader.CExtendedBarcodeResult_register(ExtendedBarcodeResult)
-class CandidateBarcodeZone(object):
+class CandidateBarcodeZone:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     
     def __init__(self, location: Quadrilateral=None, possibleFormats: int=None):
@@ -956,7 +981,7 @@ class CandidateBarcodeZonesUnit(IntermediateResultUnit):
     def remove_all_candidate_barcode_zones(self) -> None:
         return _DynamsoftBarcodeReader.CCandidateBarcodeZonesUnit_RemoveAllCandidateBarcodeZones(self)
 
-    def remove_candidate_barcode_zone(self, index: int) -> None:
+    def remove_candidate_barcode_zone(self, index: int) -> int:
         return _DynamsoftBarcodeReader.CCandidateBarcodeZonesUnit_RemoveCandidateBarcodeZone(self, index)
     def add_candidate_barcode_zone(self, barcode_zone: CandidateBarcodeZone, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
         return _DynamsoftBarcodeReader.CCandidateBarcodeZonesUnit_AddCandidateBarcodeZone(self, barcode_zone, matrix_to_original_image)
@@ -983,7 +1008,7 @@ class LocalizedBarcodesUnit(IntermediateResultUnit):
     def remove_all_localized_barcodes(self) -> None:
         return _DynamsoftBarcodeReader.CLocalizedBarcodesUnit_RemoveAllLocalizedBarcodes(self)
 
-    def remove_localized_barcode(self, index: int) -> None:
+    def remove_localized_barcode(self, index: int) -> int:
         return _DynamsoftBarcodeReader.CLocalizedBarcodesUnit_RemoveLocalizedBarcode(self, index)
 
     def add_localized_barcode(self, element: LocalizedBarcodeElement, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
@@ -995,21 +1020,21 @@ class LocalizedBarcodesUnit(IntermediateResultUnit):
 # Register CLocalizedBarcodesUnit in _DynamsoftBarcodeReader:
 _DynamsoftBarcodeReader.CLocalizedBarcodesUnit_register(LocalizedBarcodesUnit)
 
-class ScaledUpBarcodeImageUnit(IntermediateResultUnit):
+class ScaledBarcodeImageUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     def __init__(self, *args, **kwargs):
         raise AttributeError("No constructor defined - class is abstract")
     
     def get_image_data(self) -> ImageData:
-        return _DynamsoftBarcodeReader.CScaledUpBarcodeImageUnit_GetImageData(self)
+        return _DynamsoftBarcodeReader.CScaledBarcodeImageUnit_GetImageData(self)
 
     def set_image_data(self, image_data: ImageData) -> int:
-        return _DynamsoftBarcodeReader.CScaledUpBarcodeImageUnit_SetImageData(self, image_data)
+        return _DynamsoftBarcodeReader.CScaledBarcodeImageUnit_SetImageData(self, image_data)
 
-# Register CScaledUpBarcodeImageUnit in _DynamsoftBarcodeReader:
-_DynamsoftBarcodeReader.CScaledUpBarcodeImageUnit_register(ScaledUpBarcodeImageUnit)
-class DeformationResistedBarcode(object):
+# Register CScaledBarcodeImageUnit in _DynamsoftBarcodeReader:
+_DynamsoftBarcodeReader.CScaledBarcodeImageUnit_register(ScaledBarcodeImageUnit)
+class DeformationResistedBarcode:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     
     __destroy__ = _DynamsoftBarcodeReader.delete_CDeformationResistedBarcode

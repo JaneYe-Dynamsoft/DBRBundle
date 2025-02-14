@@ -1,4 +1,4 @@
-__version__ = "3.4.20"
+__version__ = "4.0.10.7501"
 
 if __package__ or "." in __name__:
     from . import _DynamsoftCore
@@ -72,6 +72,10 @@ class EnumErrorCode(IntEnum):
     )
     EC_PDF_LIBRARY_LOAD_FAILED = _DynamsoftCore.EC_PDF_LIBRARY_LOAD_FAILED
     EC_LICENSE_WARNING = _DynamsoftCore.EC_LICENSE_WARNING
+    EC_UNSUPPORTED_JSON_KEY_WARNING = _DynamsoftCore.EC_UNSUPPORTED_JSON_KEY_WARNING
+    EC_MODEL_FILE_NOT_FOUND = _DynamsoftCore.EC_MODEL_FILE_NOT_FOUND
+    EC_PDF_LICENSE_NOT_FOUND = _DynamsoftCore.EC_PDF_LICENSE_NOT_FOUND
+    EC_RECT_INVALID = _DynamsoftCore.EC_RECT_INVALID
     EC_NO_LICENSE = _DynamsoftCore.EC_NO_LICENSE
     EC_HANDSHAKE_CODE_INVALID = _DynamsoftCore.EC_HANDSHAKE_CODE_INVALID
     EC_LICENSE_BUFFER_FAILED = _DynamsoftCore.EC_LICENSE_BUFFER_FAILED
@@ -152,6 +156,7 @@ class EnumGrayscaleTransformationMode(IntEnum):
     GTM_ORIGINAL = _DynamsoftCore.GTM_ORIGINAL
     GTM_AUTO = _DynamsoftCore.GTM_AUTO
     GTM_REV = _DynamsoftCore.GTM_REV
+    GTM_END = _DynamsoftCore.GTM_END
     GTM_SKIP = _DynamsoftCore.GTM_SKIP
 
 
@@ -162,6 +167,7 @@ class EnumGrayscaleEnhancementMode(IntEnum):
     GEM_GRAY_SMOOTH = _DynamsoftCore.GEM_GRAY_SMOOTH
     GEM_SHARPEN_SMOOTH = _DynamsoftCore.GEM_SHARPEN_SMOOTH
     GEM_REV = _DynamsoftCore.GEM_REV
+    GEM_END = _DynamsoftCore.GEM_END
     GEM_SKIP = _DynamsoftCore.GEM_SKIP
 
 
@@ -181,8 +187,9 @@ class EnumCapturedResultItemType(IntEnum):
     CRIT_BARCODE = _DynamsoftCore.CRIT_BARCODE
     CRIT_TEXT_LINE = _DynamsoftCore.CRIT_TEXT_LINE
     CRIT_DETECTED_QUAD = _DynamsoftCore.CRIT_DETECTED_QUAD
-    CRIT_NORMALIZED_IMAGE = _DynamsoftCore.CRIT_NORMALIZED_IMAGE
+    CRIT_DESKEWED_IMAGE = _DynamsoftCore.CRIT_DESKEWED_IMAGE
     CRIT_PARSED_RESULT = _DynamsoftCore.CRIT_PARSED_RESULT
+    CRIT_ENHANCED_IMAGE = _DynamsoftCore.CRIT_ENHANCED_IMAGE
 
 
 class EnumBufferOverflowProtectionMode(IntEnum):
@@ -226,11 +233,12 @@ class EnumSectionType(IntEnum):
     ST_TEXT_LINE_LOCALIZATION = _DynamsoftCore.ST_TEXT_LINE_LOCALIZATION
     ST_TEXT_LINE_RECOGNITION = _DynamsoftCore.ST_TEXT_LINE_RECOGNITION
     ST_DOCUMENT_DETECTION = _DynamsoftCore.ST_DOCUMENT_DETECTION
-    ST_DOCUMENT_NORMALIZATION = _DynamsoftCore.ST_DOCUMENT_NORMALIZATION
+    ST_DOCUMENT_DESKEWING = _DynamsoftCore.ST_DOCUMENT_DESKEWING
+    ST_IMAGE_ENHANCEMENT = _DynamsoftCore.ST_IMAGE_ENHANCEMENT
 class EnumIntermediateResultUnitType(IntEnum):
     IRUT_NULL = _DynamsoftCore.IRUT_NULL
     IRUT_COLOUR_IMAGE = _DynamsoftCore.IRUT_COLOUR_IMAGE
-    IRUT_SCALED_DOWN_COLOUR_IMAGE = _DynamsoftCore.IRUT_SCALED_DOWN_COLOUR_IMAGE
+    IRUT_SCALED_COLOUR_IMAGE = _DynamsoftCore.IRUT_SCALED_COLOUR_IMAGE
     IRUT_GRAYSCALE_IMAGE = _DynamsoftCore.IRUT_GRAYSCALE_IMAGE
     IRUT_TRANSFORMED_GRAYSCALE_IMAGE = _DynamsoftCore.IRUT_TRANSFORMED_GRAYSCALE_IMAGE
     IRUT_ENHANCED_GRAYSCALE_IMAGE = _DynamsoftCore.IRUT_ENHANCED_GRAYSCALE_IMAGE
@@ -245,7 +253,7 @@ class EnumIntermediateResultUnitType(IntEnum):
     IRUT_TEXT_REMOVED_BINARY_IMAGE = _DynamsoftCore.IRUT_TEXT_REMOVED_BINARY_IMAGE
     IRUT_CANDIDATE_BARCODE_ZONES = _DynamsoftCore.IRUT_CANDIDATE_BARCODE_ZONES
     IRUT_LOCALIZED_BARCODES = _DynamsoftCore.IRUT_LOCALIZED_BARCODES
-    IRUT_SCALED_UP_BARCODE_IMAGE = _DynamsoftCore.IRUT_SCALED_UP_BARCODE_IMAGE
+    IRUT_SCALED_BARCODE_IMAGE = _DynamsoftCore.IRUT_SCALED_BARCODE_IMAGE
     IRUT_DEFORMATION_RESISTED_BARCODE_IMAGE = _DynamsoftCore.IRUT_DEFORMATION_RESISTED_BARCODE_IMAGE
     IRUT_COMPLEMENTED_BARCODE_IMAGE = _DynamsoftCore.IRUT_COMPLEMENTED_BARCODE_IMAGE
     IRUT_DECODED_BARCODES = _DynamsoftCore.IRUT_DECODED_BARCODES
@@ -255,9 +263,11 @@ class EnumIntermediateResultUnitType(IntEnum):
     IRUT_DETECTED_QUADS = _DynamsoftCore.IRUT_DETECTED_QUADS
     IRUT_LOCALIZED_TEXT_LINES = _DynamsoftCore.IRUT_LOCALIZED_TEXT_LINES
     IRUT_RECOGNIZED_TEXT_LINES = _DynamsoftCore.IRUT_RECOGNIZED_TEXT_LINES
-    IRUT_NORMALIZED_IMAGES = _DynamsoftCore.IRUT_NORMALIZED_IMAGES
+    IRUT_DESKEWED_IMAGE = _DynamsoftCore.IRUT_DESKEWED_IMAGE
     IRUT_SHORT_LINES = _DynamsoftCore.IRUT_SHORT_LINES
     IRUT_RAW_TEXT_LINES = _DynamsoftCore.IRUT_RAW_TEXT_LINES
+    IRUT_LOGIC_LINES = _DynamsoftCore.IRUT_LOGIC_LINES
+    IRUT_ENHANCED_IMAGE = _DynamsoftCore.IRUT_ENHANCED_IMAGE
     IRUT_ALL = _DynamsoftCore.IRUT_ALL
 class EnumRegionObjectElementType(IntEnum):
     ROET_PREDETECTED_REGION = _DynamsoftCore.ROET_PREDETECTED_REGION
@@ -266,14 +276,26 @@ class EnumRegionObjectElementType(IntEnum):
     ROET_LOCALIZED_TEXT_LINE = _DynamsoftCore.ROET_LOCALIZED_TEXT_LINE
     ROET_RECOGNIZED_TEXT_LINE = _DynamsoftCore.ROET_RECOGNIZED_TEXT_LINE
     ROET_DETECTED_QUAD = _DynamsoftCore.ROET_DETECTED_QUAD
-    ROET_NORMALIZED_IMAGE = _DynamsoftCore.ROET_NORMALIZED_IMAGE
+    ROET_DESKEWED_IMAGE = _DynamsoftCore.ROET_DESKEWED_IMAGE
     ROET_SOURCE_IMAGE = _DynamsoftCore.ROET_SOURCE_IMAGE
     ROET_TARGET_ROI = _DynamsoftCore.ROET_TARGET_ROI
+    ROET_ENHANCED_IMAGE = _DynamsoftCore.ROET_ENHANCED_IMAGE
 class EnumTransformMatrixType(IntEnum):
     TMT_LOCAL_TO_ORIGINAL_IMAGE = _DynamsoftCore.TMT_LOCAL_TO_ORIGINAL_IMAGE
     TMT_ORIGINAL_TO_LOCAL_IMAGE = _DynamsoftCore.TMT_ORIGINAL_TO_LOCAL_IMAGE
     TMT_ROTATED_TO_ORIGINAL_IMAGE = _DynamsoftCore.TMT_ROTATED_TO_ORIGINAL_IMAGE
     TMT_ORIGINAL_TO_ROTATED_IMAGE = _DynamsoftCore.TMT_ORIGINAL_TO_ROTATED_IMAGE
+    TMT_LOCAL_TO_SECTION_IMAGE = _DynamsoftCore.TMT_LOCAL_TO_SECTION_IMAGE
+    TMT_SECTION_TO_LOCAL_IMAGE = _DynamsoftCore.TMT_SECTION_TO_LOCAL_IMAGE
+class EnumCrossVerificationStatus(IntEnum):
+    CVS_NOT_VERIFIED = _DynamsoftCore.CVS_NOT_VERIFIED
+    CVS_PASSED = _DynamsoftCore.CVS_PASSED
+    CVS_FAILED = _DynamsoftCore.CVS_FAILED
+class EnumImageFileFormat(IntEnum):
+    IFF_JPEG = _DynamsoftCore.IFF_JPEG
+    IFF_PNG = _DynamsoftCore.IFF_PNG
+    IFF_BMP = _DynamsoftCore.IFF_BMP
+    IFF_PDF = _DynamsoftCore.IFF_PDF
 
 IDENTITY_MATRIX = [
     1.0, 0.0, 0.0,
@@ -330,6 +352,8 @@ class Point:
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
 
+    __destroy__ = _DynamsoftCore.delete_CPoint
+
     x: int = property(_DynamsoftCore.CPoint_Getx, _DynamsoftCore.CPoint_Setx)
     y: int = property(_DynamsoftCore.CPoint_Gety, _DynamsoftCore.CPoint_Sety)
 
@@ -343,8 +367,9 @@ class Point:
         """
         _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CPoint(x,y))
 
-    __destroy__ = _DynamsoftCore.delete_CPoint
-
+    def __repr__(self):
+        return f"Point({self.x}, {self.y})"
+    
     def distance_to(self, pt: "Point") -> float:
         """
         Calculates the distance between the current point and the specified target point.
@@ -376,6 +401,37 @@ class Point:
 
 _DynamsoftCore.CPoint_register(Point)
 
+class Rect:
+    """
+    The Rect class represents a rectangle in 2D space.
+
+    Attributes:
+        top (int): The top coordinate of the rectangle.
+        left (int): The left coordinate of the rectangle.
+        right (int): The right coordinate of the rectangle.
+        bottom (int): The bottom coordinate of the rectangle.
+    """
+    _thisown = property(
+        lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
+    )
+
+    top: int = property(_DynamsoftCore.CRect_top_get, _DynamsoftCore.CRect_top_set)
+    left: int = property(_DynamsoftCore.CRect_left_get, _DynamsoftCore.CRect_left_set)
+    right: int = property(_DynamsoftCore.CRect_right_get, _DynamsoftCore.CRect_right_set)
+    bottom: int = property(_DynamsoftCore.CRect_bottom_get, _DynamsoftCore.CRect_bottom_set)
+    id: int = property(_DynamsoftCore.CRect_id_get, _DynamsoftCore.CRect_id_set)
+
+    def __init__(self):
+        _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CRect())
+
+    def __repr__(self):
+        return f"Rect(top={self.top}, left={self.left}, right={self.right}, bottom={self.bottom})"
+    
+    __destroy__ = _DynamsoftCore.delete_CRect
+
+
+_DynamsoftCore.CRect_register(Rect)
+
 class Quadrilateral:
     """
     A quadrilateral.
@@ -390,11 +446,32 @@ class Quadrilateral:
     _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
+    
+    def __init__(self):
+        """
+        Initializes a new instance of the Quadrilateral class with default values.
+        """
+        _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CQuadrilateral())
+        self._point_list = None
 
-    points: List[Point] = property(
-        _DynamsoftCore.CQuadrilateral_points_get,
-        _DynamsoftCore.CQuadrilateral_points_set,
-    )
+    def __repr__(self):
+        list_repr = ", ".join(f"({obj.x}, {obj.y})" for obj in self.points)
+        return f"Quadrilateral[{list_repr}]"
+
+    id: int = property(_DynamsoftCore.CQuadrilateral_id_get, _DynamsoftCore.CQuadrilateral_id_set)
+
+    @property
+    def points(self) -> List[Point]:
+        if not hasattr(self, '_point_list') or self._point_list is None:
+            self._point_list = _DynamsoftCore.CQuadrilateral_points_get(self)
+        return self._point_list
+
+    @points.setter
+    def points(self, point_list):
+        if not hasattr(self, '_point_list') or self._point_list is None:
+            self._point_list = _DynamsoftCore.CQuadrilateral_points_get(self)
+        _DynamsoftCore.CQuadrilateral_points_set(self, point_list)
+        self._point_list = point_list
 
     def contains(self, point: "Point") -> bool:
         """
@@ -417,43 +494,14 @@ class Quadrilateral:
         """
         return _DynamsoftCore.CQuadrilateral_GetArea(self)
 
-    def __init__(self):
-        """
-        Initializes a new instance of the Quadrilateral class with default values.
-        """
-        _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CQuadrilateral())
-
+    def get_bounding_rect(self) -> Rect:
+        return _DynamsoftCore.CQuadrilateral_GetBoundingRect(self)
+    
     __destroy__ = _DynamsoftCore.delete_CQuadrilateral
 
 _DynamsoftCore.CQuadrilateral_register(Quadrilateral)
 
 
-class Rect:
-    """
-    The Rect class represents a rectangle in 2D space.
-
-    Attributes:
-        top (int): The top coordinate of the rectangle.
-        left (int): The left coordinate of the rectangle.
-        right (int): The right coordinate of the rectangle.
-        bottom (int): The bottom coordinate of the rectangle.
-    """
-    _thisown = property(
-        lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
-    )
-
-    top: int = property(_DynamsoftCore.CRect_top_get, _DynamsoftCore.CRect_top_set)
-    left: int = property(_DynamsoftCore.CRect_left_get, _DynamsoftCore.CRect_left_set)
-    right: int = property(_DynamsoftCore.CRect_right_get, _DynamsoftCore.CRect_right_set)
-    bottom: int = property(_DynamsoftCore.CRect_bottom_get, _DynamsoftCore.CRect_bottom_set)
-
-    def __init__(self):
-        _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CRect())
-
-    __destroy__ = _DynamsoftCore.delete_CRect
-
-
-_DynamsoftCore.CRect_register(Rect)
 
 class ImageTag(ABC):
     """
@@ -568,7 +616,7 @@ class FileImageTag(ImageTag):
             total_pages (int): The total pages of the file image.
         """
         _DynamsoftCore.Class_init(
-            self, _DynamsoftCore.new_CFileImageTag(file_path, page_number, total_pages)
+            self, _DynamsoftCore.new_CFileImageTag(self, file_path, page_number, total_pages)
         )
 
     __destroy__ = _DynamsoftCore.delete_CFileImageTag
@@ -741,7 +789,7 @@ class ImageData:
         get_width(self) -> int: Returns the width of the image.
         get_height(self) -> int: Returns the height of the image.
         get_stride(self) -> int: Returns the stride of the image.
-        get_format(self) -> int: Returns the pixel format of the image.
+        get_image_pixel_format(self) -> int: Returns the pixel format of the image.
         get_orientation(self) -> int: Returns the orientation of the image.
         get_tag(self) -> ImageTag: Returns the tag of the image.
         set_tag(self, tag: ImageTag): Sets the tag of the image.
@@ -817,7 +865,7 @@ class ImageData:
         """
         return _DynamsoftCore.CImageData_GetStride(self)
 
-    def get_image_pixel_format(self) -> int:
+    def get_image_pixel_format(self) -> EnumImagePixelFormat:
         """
         Gets the pixel format of the image.
 
@@ -870,6 +918,8 @@ class CapturedResultItem:
     _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
+
+    __destroy__ = _DynamsoftCore.CCapturedResultItem_Release
 
     def __init__(self):
         """
@@ -929,7 +979,6 @@ class OriginalImageResultItem(CapturedResultItem):
     _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
-    __destroy__ = _DynamsoftCore.COriginalImageResultItem_Release
 
     def __init__(self):
         """
@@ -952,6 +1001,71 @@ class OriginalImageResultItem(CapturedResultItem):
 
 _DynamsoftCore.COriginalImageResultItem_register(OriginalImageResultItem)
 
+#new
+class CapturedResultBase:
+    _thisown = property(
+        lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
+    )
+    def __init__(self):
+        """
+        Initializes a new instance of the OriginalImageResultItem class.
+
+        Raises:
+            AttributeError: If the constructor is called.
+        """
+        raise AttributeError("No constructor defined - class is abstract")
+    
+    def get_original_image_hash_id(self) -> str:
+        """
+        Gets the hash ID of the original image.
+
+        Returns:
+            The hash ID of the original image as a string.
+        """
+        return _DynamsoftCore.CCapturedResultBase_GetOriginalImageHashId(
+            self
+        )
+
+    def get_original_image_tag(self) -> ImageTag:
+        """
+        Gets the tag of the original image.
+
+        Returns:
+            An ImageTag object containing the tag of the original image.
+        """
+        return _DynamsoftCore.CCapturedResultBase_GetOriginalImageTag(self)
+
+    def get_rotation_transform_matrix(self) -> List[float]:
+        """
+        Gets the 3x3 rotation transformation matrix of the original image relative to the rotated image.
+
+        Returns:
+            A float list of length 9 which represents a 3x3 rotation matrix.
+        """
+        return _DynamsoftCore.CCapturedResultBase_GetRotationTransformMatrix(
+            self
+        )
+    
+    def get_error_code(self) -> int:
+        """
+        Gets the error code of the detection operation.
+
+        Returns:
+            The error code of the detection operation.
+        """
+        return _DynamsoftCore.CCapturedResultBase_GetErrorCode(self)
+
+    def get_error_string(self) -> str:
+        """
+        Gets the error message of the detection operation.
+
+        Returns:
+            The error message of the detection operation as a string.
+        """
+        return _DynamsoftCore.CCapturedResultBase_GetErrorString(self)
+    
+_DynamsoftCore.CCapturedResultBase_register(CapturedResultBase)
+#end new
 
 class ImageSourceErrorListener(ABC):
     """
@@ -983,7 +1097,6 @@ class ImageSourceErrorListener(ABC):
         pass
 
     __destroy__ = _DynamsoftCore.delete_CImageSourceErrorListener
-
 
 _DynamsoftCore.CImageSourceErrorListener_register(ImageSourceErrorListener)
 
@@ -1234,28 +1347,25 @@ class PDFReadingParameter:
 
 _DynamsoftCore.CPDFReadingParameter_register(PDFReadingParameter)
 
-
-#new 
-
-class Contour(object):
+class Contour:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     
     __destroy__ = _DynamsoftCore.delete_CContour
 
     def __init__(self):
         _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CContour())
-
+    def __repr__(self):
+        points = self.get_points()
+        list_repr = ", ".join(f"({obj.x}, {obj.y})" for obj in points)
+        return f"Contour[{list_repr}]"
     def set_points(self, points: List[Point]) -> None:
         _DynamsoftCore.CContour_SetPoints(self, points)
-    def get_points_count(self) -> int:
-        return _DynamsoftCore.CContour_GetPointsCount(self)
 
     def get_points(self) -> List[Point]:
         return _DynamsoftCore.CContour_GetPoints(self)
-
-# Register CContour in _DynamsoftCore:
+    
 _DynamsoftCore.CContour_register(Contour)
-class Vector4(object):
+class Vector4:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     
     value = property(_DynamsoftCore.CVector4_value_get, _DynamsoftCore.CVector4_value_set)
@@ -1276,34 +1386,38 @@ class Vector4(object):
         if index < 0 or index > 3:
             raise IndexError("Index out of range")
         _DynamsoftCore.CVector4_SetItem(self, index, value)
-# Register CVector4 in _DynamsoftCore:
+
 _DynamsoftCore.CVector4_register(Vector4)
-class LineSegment(object):
+
+class LineSegment:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     
     start_point: Point = property(_DynamsoftCore.CLineSegment_GetStartPoint, _DynamsoftCore.CLineSegment_SetStartPoint)
     end_point: Point = property(_DynamsoftCore.CLineSegment_GetEndPoint, _DynamsoftCore.CLineSegment_SetEndPoint)
-    def __init__(self, start_point: Point, end_point: Point):
-        _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CLineSegment(start_point, end_point))
+    id: int = property(_DynamsoftCore.CLineSegment_GetId, _DynamsoftCore.CLineSegment_SetId)
+
+    def __init__(self, start_point: Point, end_point: Point, line_id: int = -1):
+        _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CLineSegment(start_point, end_point, line_id))
+
+    def __repr__(self):
+        return f"LineSegment[start_point=({self.start_point.x},{self.start_point.y}), end_point=({self.end_point.x},{self.end_point.y})]"
+
     __destroy__ = _DynamsoftCore.delete_CLineSegment
 
-# Register CLineSegment in _DynamsoftCore:
 _DynamsoftCore.CLineSegment_register(LineSegment)
-class Corner(object):
+class Corner:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     
     type: int = property(_DynamsoftCore.CCorner_type_get, _DynamsoftCore.CCorner_type_set)
     intersection: Point = property(_DynamsoftCore.CCorner_intersection_get, _DynamsoftCore.CCorner_intersection_set)
     line1: LineSegment = property(_DynamsoftCore.CCorner_line1_get, _DynamsoftCore.CCorner_line1_set)
     line2: LineSegment = property(_DynamsoftCore.CCorner_line2_get, _DynamsoftCore.CCorner_line2_set)
-
     def __init__(self):
         _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CCorner())
     __destroy__ = _DynamsoftCore.delete_CCorner
 
-# Register CCorner in _DynamsoftCore:
 _DynamsoftCore.CCorner_register(Corner)
-class Edge(object):
+class Edge:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     
     start_corner: Corner = property(_DynamsoftCore.CEdge_startCorner_get, _DynamsoftCore.CEdge_startCorner_set)
@@ -1313,7 +1427,6 @@ class Edge(object):
         _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CEdge())
     __destroy__ = _DynamsoftCore.delete_CEdge
 
-# Register CEdge in _DynamsoftCore:
 _DynamsoftCore.CEdge_register(Edge)
 
 class IntermediateResultExtraInfo:
@@ -1328,7 +1441,6 @@ class IntermediateResultExtraInfo:
         _DynamsoftCore.Class_init(self, _DynamsoftCore.new_IntermediateResultExtraInfo())
     __destroy__ = _DynamsoftCore.delete_IntermediateResultExtraInfo
 
-# Register IntermediateResultExtraInfo in _DynamsoftCore:
 _DynamsoftCore.IntermediateResultExtraInfo_register(IntermediateResultExtraInfo)
 
 class RegionObjectElement:
@@ -1349,13 +1461,12 @@ class RegionObjectElement:
     def get_element_type(self) -> int:
         return _DynamsoftCore.CRegionObjectElement_GetElementType(self)
 
-    def set_location(self, location: Quadrilateral) -> int:
-        return _DynamsoftCore.CRegionObjectElement_SetLocation(self, location)
-
     def clone(self) -> "RegionObjectElement":
         return _DynamsoftCore.CRegionObjectElement_Clone(self)
+    
+    def get_image_data(self) -> ImageData:
+        return _DynamsoftCore.CRegionObjectElement_GetImageData(self)
 
-# Register CRegionObjectElement in _DynamsoftCore:
 _DynamsoftCore.CRegionObjectElement_register(RegionObjectElement)
 class PredetectedRegionElement(RegionObjectElement):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1366,7 +1477,9 @@ class PredetectedRegionElement(RegionObjectElement):
     def get_mode_name(self) -> str:
         return _DynamsoftCore.CPredetectedRegionElement_GetModeName(self)
 
-# Register CPredetectedRegionElement in _DynamsoftCore:
+    def set_location(self, loc: Quadrilateral) -> int:
+        return _DynamsoftCore.CPredetectedRegionElement_SetLocation(self, loc)
+    
 _DynamsoftCore.CPredetectedRegionElement_register(PredetectedRegionElement)
 class IntermediateResultUnit:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1408,8 +1521,13 @@ class IntermediateResultUnit:
 
     def replace(self, unit: "IntermediateResultUnit") -> int:
         return _DynamsoftCore.CIntermediateResultUnit_Replace(self, unit)
+    
+    def get_usage_count(self) -> int:
+        return _DynamsoftCore.CIntermediateResultUnit_GetUsageCount(self)
+    
+    def set_usage_count(self, usage_count: int) -> None:
+        return _DynamsoftCore.CIntermediateResultUnit_SetUsageCount(self, usage_count)
 
-# Register CIntermediateResultUnit in _DynamsoftCore:
 _DynamsoftCore.CIntermediateResultUnit_register(IntermediateResultUnit)
 class IntermediateResult:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1424,7 +1542,6 @@ class IntermediateResult:
             list.append(_DynamsoftCore.CIntermediateResult_GetIntermediateResultUnit(self, i))
         return list
 
-# Register CIntermediateResult in _DynamsoftCore:
 _DynamsoftCore.CIntermediateResult_register(IntermediateResult)
 
 class ColourImageUnit(IntermediateResultUnit):
@@ -1440,9 +1557,8 @@ class ColourImageUnit(IntermediateResultUnit):
     def set_image_data(self, img_data: ImageData) -> int:
         return _DynamsoftCore.CColourImageUnit_SetImageData(self, img_data)
 
-# Register CColourImageUnit in _DynamsoftCore:
 _DynamsoftCore.CColourImageUnit_register(ColourImageUnit)
-class ScaledDownColourImageUnit(IntermediateResultUnit):
+class ScaledColourImageUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     def __init__(self):
@@ -1450,13 +1566,12 @@ class ScaledDownColourImageUnit(IntermediateResultUnit):
     
 
     def get_image_data(self) -> ImageData:
-        return _DynamsoftCore.CScaledDownColourImageUnit_GetImageData(self)
+        return _DynamsoftCore.CScaledColourImageUnit_GetImageData(self)
 
     def set_image_data(self, img_data: ImageData) -> int:
-        return _DynamsoftCore.CScaledDownColourImageUnit_SetImageData(self, img_data)
+        return _DynamsoftCore.CScaledColourImageUnit_SetImageData(self, img_data)
 
-# Register CScaledDownColourImageUnit in _DynamsoftCore:
-_DynamsoftCore.CScaledDownColourImageUnit_register(ScaledDownColourImageUnit)
+_DynamsoftCore.CScaledColourImageUnit_register(ScaledColourImageUnit)
 class GrayscaleImageUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
@@ -1470,7 +1585,6 @@ class GrayscaleImageUnit(IntermediateResultUnit):
     def set_image_data(self, img_data: ImageData) -> int:
         return _DynamsoftCore.CGrayscaleImageUnit_SetImageData(self, img_data)
 
-# Register CGrayscaleImageUnit in _DynamsoftCore:
 _DynamsoftCore.CGrayscaleImageUnit_register(GrayscaleImageUnit)
 class TransformedGrayscaleImageUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1485,7 +1599,6 @@ class TransformedGrayscaleImageUnit(IntermediateResultUnit):
     def set_image_data(self, img_data: ImageData) -> int:
         return _DynamsoftCore.CTransformedGrayscaleImageUnit_SetImageData(self, img_data)
 
-# Register CTransformedGrayscaleImageUnit in _DynamsoftCore:
 _DynamsoftCore.CTransformedGrayscaleImageUnit_register(TransformedGrayscaleImageUnit)
 class PredetectedRegionsUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1512,7 +1625,6 @@ class PredetectedRegionsUnit(IntermediateResultUnit):
     def set_predetected_region(self, index: int, element: PredetectedRegionElement, matrix_to_original_image: List[float] = IDENTITY_MATRIX):
         return _DynamsoftCore.CPredetectedRegionsUnit_SetPredetectedRegion(self, index, element, matrix_to_original_image)
 
-# Register CPredetectedRegionsUnit in _DynamsoftCore:
 _DynamsoftCore.CPredetectedRegionsUnit_register(PredetectedRegionsUnit)
 class EnhancedGrayscaleImageUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1527,7 +1639,6 @@ class EnhancedGrayscaleImageUnit(IntermediateResultUnit):
     def set_image_data(self, img_data: ImageData) -> int:
         return _DynamsoftCore.CEnhancedGrayscaleImageUnit_SetImageData(self, img_data)
 
-# Register CEnhancedGrayscaleImageUnit in _DynamsoftCore:
 _DynamsoftCore.CEnhancedGrayscaleImageUnit_register(EnhancedGrayscaleImageUnit)
 class BinaryImageUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1542,7 +1653,6 @@ class BinaryImageUnit(IntermediateResultUnit):
     def set_image_data(self, img_data: ImageData) -> int:
         return _DynamsoftCore.CBinaryImageUnit_SetImageData(self, img_data)
 
-# Register CBinaryImageUnit in _DynamsoftCore:
 _DynamsoftCore.CBinaryImageUnit_register(BinaryImageUnit)
 class TextureDetectionResultUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1563,7 +1673,6 @@ class TextureDetectionResultUnit(IntermediateResultUnit):
     def set_y_spacing(self, y_spacing: int) -> None:
         return _DynamsoftCore.CTextureDetectionResultUnit_SetYSpacing(self, y_spacing)
 
-# Register CTextureDetectionResultUnit in _DynamsoftCore:
 _DynamsoftCore.CTextureDetectionResultUnit_register(TextureDetectionResultUnit)
 class TextureRemovedGrayscaleImageUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1578,7 +1687,6 @@ class TextureRemovedGrayscaleImageUnit(IntermediateResultUnit):
     def set_image_data(self, img_data: ImageData) -> int:
         return _DynamsoftCore.CTextureRemovedGrayscaleImageUnit_SetImageData(self, img_data)
 
-# Register CTextureRemovedGrayscaleImageUnit in _DynamsoftCore:
 _DynamsoftCore.CTextureRemovedGrayscaleImageUnit_register(TextureRemovedGrayscaleImageUnit)
 class TextureRemovedBinaryImageUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1593,14 +1701,17 @@ class TextureRemovedBinaryImageUnit(IntermediateResultUnit):
     def set_image_data(self, img_data: ImageData) -> int:
         return _DynamsoftCore.CTextureRemovedBinaryImageUnit_SetImageData(self, img_data)
 
-# Register CTextureRemovedBinaryImageUnit in _DynamsoftCore:
 _DynamsoftCore.CTextureRemovedBinaryImageUnit_register(TextureRemovedBinaryImageUnit)
-class TextZone:
+class TextZone(object):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     
     __destroy__ = _DynamsoftCore.delete_CTextZone
-
+    def __new__(cls, *args, **kwargs):
+        instance = super().__new__(cls)
+        instance._is_non
     def __init__(self, loc: Quadrilateral = None, char_contours_indices: List[int] = None):
+        if char_contours_indices is not None and loc is None:
+            raise ValueError("If char_contours_indices is not None, loc should not be None")
         _DynamsoftCore.Class_init(self, _DynamsoftCore.new_CTextZone(loc, char_contours_indices))
 
     def get_location(self) -> Quadrilateral:
@@ -1615,7 +1726,6 @@ class TextZone:
     def set_char_contours_indices(self, char_contours_indices: List[int]):
         return _DynamsoftCore.CTextZone_SetCharContoursIndices(self, char_contours_indices)
 
-# Register CTextZone in _DynamsoftCore:
 _DynamsoftCore.CTextZone_register(TextZone)
 class TextZonesUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1641,7 +1751,6 @@ class TextZonesUnit(IntermediateResultUnit):
     def set_text_zone(self, index: int, text_zone: TextZone, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
         return _DynamsoftCore.CTextZonesUnit_SetTextZone(self, index, text_zone, matrix_to_original_image)
 
-# Register CTextZonesUnit in _DynamsoftCore:
 _DynamsoftCore.CTextZonesUnit_register(TextZonesUnit)
 class TextRemovedBinaryImageUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1656,7 +1765,6 @@ class TextRemovedBinaryImageUnit(IntermediateResultUnit):
     def set_image_data(self, img_data: ImageData) -> int:
         return _DynamsoftCore.CTextRemovedBinaryImageUnit_SetImageData(self, img_data)
 
-# Register CTextRemovedBinaryImageUnit in _DynamsoftCore:
 _DynamsoftCore.CTextRemovedBinaryImageUnit_register(TextRemovedBinaryImageUnit)
 class ContoursUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1670,7 +1778,6 @@ class ContoursUnit(IntermediateResultUnit):
     def set_contours(self, contours: List[Contour], hierarchies: List[Vector4], matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
         return _DynamsoftCore.CContoursUnit_SetContours(self, contours, hierarchies, matrix_to_original_image)
 
-# Register CContoursUnit in _DynamsoftCore:
 _DynamsoftCore.CContoursUnit_register(ContoursUnit)
 class LineSegmentsUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1697,7 +1804,6 @@ class LineSegmentsUnit(IntermediateResultUnit):
     def set_line_segment(self, index: int, line: LineSegment, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
         return _DynamsoftCore.CLineSegmentsUnit_SetLineSegment(self, index, line, matrix_to_original_image)
 
-# Register CLineSegmentsUnit in _DynamsoftCore:
 _DynamsoftCore.CLineSegmentsUnit_register(LineSegmentsUnit)
 class ShortLinesUnit(IntermediateResultUnit):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1724,7 +1830,6 @@ class ShortLinesUnit(IntermediateResultUnit):
     def set_short_line(self, index: int, line: LineSegment, matrix_to_original_image: List[float] = IDENTITY_MATRIX) -> int:
         return _DynamsoftCore.CShortLinesUnit_SetShortLine(self, index, line, matrix_to_original_image)
 
-# Register CShortLinesUnit in _DynamsoftCore:
 _DynamsoftCore.CShortLinesUnit_register(ShortLinesUnit)
 class ObservationParameters:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1761,7 +1866,6 @@ class ObservationParameters:
     def is_result_unit_type_only_for_input(self, type: int) -> bool:
         return _DynamsoftCore.CObservationParameters_IsResultUnitTypeOnlyForInput(self, type)
 
-# Register CObservationParameters in _DynamsoftCore:
 _DynamsoftCore.CObservationParameters_register(ObservationParameters)
 class AbstractIntermediateResultReceiver(ABC):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1782,5 +1886,4 @@ class AbstractIntermediateResultReceiver(ABC):
     def on_unit_result_received(self, unit: IntermediateResultUnit, info: IntermediateResultExtraInfo) -> None:
         pass
     
-# Register CAbstractIntermediateResultReceiver in _DynamsoftCore:
 _DynamsoftCore.CAbstractIntermediateResultReceiver_register(AbstractIntermediateResultReceiver)
