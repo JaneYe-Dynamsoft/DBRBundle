@@ -631,32 +631,16 @@ extern "C"
         size_t l = 0;
         size_t r = iter->size - 1;
         do
-        {
-          /* since l+r >= 0, we can (>> 1) instead (/ 2) */
-          size_t i = (l + r) >> 1;
-          const char *iname = iter->types[i]->name;
+        {       
+          const char *iname = iter->types[l]->name;
           if (iname)
           {
             int compare = strcmp(name, iname);
             if (compare == 0)
             {
-              return iter->types[i];
+              return iter->types[l];
             }
-            else if (compare < 0)
-            {
-              if (i)
-              {
-                r = i - 1;
-              }
-              else
-              {
-                break;
-              }
-            }
-            else if (compare > 0)
-            {
-              l = i + 1;
-            }
+            l++;
           }
           else
           {
@@ -668,7 +652,6 @@ extern "C"
     } while (iter != end);
     return 0;
   }
-
   /*
     Search for a swig_type_info structure for either a mangled name or a human readable name.
     It first searches the mangled names of the types, which is a O(log #types)
@@ -3416,26 +3399,21 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t swig_types[38]
 #define SWIGTYPE_p_dynamsoft__cvr__CCapturedResultFilter swig_types[39]
 #define SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter swig_types[40]
-#define SWIGTYPE_p_dynamsoft__dbr__CDecodedBarcodesResult swig_types[41]
-#define SWIGTYPE_p_dynamsoft__dcp__CParsedResult swig_types[42]
-#define SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadsResult swig_types[43]
-#define SWIGTYPE_p_dynamsoft__ddn__CNormalizedImagesResult swig_types[44]
-#define SWIGTYPE_p_dynamsoft__dlr__CRecognizedTextLinesResult swig_types[45]
-#define SWIGTYPE_p_dynamsoft__utility__CDirectoryFetcher swig_types[46]
-#define SWIGTYPE_p_dynamsoft__utility__CFileFetcher swig_types[47]
-#define SWIGTYPE_p_dynamsoft__utility__CImageManager swig_types[48]
-#define SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter swig_types[49]
-#define SWIGTYPE_p_dynamsoft__utility__CProactiveImageSourceAdapter swig_types[50]
-#define SWIGTYPE_p_dynamsoft__utility__CUtilityModule swig_types[51]
-#define SWIGTYPE_p_int swig_types[52]
-#define SWIGTYPE_p_signed_char swig_types[53]
-#define SWIGTYPE_p_tagSimplifiedBarcodeReaderSettings swig_types[54]
-#define SWIGTYPE_p_tagSimplifiedCaptureVisionSettings swig_types[55]
-#define SWIGTYPE_p_tagSimplifiedLabelRecognizerSettings swig_types[56]
-#define SWIGTYPE_p_unsigned_char swig_types[57]
-#define SWIGTYPE_p_dynamsoft__basic_structures__CRect swig_types[58]
-static swig_type_info *swig_types[60];
-static swig_module_info swig_module = {swig_types, 59, 0, 0, 0, 0};
+#define SWIGTYPE_p_dynamsoft__utility__CDirectoryFetcher swig_types[41]
+#define SWIGTYPE_p_dynamsoft__utility__CFileFetcher swig_types[42]
+#define SWIGTYPE_p_dynamsoft__utility__CImageManager swig_types[43]
+#define SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter swig_types[44]
+#define SWIGTYPE_p_dynamsoft__utility__CProactiveImageSourceAdapter swig_types[45]
+#define SWIGTYPE_p_dynamsoft__utility__CUtilityModule swig_types[46]
+#define SWIGTYPE_p_int swig_types[47]
+#define SWIGTYPE_p_signed_char swig_types[48]
+#define SWIGTYPE_p_tagSimplifiedBarcodeReaderSettings swig_types[49]
+#define SWIGTYPE_p_tagSimplifiedCaptureVisionSettings swig_types[50]
+#define SWIGTYPE_p_tagSimplifiedLabelRecognizerSettings swig_types[51]
+#define SWIGTYPE_p_unsigned_char swig_types[52]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CRect swig_types[53]
+static swig_type_info *swig_types[55];
+static swig_module_info swig_module = {swig_types, 54, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -9561,11 +9539,6 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   static swig_type_info _swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t = {"_p_dynamsoft__basic_structures__DMPoint_T_int_t", "dynamsoft::basic_structures::CPoint *|dynamsoft::basic_structures::DMPoint_< int > *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__cvr__CCapturedResultFilter = {"_p_dynamsoft__cvr__CCapturedResultFilter", "dynamsoft::cvr::CCapturedResultFilter *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__cvr__CCaptureVisionRouter = {"_p_dynamsoft__cvr__CCaptureVisionRouter", "dynamsoft::cvr::CCaptureVisionRouter *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dbr__CDecodedBarcodesResult = {"_p_dynamsoft__dbr__CDecodedBarcodesResult", "dynamsoft::dbr::CDecodedBarcodesResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dcp__CParsedResult = {"_p_dynamsoft__dcp__CParsedResult", "dynamsoft::dcp::CParsedResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__CDetectedQuadsResult = {"_p_dynamsoft__ddn__CDetectedQuadsResult", "dynamsoft::ddn::CDetectedQuadsResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__ddn__CNormalizedImagesResult = {"_p_dynamsoft__ddn__CNormalizedImagesResult", "dynamsoft::ddn::CNormalizedImagesResult *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__dlr__CRecognizedTextLinesResult = {"_p_dynamsoft__dlr__CRecognizedTextLinesResult", "dynamsoft::dlr::CRecognizedTextLinesResult *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__utility__CDirectoryFetcher = {"_p_dynamsoft__utility__CDirectoryFetcher", "dynamsoft::utility::CDirectoryFetcher *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__utility__CFileFetcher = {"_p_dynamsoft__utility__CFileFetcher", "dynamsoft::utility::CFileFetcher *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__utility__CImageManager = {"_p_dynamsoft__utility__CImageManager", "dynamsoft::utility::CImageManager *", 0, 0, (void *)0, 0};
@@ -9622,11 +9595,6 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       &_swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t,
       &_swigt__p_dynamsoft__cvr__CCapturedResultFilter,
       &_swigt__p_dynamsoft__cvr__CCaptureVisionRouter,
-      &_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult,
-      &_swigt__p_dynamsoft__dcp__CParsedResult,
-      &_swigt__p_dynamsoft__ddn__CDetectedQuadsResult,
-      &_swigt__p_dynamsoft__ddn__CNormalizedImagesResult,
-      &_swigt__p_dynamsoft__dlr__CRecognizedTextLinesResult,
       &_swigt__p_dynamsoft__utility__CDirectoryFetcher,
       &_swigt__p_dynamsoft__utility__CFileFetcher,
       &_swigt__p_dynamsoft__utility__CImageManager,
@@ -9683,11 +9651,6 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   static swig_cast_info _swigc__p_dynamsoft__basic_structures__DMPoint_T_int_t[] = {{&_swigt__p_dynamsoft__basic_structures__DMPoint_T_int_t, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__cvr__CCapturedResultFilter[] = {{&_swigt__p_dynamsoft__cvr__CCapturedResultFilter, 0, 0, 0}, {&_swigt__p_dynamsoft__utility__CMultiFrameResultCrossFilter, _p_dynamsoft__utility__CMultiFrameResultCrossFilterTo_p_dynamsoft__cvr__CCapturedResultFilter, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__cvr__CCaptureVisionRouter[] = {{&_swigt__p_dynamsoft__cvr__CCaptureVisionRouter, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dbr__CDecodedBarcodesResult[] = {{&_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dcp__CParsedResult[] = {{&_swigt__p_dynamsoft__dcp__CParsedResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__CDetectedQuadsResult[] = {{&_swigt__p_dynamsoft__ddn__CDetectedQuadsResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__ddn__CNormalizedImagesResult[] = {{&_swigt__p_dynamsoft__ddn__CNormalizedImagesResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__dlr__CRecognizedTextLinesResult[] = {{&_swigt__p_dynamsoft__dlr__CRecognizedTextLinesResult, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__utility__CDirectoryFetcher[] = {{&_swigt__p_dynamsoft__utility__CDirectoryFetcher, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__utility__CFileFetcher[] = {{&_swigt__p_dynamsoft__utility__CFileFetcher, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__utility__CImageManager[] = {{&_swigt__p_dynamsoft__utility__CImageManager, 0, 0, 0}, {0, 0, 0, 0}};
@@ -9744,11 +9707,6 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       _swigc__p_dynamsoft__basic_structures__DMPoint_T_int_t,
       _swigc__p_dynamsoft__cvr__CCapturedResultFilter,
       _swigc__p_dynamsoft__cvr__CCaptureVisionRouter,
-      _swigc__p_dynamsoft__dbr__CDecodedBarcodesResult,
-      _swigc__p_dynamsoft__dcp__CParsedResult,
-      _swigc__p_dynamsoft__ddn__CDetectedQuadsResult,
-      _swigc__p_dynamsoft__ddn__CNormalizedImagesResult,
-      _swigc__p_dynamsoft__dlr__CRecognizedTextLinesResult,
       _swigc__p_dynamsoft__utility__CDirectoryFetcher,
       _swigc__p_dynamsoft__utility__CFileFetcher,
       _swigc__p_dynamsoft__utility__CImageManager,

@@ -631,32 +631,16 @@ extern "C"
         size_t l = 0;
         size_t r = iter->size - 1;
         do
-        {
-          /* since l+r >= 0, we can (>> 1) instead (/ 2) */
-          size_t i = (l + r) >> 1;
-          const char *iname = iter->types[i]->name;
+        {       
+          const char *iname = iter->types[l]->name;
           if (iname)
           {
             int compare = strcmp(name, iname);
             if (compare == 0)
             {
-              return iter->types[i];
+              return iter->types[l];
             }
-            else if (compare < 0)
-            {
-              if (i)
-              {
-                r = i - 1;
-              }
-              else
-              {
-                break;
-              }
-            }
-            else if (compare > 0)
-            {
-              l = i + 1;
-            }
+            l++;
           }
           else
           {
@@ -3404,76 +3388,76 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_VideoFrameQuality swig_types[27]
 #define SWIGTYPE_p_char swig_types[28]
 #define SWIGTYPE_p_double swig_types[29]
-#define SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultItem swig_types[30]
-#define SWIGTYPE_p_dynamsoft__basic_structures__CFileImageTag swig_types[31]
-#define SWIGTYPE_p_dynamsoft__basic_structures__CImageData swig_types[32]
-#define SWIGTYPE_p_dynamsoft__basic_structures__CImageSourceAdapter swig_types[33]
-#define SWIGTYPE_p_dynamsoft__basic_structures__CImageTag swig_types[34]
-#define SWIGTYPE_p_dynamsoft__basic_structures__COriginalImageResultItem swig_types[35]
-#define SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral swig_types[36]
-#define SWIGTYPE_p_dynamsoft__basic_structures__CVideoFrameTag swig_types[37]
-#define SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t swig_types[38]
-#define SWIGTYPE_p_dynamsoft__cvr__CBufferedItemsManager swig_types[39]
-#define SWIGTYPE_p_dynamsoft__cvr__CCaptureStateListener swig_types[40]
-#define SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter swig_types[41]
-#define SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouterModule swig_types[42]
-#define SWIGTYPE_p_dynamsoft__cvr__CCapturedResult swig_types[43]
-#define SWIGTYPE_p_dynamsoft__cvr__CCapturedResultFilter swig_types[44]
-#define SWIGTYPE_p_dynamsoft__cvr__CCapturedResultReceiver swig_types[45]
-#define SWIGTYPE_p_dynamsoft__cvr__CImageSourceStateListener swig_types[46]
-#define SWIGTYPE_p_dynamsoft__cvr__CIntermediateResultManager swig_types[47]
-#define SWIGTYPE_p_dynamsoft__cvr__CIntermediateResultReceiver swig_types[48]
-#define SWIGTYPE_p_dynamsoft__cvr__CPresetTemplate swig_types[49]
-#define SWIGTYPE_p_dynamsoft__dbr__CBarcodeResultItem swig_types[50]
-#define SWIGTYPE_p_dynamsoft__dbr__CDecodedBarcodesResult swig_types[51]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit swig_types[52]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit swig_types[53]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit swig_types[54]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit swig_types[55]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit swig_types[56]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit swig_types[57]
-#define SWIGTYPE_p_dynamsoft__dcp__CParsedResult swig_types[58]
-#define SWIGTYPE_p_dynamsoft__dcp__CParsedResultItem swig_types[59]
-#define SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadResultItem swig_types[60]
-#define SWIGTYPE_p_dynamsoft__ddn__CEnhancedImageResultItem swig_types[61]
-#define SWIGTYPE_p_dynamsoft__ddn__CDeskewedImageResultItem swig_types[62]
-#define SWIGTYPE_p_dynamsoft__ddn__CProcessedDocumentResult swig_types[63]
-#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit swig_types[64]
-#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CCornersUnit swig_types[65]
-#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit swig_types[66]
-#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CLongLinesUnit swig_types[67]
-#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CDeskewedImageUnit swig_types[68]
-#define SWIGTYPE_p_dynamsoft__dlr__CBufferedCharacterItemSet swig_types[69]
-#define SWIGTYPE_p_dynamsoft__dlr__CRecognizedTextLinesResult swig_types[70]
-#define SWIGTYPE_p_dynamsoft__dlr__CTextLineResultItem swig_types[71]
-#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit swig_types[72]
-#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit swig_types[73]
-#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit swig_types[74]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver swig_types[75]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CBinaryImageUnit swig_types[76]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CColourImageUnit swig_types[77]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CContoursUnit swig_types[78]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit swig_types[79]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CGrayscaleImageUnit swig_types[80]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResult swig_types[81]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResultUnit swig_types[82]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CLineSegmentsUnit swig_types[83]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit swig_types[84]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CScaledColourImageUnit swig_types[85]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CShortLinesUnit swig_types[86]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit swig_types[87]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextZonesUnit swig_types[88]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureDetectionResultUnit swig_types[89]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit swig_types[90]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit swig_types[91]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit swig_types[92]
-#define SWIGTYPE_p_int swig_types[93]
-#define SWIGTYPE_p_tagSimplifiedBarcodeReaderSettings swig_types[94]
-#define SWIGTYPE_p_tagSimplifiedCaptureVisionSettings swig_types[95]
-#define SWIGTYPE_p_tagSimplifiedLabelRecognizerSettings swig_types[96]
-#define SWIGTYPE_p_unsigned_char swig_types[97]
-#define SWIGTYPE_p_dynamsoft__cvr__CCapturedResultArray swig_types[98]
-#define SWIGTYPE_p_dynamsoft_basic_structures_CCapturedResultBase swig_types[99]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultBase swig_types[30]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultItem swig_types[31]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CFileImageTag swig_types[32]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CImageData swig_types[33]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CImageSourceAdapter swig_types[34]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CImageTag swig_types[35]
+#define SWIGTYPE_p_dynamsoft__basic_structures__COriginalImageResultItem swig_types[36]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral swig_types[37]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CVideoFrameTag swig_types[38]
+#define SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t swig_types[39]
+#define SWIGTYPE_p_dynamsoft__cvr__CBufferedItemsManager swig_types[40]
+#define SWIGTYPE_p_dynamsoft__cvr__CCaptureStateListener swig_types[41]
+#define SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter swig_types[42]
+#define SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouterModule swig_types[43]
+#define SWIGTYPE_p_dynamsoft__cvr__CCapturedResult swig_types[44]
+#define SWIGTYPE_p_dynamsoft__cvr__CCapturedResultFilter swig_types[45]
+#define SWIGTYPE_p_dynamsoft__cvr__CCapturedResultReceiver swig_types[46]
+#define SWIGTYPE_p_dynamsoft__cvr__CImageSourceStateListener swig_types[47]
+#define SWIGTYPE_p_dynamsoft__cvr__CIntermediateResultManager swig_types[48]
+#define SWIGTYPE_p_dynamsoft__cvr__CIntermediateResultReceiver swig_types[49]
+#define SWIGTYPE_p_dynamsoft__cvr__CPresetTemplate swig_types[50]
+#define SWIGTYPE_p_dynamsoft__dbr__CBarcodeResultItem swig_types[51]
+#define SWIGTYPE_p_dynamsoft__dbr__CDecodedBarcodesResult swig_types[52]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit swig_types[53]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit swig_types[54]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit swig_types[55]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit swig_types[56]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit swig_types[57]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit swig_types[58]
+#define SWIGTYPE_p_dynamsoft__dcp__CParsedResult swig_types[59]
+#define SWIGTYPE_p_dynamsoft__dcp__CParsedResultItem swig_types[60]
+#define SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadResultItem swig_types[61]
+#define SWIGTYPE_p_dynamsoft__ddn__CEnhancedImageResultItem swig_types[62]
+#define SWIGTYPE_p_dynamsoft__ddn__CDeskewedImageResultItem swig_types[63]
+#define SWIGTYPE_p_dynamsoft__ddn__CProcessedDocumentResult swig_types[64]
+#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CCandidateQuadEdgesUnit swig_types[65]
+#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CCornersUnit swig_types[66]
+#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CDetectedQuadsUnit swig_types[67]
+#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CLongLinesUnit swig_types[68]
+#define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CDeskewedImageUnit swig_types[69]
+#define SWIGTYPE_p_dynamsoft__dlr__CBufferedCharacterItemSet swig_types[70]
+#define SWIGTYPE_p_dynamsoft__dlr__CRecognizedTextLinesResult swig_types[71]
+#define SWIGTYPE_p_dynamsoft__dlr__CTextLineResultItem swig_types[72]
+#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CLocalizedTextLinesUnit swig_types[73]
+#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CRawTextLinesUnit swig_types[74]
+#define SWIGTYPE_p_dynamsoft__dlr__intermediate_results__CRecognizedTextLinesUnit swig_types[75]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CAbstractIntermediateResultReceiver swig_types[76]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CBinaryImageUnit swig_types[77]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CColourImageUnit swig_types[78]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CContoursUnit swig_types[79]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit swig_types[80]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CGrayscaleImageUnit swig_types[81]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResult swig_types[82]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResultUnit swig_types[83]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CLineSegmentsUnit swig_types[84]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit swig_types[85]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CScaledColourImageUnit swig_types[86]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CShortLinesUnit swig_types[87]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit swig_types[88]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextZonesUnit swig_types[89]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureDetectionResultUnit swig_types[90]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit swig_types[91]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit swig_types[92]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit swig_types[93]
+#define SWIGTYPE_p_int swig_types[94]
+#define SWIGTYPE_p_tagSimplifiedBarcodeReaderSettings swig_types[95]
+#define SWIGTYPE_p_tagSimplifiedCaptureVisionSettings swig_types[96]
+#define SWIGTYPE_p_tagSimplifiedLabelRecognizerSettings swig_types[97]
+#define SWIGTYPE_p_unsigned_char swig_types[98]
+#define SWIGTYPE_p_dynamsoft__cvr__CCapturedResultArray swig_types[99]
 #define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CLogicLinesUnit swig_types[100]
 #define SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CEnhancedImageUnit swig_types[101]
 static swig_type_info *swig_types[103];
@@ -15192,9 +15176,29 @@ extern "C"
   {
     return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CTransformedGrayscaleImageUnit *)x));
   }
-  static void *_p_dynamsoft__cvr__CCapturedResultTo_p_dynamsoft_basic_structures_CCapturedResultBase(void *x, int *SWIGUNUSEDPARM(newmemory))
+  static void *_p_dynamsoft__cvr__CCapturedResultTo_p_dynamsoft__basic_structures__CCapturedResultBase(void *x, int *SWIGUNUSEDPARM(newmemory))
   {
     return (void *)((dynamsoft::basic_structures::CCapturedResultBase *)((dynamsoft::cvr::CCapturedResult *)x));
+  }
+  
+  static void *_p_dynamsoft__dbr__CDecodedBarcodesResultTo_p_dynamsoft__basic_structures__CCapturedResultBase(void *x, int *SWIGUNUSEDPARM(newmemory))
+  {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultBase *)((dynamsoft::dbr::CDecodedBarcodesResult *)x));
+  }
+
+  static void *_p_dynamsoft__dlr__CRecognizedTextLinesResultTo_p_dynamsoft__basic_structures__CCapturedResultBase(void *x, int *SWIGUNUSEDPARM(newmemory))
+  {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultBase *)((dynamsoft::dlr::CRecognizedTextLinesResult *)x));
+  }
+
+  static void *_p_dynamsoft__ddn__CProcessedDocumentResultTo_p_dynamsoft__basic_structures__CCapturedResultBase(void *x, int *SWIGUNUSEDPARM(newmemory))
+  {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultBase *)((dynamsoft::ddn::CProcessedDocumentResult *)x));
+  }
+
+  static void *_p_dynamsoft__dcp__CParsedResultTo_p_dynamsoft__basic_structures__CCapturedResultBase(void *x, int *SWIGUNUSEDPARM(newmemory))
+  {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultBase *)((dynamsoft::dcp::CParsedResult *)x));
   }
   static void *_p_dynamsoft__ddn__intermediate_results__CLogicLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
   {
@@ -15306,7 +15310,7 @@ extern "C"
   static swig_type_info _swigt__p_tagSimplifiedLabelRecognizerSettings = {"_p_tagSimplifiedLabelRecognizerSettings", "SimplifiedLabelRecognizerSettings *|tagSimplifiedLabelRecognizerSettings *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__cvr__CCapturedResultArray = {"_p_dynamsoft__cvr__CCapturedResultArray", "dynamsoft::cvr::CCapturedResultArray *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft_basic_structures_CCapturedResultBase = {"_p_dynamsoft_basic_structures_CCapturedResultBase", "dynamsoft::basic_structures::CCapturedResultBase *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft__basic_structures__CCapturedResultBase = {"_p_dynamsoft__basic_structures__CCapturedResultBase", "dynamsoft::basic_structures::CCapturedResultBase *", 0, 0, (void *)0, 0};
 
   static swig_type_info *swig_type_initial[] = {
       &_swigt__p_BufferOverflowProtectionMode,
@@ -15339,6 +15343,7 @@ extern "C"
       &_swigt__p_VideoFrameQuality,
       &_swigt__p_char,
       &_swigt__p_double,
+      &_swigt__p_dynamsoft__basic_structures__CCapturedResultBase,
       &_swigt__p_dynamsoft__basic_structures__CCapturedResultItem,
       &_swigt__p_dynamsoft__basic_structures__CFileImageTag,
       &_swigt__p_dynamsoft__basic_structures__CImageData,
@@ -15409,7 +15414,6 @@ extern "C"
       &_swigt__p_tagSimplifiedLabelRecognizerSettings,
       &_swigt__p_unsigned_char,
       &_swigt__p_dynamsoft__cvr__CCapturedResultArray,
-      &_swigt__p_dynamsoft_basic_structures_CCapturedResultBase,
       &_swigt__p_dynamsoft__ddn__intermediate_results__CLogicLinesUnit,
       &_swigt__p_dynamsoft__ddn__intermediate_results__CEnhancedImageUnit,
   };
@@ -15516,7 +15520,7 @@ static swig_cast_info _swigc__p_tagSimplifiedCaptureVisionSettings[] = {  {&_swi
 static swig_cast_info _swigc__p_tagSimplifiedLabelRecognizerSettings[] = {  {&_swigt__p_tagSimplifiedLabelRecognizerSettings, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_dynamsoft__cvr__CCapturedResultArray[] = {  {&_swigt__p_dynamsoft__cvr__CCapturedResultArray, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_dynamsoft_basic_structures_CCapturedResultBase[] = {{&_swigt__p_dynamsoft_basic_structures_CCapturedResultBase, 0, 0, 0}, {&_swigt__p_dynamsoft__cvr__CCapturedResult, _p_dynamsoft__cvr__CCapturedResultTo_p_dynamsoft_basic_structures_CCapturedResultBase, 0, 0}, {0, 0, 0, 0}};
+static swig_cast_info _swigc__p_dynamsoft__basic_structures__CCapturedResultBase[] = {{&_swigt__p_dynamsoft__basic_structures__CCapturedResultBase, 0, 0, 0}, {&_swigt__p_dynamsoft__cvr__CCapturedResult, _p_dynamsoft__cvr__CCapturedResultTo_p_dynamsoft__basic_structures__CCapturedResultBase, 0, 0}, {&_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult, _p_dynamsoft__dbr__CDecodedBarcodesResultTo_p_dynamsoft__basic_structures__CCapturedResultBase, 0, 0}, {&_swigt__p_dynamsoft__dlr__CRecognizedTextLinesResult, _p_dynamsoft__dlr__CRecognizedTextLinesResultTo_p_dynamsoft__basic_structures__CCapturedResultBase, 0, 0}, {&_swigt__p_dynamsoft__ddn__CProcessedDocumentResult, _p_dynamsoft__ddn__CProcessedDocumentResultTo_p_dynamsoft__basic_structures__CCapturedResultBase, 0, 0}, {&_swigt__p_dynamsoft__dcp__CParsedResult, _p_dynamsoft__dcp__CParsedResultTo_p_dynamsoft__basic_structures__CCapturedResultBase, 0, 0}, {0, 0, 0, 0}};
 
   static swig_cast_info *swig_cast_initial[] = {
       _swigc__p_BufferOverflowProtectionMode,
@@ -15549,6 +15553,7 @@ static swig_cast_info _swigc__p_dynamsoft_basic_structures_CCapturedResultBase[]
       _swigc__p_VideoFrameQuality,
       _swigc__p_char,
       _swigc__p_double,
+      _swigc__p_dynamsoft__basic_structures__CCapturedResultBase,
       _swigc__p_dynamsoft__basic_structures__CCapturedResultItem,
       _swigc__p_dynamsoft__basic_structures__CFileImageTag,
       _swigc__p_dynamsoft__basic_structures__CImageData,
@@ -15619,7 +15624,6 @@ static swig_cast_info _swigc__p_dynamsoft_basic_structures_CCapturedResultBase[]
       _swigc__p_tagSimplifiedLabelRecognizerSettings,
       _swigc__p_unsigned_char,
       _swigc__p_dynamsoft__cvr__CCapturedResultArray,
-      _swigc__p_dynamsoft_basic_structures_CCapturedResultBase,
       _swigc__p_dynamsoft__ddn__intermediate_results__CLogicLinesUnit,
       _swigc__p_dynamsoft__ddn__intermediate_results__CEnhancedImageUnit,
 
@@ -15758,14 +15762,19 @@ extern "C"
 #ifdef SWIGRUNTIME_DEBUG
       printf("InitializeModule: type %lu %s\n", (unsigned long)i, swig_module.type_initial[i]->name);
 #endif
-
+      bool log = false;
+      if(0== strcmp(swig_module.type_initial[i]->name,"_p_dynamsoft__basic_structures__CCapturedResultBase"))
+        log=true;
       /* if there is another module already loaded */
       if (swig_module.next != &swig_module)
       {
-        type = SWIG_MangledTypeQueryModule(swig_module.next, &swig_module, swig_module.type_initial[i]->name);
+        if(log) printf("test-1");
+        type = SWIG_MangledTypeQueryModule(swig_module.next, &swig_module, swig_module.type_initial[i]->name,log);
+        if(log) printf("type:%x\n", type);
       }
       if (type)
       {
+        if(log) printf("test-2");
         /* Overwrite clientdata field */
 #ifdef SWIGRUNTIME_DEBUG
         printf("InitializeModule: found type %s\n", type->name);
@@ -15780,6 +15789,7 @@ extern "C"
       }
       else
       {
+        if(log) printf("test-3");
         type = swig_module.type_initial[i];
       }
 

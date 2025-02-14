@@ -1,4 +1,4 @@
-__version__ = "11.0.10.7501"
+__version__ = "11.0.10.7537"
 
 if __package__ or "." in __name__:
     from .core import *
@@ -86,7 +86,6 @@ class EnumLocalizationMode(IntEnum):
     LM_STATISTICS_POSTAL_CODE = _DynamsoftBarcodeReader.LM_STATISTICS_POSTAL_CODE
     LM_CENTRE = _DynamsoftBarcodeReader.LM_CENTRE
     LM_ONED_FAST_SCAN = _DynamsoftBarcodeReader.LM_ONED_FAST_SCAN
-    LM_NEURAL_NETWORK = _DynamsoftBarcodeReader.LM_NEURAL_NETWORK
     LM_REV = _DynamsoftBarcodeReader.LM_REV
     LM_END = _DynamsoftBarcodeReader.LM_END
     LM_SKIP = _DynamsoftBarcodeReader.LM_SKIP

@@ -632,32 +632,16 @@ extern "C"
         size_t l = 0;
         size_t r = iter->size - 1;
         do
-        {
-          /* since l+r >= 0, we can (>> 1) instead (/ 2) */
-          size_t i = (l + r) >> 1;
-          const char *iname = iter->types[i]->name;
+        {       
+          const char *iname = iter->types[l]->name;
           if (iname)
           {
             int compare = strcmp(name, iname);
             if (compare == 0)
             {
-              return iter->types[i];
+              return iter->types[l];
             }
-            else if (compare < 0)
-            {
-              if (i)
-              {
-                r = i - 1;
-              }
-              else
-              {
-                break;
-              }
-            }
-            else if (compare > 0)
-            {
-              l = i + 1;
-            }
+            l++;
           }
           else
           {
@@ -669,7 +653,6 @@ extern "C"
     } while (iter != end);
     return 0;
   }
-
   /*
     Search for a swig_type_info structure for either a mangled name or a human readable name.
     It first searches the mangled names of the types, which is a O(log #types)
@@ -3412,44 +3395,44 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_dynamsoft__dbr__CBarcodeReaderModule swig_types[33]
 #define SWIGTYPE_p_dynamsoft__dbr__CBarcodeResultItem swig_types[34]
 #define SWIGTYPE_p_dynamsoft__dbr__CDataMatrixDetails swig_types[35]
-#define SWIGTYPE_p_dynamsoft__dbr__CDecodedBarcodesResult swig_types[36]
-#define SWIGTYPE_p_dynamsoft__dbr__COneDCodeDetails swig_types[37]
-#define SWIGTYPE_p_dynamsoft__dbr__CPDF417Details swig_types[38]
-#define SWIGTYPE_p_dynamsoft__dbr__CQRCodeDetails swig_types[39]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZone swig_types[40]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit swig_types[41]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit swig_types[42]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodeElement swig_types[43]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit swig_types[44]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcode swig_types[45]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit swig_types[46]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResult swig_types[47]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement swig_types[48]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit swig_types[49]
-#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit swig_types[50]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CBinaryImageUnit swig_types[51]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CColourImageUnit swig_types[52]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CContoursUnit swig_types[53]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit swig_types[54]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CGrayscaleImageUnit swig_types[55]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResultUnit swig_types[56]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CLineSegmentsUnit swig_types[57]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionElement swig_types[58]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit swig_types[59]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CRegionObjectElement swig_types[60]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CScaledColourImageUnit swig_types[61]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CShortLinesUnit swig_types[62]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit swig_types[63]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextZonesUnit swig_types[64]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureDetectionResultUnit swig_types[65]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit swig_types[66]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit swig_types[67]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit swig_types[68]
-#define SWIGTYPE_p_f_p_q_const__dynamsoft__basic_structures__CImageData__void swig_types[69]
-#define SWIGTYPE_p_float swig_types[70]
-#define SWIGTYPE_p_tagSimplifiedBarcodeReaderSettings swig_types[71]
-#define SWIGTYPE_p_unsigned_char swig_types[72]
-#define SWIGTYPE_p_dynamsoft_basic_structures_CCapturedResultBase swig_types[73]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultBase swig_types[36]
+#define SWIGTYPE_p_dynamsoft__dbr__CDecodedBarcodesResult swig_types[37]
+#define SWIGTYPE_p_dynamsoft__dbr__COneDCodeDetails swig_types[38]
+#define SWIGTYPE_p_dynamsoft__dbr__CPDF417Details swig_types[39]
+#define SWIGTYPE_p_dynamsoft__dbr__CQRCodeDetails swig_types[40]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZone swig_types[41]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CCandidateBarcodeZonesUnit swig_types[42]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CComplementedBarcodeImageUnit swig_types[43]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodeElement swig_types[44]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit swig_types[45]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcode swig_types[46]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit swig_types[47]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CExtendedBarcodeResult swig_types[48]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodeElement swig_types[49]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CLocalizedBarcodesUnit swig_types[50]
+#define SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit swig_types[51]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CBinaryImageUnit swig_types[52]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CColourImageUnit swig_types[53]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CContoursUnit swig_types[54]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit swig_types[55]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CGrayscaleImageUnit swig_types[56]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResultUnit swig_types[57]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CLineSegmentsUnit swig_types[58]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionElement swig_types[59]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit swig_types[60]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CRegionObjectElement swig_types[61]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CScaledColourImageUnit swig_types[62]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CShortLinesUnit swig_types[63]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit swig_types[64]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextZonesUnit swig_types[65]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureDetectionResultUnit swig_types[66]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit swig_types[67]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit swig_types[68]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit swig_types[69]
+#define SWIGTYPE_p_f_p_q_const__dynamsoft__basic_structures__CImageData__void swig_types[70]
+#define SWIGTYPE_p_float swig_types[71]
+#define SWIGTYPE_p_tagSimplifiedBarcodeReaderSettings swig_types[72]
+#define SWIGTYPE_p_unsigned_char swig_types[73]
 static swig_type_info *swig_types[75];
 static swig_module_info swig_module = {swig_types, 74, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
@@ -15749,6 +15732,10 @@ extern "C"
       {NULL, NULL, 0, NULL}};
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
+  static void *_p_dynamsoft__dbr__CDecodedBarcodesResultTo_p_dynamsoft__basic_structures__CCapturedResultBase(void *x, int *SWIGUNUSEDPARM(newmemory))
+  {
+    return (void *)((dynamsoft::basic_structures::CCapturedResultBase *)((dynamsoft::dbr::CDecodedBarcodesResult *)x));
+  }
 
   static void *_p_dynamsoft__basic_structures__COriginalImageResultItemTo_p_dynamsoft__basic_structures__CCapturedResultItem(void *x, int *SWIGUNUSEDPARM(newmemory))
   {
@@ -15889,10 +15876,6 @@ extern "C"
   {
     return (void *)((dynamsoft::intermediate_results::CRegionObjectElement *)((dynamsoft::intermediate_results::CPredetectedRegionElement *)x));
   }
-  static void *_p_dynamsoft__dbr__CDecodedBarcodesResultTo_p_dynamsoft_basic_structures_CCapturedResultBase(void *x, int *SWIGUNUSEDPARM(newmemory))
-  {
-    return (void *)((dynamsoft::basic_structures::CCapturedResultBase *)((dynamsoft::dbr::CDecodedBarcodesResult *)x));
-  }
 
   static swig_type_info _swigt__p_BufferOverflowProtectionMode = {"_p_BufferOverflowProtectionMode", "BufferOverflowProtectionMode *|enum BufferOverflowProtectionMode *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_CapturedResultItemType = {"_p_CapturedResultItemType", "CapturedResultItemType *|enum CapturedResultItemType *", 0, 0, (void *)0, 0};
@@ -15930,6 +15913,7 @@ extern "C"
   static swig_type_info _swigt__p_dynamsoft__dbr__CBarcodeReaderModule = {"_p_dynamsoft__dbr__CBarcodeReaderModule", "dynamsoft::dbr::CBarcodeReaderModule *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__dbr__CBarcodeResultItem = {"_p_dynamsoft__dbr__CBarcodeResultItem", "dynamsoft::dbr::CBarcodeResultItem *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__dbr__CDataMatrixDetails = {"_p_dynamsoft__dbr__CDataMatrixDetails", "dynamsoft::dbr::CDataMatrixDetails *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft__basic_structures__CCapturedResultBase = {"_p_dynamsoft__basic_structures__CCapturedResultBase", "dynamsoft::basic_structures::CCapturedResultBase *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__dbr__CDecodedBarcodesResult = {"_p_dynamsoft__dbr__CDecodedBarcodesResult", "dynamsoft::dbr::CDecodedBarcodesResult *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__dbr__COneDCodeDetails = {"_p_dynamsoft__dbr__COneDCodeDetails", "dynamsoft::dbr::COneDCodeDetails *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__dbr__CPDF417Details = {"_p_dynamsoft__dbr__CPDF417Details", "dynamsoft::dbr::CPDF417Details *", 0, 0, (void *)0, 0};
@@ -15967,7 +15951,6 @@ extern "C"
   static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_tagSimplifiedBarcodeReaderSettings = { "_p_tagSimplifiedBarcodeReaderSettings", "SimplifiedBarcodeReaderSettings *|tagSimplifiedBarcodeReaderSettings *", 0, 0, (void *)0, 0 };
   static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft_basic_structures_CCapturedResultBase = {"_p_dynamsoft_basic_structures_CCapturedResultBase", "dynamsoft::basic_structures::CCapturedResultBase *", 0, 0, (void *)0, 0};
 
   static swig_type_info *swig_type_initial[] = {
       &_swigt__p_BufferOverflowProtectionMode,
@@ -16006,6 +15989,7 @@ extern "C"
       &_swigt__p_dynamsoft__dbr__CBarcodeReaderModule,
       &_swigt__p_dynamsoft__dbr__CBarcodeResultItem,
       &_swigt__p_dynamsoft__dbr__CDataMatrixDetails,
+      &_swigt__p_dynamsoft__basic_structures__CCapturedResultBase,
       &_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult,
       &_swigt__p_dynamsoft__dbr__COneDCodeDetails,
       &_swigt__p_dynamsoft__dbr__CPDF417Details,
@@ -16043,7 +16027,6 @@ extern "C"
       &_swigt__p_float,
       &_swigt__p_tagSimplifiedBarcodeReaderSettings,
       &_swigt__p_unsigned_char,
-      &_swigt__p_dynamsoft_basic_structures_CCapturedResultBase,
   };
 
   static swig_cast_info _swigc__p_BufferOverflowProtectionMode[] = {{&_swigt__p_BufferOverflowProtectionMode, 0, 0, 0}, {0, 0, 0, 0}};
@@ -16082,6 +16065,7 @@ extern "C"
   static swig_cast_info _swigc__p_dynamsoft__dbr__CBarcodeReaderModule[] = {{&_swigt__p_dynamsoft__dbr__CBarcodeReaderModule, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__dbr__CBarcodeResultItem[] = {{&_swigt__p_dynamsoft__dbr__CBarcodeResultItem, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__dbr__CDataMatrixDetails[] = {{&_swigt__p_dynamsoft__dbr__CDataMatrixDetails, 0, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__basic_structures__CCapturedResultBase[] = {{&_swigt__p_dynamsoft__basic_structures__CCapturedResultBase, 0, 0, 0}, {&_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult, _p_dynamsoft__dbr__CDecodedBarcodesResultTo_p_dynamsoft__basic_structures__CCapturedResultBase, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__dbr__CDecodedBarcodesResult[] = {{&_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__dbr__COneDCodeDetails[] = {{&_swigt__p_dynamsoft__dbr__COneDCodeDetails, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__dbr__CPDF417Details[] = {{&_swigt__p_dynamsoft__dbr__CPDF417Details, 0, 0, 0}, {0, 0, 0, 0}};
@@ -16119,8 +16103,6 @@ extern "C"
   static swig_cast_info _swigc__p_float[] = {{&_swigt__p_float, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_tagSimplifiedBarcodeReaderSettings[] = {{&_swigt__p_tagSimplifiedBarcodeReaderSettings, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_unsigned_char[] = {{&_swigt__p_unsigned_char, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft_basic_structures_CCapturedResultBase[] = {{&_swigt__p_dynamsoft_basic_structures_CCapturedResultBase, 0, 0, 0}, {&_swigt__p_dynamsoft__dbr__CDecodedBarcodesResult, _p_dynamsoft__dbr__CDecodedBarcodesResultTo_p_dynamsoft_basic_structures_CCapturedResultBase, 0, 0}, {0, 0, 0, 0}};
-
 
   static swig_cast_info *swig_cast_initial[] = {
       _swigc__p_BufferOverflowProtectionMode,
@@ -16159,6 +16141,7 @@ extern "C"
       _swigc__p_dynamsoft__dbr__CBarcodeReaderModule,
       _swigc__p_dynamsoft__dbr__CBarcodeResultItem,
       _swigc__p_dynamsoft__dbr__CDataMatrixDetails,
+      _swigc__p_dynamsoft__basic_structures__CCapturedResultBase,
       _swigc__p_dynamsoft__dbr__CDecodedBarcodesResult,
       _swigc__p_dynamsoft__dbr__COneDCodeDetails,
       _swigc__p_dynamsoft__dbr__CPDF417Details,
@@ -16196,7 +16179,6 @@ extern "C"
       _swigc__p_float,
       _swigc__p_tagSimplifiedBarcodeReaderSettings,
       _swigc__p_unsigned_char,
-      _swigc__p_dynamsoft_basic_structures_CCapturedResultBase,
   };
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
@@ -16767,7 +16749,7 @@ void
   SWIG_Python_SetConstant(d, "LM_STATISTICS_POSTAL_CODE", SWIG_From_int(static_cast<int>(LM_STATISTICS_POSTAL_CODE)));
   SWIG_Python_SetConstant(d, "LM_CENTRE", SWIG_From_int(static_cast<int>(LM_CENTRE)));
   SWIG_Python_SetConstant(d, "LM_ONED_FAST_SCAN", SWIG_From_int(static_cast<int>(LM_ONED_FAST_SCAN)));
-  SWIG_Python_SetConstant(d, "LM_NEURAL_NETWORK", SWIG_From_int(static_cast<int>(LM_NEURAL_NETWORK)));
+  // SWIG_Python_SetConstant(d, "LM_NEURAL_NETWORK", SWIG_From_int(static_cast<int>(LM_NEURAL_NETWORK)));
   SWIG_Python_SetConstant(d, "LM_REV", SWIG_From_int(static_cast<int>(LM_REV)));
   SWIG_Python_SetConstant(d, "LM_END", SWIG_From_int(static_cast<int>(LM_END)));
   SWIG_Python_SetConstant(d, "LM_SKIP", SWIG_From_int(static_cast<int>(LM_SKIP)));

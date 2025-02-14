@@ -631,32 +631,16 @@ extern "C"
         size_t l = 0;
         size_t r = iter->size - 1;
         do
-        {
-          /* since l+r >= 0, we can (>> 1) instead (/ 2) */
-          size_t i = (l + r) >> 1;
-          const char *iname = iter->types[i]->name;
+        {       
+          const char *iname = iter->types[l]->name;
           if (iname)
           {
             int compare = strcmp(name, iname);
             if (compare == 0)
             {
-              return iter->types[i];
+              return iter->types[l];
             }
-            else if (compare < 0)
-            {
-              if (i)
-              {
-                r = i - 1;
-              }
-              else
-              {
-                break;
-              }
-            }
-            else if (compare > 0)
-            {
-              l = i + 1;
-            }
+            l++;
           }
           else
           {
@@ -668,7 +652,6 @@ extern "C"
     } while (iter != end);
     return 0;
   }
-
   /*
     Search for a swig_type_info structure for either a mangled name or a human readable name.
     It first searches the mangled names of the types, which is a O(log #types)
@@ -2621,148 +2604,148 @@ SwigPyObject_type(void)
   /* Convert a pointer value */
 
   SWIGRUNTIME int
-  SWIG_Python_ConvertPtrAndOwn(PyObject *obj, void **ptr, swig_type_info *ty, int flags, int *own)
+	  SWIG_Python_ConvertPtrAndOwn(PyObject *obj, void **ptr, swig_type_info *ty, int flags, int *own)
   {
-    int res;
-    SwigPyObject *sobj;
-    int implicit_conv = (flags & SWIG_POINTER_IMPLICIT_CONV) != 0;
+	  int res;
+	  SwigPyObject *sobj;
+	  int implicit_conv = (flags & SWIG_POINTER_IMPLICIT_CONV) != 0;
 
-    if (!obj)
-      return SWIG_ERROR;
-    if (obj == Py_None && !implicit_conv)
-    {
-      if (ptr)
-        *ptr = 0;
-      return (flags & SWIG_POINTER_NO_NULL) ? SWIG_NullReferenceError : SWIG_OK;
-    }
+	  if (!obj)
+		  return SWIG_ERROR;
+	  if (obj == Py_None && !implicit_conv)
+	  {
+		  if (ptr)
+			  *ptr = 0;
+		  return (flags & SWIG_POINTER_NO_NULL) ? SWIG_NullReferenceError : SWIG_OK;
+	  }
 
-    res = SWIG_ERROR;
+	  res = SWIG_ERROR;
 
-    sobj = SWIG_Python_GetSwigThis(obj);
-    if (own)
-      *own = 0;
-    while (sobj)
-    {
-      void *vptr = sobj->ptr;
-      if (ty)
-      {
-        swig_type_info *to = sobj->ty;
-        if (to == ty)
-        {
-          /* no type cast needed */
-          if (ptr)
-            *ptr = vptr;
-          break;
-        }
-        else
-        {
-          swig_cast_info *tc = SWIG_TypeCheck(to->name, ty);
-          if (!tc)
-          {
-            sobj = (SwigPyObject *)sobj->next;
-          }
-          else
-          {
-            if (ptr)
-            {
-              int newmemory = 0;
-              *ptr = SWIG_TypeCast(tc, vptr, &newmemory);
-              if (newmemory == SWIG_CAST_NEW_MEMORY)
-              {
-                assert(own); /* badly formed typemap which will lead to a memory leak - it must set and use own to delete *ptr */
-                if (own)
-                  *own = *own | SWIG_CAST_NEW_MEMORY;
-              }
-            }
-            break;
-          }
-        }
-      }
-      else
-      {
-        if (ptr)
-          *ptr = vptr;
-        break;
-      }
-    }
-    if (sobj)
-    {
-      if (((flags & SWIG_POINTER_RELEASE) == SWIG_POINTER_RELEASE) && !sobj->own)
-      {
-        res = SWIG_ERROR_RELEASE_NOT_OWNED;
-      }
-      else
-      {
-        if (own)
-          *own = *own | sobj->own;
-        if (flags & SWIG_POINTER_DISOWN)
-        {
-          sobj->own = 0;
-        }
-        if (flags & SWIG_POINTER_CLEAR)
-        {
-          sobj->ptr = 0;
-        }
-        res = SWIG_OK;
-      }
-    }
-    else
-    {
-      if (implicit_conv)
-      {
-        SwigPyClientData *data = ty ? (SwigPyClientData *)ty->clientdata : 0;
-        if (data && !data->implicitconv)
-        {
-          PyObject *klass = data->klass;
-          if (klass)
-          {
-            PyObject *impconv;
-            data->implicitconv = 1; /* avoid recursion and call 'explicit' constructors*/
-            impconv = SWIG_Python_CallFunctor(klass, obj);
-            data->implicitconv = 0;
-            if (PyErr_Occurred())
-            {
-              PyErr_Clear();
-              impconv = 0;
-            }
-            if (impconv)
-            {
-              SwigPyObject *iobj = SWIG_Python_GetSwigThis(impconv);
-              if (iobj)
-              {
-                void *vptr;
-                res = SWIG_Python_ConvertPtrAndOwn((PyObject *)iobj, &vptr, ty, 0, 0);
-                if (SWIG_IsOK(res))
-                {
-                  if (ptr)
-                  {
-                    *ptr = vptr;
-                    /* transfer the ownership to 'ptr' */
-                    iobj->own = 0;
-                    res = SWIG_AddCast(res);
-                    res = SWIG_AddNewMask(res);
-                  }
-                  else
-                  {
-                    res = SWIG_AddCast(res);
-                  }
-                }
-              }
-              Py_DECREF(impconv);
-            }
-          }
-        }
-        if (!SWIG_IsOK(res) && obj == Py_None)
-        {
-          if (ptr)
-            *ptr = 0;
-          if (PyErr_Occurred())
-            PyErr_Clear();
-          res = SWIG_OK;
-        }
-      }
-    }
-    return res;
+	  sobj = SWIG_Python_GetSwigThis(obj);
+	  if (own)
+		  *own = 0;
+	  while (sobj)
+	  {
+		  void *vptr = sobj->ptr;
+		  if (ty)
+		  {
+			  swig_type_info *to = sobj->ty;
+			  if (to == ty)
+			  {
+				  /* no type cast needed */
+				  if (ptr)
+					  *ptr = vptr;
+				  break;
+			  }
+			  else
+			  {
+				  swig_cast_info *tc = SWIG_TypeCheck(to->name, ty);
+				  if (!tc)
+				  {
+					  sobj = (SwigPyObject *)sobj->next;
+				  }
+				  else
+				  {
+					  if (ptr)
+					  {
+						  int newmemory = 0;
+						  *ptr = SWIG_TypeCast(tc, vptr, &newmemory);
+						  if (newmemory == SWIG_CAST_NEW_MEMORY)
+						  {
+							  assert(own); /* badly formed typemap which will lead to a memory leak - it must set and use own to delete *ptr */
+							  if (own)
+								  *own = *own | SWIG_CAST_NEW_MEMORY;
+						  }
+					  }
+					  break;
+				  }
+			  }
+		  }
+		  else
+		  {
+			  if (ptr)
+				  *ptr = vptr;
+			  break;
+		  }
+	  }
+	  if (sobj)
+	  {
+		  if (((flags & SWIG_POINTER_RELEASE) == SWIG_POINTER_RELEASE) && !sobj->own)
+		  {
+			  res = SWIG_ERROR_RELEASE_NOT_OWNED;
+		  }
+		  else
+		  {
+			  if (own)
+				  *own = *own | sobj->own;
+			  if (flags & SWIG_POINTER_DISOWN)
+			  {
+				  sobj->own = 0;
+			  }
+			  if (flags & SWIG_POINTER_CLEAR)
+			  {
+				  sobj->ptr = 0;
+			  }
+			  res = SWIG_OK;
+		  }
+	  }
+	  else
+	  {
+		  if (implicit_conv)
+		  {
+			  SwigPyClientData *data = ty ? (SwigPyClientData *)ty->clientdata : 0;
+			  if (data && !data->implicitconv)
+			  {
+				  PyObject *klass = data->klass;
+				  if (klass)
+				  {
+					  PyObject *impconv;
+					  data->implicitconv = 1; /* avoid recursion and call 'explicit' constructors*/
+					  impconv = SWIG_Python_CallFunctor(klass, obj);
+					  data->implicitconv = 0;
+					  if (PyErr_Occurred())
+					  {
+						  PyErr_Clear();
+						  impconv = 0;
+					  }
+					  if (impconv)
+					  {
+						  SwigPyObject *iobj = SWIG_Python_GetSwigThis(impconv);
+						  if (iobj)
+						  {
+							  void *vptr;
+							  res = SWIG_Python_ConvertPtrAndOwn((PyObject *)iobj, &vptr, ty, 0, 0);
+							  if (SWIG_IsOK(res))
+							  {
+								  if (ptr)
+								  {
+									  *ptr = vptr;
+									  /* transfer the ownership to 'ptr' */
+									  iobj->own = 0;
+									  res = SWIG_AddCast(res);
+									  res = SWIG_AddNewMask(res);
+								  }
+								  else
+								  {
+									  res = SWIG_AddCast(res);
+								  }
+							  }
+						  }
+						  Py_DECREF(impconv);
+					  }
+				  }
+			  }
+			  if (!SWIG_IsOK(res) && obj == Py_None)
+			  {
+				  if (ptr)
+					  *ptr = 0;
+				  if (PyErr_Occurred())
+					  PyErr_Clear();
+				  res = SWIG_OK;
+			  }
+		  }
+	  }
+	  return res;
   }
 
   /* Convert a function ptr value */
@@ -3441,7 +3424,7 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_p_dynamsoft__basic_structures__CVector4 swig_types[63]
 #define SWIGTYPE_p_p_int swig_types[64]
 #define SWIGTYPE_p_unsigned_char swig_types[65]
-#define SWIGTYPE_p_dynamsoft_basic_structures_CCapturedResultBase swig_types[66]
+#define SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultBase swig_types[66]
 static swig_type_info *swig_types[68];
 static swig_module_info swig_module = {swig_types, 67, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
@@ -18251,7 +18234,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
     if (!args)
       SWIG_fail;
     swig_obj[0] = args;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft_basic_structures_CCapturedResultBase, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultBase, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
@@ -18282,7 +18265,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
     if (!args)
       SWIG_fail;
     swig_obj[0] = args;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft_basic_structures_CCapturedResultBase, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultBase, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
@@ -18324,7 +18307,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
     PyObject *py_list;
     if (!SWIG_Python_UnpackTuple(args, "CCapturedResultBase_GetRotationTransformMatrix", 1, 1, swig_obj))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft_basic_structures_CCapturedResultBase, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultBase, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
@@ -18373,7 +18356,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
     if (!args)
       SWIG_fail;
     swig_obj[0] = args;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft_basic_structures_CCapturedResultBase, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultBase, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
@@ -18404,7 +18387,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
     if (!args)
       SWIG_fail;
     swig_obj[0] = args;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft_basic_structures_CCapturedResultBase, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultBase, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
@@ -18422,12 +18405,12 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
   fail:
     return NULL;
   }
-  SWIGINTERN PyObject *CCapturedResultBase_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
+  SWIGINTERN PyObject *_wrap_CCapturedResultBase_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
   {
     PyObject *obj;
     if (!SWIG_Python_UnpackTuple(args, "dynamsoftregister", 1, 1, &obj))
       return NULL;
-    SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft_basic_structures_CCapturedResultBase, SWIG_NewClientData(obj));
+    SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultBase, SWIG_NewClientData(obj));
     return SWIG_Py_Void();
   }
 
@@ -18747,7 +18730,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
       {"CPoint_register", CPoint_swigregister, METH_O, NULL},
       // {"CPoint_init", CPoint_swiginit, METH_VARARGS, NULL},
       {"CImageProcessingModule_CreatePredetectedRegionElement", _wrap_CImageProcessingModule_CreatePredetectedRegionElement, METH_NOARGS, NULL},
-      {"CCapturedResultBase_register", CCapturedResultBase_swigregister, METH_O, NULL},
+      {"CCapturedResultBase_register", _wrap_CCapturedResultBase_swigregister, METH_O, NULL},
       {"CCapturedResultBase_GetOriginalImageHashId", _wrap_CCapturedResultBase_GetOriginalImageHashId, METH_O, NULL},
       {"CCapturedResultBase_GetOriginalImageTag", _wrap_CCapturedResultBase_GetOriginalImageTag, METH_O, NULL},
       {"CCapturedResultBase_GetRotationTransformMatrix", _wrap_CCapturedResultBase_GetRotationTransformMatrix, METH_VARARGS, NULL},
@@ -18899,7 +18882,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
   static swig_type_info _swigt__p_p_dynamsoft__basic_structures__CVector4 = {"_p_p_dynamsoft__basic_structures__CVector4", "dynamsoft::basic_structures::CVector4 **", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_p_int = {"_p_p_int", "int **", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft_basic_structures_CCapturedResultBase = {"_p_dynamsoft_basic_structures_CCapturedResultBase", "dynamsoft::basic_structures::CCapturedResultBase *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft__basic_structures__CCapturedResultBase = {"_p_dynamsoft__basic_structures__CCapturedResultBase", "dynamsoft::basic_structures::CCapturedResultBase *", 0, 0, (void *)0, 0};
 
   static swig_type_info *swig_type_initial[] = {
       &_swigt__p_BufferOverflowProtectionMode,
@@ -18968,7 +18951,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
       &_swigt__p_p_dynamsoft__basic_structures__CVector4,
       &_swigt__p_p_int,
       &_swigt__p_unsigned_char,
-      &_swigt__p_dynamsoft_basic_structures_CCapturedResultBase,
+      &_swigt__p_dynamsoft__basic_structures__CCapturedResultBase,
   };
 
   static swig_cast_info _swigc__p_BufferOverflowProtectionMode[] = {{&_swigt__p_BufferOverflowProtectionMode, 0, 0, 0}, {0, 0, 0, 0}};
@@ -19037,7 +19020,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
   static swig_cast_info _swigc__p_p_dynamsoft__basic_structures__CVector4[] = {{&_swigt__p_p_dynamsoft__basic_structures__CVector4, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_p_int[] = {{&_swigt__p_p_int, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_unsigned_char[] = {{&_swigt__p_unsigned_char, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft_basic_structures_CCapturedResultBase[] = {{&_swigt__p_dynamsoft_basic_structures_CCapturedResultBase, 0, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__basic_structures__CCapturedResultBase[] = {{&_swigt__p_dynamsoft__basic_structures__CCapturedResultBase, 0, 0, 0}, {0, 0, 0, 0}};
 
   static swig_cast_info *swig_cast_initial[] = {
       _swigc__p_BufferOverflowProtectionMode,
@@ -19106,7 +19089,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
       _swigc__p_p_dynamsoft__basic_structures__CVector4,
       _swigc__p_p_int,
       _swigc__p_unsigned_char,
-      _swigc__p_dynamsoft_basic_structures_CCapturedResultBase,
+      _swigc__p_dynamsoft__basic_structures__CCapturedResultBase,
   };
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */

@@ -669,32 +669,16 @@ static PyObject* GetErrorStrFromCore(int errCode) {
         size_t l = 0;
         size_t r = iter->size - 1;
         do
-        {
-          /* since l+r >= 0, we can (>> 1) instead (/ 2) */
-          size_t i = (l + r) >> 1;
-          const char *iname = iter->types[i]->name;
+        {       
+          const char *iname = iter->types[l]->name;
           if (iname)
           {
             int compare = strcmp(name, iname);
             if (compare == 0)
             {
-              return iter->types[i];
+              return iter->types[l];
             }
-            else if (compare < 0)
-            {
-              if (i)
-              {
-                r = i - 1;
-              }
-              else
-              {
-                break;
-              }
-            }
-            else if (compare > 0)
-            {
-              l = i + 1;
-            }
+            l++;
           }
           else
           {
@@ -706,7 +690,6 @@ static PyObject* GetErrorStrFromCore(int errCode) {
     } while (iter != end);
     return 0;
   }
-
   /*
     Search for a swig_type_info structure for either a mangled name or a human readable name.
     It first searches the mangled names of the types, which is a O(log #types)
