@@ -631,7 +631,7 @@ extern "C"
         size_t l = 0;
         size_t r = iter->size - 1;
         do
-        {       
+        {
           const char *iname = iter->types[l]->name;
           if (iname)
           {
@@ -5646,7 +5646,7 @@ extern "C"
     case CRIT_ENHANCED_IMAGE:
       resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__ddn__CEnhancedImageResultItem, SWIG_POINTER_OWN | 0);
       break;
-    
+
     default:
       resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CCapturedResultItem, SWIG_POINTER_OWN | 0);
     }
@@ -6373,6 +6373,7 @@ extern "C"
           return;
         }
         PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDecodedBarcodesUnit, SWIG_POINTER_OWN | 0);
+        pResult->Retain();
         PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
         PyObject *method_result = PyObject_CallMethod(object, "on_decoded_barcodes_received", "OO", result, result2);
 
@@ -6547,7 +6548,7 @@ extern "C"
         dynamsoft::cvr::CIntermediateResultReceiver::OnColourImageUnitReceived(pResult, info);
       }
     }
-    
+
     virtual void OnScaledColourImageUnitReceived(CScaledColourImageUnit *pResult, const IntermediateResultExtraInfo* info) override
     {
       if (object)
@@ -7274,7 +7275,7 @@ extern "C"
           PyErr_SetString(PyExc_TypeError, "Argument must have 'on_target_roi_results_received' method");
           return;
         }
-        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResult, SWIG_POINTER_OWN | 0);
+        PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResult, 0 | 0);
         PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
         PyObject *method_result = PyObject_CallMethod(object, "on_target_roi_results_received", "OO", result, result2);
 
@@ -11141,7 +11142,7 @@ extern "C"
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_image_source_state_received' method on class object");
           return;
         }
-        Py_DECREF(method_result);       
+        Py_DECREF(method_result);
         return;
       }
       return;
@@ -11713,7 +11714,7 @@ extern "C"
     int res;
     if (!(argc = SWIG_Python_UnpackTuple(args, "CCaptureVisionRouter_InitSettings", 2, 2, argv)))
       SWIG_fail;
-    --argc;  
+    --argc;
     res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter, 0);
     _v = SWIG_CheckState(res);
     if (_v)
@@ -11926,7 +11927,7 @@ extern "C"
                                                "'");
     }
     arg2 = reinterpret_cast<char *>(buf2);
-    
+
     result = (int)(arg1)->InitSettingsFromFile((char const *)arg2, errMsg, 1023);
     resultobj = SWIG_From_int(static_cast<int>(result));
     obj2 = PyUnicode_FromString(errMsg);
@@ -12567,7 +12568,7 @@ extern "C"
         if (SWIG_IsOK(ret))
         {
           UpdateSimplifiedBarcodeReaderSettingsFromPythonObject(brs, barcodeSetting);
-          
+
           (arg3)->barcodeSettings = *brs;
         }
         Py_DECREF(barcodeSetting);
@@ -15180,7 +15181,7 @@ extern "C"
   {
     return (void *)((dynamsoft::basic_structures::CCapturedResultBase *)((dynamsoft::cvr::CCapturedResult *)x));
   }
-  
+
   static void *_p_dynamsoft__dbr__CDecodedBarcodesResultTo_p_dynamsoft__basic_structures__CCapturedResultBase(void *x, int *SWIGUNUSEDPARM(newmemory))
   {
     return (void *)((dynamsoft::basic_structures::CCapturedResultBase *)((dynamsoft::dbr::CDecodedBarcodesResult *)x));
@@ -15762,19 +15763,13 @@ extern "C"
 #ifdef SWIGRUNTIME_DEBUG
       printf("InitializeModule: type %lu %s\n", (unsigned long)i, swig_module.type_initial[i]->name);
 #endif
-      bool log = false;
-      if(0== strcmp(swig_module.type_initial[i]->name,"_p_dynamsoft__basic_structures__CCapturedResultBase"))
-        log=true;
       /* if there is another module already loaded */
       if (swig_module.next != &swig_module)
       {
-        if(log) printf("test-1");
-        type = SWIG_MangledTypeQueryModule(swig_module.next, &swig_module, swig_module.type_initial[i]->name,log);
-        if(log) printf("type:%x\n", type);
+        type = SWIG_MangledTypeQueryModule(swig_module.next, &swig_module, swig_module.type_initial[i]->name);
       }
       if (type)
       {
-        if(log) printf("test-2");
         /* Overwrite clientdata field */
 #ifdef SWIGRUNTIME_DEBUG
         printf("InitializeModule: found type %s\n", type->name);
@@ -15789,7 +15784,6 @@ extern "C"
       }
       else
       {
-        if(log) printf("test-3");
         type = swig_module.type_initial[i];
       }
 

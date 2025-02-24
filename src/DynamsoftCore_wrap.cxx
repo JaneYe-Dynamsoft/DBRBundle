@@ -631,7 +631,7 @@ extern "C"
         size_t l = 0;
         size_t r = iter->size - 1;
         do
-        {       
+        {
           const char *iname = iter->types[l]->name;
           if (iname)
           {
@@ -3408,7 +3408,7 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionElement swig_types[47]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit swig_types[48]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CRegionObjectElement swig_types[49]
-#define SWIGTYPE_p_dynamsoft__intermediate_results__ScaledColourImageUnit swig_types[50]
+#define SWIGTYPE_p_dynamsoft__intermediate_results__CScaledColourImageUnit swig_types[50]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CShortLinesUnit swig_types[51]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit swig_types[52]
 #define SWIGTYPE_p_dynamsoft__intermediate_results__CTextZone swig_types[53]
@@ -5158,7 +5158,7 @@ extern "C"
     result = (dynamsoft::basic_structures::CPoint *)((dynamsoft::basic_structures::CContour const *)arg1)->GetPoints();
     length = arg1->GetPointsCount();
     resultobj = PyList_New(length);
-    for(int i = 0; i < length; i++) 
+    for(int i = 0; i < length; i++)
     {
       PyObject *point = SWIG_NewPointerObj(SWIG_as_voidptr(&result[i]), SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t, 0 | 0);
       PyList_SetItem(resultobj, i, point);
@@ -6849,7 +6849,7 @@ extern "C"
     arg1 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp1);
     result = (dynamsoft::basic_structures::CPoint *)(dynamsoft::basic_structures::CPoint *)((arg1)->points);
     resultobj = PyList_New(4);
-    for(int i = 0; i < 4; i++) 
+    for(int i = 0; i < 4; i++)
     {
       PyObject *point = SWIG_NewPointerObj(SWIG_as_voidptr(&result[i]), SWIGTYPE_p_dynamsoft__basic_structures__DMPoint_T_int_t, 0 | 0);
       PyList_SetItem(resultobj, i, point);
@@ -7556,7 +7556,7 @@ extern "C"
           PyErr_SetString(PyExc_TypeError, "Argument must have 'get_type' method");
           return (ImageTagType)0;
         }
-        PyObject *method_result = PyObject_CallMethod(object, "get_type", NULL);        
+        PyObject *method_result = PyObject_CallMethod(object, "get_type", NULL);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'get_type' method on class object");
@@ -7583,7 +7583,7 @@ extern "C"
           PyErr_SetString(PyExc_TypeError, "Argument must have 'clone' method");
           return NULL;
         }
-        PyObject *method_result = PyObject_CallMethod(object, "clone", NULL);        
+        PyObject *method_result = PyObject_CallMethod(object, "clone", NULL);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'clone' method on class object");
@@ -7908,7 +7908,7 @@ extern "C"
           PyErr_SetString(PyExc_TypeError, "Argument must have 'get_type' method");
           return (ImageTagType)0;
         }
-        PyObject *method_result = PyObject_CallMethod(object, "get_type", NULL);        
+        PyObject *method_result = PyObject_CallMethod(object, "get_type", NULL);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'get_type' method on class object");
@@ -7935,7 +7935,7 @@ extern "C"
           PyErr_SetString(PyExc_TypeError, "Argument must have 'clone' method");
           return NULL;
         }
-        PyObject *method_result = PyObject_CallMethod(object, "clone", NULL);        
+        PyObject *method_result = PyObject_CallMethod(object, "clone", NULL);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'clone' method on class object");
@@ -8243,7 +8243,7 @@ extern "C"
           PyErr_SetString(PyExc_TypeError, "Argument must have 'get_type' method");
           return (ImageTagType)0;
         }
-        PyObject *method_result = PyObject_CallMethod(object, "get_type", NULL);        
+        PyObject *method_result = PyObject_CallMethod(object, "get_type", NULL);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'get_type' method on class object");
@@ -8270,7 +8270,7 @@ extern "C"
           PyErr_SetString(PyExc_TypeError, "Argument must have 'clone' method");
           return NULL;
         }
-        PyObject *method_result = PyObject_CallMethod(object, "clone", NULL);        
+        PyObject *method_result = PyObject_CallMethod(object, "clone", NULL);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'clone' method on class object");
@@ -9520,7 +9520,7 @@ extern "C"
     //     {
     //       void *ptr = 0;
     //       // int res = SWIG_ConvertFunctionPtr(argv[1], &ptr, SWIGTYPE_p_f_p_q_const__unsigned_char__void);
-          
+
     //       _v = SWIG_CheckState(res);
     //       if (_v)
     //       {
@@ -10482,10 +10482,10 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
         {
           PyObject *method_result = PyObject_CallMethod(object, "on_error_received", "is", errorCode, errorMessage);
           if (!method_result)
-          {         
+          {
             return;
           }
-          Py_DECREF(method_result);         
+          Py_DECREF(method_result);
         }
         catch (const std::exception &e)
         {
@@ -10629,7 +10629,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
           PyErr_SetString(PyExc_TypeError, "Argument must have 'has_next_image_to_fetch' method");
           return false;
         }
-        PyObject *method_result = PyObject_CallMethod(object, "has_next_image_to_fetch", NULL);    
+        PyObject *method_result = PyObject_CallMethod(object, "has_next_image_to_fetch", NULL);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'has_next_image_to_fetch' method on class object");
@@ -10659,7 +10659,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
           PyErr_SetString(PyExc_TypeError, "Argument must have 'start_fetching' method");
           return;
         }
-        PyObject *method_result = PyObject_CallMethod(object, "start_fetching", NULL);        
+        PyObject *method_result = PyObject_CallMethod(object, "start_fetching", NULL);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'start_fetching' method on class object");
@@ -10684,7 +10684,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
           PyErr_SetString(PyExc_TypeError, "Argument must have 'stop_fetching' method");
           return;
         }
-        PyObject *method_result = PyObject_CallMethod(object, "stop_fetching", NULL);        
+        PyObject *method_result = PyObject_CallMethod(object, "stop_fetching", NULL);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'stop_fetching' method on class object");
@@ -10709,7 +10709,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
           PyErr_SetString(PyExc_TypeError, "Argument must have 'get_image' method");
           return NULL;
         }
-        PyObject *method_result = PyObject_CallMethod(object, "get_image", NULL);        
+        PyObject *method_result = PyObject_CallMethod(object, "get_image", NULL);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'get_image' method on class object");
@@ -10795,7 +10795,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     void *argp2 = 0;
     int res2 = 0;
-    PyObject *swig_obj[2];   
+    PyObject *swig_obj[2];
     if (!SWIG_Python_UnpackTuple(args, "_wrap_CImageSourceAdapter_AddImageToBuffer", 2, 2, swig_obj))
       SWIG_fail;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__basic_structures__CImageSourceAdapter, 0 | 0);
@@ -11954,7 +11954,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
 
   static void UpdateCQuadrilateralPointsFromPythonObject(dynamsoft::basic_structures::CQuadrilateral *quad, PyObject *obj)
   {
-    if (quad == NULL || obj == NULL) 
+    if (quad == NULL || obj == NULL)
         return;
 
     PyObject* attr_value = PyObject_GetAttrString_withNoException(obj, "_point_list");
@@ -12603,7 +12603,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
       result_info = SWIGTYPE_p_dynamsoft__intermediate_results__CColourImageUnit;
       break;
     case IRUT_SCALED_COLOUR_IMAGE:
-      result_info = SWIGTYPE_p_dynamsoft__intermediate_results__ScaledColourImageUnit;
+      result_info = SWIGTYPE_p_dynamsoft__intermediate_results__CScaledColourImageUnit;
       break;
     case IRUT_GRAYSCALE_IMAGE:
       result_info = SWIGTYPE_p_dynamsoft__intermediate_results__CGrayscaleImageUnit;
@@ -13248,7 +13248,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
     if (!args)
       SWIG_fail;
     swig_obj[0] = args;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__intermediate_results__ScaledColourImageUnit, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__intermediate_results__CScaledColourImageUnit, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
@@ -13281,7 +13281,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
 
     if (!SWIG_Python_UnpackTuple(args, "CScaledColourImageUnit_SetImageData", 2, 2, swig_obj))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__intermediate_results__ScaledColourImageUnit, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__intermediate_results__CScaledColourImageUnit, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
@@ -13317,7 +13317,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
     PyObject *obj;
     if (!SWIG_Python_UnpackTuple(args, "dynamsoftregister", 1, 1, &obj))
       return NULL;
-    SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft__intermediate_results__ScaledColourImageUnit, SWIG_NewClientData(obj));
+    SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft__intermediate_results__CScaledColourImageUnit, SWIG_NewClientData(obj));
     return SWIG_Py_Void();
   }
 
@@ -17343,7 +17343,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
         }
         PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__intermediate_results__CIntermediateResult, 0 | 0);
         PyObject *info_arg = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
-        PyObject *method_result = PyObject_CallMethod(object, "on_task_results_received", "OO", result, info_arg);        
+        PyObject *method_result = PyObject_CallMethod(object, "on_task_results_received", "OO", result, info_arg);
         if (!method_result)
         {
           PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_task_results_received' method on class object");
@@ -17387,7 +17387,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
     }
     virtual void OnTaskResultsReceivedInner(dynamsoft::intermediate_results::CIntermediateResult *pResult, const IntermediateResultExtraInfo* info) override
     {
-      
+
     }
   protected:
     PyObject *object{nullptr};
@@ -18337,7 +18337,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
         PyErr_SetString(PyExc_RuntimeError, "Failed to convert double to Python float");
         return NULL;
       }
-      PyList_SET_ITEM(py_list, i, py_value); 
+      PyList_SET_ITEM(py_list, i, py_value);
     }
     // resultobj = SWIG_Py_Void();
     return py_list;
@@ -18780,7 +18780,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
   {
     return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CPredetectedRegionsUnit *)x));
   }
-  static void *_p_dynamsoft__intermediate_results__ScaledColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
+  static void *_p_dynamsoft__intermediate_results__CScaledColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit(void *x, int *SWIGUNUSEDPARM(newmemory))
   {
     return (void *)((dynamsoft::intermediate_results::CIntermediateResultUnit *)((dynamsoft::intermediate_results::CScaledColourImageUnit *)x));
   }
@@ -18866,7 +18866,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CPredetectedRegionElement = {"_p_dynamsoft__intermediate_results__CPredetectedRegionElement", "dynamsoft::intermediate_results::CPredetectedRegionElement *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit = {"_p_dynamsoft__intermediate_results__CPredetectedRegionsUnit", "dynamsoft::intermediate_results::CPredetectedRegionsUnit *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CRegionObjectElement = {"_p_dynamsoft__intermediate_results__CRegionObjectElement", "dynamsoft::intermediate_results::CRegionObjectElement *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__intermediate_results__ScaledColourImageUnit = {"_p_dynamsoft__intermediate_results__ScaledColourImageUnit", "dynamsoft::intermediate_results::CScaledColourImageUnit *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft__intermediate_results__CScaledColourImageUnit = {"_p_dynamsoft__intermediate_results__CScaledColourImageUnit", "dynamsoft::intermediate_results::CScaledColourImageUnit *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CShortLinesUnit = {"_p_dynamsoft__intermediate_results__CShortLinesUnit", "dynamsoft::intermediate_results::CShortLinesUnit *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit = {"_p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit", "dynamsoft::intermediate_results::CTextRemovedBinaryImageUnit *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__intermediate_results__CTextZone = {"_p_dynamsoft__intermediate_results__CTextZone", "dynamsoft::intermediate_results::CTextZone *", 0, 0, (void *)0, 0};
@@ -18935,7 +18935,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
       &_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionElement,
       &_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit,
       &_swigt__p_dynamsoft__intermediate_results__CRegionObjectElement,
-      &_swigt__p_dynamsoft__intermediate_results__ScaledColourImageUnit,
+      &_swigt__p_dynamsoft__intermediate_results__CScaledColourImageUnit,
       &_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit,
       &_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit,
       &_swigt__p_dynamsoft__intermediate_results__CTextZone,
@@ -18998,13 +18998,13 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CGrayscaleImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CIntermediateResult[] = {{&_swigt__p_dynamsoft__intermediate_results__CIntermediateResult, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CIntermediateResultUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit, _p_dynamsoft__intermediate_results__CBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CColourImageUnit, _p_dynamsoft__intermediate_results__CColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CContoursUnit, _p_dynamsoft__intermediate_results__CContoursUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit, _p_dynamsoft__intermediate_results__CLineSegmentsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, _p_dynamsoft__intermediate_results__CPredetectedRegionsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__ScaledColourImageUnit, _p_dynamsoft__intermediate_results__ScaledColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit, _p_dynamsoft__intermediate_results__CShortLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit, _p_dynamsoft__intermediate_results__CTextZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit, _p_dynamsoft__intermediate_results__CTextureDetectionResultUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CIntermediateResultUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CBinaryImageUnit, _p_dynamsoft__intermediate_results__CBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CColourImageUnit, _p_dynamsoft__intermediate_results__CColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CContoursUnit, _p_dynamsoft__intermediate_results__CContoursUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CEnhancedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit, _p_dynamsoft__intermediate_results__CLineSegmentsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, _p_dynamsoft__intermediate_results__CPredetectedRegionsUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CScaledColourImageUnit, _p_dynamsoft__intermediate_results__CScaledColourImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit, _p_dynamsoft__intermediate_results__CShortLinesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextZonesUnit, _p_dynamsoft__intermediate_results__CTextZonesUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextureDetectionResultUnit, _p_dynamsoft__intermediate_results__CTextureDetectionResultUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedBinaryImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTextureRemovedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnit, _p_dynamsoft__intermediate_results__CTransformedGrayscaleImageUnitTo_p_dynamsoft__intermediate_results__CIntermediateResultUnit, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CLineSegmentsUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CLineSegmentsUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CObservationParameters[] = {{&_swigt__p_dynamsoft__intermediate_results__CObservationParameters, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionElement[] = {{&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionElement, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CRegionObjectElement[] = {{&_swigt__p_dynamsoft__intermediate_results__CRegionObjectElement, 0, 0, 0}, {&_swigt__p_dynamsoft__intermediate_results__CPredetectedRegionElement, _p_dynamsoft__intermediate_results__CPredetectedRegionElementTo_p_dynamsoft__intermediate_results__CRegionObjectElement, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__ScaledColourImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__ScaledColourImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CScaledColourImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CScaledColourImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CShortLinesUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CShortLinesUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__intermediate_results__CTextZone[] = {{&_swigt__p_dynamsoft__intermediate_results__CTextZone, 0, 0, 0}, {0, 0, 0, 0}};
@@ -19073,7 +19073,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
       _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionElement,
       _swigc__p_dynamsoft__intermediate_results__CPredetectedRegionsUnit,
       _swigc__p_dynamsoft__intermediate_results__CRegionObjectElement,
-      _swigc__p_dynamsoft__intermediate_results__ScaledColourImageUnit,
+      _swigc__p_dynamsoft__intermediate_results__CScaledColourImageUnit,
       _swigc__p_dynamsoft__intermediate_results__CShortLinesUnit,
       _swigc__p_dynamsoft__intermediate_results__CTextRemovedBinaryImageUnit,
       _swigc__p_dynamsoft__intermediate_results__CTextZone,

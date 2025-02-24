@@ -632,7 +632,7 @@ extern "C"
         size_t l = 0;
         size_t r = iter->size - 1;
         do
-        {       
+        {
           const char *iname = iter->types[l]->name;
           if (iname)
           {
@@ -4808,7 +4808,7 @@ extern "C"
     }
     arg1 = reinterpret_cast<tagSimplifiedBarcodeReaderSettings *>(argp1);
     vec = convertPythonListToCpp(swig_obj[1], 10);
-    
+
     if (vec)
     {
       size_t ii = 0;
@@ -11027,7 +11027,7 @@ extern "C"
     }
     return attr_value;
   }
-  
+
   static bool getCpointArraryFromPyList(PyObject *list, dynamsoft::basic_structures::CPoint **array, int *length)
   {
     (*length) = 0;
@@ -11061,7 +11061,7 @@ extern "C"
 
   static void UpdateCQuadrilateralPointsFromPythonObject(dynamsoft::basic_structures::CQuadrilateral *quad, PyObject *obj)
   {
-    if (quad == NULL || obj == NULL) 
+    if (quad == NULL || obj == NULL)
         return;
 
     PyObject* attr_value = PyObject_GetAttrString_withNoException(obj, "_point_list");
@@ -13870,12 +13870,12 @@ extern "C"
     int res1 = 0 ;
     PyObject *swig_obj[1] ;
     dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode result;
-    
+
     if (!args) SWIG_fail;
     swig_obj[0] = args;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit, 0 |  0 );
     if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CDeformationResistedBarcodeImageUnit_GetDeformationResistedBarcode" "', argument " "1"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit const *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CDeformationResistedBarcodeImageUnit_GetDeformationResistedBarcode" "', argument " "1"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit const *""'");
     }
     arg1 = reinterpret_cast< dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit * >(argp1);
     result = ((dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit const *)arg1)->GetDeformationResistedBarcode();
@@ -13898,30 +13898,30 @@ extern "C"
     void *argp3 = 0 ;
     int res3 = 0 ;
     int result;
-    
+
     if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit, 0 |  0 );
     if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "1"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "1"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *""'");
     }
     arg1 = reinterpret_cast< dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit * >(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcode,  0  | 0);
     if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "2"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const &""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "2"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const &""'");
     }
     if (!argp2) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "2"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const &""'"); 
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "2"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const &""'");
     }
     arg2 = reinterpret_cast< dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode * >(argp2);
     // res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_double, 0 |  0 );
     // if (!SWIG_IsOK(res3)) {
-    //   SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "3"" of type '" "double const [9]""'"); 
-    // } 
+    //   SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "3"" of type '" "double const [9]""'");
+    // }
     // arg3 = reinterpret_cast< double * >(argp3);
     arg3 = convertPythonListToCpp_double(swig_obj[2], 9);
     if(!arg3)
     {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "3"" of type '" "double const [9]""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "3"" of type '" "double const [9]""'");
     }
     result = (int)(arg1)->SetDeformationResistedBarcode((dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const &)*arg2,(double const (*))arg3);
     if(arg3)
@@ -13942,19 +13942,19 @@ extern "C"
     void *argp2 = 0 ;
     int res2 = 0 ;
     int result;
-    
+
     if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcodeImageUnit, 0 |  0 );
     if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "1"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "1"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit *""'");
     }
     arg1 = reinterpret_cast< dynamsoft::dbr::intermediate_results::CDeformationResistedBarcodeImageUnit * >(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CDeformationResistedBarcode,  0  | 0);
     if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "2"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const &""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "2"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const &""'");
     }
     if (!argp2) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "2"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const &""'"); 
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode" "', argument " "2"" of type '" "dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const &""'");
     }
     arg2 = reinterpret_cast< dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode * >(argp2);
     result = (int)(arg1)->SetDeformationResistedBarcode((dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const &)*arg2);
@@ -13970,7 +13970,7 @@ extern "C"
     PyObject *argv[4] = {
       0
     };
-    
+
     if (!(argc = SWIG_Python_UnpackTuple(args, "CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode", 3, 3, argv))) SWIG_fail;
     --argc;
     return _wrap_CDeformationResistedBarcodeImageUnit_SetDeformationResistedBarcode__SWIG_0(self, argc, argv);
@@ -14653,7 +14653,7 @@ extern "C"
     }
     arg1 = reinterpret_cast<dynamsoft::dbr::CBarcodeResultItem *>(argp1);
     result = ((dynamsoft::dbr::CBarcodeResultItem const *)arg1)->GetLocation();
-    resultobj = SWIG_NewPointerObj((new dynamsoft::basic_structures::CQuadrilateral(result)), SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, SWIG_POINTER_NEW | 0);
+    resultobj = SWIG_NewPointerObj((new dynamsoft::basic_structures::CQuadrilateral(result)), SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, SWIG_POINTER_OWN | 0);
     return resultobj;
   fail:
     return NULL;
@@ -15040,7 +15040,7 @@ extern "C"
         PyErr_SetString(PyExc_RuntimeError, "Failed to convert double to Python float");
         return NULL;
       }
-      PyList_SET_ITEM(py_list, i, py_value); 
+      PyList_SET_ITEM(py_list, i, py_value);
     }
     // resultobj = SWIG_Py_Void();
     return py_list;

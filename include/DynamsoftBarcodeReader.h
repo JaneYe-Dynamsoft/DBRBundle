@@ -24,7 +24,7 @@ typedef void* HANDLE;
 #endif
 #include "DynamsoftCore.h"
 
-#define DBR_VERSION "11.0.10.3625"
+#define DBR_VERSION "11.0.10.3775"
 
 /**Enumeration section*/
 
@@ -232,10 +232,6 @@ typedef enum LocalizationMode
 
 	/**Localizes 1D barcodes fast. Check @ref LM for available argument settings. */
 	LM_ONED_FAST_SCAN = 0x100,
-
-	// added in v11.0.10
-	/** Localizes barcodes by utilizing a neural network model. */
-	//LM_NEURAL_NETWORK = 0X200,
 
 	/**Reserved setting for localization mode.*/
 #if defined(_WIN32) || defined(_WIN64)

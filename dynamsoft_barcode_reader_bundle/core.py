@@ -1,4 +1,4 @@
-__version__ = "4.0.10.7537"
+__version__ = "4.0.10.7771"
 
 if __package__ or "." in __name__:
     from . import _DynamsoftCore
@@ -369,7 +369,7 @@ class Point:
 
     def __repr__(self):
         return f"Point({self.x}, {self.y})"
-    
+
     def distance_to(self, pt: "Point") -> float:
         """
         Calculates the distance between the current point and the specified target point.
@@ -426,7 +426,7 @@ class Rect:
 
     def __repr__(self):
         return f"Rect(top={self.top}, left={self.left}, right={self.right}, bottom={self.bottom})"
-    
+
     __destroy__ = _DynamsoftCore.delete_CRect
 
 
@@ -446,7 +446,7 @@ class Quadrilateral:
     _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
-    
+
     def __init__(self):
         """
         Initializes a new instance of the Quadrilateral class with default values.
@@ -496,7 +496,7 @@ class Quadrilateral:
 
     def get_bounding_rect(self) -> Rect:
         return _DynamsoftCore.CQuadrilateral_GetBoundingRect(self)
-    
+
     __destroy__ = _DynamsoftCore.delete_CQuadrilateral
 
 _DynamsoftCore.CQuadrilateral_register(Quadrilateral)
@@ -1014,7 +1014,7 @@ class CapturedResultBase:
             AttributeError: If the constructor is called.
         """
         raise AttributeError("No constructor defined - class is abstract")
-    
+
     def get_original_image_hash_id(self) -> str:
         """
         Gets the hash ID of the original image.
@@ -1045,7 +1045,7 @@ class CapturedResultBase:
         return _DynamsoftCore.CCapturedResultBase_GetRotationTransformMatrix(
             self
         )
-    
+
     def get_error_code(self) -> int:
         """
         Gets the error code of the detection operation.
@@ -1063,7 +1063,7 @@ class CapturedResultBase:
             The error message of the detection operation as a string.
         """
         return _DynamsoftCore.CCapturedResultBase_GetErrorString(self)
-    
+
 _DynamsoftCore.CCapturedResultBase_register(CapturedResultBase)
 #end new
 
@@ -1349,7 +1349,7 @@ _DynamsoftCore.CPDFReadingParameter_register(PDFReadingParameter)
 
 class Contour:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    
+
     __destroy__ = _DynamsoftCore.delete_CContour
 
     def __init__(self):
@@ -1363,11 +1363,11 @@ class Contour:
 
     def get_points(self) -> List[Point]:
         return _DynamsoftCore.CContour_GetPoints(self)
-    
+
 _DynamsoftCore.CContour_register(Contour)
 class Vector4:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    
+
     value = property(_DynamsoftCore.CVector4_value_get, _DynamsoftCore.CVector4_value_set)
 
     def __init__(self, v1: int, v2: int, v3: int, v4: int):
@@ -1381,7 +1381,7 @@ class Vector4:
         if index < 0 or index > 3:
             raise IndexError("Index out of range")
         return _DynamsoftCore.CVector4_GetItem(self, index)
-    
+
     def __setitem__(self, index: int, value: int) -> None:
         if index < 0 or index > 3:
             raise IndexError("Index out of range")
@@ -1391,7 +1391,7 @@ _DynamsoftCore.CVector4_register(Vector4)
 
 class LineSegment:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    
+
     start_point: Point = property(_DynamsoftCore.CLineSegment_GetStartPoint, _DynamsoftCore.CLineSegment_SetStartPoint)
     end_point: Point = property(_DynamsoftCore.CLineSegment_GetEndPoint, _DynamsoftCore.CLineSegment_SetEndPoint)
     id: int = property(_DynamsoftCore.CLineSegment_GetId, _DynamsoftCore.CLineSegment_SetId)
@@ -1407,7 +1407,7 @@ class LineSegment:
 _DynamsoftCore.CLineSegment_register(LineSegment)
 class Corner:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    
+
     type: int = property(_DynamsoftCore.CCorner_type_get, _DynamsoftCore.CCorner_type_set)
     intersection: Point = property(_DynamsoftCore.CCorner_intersection_get, _DynamsoftCore.CCorner_intersection_set)
     line1: LineSegment = property(_DynamsoftCore.CCorner_line1_get, _DynamsoftCore.CCorner_line1_set)
@@ -1419,7 +1419,7 @@ class Corner:
 _DynamsoftCore.CCorner_register(Corner)
 class Edge:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    
+
     start_corner: Corner = property(_DynamsoftCore.CEdge_startCorner_get, _DynamsoftCore.CEdge_startCorner_set)
     end_corner: Corner = property(_DynamsoftCore.CEdge_endCorner_get, _DynamsoftCore.CEdge_endCorner_set)
 
@@ -1450,7 +1450,7 @@ class RegionObjectElement:
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_location(self) -> Quadrilateral:
         return _DynamsoftCore.CRegionObjectElement_GetLocation(self)
@@ -1463,23 +1463,23 @@ class RegionObjectElement:
 
     def clone(self) -> "RegionObjectElement":
         return _DynamsoftCore.CRegionObjectElement_Clone(self)
-    
+
     def get_image_data(self) -> ImageData:
         return _DynamsoftCore.CRegionObjectElement_GetImageData(self)
 
 _DynamsoftCore.CRegionObjectElement_register(RegionObjectElement)
 class PredetectedRegionElement(RegionObjectElement):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    
+
     def __init__(self):
         _DynamsoftCore.Class_init(self, _DynamsoftCore.CImageProcessingModule_CreatePredetectedRegionElement())
-    
+
     def get_mode_name(self) -> str:
         return _DynamsoftCore.CPredetectedRegionElement_GetModeName(self)
 
     def set_location(self, loc: Quadrilateral) -> int:
         return _DynamsoftCore.CPredetectedRegionElement_SetLocation(self, loc)
-    
+
 _DynamsoftCore.CPredetectedRegionElement_register(PredetectedRegionElement)
 class IntermediateResultUnit:
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -1521,10 +1521,10 @@ class IntermediateResultUnit:
 
     def replace(self, unit: "IntermediateResultUnit") -> int:
         return _DynamsoftCore.CIntermediateResultUnit_Replace(self, unit)
-    
+
     def get_usage_count(self) -> int:
         return _DynamsoftCore.CIntermediateResultUnit_GetUsageCount(self)
-    
+
     def set_usage_count(self, usage_count: int) -> None:
         return _DynamsoftCore.CIntermediateResultUnit_SetUsageCount(self, usage_count)
 
@@ -1534,7 +1534,7 @@ class IntermediateResult:
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
     def get_intermediate_result_units(self) -> List[IntermediateResultUnit]:
         list = []
         count = _DynamsoftCore.CIntermediateResult_GetCount(self)
@@ -1549,7 +1549,7 @@ class ColourImageUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_image_data(self) -> ImageData:
         return _DynamsoftCore.CColourImageUnit_GetImageData(self)
@@ -1563,7 +1563,7 @@ class ScaledColourImageUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_image_data(self) -> ImageData:
         return _DynamsoftCore.CScaledColourImageUnit_GetImageData(self)
@@ -1577,7 +1577,7 @@ class GrayscaleImageUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_image_data(self) -> ImageData:
         return _DynamsoftCore.CGrayscaleImageUnit_GetImageData(self)
@@ -1591,7 +1591,7 @@ class TransformedGrayscaleImageUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_image_data(self) -> ImageData:
         return _DynamsoftCore.CTransformedGrayscaleImageUnit_GetImageData(self)
@@ -1605,7 +1605,7 @@ class PredetectedRegionsUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_count(self) -> int:
         return _DynamsoftCore.CPredetectedRegionsUnit_GetCount(self)
@@ -1631,7 +1631,7 @@ class EnhancedGrayscaleImageUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_image_data(self) -> ImageData:
         return _DynamsoftCore.CEnhancedGrayscaleImageUnit_GetImageData(self)
@@ -1645,7 +1645,7 @@ class BinaryImageUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_image_data(self) -> ImageData:
         return _DynamsoftCore.CBinaryImageUnit_GetImageData(self)
@@ -1659,7 +1659,7 @@ class TextureDetectionResultUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_x_spacing(self) -> int:
         return _DynamsoftCore.CTextureDetectionResultUnit_GetXSpacing(self)
@@ -1679,7 +1679,7 @@ class TextureRemovedGrayscaleImageUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_image_data(self) -> ImageData:
         return _DynamsoftCore.CTextureRemovedGrayscaleImageUnit_GetImageData(self)
@@ -1693,7 +1693,7 @@ class TextureRemovedBinaryImageUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_image_data(self) -> ImageData:
         return _DynamsoftCore.CTextureRemovedBinaryImageUnit_GetImageData(self)
@@ -1704,11 +1704,8 @@ class TextureRemovedBinaryImageUnit(IntermediateResultUnit):
 _DynamsoftCore.CTextureRemovedBinaryImageUnit_register(TextureRemovedBinaryImageUnit)
 class TextZone(object):
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    
+
     __destroy__ = _DynamsoftCore.delete_CTextZone
-    def __new__(cls, *args, **kwargs):
-        instance = super().__new__(cls)
-        instance._is_non
     def __init__(self, loc: Quadrilateral = None, char_contours_indices: List[int] = None):
         if char_contours_indices is not None and loc is None:
             raise ValueError("If char_contours_indices is not None, loc should not be None")
@@ -1732,7 +1729,7 @@ class TextZonesUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_count(self) -> int:
         return _DynamsoftCore.CTextZonesUnit_GetCount(self)
@@ -1757,7 +1754,7 @@ class TextRemovedBinaryImageUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_image_data(self) -> ImageData:
         return _DynamsoftCore.CTextRemovedBinaryImageUnit_GetImageData(self)
@@ -1771,7 +1768,7 @@ class ContoursUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
     def get_contours(self) -> Tuple[int, List[Contour], List[Vector4]]:
         return _DynamsoftCore.CContoursUnit_GetContours(self)
 
@@ -1784,7 +1781,7 @@ class LineSegmentsUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_count(self) -> int:
         return _DynamsoftCore.CLineSegmentsUnit_GetCount(self)
@@ -1810,7 +1807,7 @@ class ShortLinesUnit(IntermediateResultUnit):
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
 
     def get_count(self) -> int:
         return _DynamsoftCore.CShortLinesUnit_GetCount(self)
@@ -1836,7 +1833,7 @@ class ObservationParameters:
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
-    
+
     __destroy__ = _DynamsoftCore.delete_CObservationParameters
 
     def set_observed_result_unit_types(self, types: int) -> None:
@@ -1877,7 +1874,7 @@ class AbstractIntermediateResultReceiver(ABC):
 
     def get_observation_parameters(self) -> ObservationParameters:
         return _DynamsoftCore.CAbstractIntermediateResultReceiver_GetObservationParameters(self)
-    
+
     @abstractmethod
     def on_task_results_received(self, result: IntermediateResult, info: IntermediateResultExtraInfo) -> None:
         pass
@@ -1885,5 +1882,5 @@ class AbstractIntermediateResultReceiver(ABC):
     @abstractmethod
     def on_unit_result_received(self, unit: IntermediateResultUnit, info: IntermediateResultExtraInfo) -> None:
         pass
-    
+
 _DynamsoftCore.CAbstractIntermediateResultReceiver_register(AbstractIntermediateResultReceiver)
