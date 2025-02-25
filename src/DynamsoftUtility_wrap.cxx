@@ -631,7 +631,7 @@ extern "C"
         size_t l = 0;
         size_t r = iter->size - 1;
         do
-        {       
+        {
           const char *iname = iter->types[l]->name;
           if (iname)
           {
@@ -3401,7 +3401,7 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter swig_types[40]
 #define SWIGTYPE_p_dynamsoft__utility__CDirectoryFetcher swig_types[41]
 #define SWIGTYPE_p_dynamsoft__utility__CFileFetcher swig_types[42]
-#define SWIGTYPE_p_dynamsoft__utility__CImageManager swig_types[43]
+#define SWIGTYPE_p_dynamsoft__utility__CImageIO swig_types[43]
 #define SWIGTYPE_p_dynamsoft__utility__CMultiFrameResultCrossFilter swig_types[44]
 #define SWIGTYPE_p_dynamsoft__utility__CProactiveImageSourceAdapter swig_types[45]
 #define SWIGTYPE_p_dynamsoft__utility__CUtilityModule swig_types[46]
@@ -3412,8 +3412,10 @@ SwigPyObject_type(void)
 #define SWIGTYPE_p_tagSimplifiedLabelRecognizerSettings swig_types[51]
 #define SWIGTYPE_p_unsigned_char swig_types[52]
 #define SWIGTYPE_p_dynamsoft__basic_structures__CRect swig_types[53]
-static swig_type_info *swig_types[55];
-static swig_module_info swig_module = {swig_types, 54, 0, 0, 0, 0};
+#define SWIGTYPE_p_dynamsoft__utility__CImageDrawer swig_types[54]
+#define SWIGTYPE_p_dynamsoft__utility__CImageProcessor swig_types[55]
+static swig_type_info *swig_types[57];
+static swig_module_info swig_module = {swig_types, 56, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -4090,7 +4092,7 @@ extern "C"
   //       }
   //       PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__basic_structures__COriginalImageResultItem, 0 | 0);
   //       PyObject *method_result = PyObject_CallMethod(object, "on_original_image_result_received", "O", result);
-  //       
+  //
   //       if (!method_result)
   //       {
   //         PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_original_image_result_received' method on class object");
@@ -4116,7 +4118,7 @@ extern "C"
   //       }
   //       PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dbr__CDecodedBarcodesResult, 0 | 0);
   //       PyObject *method_result = PyObject_CallMethod(object, "on_decoded_barcodes_received", "O", result);
-  //       
+  //
   //       if (!method_result)
   //       {
   //         PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_decoded_barcodes_received' method on class object");
@@ -4142,7 +4144,7 @@ extern "C"
   //       }
   //       PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dlr__CRecognizedTextLinesResult, 0 | 0);
   //       PyObject *method_result = PyObject_CallMethod(object, "on_recognized_text_lines_received", "O", result);
-  //       
+  //
   //       if (!method_result)
   //       {
   //         PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_recognized_text_lines_received' method on class object");
@@ -4168,7 +4170,7 @@ extern "C"
   //       }
   //       PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__ddn__CDetectedQuadsResult, 0 | 0);
   //       PyObject *method_result = PyObject_CallMethod(object, "on_detected_quads_received", "O", result);
-  //       
+  //
   //       if (!method_result)
   //       {
   //         PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_detected_quads_received' method on class object");
@@ -4194,7 +4196,7 @@ extern "C"
   //       }
   //       PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__ddn__CNormalizedImagesResult, 0 | 0);
   //       PyObject *method_result = PyObject_CallMethod(object, "on_normalized_images_received", "O", result);
-  //       
+  //
   //       if (!method_result)
   //       {
   //         PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_normalized_images_received' method on class object");
@@ -4220,7 +4222,7 @@ extern "C"
   //       }
   //       PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dcp__CParsedResult, 0 | 0);
   //       PyObject *method_result = PyObject_CallMethod(object, "on_parsed_results_received", "O", result);
-  //       
+  //
   //       if (!method_result)
   //       {
   //         PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_parsed_results_received' method on class object");
@@ -4245,7 +4247,7 @@ extern "C"
   //         return;
   //       }
   //       PyObject *method_result = PyObject_CallMethod(object, "clear_status", NULL);
-  //       
+  //
   //       if (!method_result)
   //       {
   //         PyErr_SetString(PyExc_RuntimeError, "Failed to call 'clear_status' method on class object");
@@ -6050,22 +6052,22 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
         }
 
         if (!PyLong_Check(item)) {
-            Py_DECREF(item);  
+            Py_DECREF(item);
             delete[] intArray;
             return -1;
         }
 
-        
+
         int value = PyLong_AsLong(item);
         if (value == -1 && PyErr_Occurred()) {
-            Py_DECREF(item);  
+            Py_DECREF(item);
             delete[] intArray;
             return -1;
         }
 
         (*intArray)[i] = value;
 
-        
+
         Py_DECREF(item);
     }
     return 0;
@@ -6827,10 +6829,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return SWIG_Python_InitShadowInstance(args);
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_SaveToFile__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageIO_SaveToFile__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageIO *arg1 = (dynamsoft::utility::CImageIO *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     char *arg3 = (char *)0;
     bool arg4;
@@ -6849,23 +6851,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     PyObject *tuple;
     if ((nobjs < 4) || (nobjs > 4))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageIO, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_SaveToFile"
+                                               "CImageIO_SaveToFile"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageIO *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageIO *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_SaveToFile"
+                                               "CImageIO_SaveToFile"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -6877,7 +6879,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_SaveToFile"
+                                               "CImageIO_SaveToFile"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -6889,7 +6891,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_SaveToFile"
+                                                 "CImageIO_SaveToFile"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -6913,10 +6915,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_SaveToFile__SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageIO_SaveToFile__SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageIO *arg1 = (dynamsoft::utility::CImageIO *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     char *arg3 = (char *)0;
     void *argp1 = 0;
@@ -6932,23 +6934,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     PyObject *tuple;
     if ((nobjs < 3) || (nobjs > 3))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageIO, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_SaveToFile"
+                                               "CImageIO_SaveToFile"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageIO *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageIO *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_SaveToFile"
+                                               "CImageIO_SaveToFile"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -6960,7 +6962,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_SaveToFile"
+                                               "CImageIO_SaveToFile"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -6984,20 +6986,20 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_SaveToFile(PyObject *self, PyObject *args)
+  SWIGINTERN PyObject *_wrap_CImageIO_SaveToFile(PyObject *self, PyObject *args)
   {
     Py_ssize_t argc;
     PyObject *argv[5] = {
         0};
 
-    if (!(argc = SWIG_Python_UnpackTuple(args, "CImageManager_SaveToFile", 0, 4, argv)))
+    if (!(argc = SWIG_Python_UnpackTuple(args, "CImageIO_SaveToFile", 0, 4, argv)))
       SWIG_fail;
     --argc;
     if (argc == 3)
     {
       int _v = 0;
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageIO, 0);
       _v = SWIG_CheckState(res);
       if (_v)
       {
@@ -7010,7 +7012,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
           _v = SWIG_CheckState(res);
           if (_v)
           {
-            return _wrap_CImageManager_SaveToFile__SWIG_1(self, argc, argv);
+            return _wrap_CImageIO_SaveToFile__SWIG_1(self, argc, argv);
           }
         }
       }
@@ -7019,7 +7021,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     {
       int _v = 0;
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageIO, 0);
       _v = SWIG_CheckState(res);
       if (_v)
       {
@@ -7038,7 +7040,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
             }
             if (_v)
             {
-              return _wrap_CImageManager_SaveToFile__SWIG_0(self, argc, argv);
+              return _wrap_CImageIO_SaveToFile__SWIG_0(self, argc, argv);
             }
           }
         }
@@ -7046,10 +7048,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     }
 
   fail:
-    SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'CImageManager_SaveToFile'.\n"
+    SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'CImageIO_SaveToFile'.\n"
                                        "  Possible C/C++ prototypes are:\n"
-                                       "    dynamsoft::utility::CImageManager::SaveToFile(dynamsoft::basic_structures::CImageData const *,char const *,bool)\n"
-                                       "    dynamsoft::utility::CImageManager::SaveToFile(dynamsoft::basic_structures::CImageData const *,char const *)\n");
+                                       "    dynamsoft::utility::CImageIO::SaveToFile(dynamsoft::basic_structures::CImageData const *,char const *,bool)\n"
+                                       "    dynamsoft::utility::CImageIO::SaveToFile(dynamsoft::basic_structures::CImageData const *,char const *)\n");
     return 0;
   }
   static bool getCpointArraryFromPyList(PyObject *list, dynamsoft::basic_structures::CPoint **array, int *length)
@@ -7098,12 +7100,12 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
   static void UpdateCQuadrilateralPointsFromPythonObject(dynamsoft::basic_structures::CQuadrilateral *quad, PyObject *obj)
   {
-    if (quad == NULL || obj == NULL) 
+    if (quad == NULL || obj == NULL)
         return;
 
     PyObject* attr_value = PyObject_GetAttrString_withNoException(obj, "_point_list");
     if (!attr_value)
-        return;        
+        return;
     dynamsoft::basic_structures::CPoint* array = nullptr;
     int length = 0;
     if(getCpointArraryFromPyList(attr_value, &array, &length) && length==4)
@@ -7115,10 +7117,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     Py_DECREF(attr_value);
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CQuadrilateral *arg3;
     int arg4;
@@ -7140,23 +7142,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 6) || (nobjs > 6))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -7168,7 +7170,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -7181,7 +7183,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -7193,7 +7195,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode5))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "5"
                                                  " of type '"
@@ -7205,7 +7207,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode6))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "6"
                                                  " of type '"
@@ -7220,10 +7222,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CQuadrilateral *arg3;
     int arg4;
@@ -7242,23 +7244,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 5) || (nobjs > 5))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -7270,7 +7272,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -7283,7 +7285,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -7295,7 +7297,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode5))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "5"
                                                  " of type '"
@@ -7310,10 +7312,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_2(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_2(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CQuadrilateral *arg3;
     int arg4;
@@ -7329,23 +7331,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 4) || (nobjs > 4))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -7357,7 +7359,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -7370,7 +7372,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -7385,10 +7387,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_3(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_3(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CLineSegment *arg3;
     int arg4;
@@ -7410,23 +7412,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 6) || (nobjs > 6))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -7438,7 +7440,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -7450,7 +7452,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -7462,7 +7464,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode5))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "5"
                                                  " of type '"
@@ -7474,7 +7476,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode6))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "6"
                                                  " of type '"
@@ -7489,10 +7491,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_4(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_4(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CLineSegment *arg3;
     int arg4;
@@ -7511,23 +7513,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 5) || (nobjs > 5))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -7539,7 +7541,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -7551,7 +7553,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -7563,7 +7565,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode5))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "5"
                                                  " of type '"
@@ -7578,10 +7580,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_5(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_5(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CLineSegment *arg3;
     int arg4;
@@ -7597,23 +7599,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 4) || (nobjs > 4))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -7625,7 +7627,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -7637,7 +7639,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -7652,10 +7654,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_6(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_6(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CContour *arg3;
     int arg4;
@@ -7677,23 +7679,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 6) || (nobjs > 6))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -7705,7 +7707,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -7717,7 +7719,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -7729,7 +7731,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode5))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "5"
                                                  " of type '"
@@ -7741,7 +7743,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode6))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "6"
                                                  " of type '"
@@ -7756,10 +7758,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_7(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_7(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CContour *arg3;
     int arg4;
@@ -7778,23 +7780,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 5) || (nobjs > 5))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -7806,7 +7808,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -7818,7 +7820,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -7830,7 +7832,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode5))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "5"
                                                  " of type '"
@@ -7845,10 +7847,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_8(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_8(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CContour *arg3;
     int arg4;
@@ -7864,23 +7866,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 4) || (nobjs > 4))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -7892,7 +7894,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -7904,7 +7906,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -7919,10 +7921,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_9(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_9(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CCorner *arg3;
     int arg4;
@@ -7944,23 +7946,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 6) || (nobjs > 6))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -7972,7 +7974,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -7984,7 +7986,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -7996,7 +7998,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode5))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "5"
                                                  " of type '"
@@ -8008,7 +8010,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode6))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "6"
                                                  " of type '"
@@ -8023,10 +8025,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_10(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_10(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CCorner *arg3;
     int arg4;
@@ -8045,23 +8047,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 5) || (nobjs > 5))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -8073,7 +8075,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -8085,7 +8087,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -8097,7 +8099,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode5))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "5"
                                                  " of type '"
@@ -8112,10 +8114,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_11(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_11(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CCorner *arg3;
     int arg4;
@@ -8131,23 +8133,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 4) || (nobjs > 4))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -8159,7 +8161,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -8171,7 +8173,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -8186,10 +8188,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_12(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_12(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CEdge *arg3;
     int arg4;
@@ -8211,23 +8213,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 6) || (nobjs > 6))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -8239,7 +8241,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -8251,7 +8253,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -8263,7 +8265,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode5))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "5"
                                                  " of type '"
@@ -8275,7 +8277,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode6))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "6"
                                                  " of type '"
@@ -8290,10 +8292,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_13(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_13(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CEdge *arg3;
     int arg4;
@@ -8312,23 +8314,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 5) || (nobjs > 5))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -8340,7 +8342,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -8352,7 +8354,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -8364,7 +8366,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode5))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "5"
                                                  " of type '"
@@ -8379,10 +8381,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage__SWIG_14(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_14(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CEdge *arg3;
     int arg4;
@@ -8398,23 +8400,23 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
 
     if ((nobjs < 4) || (nobjs > 4))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageDrawer *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -8426,7 +8428,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_DrawOnImage"
+                                               "CImageDrawer_DrawOnImage"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -8438,7 +8440,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageManager_DrawOnImage"
+                                                 "CImageDrawer_DrawOnImage"
                                                  "', argument "
                                                  "4"
                                                  " of type '"
@@ -8453,20 +8455,20 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_DrawOnImage(PyObject *self, PyObject *args)
+  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage(PyObject *self, PyObject *args)
   {
     Py_ssize_t argc;
     PyObject *argv[7] = {
         0};
 
-    if (!(argc = SWIG_Python_UnpackTuple(args, "CImageManager_DrawOnImage", 0, 6, argv)))
+    if (!(argc = SWIG_Python_UnpackTuple(args, "CImageDrawer_DrawOnImage", 0, 6, argv)))
       SWIG_fail;
     --argc;
     if (argc == 4)
     {
       int _v = 0;
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
       _v = SWIG_CheckState(res);
       if (_v)
       {
@@ -8486,7 +8488,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
             }
             if (_v)
             {
-              return _wrap_CImageManager_DrawOnImage__SWIG_2(self, argc, argv);
+              return _wrap_CImageDrawer_DrawOnImage__SWIG_2(self, argc, argv);
             }
           }
         }
@@ -8496,7 +8498,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     {
       int _v = 0;
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
       _v = SWIG_CheckState(res);
       if (_v)
       {
@@ -8516,7 +8518,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
             }
             if (_v)
             {
-              return _wrap_CImageManager_DrawOnImage__SWIG_5(self, argc, argv);
+              return _wrap_CImageDrawer_DrawOnImage__SWIG_5(self, argc, argv);
             }
           }
         }
@@ -8526,7 +8528,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     {
       int _v = 0;
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
       _v = SWIG_CheckState(res);
       if (_v)
       {
@@ -8546,7 +8548,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
             }
             if (_v)
             {
-              return _wrap_CImageManager_DrawOnImage__SWIG_8(self, argc, argv);
+              return _wrap_CImageDrawer_DrawOnImage__SWIG_8(self, argc, argv);
             }
           }
         }
@@ -8556,7 +8558,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     {
       int _v = 0;
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
       _v = SWIG_CheckState(res);
       if (_v)
       {
@@ -8576,7 +8578,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
             }
             if (_v)
             {
-              return _wrap_CImageManager_DrawOnImage__SWIG_11(self, argc, argv);
+              return _wrap_CImageDrawer_DrawOnImage__SWIG_11(self, argc, argv);
             }
           }
         }
@@ -8586,7 +8588,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     {
       int _v = 0;
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
       _v = SWIG_CheckState(res);
       if (_v)
       {
@@ -8606,7 +8608,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
             }
             if (_v)
             {
-              return _wrap_CImageManager_DrawOnImage__SWIG_14(self, argc, argv);
+              return _wrap_CImageDrawer_DrawOnImage__SWIG_14(self, argc, argv);
             }
           }
         }
@@ -8616,324 +8618,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     {
       int _v = 0;
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                return _wrap_CImageManager_DrawOnImage__SWIG_4(self, argc, argv);
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 5)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CCorner, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                return _wrap_CImageManager_DrawOnImage__SWIG_10(self, argc, argv);
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 5)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                return _wrap_CImageManager_DrawOnImage__SWIG_1(self, argc, argv);
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 5)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                return _wrap_CImageManager_DrawOnImage__SWIG_13(self, argc, argv);
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 5)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                return _wrap_CImageManager_DrawOnImage__SWIG_7(self, argc, argv);
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 6)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                {
-                  int res = SWIG_AsVal_int(argv[5], NULL);
-                  _v = SWIG_CheckState(res);
-                }
-                if (_v)
-                {
-                  return _wrap_CImageManager_DrawOnImage__SWIG_6(self, argc, argv);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 6)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                {
-                  int res = SWIG_AsVal_int(argv[5], NULL);
-                  _v = SWIG_CheckState(res);
-                }
-                if (_v)
-                {
-                  return _wrap_CImageManager_DrawOnImage__SWIG_0(self, argc, argv);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 6)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                {
-                  int res = SWIG_AsVal_int(argv[5], NULL);
-                  _v = SWIG_CheckState(res);
-                }
-                if (_v)
-                {
-                  return _wrap_CImageManager_DrawOnImage__SWIG_12(self, argc, argv);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 6)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
       _v = SWIG_CheckState(res);
       if (_v)
       {
@@ -8959,13 +8644,198 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
               }
               if (_v)
               {
+                return _wrap_CImageDrawer_DrawOnImage__SWIG_4(self, argc, argv);
+              }
+            }
+          }
+        }
+      }
+    }
+    if (argc == 5)
+    {
+      int _v = 0;
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
+      _v = SWIG_CheckState(res);
+      if (_v)
+      {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
+        _v = SWIG_CheckState(res);
+        if (_v)
+        {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CCorner, 0);
+          _v = SWIG_CheckState(res);
+          if (_v)
+          {
+            {
+              int res = SWIG_AsVal_int(argv[3], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v)
+            {
+              {
+                int res = SWIG_AsVal_int(argv[4], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v)
+              {
+                return _wrap_CImageDrawer_DrawOnImage__SWIG_10(self, argc, argv);
+              }
+            }
+          }
+        }
+      }
+    }
+    if (argc == 5)
+    {
+      int _v = 0;
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
+      _v = SWIG_CheckState(res);
+      if (_v)
+      {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
+        _v = SWIG_CheckState(res);
+        if (_v)
+        {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0);
+          _v = SWIG_CheckState(res);
+          if (_v)
+          {
+            {
+              int res = SWIG_AsVal_int(argv[3], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v)
+            {
+              {
+                int res = SWIG_AsVal_int(argv[4], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v)
+              {
+                return _wrap_CImageDrawer_DrawOnImage__SWIG_1(self, argc, argv);
+              }
+            }
+          }
+        }
+      }
+    }
+    if (argc == 5)
+    {
+      int _v = 0;
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
+      _v = SWIG_CheckState(res);
+      if (_v)
+      {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
+        _v = SWIG_CheckState(res);
+        if (_v)
+        {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0);
+          _v = SWIG_CheckState(res);
+          if (_v)
+          {
+            {
+              int res = SWIG_AsVal_int(argv[3], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v)
+            {
+              {
+                int res = SWIG_AsVal_int(argv[4], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v)
+              {
+                return _wrap_CImageDrawer_DrawOnImage__SWIG_13(self, argc, argv);
+              }
+            }
+          }
+        }
+      }
+    }
+    if (argc == 5)
+    {
+      int _v = 0;
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
+      _v = SWIG_CheckState(res);
+      if (_v)
+      {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
+        _v = SWIG_CheckState(res);
+        if (_v)
+        {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0);
+          _v = SWIG_CheckState(res);
+          if (_v)
+          {
+            {
+              int res = SWIG_AsVal_int(argv[3], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v)
+            {
+              {
+                int res = SWIG_AsVal_int(argv[4], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v)
+              {
+                return _wrap_CImageDrawer_DrawOnImage__SWIG_7(self, argc, argv);
+              }
+            }
+          }
+        }
+      }
+    }
+    if (argc == 6)
+    {
+      int _v = 0;
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
+      _v = SWIG_CheckState(res);
+      if (_v)
+      {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
+        _v = SWIG_CheckState(res);
+        if (_v)
+        {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0);
+          _v = SWIG_CheckState(res);
+          if (_v)
+          {
+            {
+              int res = SWIG_AsVal_int(argv[3], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v)
+            {
+              {
+                int res = SWIG_AsVal_int(argv[4], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v)
+              {
                 {
                   int res = SWIG_AsVal_int(argv[5], NULL);
                   _v = SWIG_CheckState(res);
                 }
                 if (_v)
                 {
-                  return _wrap_CImageManager_DrawOnImage__SWIG_3(self, argc, argv);
+                  return _wrap_CImageDrawer_DrawOnImage__SWIG_6(self, argc, argv);
                 }
               }
             }
@@ -8977,7 +8847,139 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     {
       int _v = 0;
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0);
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
+      _v = SWIG_CheckState(res);
+      if (_v)
+      {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
+        _v = SWIG_CheckState(res);
+        if (_v)
+        {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0);
+          _v = SWIG_CheckState(res);
+          if (_v)
+          {
+            {
+              int res = SWIG_AsVal_int(argv[3], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v)
+            {
+              {
+                int res = SWIG_AsVal_int(argv[4], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v)
+              {
+                {
+                  int res = SWIG_AsVal_int(argv[5], NULL);
+                  _v = SWIG_CheckState(res);
+                }
+                if (_v)
+                {
+                  return _wrap_CImageDrawer_DrawOnImage__SWIG_0(self, argc, argv);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    if (argc == 6)
+    {
+      int _v = 0;
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
+      _v = SWIG_CheckState(res);
+      if (_v)
+      {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
+        _v = SWIG_CheckState(res);
+        if (_v)
+        {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0);
+          _v = SWIG_CheckState(res);
+          if (_v)
+          {
+            {
+              int res = SWIG_AsVal_int(argv[3], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v)
+            {
+              {
+                int res = SWIG_AsVal_int(argv[4], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v)
+              {
+                {
+                  int res = SWIG_AsVal_int(argv[5], NULL);
+                  _v = SWIG_CheckState(res);
+                }
+                if (_v)
+                {
+                  return _wrap_CImageDrawer_DrawOnImage__SWIG_12(self, argc, argv);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    if (argc == 6)
+    {
+      int _v = 0;
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
+      _v = SWIG_CheckState(res);
+      if (_v)
+      {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
+        _v = SWIG_CheckState(res);
+        if (_v)
+        {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment, 0);
+          _v = SWIG_CheckState(res);
+          if (_v)
+          {
+            {
+              int res = SWIG_AsVal_int(argv[3], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v)
+            {
+              {
+                int res = SWIG_AsVal_int(argv[4], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v)
+              {
+                {
+                  int res = SWIG_AsVal_int(argv[5], NULL);
+                  _v = SWIG_CheckState(res);
+                }
+                if (_v)
+                {
+                  return _wrap_CImageDrawer_DrawOnImage__SWIG_3(self, argc, argv);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    if (argc == 6)
+    {
+      int _v = 0;
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
       _v = SWIG_CheckState(res);
       if (_v)
       {
@@ -9009,7 +9011,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                 }
                 if (_v)
                 {
-                  return _wrap_CImageManager_DrawOnImage__SWIG_9(self, argc, argv);
+                  return _wrap_CImageDrawer_DrawOnImage__SWIG_9(self, argc, argv);
                 }
               }
             }
@@ -9019,30 +9021,30 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     }
 
   fail:
-    SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'CImageManager_DrawOnImage'.\n"
+    SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'CImageDrawer_DrawOnImage'.\n"
                                        "  Possible C/C++ prototypes are:\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CQuadrilateral [],int,int,int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CQuadrilateral [],int,int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CQuadrilateral [],int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CLineSegment [],int,int,int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CLineSegment [],int,int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CLineSegment [],int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CContour [],int,int,int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CContour [],int,int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CContour [],int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CCorner [],int,int,int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CCorner [],int,int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CCorner [],int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CEdge [],int,int,int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CEdge [],int,int)\n"
-                                       "    dynamsoft::utility::CImageManager::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CEdge [],int)\n");
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CQuadrilateral [],int,int,int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CQuadrilateral [],int,int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CQuadrilateral [],int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CLineSegment [],int,int,int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CLineSegment [],int,int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CLineSegment [],int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CContour [],int,int,int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CContour [],int,int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CContour [],int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CCorner [],int,int,int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CCorner [],int,int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CCorner [],int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CEdge [],int,int,int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CEdge [],int,int)\n"
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CEdge [],int)\n");
     return 0;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_ReadFromFile(PyObject *self, PyObject *args)
+  SWIGINTERN PyObject *_wrap_CImageIO_ReadFromFile(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageIO *arg1 = (dynamsoft::utility::CImageIO *)0;
 
     void *argp1 = 0;
     int res1 = 0;
@@ -9056,25 +9058,25 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     int error = 0;
     PyObject *err;
     PyObject *tuple;
-    if (!SWIG_Python_UnpackTuple(args, "CImageManager_ReadFromFile", 2, 2, swig_obj))
+    if (!SWIG_Python_UnpackTuple(args, "CImageIO_ReadFromFile", 2, 2, swig_obj))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageIO, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_ReadFromFile"
+                                               "CImageIO_ReadFromFile"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageIO *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageIO *>(argp1);
     res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_ReadFromFile"
+                                               "CImageIO_ReadFromFile"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -9097,10 +9099,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_ReadFromMemory(PyObject *self, PyObject *args)
+  SWIGINTERN PyObject *_wrap_CImageIO_ReadFromMemory(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageIO *arg1 = (dynamsoft::utility::CImageIO *)0;
 
     void *argp1 = 0;
     int res1 = 0;
@@ -9111,27 +9113,27 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     int error = 0;
     PyObject *err;
     PyObject *tuple;
-    if (!SWIG_Python_UnpackTuple(args, "CImageManager_ReadFromMemory", 2, 2, swig_obj))
+    if (!SWIG_Python_UnpackTuple(args, "CImageIO_ReadFromMemory", 2, 2, swig_obj))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageIO, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_ReadFromMemory"
+                                               "CImageIO_ReadFromMemory"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageIO *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageIO *>(argp1);
     arg2 = PyBytes_AsString(swig_obj[1]);
     arg3 = PyBytes_Size(swig_obj[1]);
     //if (!SWIG_IsOK(res2))
     if (!arg2||arg3==0)
     {
       SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '"
-                                               "CImageManager_ReadFromMemory"
+                                               "CImageIO_ReadFromMemory"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -9149,13 +9151,13 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_SaveToMemory(PyObject *self, PyObject *args)
+  SWIGINTERN PyObject *_wrap_CImageIO_SaveToMemory(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
     PyObject *bytesobj = 0;
     PyObject *tuple = 0;
-    
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+
+    dynamsoft::utility::CImageIO *arg1 = (dynamsoft::utility::CImageIO *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     int arg3 = 0;
     unsigned char *arg4 = (unsigned char *)0;
@@ -9168,25 +9170,25 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     int res3 = 0;
     PyObject *swig_obj[3];
     int result;
-    if (!SWIG_Python_UnpackTuple(args, "CImageManager_SaveToMemory", 3, 3, swig_obj))
+    if (!SWIG_Python_UnpackTuple(args, "CImageIO_SaveToMemory", 3, 3, swig_obj))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageIO, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_SaveToMemory"
+                                               "CImageIO_SaveToMemory"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageIO *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageIO *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_SaveToMemory"
+                                               "CImageIO_SaveToMemory"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -9198,7 +9200,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                                 "CImageManager_SaveToMemory"
+                                                 "CImageIO_SaveToMemory"
                                                  "', argument "
                                                  "3"
                                                  " of type '"
@@ -9218,10 +9220,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_CropImageWithRect(PyObject *self, PyObject *args)
+  SWIGINTERN PyObject *_wrap_CImageProcessor_CropImageWithRect(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageProcessor *arg1 = (dynamsoft::utility::CImageProcessor *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CRect *arg3 = (dynamsoft::basic_structures::CRect *)0;
     void *argp1 = 0;
@@ -9235,25 +9237,25 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     int error = 0;
     PyObject *err;
     PyObject *tuple;
-    if (!SWIG_Python_UnpackTuple(args, "CImageManager_CropImageWithRect", 3, 3, swig_obj))
+    if (!SWIG_Python_UnpackTuple(args, "CImageProcessor_CropImageWithRect", 3, 3, swig_obj))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageProcessor, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_CropImageWithRect"
+                                               "CImageProcessor_CropImageWithRect"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageProcessor *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageProcessor *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_CropImageWithRect"
+                                               "CImageProcessor_CropImageWithRect"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -9265,7 +9267,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_CropImageWithRect"
+                                               "CImageProcessor_CropImageWithRect"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -9285,10 +9287,10 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageManager_CropImageWithQuadrilateral(PyObject *self, PyObject *args)
+  SWIGINTERN PyObject *_wrap_CImageProcessor_CropImageWithQuadrilateral(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageProcessor *arg1 = (dynamsoft::utility::CImageProcessor *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CQuadrilateral *arg3 = (dynamsoft::basic_structures::CQuadrilateral *)0;
     void *argp1 = 0;
@@ -9302,25 +9304,25 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     int error = 0;
     PyObject *err;
     PyObject *tuple;
-    if (!SWIG_Python_UnpackTuple(args, "CImageManager_CropImageWithQuadrilateral", 3, 3, swig_obj))
+    if (!SWIG_Python_UnpackTuple(args, "CImageProcessor_CropImageWithQuadrilateral", 3, 3, swig_obj))
       SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageProcessor, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageManager_CropImageWithQuadrilateral"
+                                               "CImageProcessor_CropImageWithQuadrilateral"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageProcessor *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageProcessor *>(argp1);
     res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     if (!SWIG_IsOK(res2))
     {
       SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageManager_CropImageWithQuadrilateral"
+                                               "CImageProcessor_CropImageWithQuadrilateral"
                                                "', argument "
                                                "2"
                                                " of type '"
@@ -9332,7 +9334,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!SWIG_IsOK(res3))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageManager_CropImageWithQuadrilateral"
+                                               "CImageProcessor_CropImageWithQuadrilateral"
                                                "', argument "
                                                "3"
                                                " of type '"
@@ -9352,24 +9354,442 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_new_CImageManager(PyObject *self, PyObject *args)
+  SWIGINTERN PyObject *_wrap_CImageProcessor_AdjustBrightness(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *result = 0;
-
-    if (!SWIG_Python_UnpackTuple(args, "new_CImageManager", 0, 0, 0))
+    dynamsoft::utility::CImageProcessor *arg1 = (dynamsoft::utility::CImageProcessor *)0;
+    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
+    int arg3 = 0;
+    void *argp1 = 0;
+    void *argp2 = 0;
+    int val3 = 0;
+    int res1 = 0;
+    int res2 = 0;
+    int res3 = 0;
+    PyObject *swig_obj[3];
+    dynamsoft::basic_structures::CImageData *result = (dynamsoft::basic_structures::CImageData *)0;
+    if (!SWIG_Python_UnpackTuple(args, "CImageProcessor_AdjustBrightness", 3, 3, swig_obj))
       SWIG_fail;
-    result = (dynamsoft::utility::CImageManager *)new dynamsoft::utility::CImageManager();
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__utility__CImageManager, SWIG_POINTER_NEW | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageProcessor, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageProcessor_AdjustBrightness"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageProcessor *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageProcessor *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CImageProcessor_AdjustBrightness"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CImageData *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
+    res3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    if (!SWIG_IsOK(res3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
+                                                 "CImageProcessor_AdjustBrightness"
+                                                 "', argument "
+                                                 "3"
+                                                 " of type '"
+                                                 "int"
+                                                 "'");
+    }
+    arg3 = static_cast<int>(val3);
+    result = arg1->AdjustBrightness(arg2, arg3);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    return resultobj;
+  fail:
+    return NULL;
+  }
+  SWIGINTERN PyObject *_wrap_CImageProcessor_AdjustContrast(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageProcessor *arg1 = (dynamsoft::utility::CImageProcessor *)0;
+    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
+    int arg3 = 0;
+    void *argp1 = 0;
+    void *argp2 = 0;
+    int val3 = 0;
+    int res1 = 0;
+    int res2 = 0;
+    int res3 = 0;
+    PyObject *swig_obj[3];
+    dynamsoft::basic_structures::CImageData *result = (dynamsoft::basic_structures::CImageData *)0;
+    if (!SWIG_Python_UnpackTuple(args, "CImageProcessor_AdjustContrast", 3, 3, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageProcessor, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageProcessor_AdjustContrast"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageProcessor *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageProcessor *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CImageProcessor_AdjustContrast"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CImageData *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
+    res3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    if (!SWIG_IsOK(res3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
+                                                 "CImageProcessor_AdjustContrast"
+                                                 "', argument "
+                                                 "3"
+                                                 " of type '"
+                                                 "int"
+                                                 "'");
+    }
+    arg3 = static_cast<int>(val3);
+    result = arg1->AdjustContrast(arg2, arg3);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
     return resultobj;
   fail:
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_delete_CImageManager(PyObject *self, PyObject *args)
+  SWIGINTERN PyObject *_wrap_CImageProcessor_FilterImage(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
-    dynamsoft::utility::CImageManager *arg1 = (dynamsoft::utility::CImageManager *)0;
+    dynamsoft::utility::CImageProcessor *arg1 = (dynamsoft::utility::CImageProcessor *)0;
+    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
+    int arg3 = 0;
+    void *argp1 = 0;
+    void *argp2 = 0;
+    int val3 = 0;
+    int res1 = 0;
+    int res2 = 0;
+    int res3 = 0;
+    PyObject *swig_obj[3];
+    dynamsoft::basic_structures::CImageData *result = (dynamsoft::basic_structures::CImageData *)0;
+    if (!SWIG_Python_UnpackTuple(args, "CImageProcessor_FilterImage", 3, 3, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageProcessor, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageProcessor_FilterImage"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageProcessor *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageProcessor *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CImageProcessor_FilterImage"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CImageData *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
+    res3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    if (!SWIG_IsOK(res3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
+                                                 "CImageProcessor_FilterImage"
+                                                 "', argument "
+                                                 "3"
+                                                 " of type '"
+                                                 "int"
+                                                 "'");
+    }
+    arg3 = static_cast<int>(val3);
+    result = arg1->FilterImage(arg2, (dynamsoft::utility::FilterType)arg3);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_CImageProcessor_ConvertToGray(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageProcessor *arg1 = (dynamsoft::utility::CImageProcessor *)0;
+    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
+    double arg3 = 0;
+    double arg4 = 0;
+    double arg5 = 0;
+    void *argp1 = 0;
+    void *argp2 = 0;
+    int res1 = 0;
+    int res2 = 0;
+    int res3 = 0;
+    int res4 = 0;
+    int res5 = 0;
+    PyObject *swig_obj[5];
+    dynamsoft::basic_structures::CImageData *result = (dynamsoft::basic_structures::CImageData *)0;
+    if (!SWIG_Python_UnpackTuple(args, "CImageProcessor_ConvertToGray", 5, 5, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageProcessor, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageProcessor_ConvertToGray"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageProcessor *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageProcessor *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CImageProcessor_ConvertToGray"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CImageData *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
+    res3 = SWIG_AsVal_double(swig_obj[2], &arg3);
+    if (!SWIG_IsOK(res3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
+                                                 "CImageProcessor_ConvertToGray"
+                                                 "', argument "
+                                                 "3"
+                                                 " of type '"
+                                                 "float"
+                                                 "'");
+    }
+    res4 = SWIG_AsVal_double(swig_obj[3], &arg4);
+    if (!SWIG_IsOK(res4))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '"
+                                                 "CImageProcessor_ConvertToGray"
+                                                 "', argument "
+                                                 "4"
+                                                 " of type '"
+                                                 "float"
+                                                 "'");
+    }
+    res5 = SWIG_AsVal_double(swig_obj[4], &arg5);
+    if (!SWIG_IsOK(res5))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res5), "in method '"
+                                                 "CImageProcessor_ConvertToGray"
+                                                 "', argument "
+                                                 "5"
+                                                 " of type '"
+                                                 "float"
+                                                 "'");
+    }
+    result = arg1->ConvertToGray(arg2, (float)arg3, (float)arg4, (float)arg5);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_CImageProcessor_ConvertToBinaryGlobal(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageProcessor *arg1 = (dynamsoft::utility::CImageProcessor *)0;
+    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
+    int arg3 = 0;
+    bool arg4 = false;
+    void *argp1 = 0;
+    void *argp2 = 0;
+    int val3 = 0;
+    int res1 = 0;
+    int res2 = 0;
+    int res3 = 0;
+    int res4 = 0;
+    PyObject *swig_obj[4];
+    dynamsoft::basic_structures::CImageData *result = (dynamsoft::basic_structures::CImageData *)0;
+    if (!SWIG_Python_UnpackTuple(args, "CImageProcessor_ConvertToBinaryGlobal", 4, 4, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageProcessor, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageProcessor_ConvertToBinaryGlobal"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageProcessor *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageProcessor *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CImageProcessor_ConvertToBinaryGlobal"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CImageData *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
+    res3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    if (!SWIG_IsOK(res3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
+                                                 "CImageProcessor_ConvertToBinaryGlobal"
+                                                 "', argument "
+                                                 "3"
+                                                 " of type '"
+                                                 "int"
+                                                 "'");
+    }
+    arg3 = static_cast<int>(val3);
+    res4 = SWIG_AsVal_bool(swig_obj[3], &arg4);
+    if (!SWIG_IsOK(res4))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '"
+                                                 "CImageProcessor_ConvertToBinaryGlobal"
+                                                 "', argument "
+                                                 "4"
+                                                 " of type '"
+                                                 "bool"
+                                                 "'");
+    }
+    result = arg1->ConvertToBinaryGlobal(arg2, arg3, arg4);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_CImageProcessor_ConvertToBinaryLocal(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageProcessor *arg1 = (dynamsoft::utility::CImageProcessor *)0;
+    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
+    int arg3 = 0;
+    int arg4 = 0;
+    bool arg5 = false;
+    void *argp1 = 0;
+    void *argp2 = 0;
+    int val3 = 0;
+    int val4 = 0;
+    int res1 = 0;
+    int res2 = 0;
+    int res3 = 0;
+    int res4 = 0;
+    int res5 = 0;
+    PyObject *swig_obj[5];
+    dynamsoft::basic_structures::CImageData *result = (dynamsoft::basic_structures::CImageData *)0;
+    if (!SWIG_Python_UnpackTuple(args, "CImageProcessor_ConvertToBinaryLocal", 5, 5, swig_obj))
+      SWIG_fail;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageProcessor, 0 | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "CImageProcessor_ConvertToBinaryLocal"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageProcessor *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageProcessor *>(argp1);
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+    if (!SWIG_IsOK(res2))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
+                                               "CImageProcessor_ConvertToBinaryLocal"
+                                               "', argument "
+                                               "2"
+                                               " of type '"
+                                               "dynamsoft::basic_structures::CImageData *"
+                                               "'");
+    }
+    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
+    res3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    if (!SWIG_IsOK(res3))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
+                                                 "CImageProcessor_ConvertToBinaryLocal"
+                                                 "', argument "
+                                                 "3"
+                                                 " of type '"
+                                                 "int"
+                                                 "'");
+    }
+    arg3 = static_cast<int>(val3);
+    res4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    if (!SWIG_IsOK(res4))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '"
+                                                 "CImageProcessor_ConvertToBinaryLocal"
+                                                 "', argument "
+                                                 "3"
+                                                 " of type '"
+                                                 "int"
+                                                 "'");
+    }
+    arg4 = static_cast<int>(val4);
+    res5 = SWIG_AsVal_bool(swig_obj[4], &arg5);
+    if (!SWIG_IsOK(res5))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res5), "in method '"
+                                                 "CImageProcessor_ConvertToBinaryLocal"
+                                                 "', argument "
+                                                 "5"
+                                                 " of type '"
+                                                 "bool"
+                                                 "'");
+    }
+    result = arg1->ConvertToBinaryLocal(arg2, arg3, arg4, arg5);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_new_CImageIO(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageIO *result = 0;
+
+    if (!SWIG_Python_UnpackTuple(args, "new_CImageIO", 0, 0, 0))
+      SWIG_fail;
+    result = (dynamsoft::utility::CImageIO *)new dynamsoft::utility::CImageIO();
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__utility__CImageIO, SWIG_POINTER_NEW | 0);
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_delete_CImageIO(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageIO *arg1 = (dynamsoft::utility::CImageIO *)0;
     void *argp1 = 0;
     int res1 = 0;
     PyObject *swig_obj[1];
@@ -9377,18 +9797,18 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     if (!args)
       SWIG_fail;
     swig_obj[0] = args;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageManager, SWIG_POINTER_DISOWN | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageIO, SWIG_POINTER_DISOWN | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "delete_CImageManager"
+                                               "delete_CImageIO"
                                                "', argument "
                                                "1"
                                                " of type '"
-                                               "dynamsoft::utility::CImageManager *"
+                                               "dynamsoft::utility::CImageIO *"
                                                "'");
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageManager *>(argp1);
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageIO *>(argp1);
     delete arg1;
     resultobj = SWIG_Py_Void();
     return resultobj;
@@ -9396,16 +9816,121 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     return NULL;
   }
 
-  SWIGINTERN PyObject *CImageManager_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
+  SWIGINTERN PyObject *CImageIO_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
   {
     PyObject *obj;
     if (!SWIG_Python_UnpackTuple(args, "dynamsoftregister", 1, 1, &obj))
       return NULL;
-    SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft__utility__CImageManager, SWIG_NewClientData(obj));
+    SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft__utility__CImageIO, SWIG_NewClientData(obj));
     return SWIG_Py_Void();
   }
 
-  SWIGINTERN PyObject *CImageManager_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
+  SWIGINTERN PyObject *_wrap_new_CImageDrawer(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageDrawer *result = 0;
+
+    if (!SWIG_Python_UnpackTuple(args, "new_CImageDrawer", 0, 0, 0))
+      SWIG_fail;
+    result = (dynamsoft::utility::CImageDrawer *)new dynamsoft::utility::CImageDrawer();
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__utility__CImageDrawer, SWIG_POINTER_NEW | 0);
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_delete_CImageDrawer(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
+    void *argp1 = 0;
+    int res1 = 0;
+    PyObject *swig_obj[1];
+
+    if (!args)
+      SWIG_fail;
+    swig_obj[0] = args;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, SWIG_POINTER_DISOWN | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "delete_CImageDrawer"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageDrawer *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
+    delete arg1;
+    resultobj = SWIG_Py_Void();
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *CImageDrawer_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
+  {
+    PyObject *obj;
+    if (!SWIG_Python_UnpackTuple(args, "dynamsoftregister", 1, 1, &obj))
+      return NULL;
+    SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft__utility__CImageDrawer, SWIG_NewClientData(obj));
+    return SWIG_Py_Void();
+  }
+
+SWIGINTERN PyObject *_wrap_new_CImageProcessor(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageProcessor *result = 0;
+
+    if (!SWIG_Python_UnpackTuple(args, "new_CImageProcessor", 0, 0, 0))
+      SWIG_fail;
+    result = (dynamsoft::utility::CImageProcessor *)new dynamsoft::utility::CImageProcessor();
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__utility__CImageProcessor, SWIG_POINTER_NEW | 0);
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *_wrap_delete_CImageProcessor(PyObject *self, PyObject *args)
+  {
+    PyObject *resultobj = 0;
+    dynamsoft::utility::CImageProcessor *arg1 = (dynamsoft::utility::CImageProcessor *)0;
+    void *argp1 = 0;
+    int res1 = 0;
+    PyObject *swig_obj[1];
+
+    if (!args)
+      SWIG_fail;
+    swig_obj[0] = args;
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageProcessor, SWIG_POINTER_DISOWN | 0);
+    if (!SWIG_IsOK(res1))
+    {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
+                                               "delete_CImageProcessor"
+                                               "', argument "
+                                               "1"
+                                               " of type '"
+                                               "dynamsoft::utility::CImageProcessor *"
+                                               "'");
+    }
+    arg1 = reinterpret_cast<dynamsoft::utility::CImageProcessor *>(argp1);
+    delete arg1;
+    resultobj = SWIG_Py_Void();
+    return resultobj;
+  fail:
+    return NULL;
+  }
+
+  SWIGINTERN PyObject *CImageProcessor_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
+  {
+    PyObject *obj;
+    if (!SWIG_Python_UnpackTuple(args, "dynamsoftregister", 1, 1, &obj))
+      return NULL;
+    SWIG_TypeNewClientData(SWIGTYPE_p_dynamsoft__utility__CImageProcessor, SWIG_NewClientData(obj));
+    return SWIG_Py_Void();
+  }
+  SWIGINTERN PyObject *CImageProcessor_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
   {
     return SWIG_Python_InitShadowInstance(args);
   }
@@ -9463,17 +9988,32 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       {"CFileFetcher_SetPages", _wrap_CFileFetcher_SetPages, METH_VARARGS, NULL},
       {"CFileFetcher_register", CFileFetcher_swigregister, METH_O, NULL},
       // {"CFileFetcher_init", CFileFetcher_swiginit, METH_VARARGS, NULL},
-      {"CImageManager_SaveToFile", _wrap_CImageManager_SaveToFile, METH_VARARGS, NULL},
-      {"CImageManager_DrawOnImage", _wrap_CImageManager_DrawOnImage, METH_VARARGS, NULL},
-      {"CImageManager_ReadFromFile", _wrap_CImageManager_ReadFromFile, METH_VARARGS, NULL},
-      {"CImageManager_ReadFromMemory", _wrap_CImageManager_ReadFromMemory, METH_VARARGS, NULL},
-      {"CImageManager_SaveToMemory", _wrap_CImageManager_SaveToMemory, METH_VARARGS, NULL},
-      {"CImageManager_CropImageWithRect", _wrap_CImageManager_CropImageWithRect, METH_VARARGS, NULL},
-      {"CImageManager_CropImageWithQuadrilateral", _wrap_CImageManager_CropImageWithQuadrilateral, METH_VARARGS, NULL},
-      {"new_CImageManager", _wrap_new_CImageManager, METH_NOARGS, NULL},
-      {"delete_CImageManager", _wrap_delete_CImageManager, METH_O, NULL},
-      {"CImageManager_register", CImageManager_swigregister, METH_O, NULL},
-      // {"CImageManager_init", CImageManager_swiginit, METH_VARARGS, NULL},
+      {"CImageIO_SaveToFile", _wrap_CImageIO_SaveToFile, METH_VARARGS, NULL},
+      {"CImageIO_ReadFromFile", _wrap_CImageIO_ReadFromFile, METH_VARARGS, NULL},
+      {"CImageIO_ReadFromMemory", _wrap_CImageIO_ReadFromMemory, METH_VARARGS, NULL},
+      {"CImageIO_SaveToMemory", _wrap_CImageIO_SaveToMemory, METH_VARARGS, NULL},
+      {"new_CImageIO", _wrap_new_CImageIO, METH_NOARGS, NULL},
+      {"delete_CImageIO", _wrap_delete_CImageIO, METH_O, NULL},
+      {"CImageIO_register", CImageIO_swigregister, METH_O, NULL},
+
+      {"CImageDrawer_DrawOnImage", _wrap_CImageDrawer_DrawOnImage, METH_VARARGS, NULL},
+      {"new_CImageDrawer", _wrap_new_CImageDrawer, METH_NOARGS, NULL},
+      {"delete_CImageDrawer", _wrap_delete_CImageDrawer, METH_O, NULL},
+      {"CImageDrawer_register", CImageDrawer_swigregister, METH_O, NULL},
+
+      {"CImageProcessor_CropImageWithRect", _wrap_CImageProcessor_CropImageWithRect, METH_VARARGS, NULL},
+      {"CImageProcessor_CropImageWithQuadrilateral", _wrap_CImageProcessor_CropImageWithQuadrilateral, METH_VARARGS, NULL},
+      {"CImageProcessor_AdjustBrightness", _wrap_CImageProcessor_AdjustBrightness, METH_VARARGS, NULL},
+      {"CImageProcessor_AdjustContrast", _wrap_CImageProcessor_AdjustContrast, METH_VARARGS, NULL},
+      {"CImageProcessor_FilterImage", _wrap_CImageProcessor_FilterImage, METH_VARARGS, NULL},
+      {"CImageProcessor_ConvertToGray", _wrap_CImageProcessor_ConvertToGray, METH_VARARGS, NULL},
+      {"CImageProcessor_ConvertToBinaryGlobal", _wrap_CImageProcessor_ConvertToBinaryGlobal, METH_VARARGS, NULL},
+      {"CImageProcessor_ConvertToBinaryLocal", _wrap_CImageProcessor_ConvertToBinaryLocal, METH_VARARGS, NULL},
+      {"new_CImageProcessor", _wrap_new_CImageProcessor, METH_NOARGS, NULL},
+      {"delete_CImageProcessor", _wrap_delete_CImageProcessor, METH_O, NULL},
+      {"CImageProcessor_register", CImageProcessor_swigregister, METH_O, NULL},
+
+      // {"CImageIO_init", CImageIO_swiginit, METH_VARARGS, NULL},
       {NULL, NULL, 0, NULL}};
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
@@ -9541,7 +10081,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   static swig_type_info _swigt__p_dynamsoft__cvr__CCaptureVisionRouter = {"_p_dynamsoft__cvr__CCaptureVisionRouter", "dynamsoft::cvr::CCaptureVisionRouter *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__utility__CDirectoryFetcher = {"_p_dynamsoft__utility__CDirectoryFetcher", "dynamsoft::utility::CDirectoryFetcher *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__utility__CFileFetcher = {"_p_dynamsoft__utility__CFileFetcher", "dynamsoft::utility::CFileFetcher *", 0, 0, (void *)0, 0};
-  static swig_type_info _swigt__p_dynamsoft__utility__CImageManager = {"_p_dynamsoft__utility__CImageManager", "dynamsoft::utility::CImageManager *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft__utility__CImageIO = {"_p_dynamsoft__utility__CImageIO", "dynamsoft::utility::CImageIO *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__utility__CMultiFrameResultCrossFilter = {"_p_dynamsoft__utility__CMultiFrameResultCrossFilter", "dynamsoft::utility::CMultiFrameResultCrossFilter *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__utility__CProactiveImageSourceAdapter = {"_p_dynamsoft__utility__CProactiveImageSourceAdapter", "dynamsoft::utility::CProactiveImageSourceAdapter *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__utility__CUtilityModule = {"_p_dynamsoft__utility__CUtilityModule", "dynamsoft::utility::CUtilityModule *", 0, 0, (void *)0, 0};
@@ -9552,6 +10092,8 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   static swig_type_info _swigt__p_tagSimplifiedLabelRecognizerSettings = {"_p_tagSimplifiedLabelRecognizerSettings", "SimplifiedLabelRecognizerSettings *|tagSimplifiedLabelRecognizerSettings *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *", 0, 0, (void *)0, 0};
   static swig_type_info _swigt__p_dynamsoft__basic_structures__CRect = {"_p_dynamsoft__basic_structures__CRect", "dynamsoft::basic_structures::CRect *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft__utility__CImageDrawer = {"_p_dynamsoft__utility__CImageDrawer", "dynamsoft::utility::CImageDrawer *", 0, 0, (void *)0, 0};
+  static swig_type_info _swigt__p_dynamsoft__utility__CImageProcessor = {"_p_dynamsoft__utility__CImageProcessor", "dynamsoft::utility::CImageProcessor *", 0, 0, (void *)0, 0};
 
   static swig_type_info *swig_type_initial[] = {
       &_swigt__p_BufferOverflowProtectionMode,
@@ -9597,7 +10139,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       &_swigt__p_dynamsoft__cvr__CCaptureVisionRouter,
       &_swigt__p_dynamsoft__utility__CDirectoryFetcher,
       &_swigt__p_dynamsoft__utility__CFileFetcher,
-      &_swigt__p_dynamsoft__utility__CImageManager,
+      &_swigt__p_dynamsoft__utility__CImageIO,
       &_swigt__p_dynamsoft__utility__CMultiFrameResultCrossFilter,
       &_swigt__p_dynamsoft__utility__CProactiveImageSourceAdapter,
       &_swigt__p_dynamsoft__utility__CUtilityModule,
@@ -9608,6 +10150,8 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       &_swigt__p_tagSimplifiedLabelRecognizerSettings,
       &_swigt__p_unsigned_char,
       &_swigt__p_dynamsoft__basic_structures__CRect,
+      &_swigt__p_dynamsoft__utility__CImageDrawer,
+      &_swigt__p_dynamsoft__utility__CImageProcessor,
   };
 
   static swig_cast_info _swigc__p_BufferOverflowProtectionMode[] = {{&_swigt__p_BufferOverflowProtectionMode, 0, 0, 0}, {0, 0, 0, 0}};
@@ -9653,7 +10197,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   static swig_cast_info _swigc__p_dynamsoft__cvr__CCaptureVisionRouter[] = {{&_swigt__p_dynamsoft__cvr__CCaptureVisionRouter, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__utility__CDirectoryFetcher[] = {{&_swigt__p_dynamsoft__utility__CDirectoryFetcher, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__utility__CFileFetcher[] = {{&_swigt__p_dynamsoft__utility__CFileFetcher, 0, 0, 0}, {0, 0, 0, 0}};
-  static swig_cast_info _swigc__p_dynamsoft__utility__CImageManager[] = {{&_swigt__p_dynamsoft__utility__CImageManager, 0, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__utility__CImageIO[] = {{&_swigt__p_dynamsoft__utility__CImageIO, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__utility__CMultiFrameResultCrossFilter[] = {{&_swigt__p_dynamsoft__utility__CMultiFrameResultCrossFilter, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__utility__CProactiveImageSourceAdapter[] = {{&_swigt__p_dynamsoft__utility__CProactiveImageSourceAdapter, 0, 0, 0}, {&_swigt__p_dynamsoft__utility__CDirectoryFetcher, _p_dynamsoft__utility__CDirectoryFetcherTo_p_dynamsoft__utility__CProactiveImageSourceAdapter, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__utility__CUtilityModule[] = {{&_swigt__p_dynamsoft__utility__CUtilityModule, 0, 0, 0}, {0, 0, 0, 0}};
@@ -9664,6 +10208,9 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
   static swig_cast_info _swigc__p_tagSimplifiedLabelRecognizerSettings[] = {{&_swigt__p_tagSimplifiedLabelRecognizerSettings, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_unsigned_char[] = {{&_swigt__p_unsigned_char, 0, 0, 0}, {0, 0, 0, 0}};
   static swig_cast_info _swigc__p_dynamsoft__basic_structures__CRect[] = {{&_swigt__p_dynamsoft__basic_structures__CRect, 0, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__utility__CImageDrawer[] = {{&_swigt__p_dynamsoft__utility__CImageDrawer, 0, 0, 0}, {0, 0, 0, 0}};
+  static swig_cast_info _swigc__p_dynamsoft__utility__CImageProcessor[] = {{&_swigt__p_dynamsoft__utility__CImageProcessor, 0, 0, 0}, {0, 0, 0, 0}};
+
 
   static swig_cast_info *swig_cast_initial[] = {
       _swigc__p_BufferOverflowProtectionMode,
@@ -9709,7 +10256,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       _swigc__p_dynamsoft__cvr__CCaptureVisionRouter,
       _swigc__p_dynamsoft__utility__CDirectoryFetcher,
       _swigc__p_dynamsoft__utility__CFileFetcher,
-      _swigc__p_dynamsoft__utility__CImageManager,
+      _swigc__p_dynamsoft__utility__CImageIO,
       _swigc__p_dynamsoft__utility__CMultiFrameResultCrossFilter,
       _swigc__p_dynamsoft__utility__CProactiveImageSourceAdapter,
       _swigc__p_dynamsoft__utility__CUtilityModule,
@@ -9720,6 +10267,8 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
       _swigc__p_tagSimplifiedLabelRecognizerSettings,
       _swigc__p_unsigned_char,
       _swigc__p_dynamsoft__basic_structures__CRect,
+      _swigc__p_dynamsoft__utility__CImageDrawer,
+      _swigc__p_dynamsoft__utility__CImageProcessor,
   };
 
   /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
@@ -10228,6 +10777,10 @@ void
 #endif
 
   SWIG_InstallConstants(d, swig_const_table);
+
+  SWIG_Python_SetConstant(d, "FT_HIGH_PASS", SWIG_From_int(static_cast<int>(dynamsoft::utility::FT_HIGH_PASS)));
+  SWIG_Python_SetConstant(d, "FT_SHARPEN", SWIG_From_int(static_cast<int>(dynamsoft::utility::FT_SHARPEN)));
+  SWIG_Python_SetConstant(d, "FT_SMOOTH", SWIG_From_int(static_cast<int>(dynamsoft::utility::FT_SMOOTH)));
 
 #if PY_VERSION_HEX >= 0x03000000
   return m;

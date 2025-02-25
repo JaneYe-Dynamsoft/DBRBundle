@@ -1,4 +1,4 @@
-__version__ = "2.0.10.7771"
+__version__ = "2.0.10.7798"
 
 if __package__ or "." in __name__:
     from .cvr import *
@@ -18,7 +18,12 @@ else:
 
 from abc import ABC, abstractmethod
 from typing import List, Tuple, Union
+from enum import IntEnum
 
+class FilterType(IntEnum):
+    FT_HIGH_PASS = _DynamsoftUtility.FT_HIGH_PASS
+    FT_SHARPEN = _DynamsoftUtility.FT_SHARPEN
+    FT_SMOOTH = _DynamsoftUtility.FT_SMOOTH
 
 class UtilityModule:
     """
@@ -212,7 +217,7 @@ class MultiFrameResultCrossFilter(CapturedResultFilter):
         return _DynamsoftUtility.CMultiFrameResultCrossFilter_IsLatestOverlappingEnabled(
             self, type
         )
-    
+
 _DynamsoftUtility.CMultiFrameResultCrossFilter_register(MultiFrameResultCrossFilter)
 
 class ProactiveImageSourceAdapter(ImageSourceAdapter, ABC):
@@ -248,7 +253,7 @@ class ProactiveImageSourceAdapter(ImageSourceAdapter, ABC):
     def has_next_image_to_fetch(self) -> bool:
         """
         Determines whether there are more images left to fetch.
-        
+
         Returns:
             True if there are more images left to fetch, false otherwise.
         """
@@ -322,7 +327,7 @@ class DirectoryFetcher(ProactiveImageSourceAdapter):
             path (str): The path of the directory to search.
             filter (str, optional): A string that specifies file extensions. For example: "*.BMP;*.JPG;*.GIF", or "*.*", etc. The default value is "*.bmp;*.jpg;*.jpeg;*.tif;*.png;*.tiff;*.gif;*.pdf".
             recursive (bool, optional): Specifies whether to load files recursively. The default value is False.
-            
+
         Returns:
             A tuple containing following elements:
             - error_code <int>: The error code indicating the status of the operation.
@@ -459,22 +464,26 @@ class FileFetcher(ImageSourceAdapter):
 _DynamsoftUtility.CFileFetcher_register(FileFetcher)
 
 
-class ImageManager:
+class ImageIO:
     """
-    The ImageManager class is a utility class for managing and manipulating images. It provides functionality for saving images to files and drawing various shapes on images.
+    The ImageIO class is a utility class for reading and writing images.
 
     Methods:
         save_to_file(self, image_data: ImageData, path: str, overwrite: bool = True) -> Tuple[int, str]: Saves an image to a file.
-        draw_on_image(self, *args) -> Tuple[int, str]: Draws an image on an image.
+        read_from_file(self, file_path: str) -> Tuple[int, ImageData]: Reads an image from a file.
+        read_from_memory(self, image_file_bytes: bytes) -> Tuple[int, ImageData]: Reads an image from a file in memory.
+        save_to_memory(self, image_data: ImageData,image_format: EnumImageFileFormat) -> Tuple[int, bytes]: Saves an image to memory in the specified format.
+        read_from_numpy(self, image: "np.ndarray", image_pixel_format: EnumImagePixelFormat) -> Tuple[int, str, ImageData]: Reads an image from a numpy array.
+        save_to_numpy(self, image_data: ImageData) -> Tuple[int, str, "np.ndarray"]: Saves an image to a numpy array.
     """
 
     _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
     )
-    
+
     def __init__(self):
         _DynamsoftUtility.Class_init(
-            self, _DynamsoftUtility.new_CImageManager()
+            self, _DynamsoftUtility.new_CImageIO()
         )
     def save_to_file(
         self, image_data: ImageData, path: str, overwrite: bool = True
@@ -492,16 +501,10 @@ class ImageManager:
             - error_code <int>: The error code indicating the status of the operation.
             - error_message <str>: A descriptive message explaining the error.
         """
-        return _DynamsoftUtility.CImageManager_SaveToFile(
+        return _DynamsoftUtility.CImageIO_SaveToFile(
             self, image_data, path, overwrite
         )
 
-    def draw_on_image(self, *args):
-        """
-        Draws an image on an image.
-        """
-        return _DynamsoftUtility.CImageManager_DrawOnImage(self, *args)
-    
     def read_from_file(self, file_path: str) -> Tuple[int, ImageData]:
         """
         Reads an image from a file.
@@ -516,8 +519,39 @@ class ImageManager:
             - error_code <int>: The error code indicating the status of the operation.
             - image_data (ImageData): An ImageData object representing the image if succeeds, None otherwise.
         """
-        return _DynamsoftUtility.CImageManager_ReadFromFile(self, file_path)
-    
+        return _DynamsoftUtility.CImageIO_ReadFromFile(self, file_path)
+
+    def read_from_memory(self, image_file_bytes: bytes) -> Tuple[int, ImageData]:
+        """
+        Reads an image from a file in memory.
+        If the file format is gif, pdf or tiff, we read the first page of the image file.
+        The caller is responsible for freeing the memory allocated for the image.
+
+        Args:
+            image_file_bytes (bytes): A bytes representing the image file in memory.
+
+        Returns:
+            A tuple containing following elements:
+            - error_code <int>: The error code indicating the status of the operation.
+            - image_data (ImageData): An ImageData object representing the image if succeeds, None otherwise.
+        """
+        return _DynamsoftUtility.CImageIO_ReadFromMemory(self, image_file_bytes)
+
+    def save_to_memory(self, image_data: ImageData,image_format: EnumImageFileFormat) -> Tuple[int, bytes]:
+        """
+        Saves an image to memory in the specified format.
+
+        Args:
+            image_data (ImageData): The image data to be saved.
+            image_format (EnumImageFileFormat): The desired image format.
+
+        Returns:
+            A tuple containing following elements:
+            - error_code <int>: The error code indicating the status of the operation.
+            - image_file_bytes (bytes): The byte array representing the saved image file if succeeds, None otherwise.
+        """
+        return _DynamsoftUtility.CImageIO_SaveToMemory(self, image_data, image_format)
+
     def read_from_numpy(self, image: "numpy.ndarray", image_pixel_format: EnumImagePixelFormat) -> Tuple[int, str, ImageData]:
         """
         Reads an image from a numpy array.
@@ -533,7 +567,7 @@ class ImageManager:
             - image_data (ImageData): An ImageData object representing the image if succeeds, None otherwise.
         """
         return 0, "Success.", ImageData(image.tobytes(),image.shape[1],image.shape[0],image.strides[0], image_pixel_format)
-    
+
     def save_to_numpy(self, image_data: ImageData) -> Tuple[int, str, "numpy.ndarray"]:
         """
         Saves an image to a numpy array.
@@ -568,38 +602,41 @@ class ImageManager:
             err_str = _DynamsoftCore.DC_GetErrorString()
             arr = None
         return err, err_str, arr
-            
-    def read_from_memory(self, image_file_bytes: bytes) -> Tuple[int, ImageData]:
-        """
-        Reads an image from a file in memory.
-        If the file format is gif, pdf or tiff, we read the first page of the image file.
-        The caller is responsible for freeing the memory allocated for the image.
 
-        Args:
-            image_file_bytes (bytes): A bytes representing the image file in memory.
+    __destroy__ = _DynamsoftUtility.delete_CImageIO
 
-        Returns:
-            A tuple containing following elements:
-            - error_code <int>: The error code indicating the status of the operation.
-            - image_data (ImageData): An ImageData object representing the image if succeeds, None otherwise.
-        """
-        return _DynamsoftUtility.CImageManager_ReadFromMemory(self, image_file_bytes)
-    
-    def save_to_memory(self, image_data: ImageData,image_format: EnumImageFileFormat) -> Tuple[int, bytes]:
-        """
-        Saves an image to memory in the specified format.
+_DynamsoftUtility.CImageIO_register(ImageIO)
 
-        Args:
-            image_data (ImageData): The image data to be saved.
-            image_format (EnumImageFileFormat): The desired image format.
+class ImageDrawer:
+    _thisown = property(
+        lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
+    )
 
-        Returns:
-            A tuple containing following elements:
-            - error_code <int>: The error code indicating the status of the operation.
-            - image_file_bytes (bytes): The byte array representing the saved image file if succeeds, None otherwise.
+    def __init__(self):
+        _DynamsoftUtility.Class_init(
+            self, _DynamsoftUtility.new_CImageDrawer()
+        )
+
+    def draw_on_image(self, *args):
         """
-        return _DynamsoftUtility.CImageManager_SaveToMemory(self, image_data, image_format)
-    
+        Draws an image on an image.
+        """
+        return _DynamsoftUtility.CImageDrawer_DrawOnImage(self, *args)
+
+    __destroy__ = _DynamsoftUtility.delete_CImageDrawer
+
+_DynamsoftUtility.CImageDrawer_register(ImageIO)
+
+class ImageProcessor:
+    _thisown = property(
+        lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
+    )
+
+    def __init__(self):
+        _DynamsoftUtility.Class_init(
+            self, _DynamsoftUtility.new_CImageProcessor()
+        )
+
     def crop_image(self, image_data:ImageData, crop_form: Union[Rect,Quadrilateral]) -> Tuple[int, ImageData]:
         """
         Crops an image.
@@ -613,16 +650,104 @@ class ImageManager:
         Returns:
             A tuple containing following elements:
             - error_code <int>: The error code indicating the status of the operation.
-            - cropped_image_data (ImageData): A ImageData object representing the cropped image if succeeds, None otherwise.
+            - cropped_image_data (ImageData): An ImageData object representing the cropped image if succeeds, None otherwise.
         """
         if isinstance(crop_form, Rect):
-            return _DynamsoftUtility.CImageManager_CropImageWithRect(self, image_data, crop_form)
+            return _DynamsoftUtility.CImageProcessor_CropImageWithRect(self, image_data, crop_form)
         elif isinstance(crop_form, Quadrilateral):
-            return _DynamsoftUtility.CImageManager_CropImageWithQuadrilateral(self, image_data, crop_form)
+            return _DynamsoftUtility.CImageProcessor_CropImageWithQuadrilateral(self, image_data, crop_form)
         else:
             raise TypeError("Unsupported crop form type")
+    def adjust_brightness(self, image_data: ImageData, brightness: int) -> ImageData:
+        """
+        Adjusts the brightness of the image.
 
-    __destroy__ = _DynamsoftUtility.delete_CImageManager
+        Args:
+            image_data (ImageData): The image data to be adjusted.
+            brightness (int): The brightness adjustment value (positive values increase brightness, negative values decrease brightness).
+
+        Returns:
+            An ImageData object after brightness adjustment.
+        """
+        return _DynamsoftUtility.CImageProcessor_AdjustBrightness(self, image_data, brightness)
+
+    def adjust_contrast(self, image_data: ImageData, contrast: int) -> ImageData:
+        """
+        Adjusts the contrast of the image.
+
+        Args:
+            image_data (ImageData): The image data to be adjusted.
+            contrast (int): The contrast adjustment value (positive values enhance, negative values reduce contrast).
+
+        Returns:
+            An ImageData object after contrast adjustment.
+        """
+        return _DynamsoftUtility.CImageProcessor_AdjustContrast(self, image_data, contrast)
+
+    def filter_image(self, image_data: ImageData, filter_type: FilterType) -> ImageData:
+        """
+        Applies a specified image filter to an input image and returns the filtered result.
+
+        Args:
+            image_data (ImageData): The image data to be filtered.
+            filter_type (FilterType): Specifies the type of filter to apply to the input image.
+
+        Returns:
+            An ImageData object after filtering operation.
+        """
+        return _DynamsoftUtility.CImageProcessor_FilterImage(self, image_data, filter_type)
+
+    def convert_to_gray(self, image_data: ImageData, r: float = 0.3, g: float = 0.59, b: float = 0.11) -> ImageData:
+        """
+        Converts a colour image to grayscale using the given weights.
+
+        Args:
+            image_data (ImageData): The image data to be converted.
+            r (float): Weight for red channel (default value: 0.3).
+            g (float): Weight for green channel (default value: 0.59).
+            b (float): Weight for blue channel (default value: 0.11).
+
+        Returns:
+            An ImageData object after grayscale conversion.
+        """
+        return _DynamsoftUtility.CImageProcessor_ConvertToGray(self, image_data, r, g, b)
+
+    def convert_to_binary_global(self, image_data: ImageData, threshold: int = -1, invert: bool = False) -> ImageData:
+        """
+        Converts a grayscale image to binary image using a global threshold.
+
+        Args:
+            image_data (ImageData): The image data to be converted.
+            threshold (int): Global threshold for binarization (default is -1, automatic calculate the threshold).
+            invert (bool): If true, invert the binary image (black becomes white and white becomes black).
+
+        Returns:
+            An ImageData object after binary conversion.
+        """
+        return _DynamsoftUtility.CImageProcessor_ConvertToBinaryGlobal(self, image_data, threshold, invert)
+
+    #  * Converts the grayscale image to binary image using local (adaptive) binarization.
+    #  * @param pImageData: Input image in grayscale.
+    #  * @param blockSize: Size of the block for local binarization(default is 0).
+    #  * @param compensation: Adjustment value to modify the threshold (default is 0).
+    #  * @param invert: If true, invert the binary image (black becomes white and white becomes black).
+    #  * @return: Image after binarization.
+
+    def convert_to_binary_local(self, image_data: ImageData, block_size: int = 0, compensation: int = 0, invert: bool = False) ->ImageData:
+        """
+        Converts a grayscale image to binary image using local (adaptive) binarization.
+
+        Args:
+            image_data (ImageData): The image data to be converted.
+            block_size (int): Size of the block for local binarization (default is 0).
+            compensation (int): Adjustment value to modify the threshold (default is 0).
+            invert (bool): If true, invert the binary image (black becomes white and white becomes black).
+
+        Returns:
+            An ImageData object after binary conversion.
+        """
+        return _DynamsoftUtility.CImageProcessor_ConvertToBinaryLocal(self, image_data, block_size, compensation, invert)
+    __destroy__ = _DynamsoftUtility.delete_CImageProcessor
 
 
-_DynamsoftUtility.CImageManager_register(ImageManager)
+_DynamsoftUtility.CImageProcessor_register(ImageProcessor)
