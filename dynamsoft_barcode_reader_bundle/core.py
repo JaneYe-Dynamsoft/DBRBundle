@@ -1,4 +1,4 @@
-__version__ = "4.0.10.7798"
+__version__ = "4.0.10.7913"
 
 if __package__ or "." in __name__:
     from . import _DynamsoftCore

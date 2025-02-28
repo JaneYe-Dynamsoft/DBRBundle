@@ -12471,14 +12471,11 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
       for (Py_ssize_t i = 0; i < size; ++i)
       {
         PyObject *item = PyList_GetItem(obj, i);
-        if (PyFloat_Check(item))
-        {
-          ret[i] = PyFloat_AsDouble(item);
-        }
-        else
+        int err = SWIG_AsVal_double(item, &ret[i]);
+        if (!SWIG_IsOK(err))
         {
           delete[] ret;
-          return nullptr; // or throw an exception
+          return nullptr;
         }
       }
       return ret;

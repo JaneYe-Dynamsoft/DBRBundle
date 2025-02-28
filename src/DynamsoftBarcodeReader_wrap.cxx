@@ -4479,7 +4479,8 @@ extern "C"
     }
     return nullptr;
   }
-    double *convertPythonListToCpp_double(PyObject *obj, int expectedSize)
+
+  double *convertPythonListToCpp_double(PyObject *obj, int expectedSize)
   {
 
     if (PyList_Check(obj))
@@ -4492,14 +4493,11 @@ extern "C"
       for (Py_ssize_t i = 0; i < size; ++i)
       {
         PyObject *item = PyList_GetItem(obj, i);
-        if (PyFloat_Check(item))
-        {
-          ret[i] = PyFloat_AsDouble(item);
-        }
-        else
+        int err = SWIG_AsVal_double(item, &ret[i]);
+        if (!SWIG_IsOK(err))
         {
           delete[] ret;
-          return nullptr; // or throw an exception
+          return nullptr;
         }
       }
       return ret;
