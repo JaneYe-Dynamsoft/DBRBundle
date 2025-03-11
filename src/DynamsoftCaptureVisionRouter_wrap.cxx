@@ -14690,7 +14690,7 @@ extern "C"
                                                "dynamsoft::cvr::CCaptureVisionRouter *"
                                                "'");
     }
-    resModel = SWIG_AsCharPtrAndSize(swig_obj[2], &bufModel, NULL, &allocModel);
+    resModel = SWIG_AsCharPtrAndSize(swig_obj[1], &bufModel, NULL, &allocModel);
     if (!SWIG_IsOK(resModel))
     {
       SWIG_exception_fail(SWIG_ArgError(resModel), "in method '"
@@ -14716,7 +14716,7 @@ extern "C"
                                                "unsigned char const *"
                                                "'");
     }
-    res4 = SWIG_AsVal_int(swig_obj[1], &val4);
+    res4 = SWIG_AsVal_int(swig_obj[3], &val4);
     if (!SWIG_IsOK(res4))
     {
       SWIG_exception_fail(SWIG_ArgError(res4), "in method '"
