@@ -19465,11 +19465,11 @@ extern "C"
 /* -----------------------------------------------------------------------------*
  *  Partial Init method
  * -----------------------------------------------------------------------------*/
+static PyObject *dataModule=nullptr;
 
 #ifdef __cplusplus
 extern "C"
 #endif
-static PyObject *dataModule=nullptr;
 void ModelExit(void)
 {
   if(dataModule)
