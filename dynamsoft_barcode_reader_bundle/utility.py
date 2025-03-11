@@ -1,4 +1,4 @@
-__version__ = "2.0.10.7913"
+__version__ = "2.0.10.8253"
 
 if __package__ or "." in __name__:
     from .cvr import *
@@ -625,7 +625,7 @@ class ImageDrawer:
 
     __destroy__ = _DynamsoftUtility.delete_CImageDrawer
 
-_DynamsoftUtility.CImageDrawer_register(ImageIO)
+_DynamsoftUtility.CImageDrawer_register(ImageDrawer)
 
 class ImageProcessor:
     _thisown = property(

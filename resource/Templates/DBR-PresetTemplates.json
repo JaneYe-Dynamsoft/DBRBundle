@@ -390,7 +390,7 @@
     "ImageParameterOptions": [
         {
             "Name": "ip-read-barcodes",
-            "AppliableStages": [
+            "ApplicableStages": [
                 {
                     "Stage": "SST_DETECT_TEXT_ZONES",
                     "TextDetectionMode": {
@@ -407,7 +407,7 @@
         },
         {
             "Name": "ip-read-barcodes-read-rate",
-            "AppliableStages": [
+            "ApplicableStages": [
                 {
                     "Stage": "SST_DETECT_TEXT_ZONES",
                     "TextDetectionMode": {
@@ -443,7 +443,7 @@
         },
         {
             "Name": "ip-read-barcodes-speed-first",
-            "AppliableStages": [
+            "ApplicableStages": [
                 {
                     "Stage": "SST_DETECT_TEXT_ZONES",
                     "TextDetectionMode": {
@@ -482,7 +482,7 @@
         },
         {
             "Name": "ip-read-single-barcode",
-            "AppliableStages": [
+            "ApplicableStages": [
                 {
                     "Stage": "SST_DETECT_TEXT_ZONES",
                     "TextDetectionMode": {

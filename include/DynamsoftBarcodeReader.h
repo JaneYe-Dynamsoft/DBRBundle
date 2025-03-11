@@ -24,7 +24,7 @@ typedef void* HANDLE;
 #endif
 #include "DynamsoftCore.h"
 
-#define DBR_VERSION "11.0.10.3855"
+#define DBR_VERSION "11.0.10.3895"
 
 /**Enumeration section*/
 

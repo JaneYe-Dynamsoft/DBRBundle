@@ -179,7 +179,7 @@
 
 /* This should only be incremented when either the layout of swig_type_info changes,
    or for whatever reason, the runtime changes incompatibly */
-#define SWIG_RUNTIME_VERSION "4"
+#define DYNAMSOFT_POSTFIX "_dynamsoft"
 
 /* define SWIG_TYPE_TABLE_NAME as "SWIG_TYPE_TABLE" */
 #ifdef SWIG_TYPE_TABLE
@@ -407,7 +407,7 @@ class AutoGIL
 
   private:
     PyGILState_STATE m_state;
-    
+
   };
 
 static PyObject* GetErrorStrFromCore(int errCode) {
@@ -669,7 +669,7 @@ static PyObject* GetErrorStrFromCore(int errCode) {
         size_t l = 0;
         size_t r = iter->size - 1;
         do
-        {       
+        {
           const char *iname = iter->types[l]->name;
           if (iname)
           {
@@ -937,7 +937,7 @@ SWIG_Python_str_FromChar(const char *c)
 #else
 #define SWIGPY_CAPSULE_ATTR_NAME "type_pointer_capsule" SWIG_TYPE_TABLE_NAME
 #endif
-#define SWIGPY_CAPSULE_NAME ("runtime_data" SWIG_RUNTIME_VERSION "." SWIGPY_CAPSULE_ATTR_NAME)
+#define SWIGPY_CAPSULE_NAME ("runtime_data" DYNAMSOFT_POSTFIX "." SWIGPY_CAPSULE_ATTR_NAME)
 
 #if PY_VERSION_HEX < 0x03020000
 #define PyDescr_TYPE(x) (((PyDescrObject *)(x))->d_type)
@@ -3130,10 +3130,10 @@ SwigPyObject_type(void)
   {
 #if PY_VERSION_HEX >= 0x03000000
     /* Add a dummy module object into sys.modules */
-    PyObject *module = PyImport_AddModule("runtime_data" SWIG_RUNTIME_VERSION);
+    PyObject *module = PyImport_AddModule("runtime_data" DYNAMSOFT_POSTFIX);
 #else
   static PyMethodDef swig_empty_runtime_method_table[] = {{NULL, NULL, 0, NULL}}; /* Sentinel */
-  PyObject *module = Py_InitModule("runtime_data" SWIG_RUNTIME_VERSION, swig_empty_runtime_method_table);
+  PyObject *module = Py_InitModule("runtime_data" DYNAMSOFT_POSTFIX, swig_empty_runtime_method_table);
 #endif
     PyObject *pointer = PyCapsule_New((void *)swig_module, SWIGPY_CAPSULE_NAME, SWIG_Python_DestroyModule);
     if (pointer && module)
@@ -3580,7 +3580,7 @@ namespace swig
 
 #include "DynamsoftLicense.h"
 #ifdef __cplusplus
-extern "C" 
+extern "C"
 #endif
 LIC_API int DC_SetClientRemark(const char* str);
 
@@ -4875,7 +4875,15 @@ extern "C"
 #ifdef __cplusplus
 extern "C"
 #endif
-
+static PyObject *dataModule=nullptr;
+void ModelExit(void)
+{
+  if(dataModule)
+  {
+    Py_DECREF(dataModule);
+    dataModule = nullptr;
+  }
+}
     SWIGEXPORT
 #if PY_VERSION_HEX >= 0x03000000
     PyObject *
@@ -4958,7 +4966,10 @@ void
   (void)md;
 
   SWIG_InitializeModule(0);
-
+  dataModule = PyImport_AddModule("runtime_data" DYNAMSOFT_POSTFIX);
+  if(dataModule)
+    Py_INCREF(dataModule);
+  Py_AtExit(ModelExit);
 #ifdef SWIGPYTHON_BUILTIN
   swigpyobject = SwigPyObject_TypeOnce();
 

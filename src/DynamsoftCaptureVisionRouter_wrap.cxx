@@ -179,7 +179,7 @@
 
 /* This should only be incremented when either the layout of swig_type_info changes,
    or for whatever reason, the runtime changes incompatibly */
-#define SWIG_RUNTIME_VERSION "4"
+#define DYNAMSOFT_POSTFIX "_dynamsoft"
 
 /* define SWIG_TYPE_TABLE_NAME as "SWIG_TYPE_TABLE" */
 #ifdef SWIG_TYPE_TABLE
@@ -900,7 +900,7 @@ SWIG_Python_str_FromChar(const char *c)
 #else
 #define SWIGPY_CAPSULE_ATTR_NAME "type_pointer_capsule" SWIG_TYPE_TABLE_NAME
 #endif
-#define SWIGPY_CAPSULE_NAME ("runtime_data" SWIG_RUNTIME_VERSION "." SWIGPY_CAPSULE_ATTR_NAME)
+#define SWIGPY_CAPSULE_NAME ("runtime_data" DYNAMSOFT_POSTFIX "." SWIGPY_CAPSULE_ATTR_NAME)
 
 #if PY_VERSION_HEX < 0x03020000
 #define PyDescr_TYPE(x) (((PyDescrObject *)(x))->d_type)
@@ -3092,10 +3092,10 @@ SwigPyObject_type(void)
   {
 #if PY_VERSION_HEX >= 0x03000000
     /* Add a dummy module object into sys.modules */
-    PyObject *module = PyImport_AddModule("runtime_data" SWIG_RUNTIME_VERSION);
+    PyObject *module = PyImport_AddModule("runtime_data" DYNAMSOFT_POSTFIX);
 #else
   static PyMethodDef swig_empty_runtime_method_table[] = {{NULL, NULL, 0, NULL}}; /* Sentinel */
-  PyObject *module = Py_InitModule("runtime_data" SWIG_RUNTIME_VERSION, swig_empty_runtime_method_table);
+  PyObject *module = Py_InitModule("runtime_data" DYNAMSOFT_POSTFIX, swig_empty_runtime_method_table);
 #endif
     PyObject *pointer = PyCapsule_New((void *)swig_module, SWIGPY_CAPSULE_NAME, SWIG_Python_DestroyModule);
     if (pointer && module)
@@ -6166,7 +6166,7 @@ extern "C"
     if (!args)
       SWIG_fail;
     swig_obj[0] = args;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CCapturedResult, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CCapturedResultArray, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
@@ -6179,7 +6179,7 @@ extern "C"
     }
     arg1 = reinterpret_cast<dynamsoft::cvr::CCapturedResultArray *>(argp1);
     result = (dynamsoft::cvr::CCapturedResultArray *)(arg1)->Retain();
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__cvr__CCapturedResult, 0 | 0);
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__cvr__CCapturedResultArray, 0 | 0);
     return resultobj;
   fail:
     return NULL;
@@ -6196,11 +6196,11 @@ extern "C"
     if (!args)
       SWIG_fail;
     swig_obj[0] = args;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CCapturedResult, 0 | 0);
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CCapturedResultArray, 0 | 0);
     if (!SWIG_IsOK(res1))
     {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CCapturedResult_Release"
+                                               "CCapturedResultArray_Release"
                                                "', argument "
                                                "1"
                                                " of type '"
@@ -14675,9 +14675,9 @@ extern "C"
     int allocModel = 0;
     int res4 = 0;
     int val4 = 0;
-    PyObject *swig_obj[3];
+    PyObject *swig_obj[4];
     int result = 0;
-    if (!SWIG_Python_UnpackTuple(args, "CCaptureVisionRouter_AppendModelBuffer", 3, 3, swig_obj))
+    if (!SWIG_Python_UnpackTuple(args, "CCaptureVisionRouter_AppendModelBuffer", 4, 4, swig_obj))
       SWIG_fail;
     res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__cvr__CCaptureVisionRouter, 0 | 0);
     if (!SWIG_IsOK(res1))
@@ -16009,7 +16009,18 @@ extern "C"
 #ifdef __cplusplus
 extern "C"
 #endif
-
+static PyObject *dataModule=nullptr;
+void ModelExit(void)
+{
+  if(dataModule)
+  {
+    Py_DECREF(dataModule);
+    dataModule = nullptr;
+  }
+  else{
+    printf("no dataModule\n");
+  }
+}
     SWIGEXPORT
 #if PY_VERSION_HEX >= 0x03000000
     PyObject *
@@ -16092,7 +16103,10 @@ void
   (void)md;
 
   SWIG_InitializeModule(0);
-
+  dataModule = PyImport_AddModule("runtime_data" DYNAMSOFT_POSTFIX);
+  if(dataModule)
+    Py_INCREF(dataModule);
+  Py_AtExit(ModelExit);
 #ifdef SWIGPYTHON_BUILTIN
   swigpyobject = SwigPyObject_TypeOnce();
 
