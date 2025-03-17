@@ -19525,9 +19525,6 @@ extern "C"
  * -----------------------------------------------------------------------------*/
 static PyObject *dataModule=nullptr;
 
-#ifdef __cplusplus
-extern "C"
-#endif
 void ModelExit(void)
 {
   if(dataModule)
@@ -19536,6 +19533,9 @@ void ModelExit(void)
     dataModule = nullptr;
   }
 }
+#ifdef __cplusplus
+extern "C"
+#endif
     SWIGEXPORT
 #if PY_VERSION_HEX >= 0x03000000
     PyObject *
@@ -19620,7 +19620,7 @@ void
   SWIG_InitializeModule(0);
   dataModule = PyImport_AddModule("runtime_data" DYNAMSOFT_POSTFIX);
   if(dataModule)
-    Py_INCREF(dataModule);
+	Py_INCREF(dataModule);
   Py_AtExit(ModelExit);
 #ifdef SWIGPYTHON_BUILTIN
   swigpyobject = SwigPyObject_TypeOnce();

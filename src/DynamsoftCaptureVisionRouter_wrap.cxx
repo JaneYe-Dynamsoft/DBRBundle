@@ -16014,9 +16014,7 @@ extern "C"
  * -----------------------------------------------------------------------------*/
 static PyObject *dataModule=nullptr;
 
-#ifdef __cplusplus
-extern "C"
-#endif
+
 void ModelExit(void)
 {
   if(dataModule)
@@ -16024,10 +16022,10 @@ void ModelExit(void)
     Py_DECREF(dataModule);
     dataModule = nullptr;
   }
-  else{
-    printf("no dataModule\n");
-  }
 }
+#ifdef __cplusplus
+extern "C"
+#endif
     SWIGEXPORT
 #if PY_VERSION_HEX >= 0x03000000
     PyObject *
