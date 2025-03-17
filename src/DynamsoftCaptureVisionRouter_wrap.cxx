@@ -14683,6 +14683,9 @@ extern "C"
     int res4 = 0;
     int val4 = 0;
     PyObject *swig_obj[4];
+        PyObject *obj2;
+    PyObject *tuple;
+    const char* errMsg;
     int result = 0;
     if (!SWIG_Python_UnpackTuple(args, "CCaptureVisionRouter_AppendModelBuffer", 4, 4, swig_obj))
       SWIG_fail;
@@ -14737,10 +14740,16 @@ extern "C"
     arg4 = static_cast<int>(val4);
 
     result = arg1->AppendModelBuffer(argModel, (const unsigned char*)arg2, arg3, arg4);
+    errMsg = DC_GetErrorString(result);
     resultobj = SWIG_From_int(static_cast<int>(result));
+    obj2 = PyUnicode_FromString(errMsg);
+    tuple = PyTuple_New(2);
+    PyTuple_SetItem(tuple, 0, resultobj);
+    PyTuple_SetItem(tuple, 1, obj2);
+
     if (allocModel == SWIG_NEWOBJ)
       delete[] bufModel;
-    return resultobj;
+    return tuple;
   fail:
     if (allocModel == SWIG_NEWOBJ)
       delete[] bufModel;
