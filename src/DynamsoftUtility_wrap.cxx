@@ -3516,7 +3516,14 @@ T SwigValueInit()
 
 #include "DynamsoftUtility.h"
 #include "DynamsoftCaptureVisionRouter.h"
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+static void UpdateCQuadrilateralPointsFromPythonObject(dynamsoft::basic_structures::CQuadrilateral *quad, PyObject *obj);
+#ifdef __cplusplus
+}
+#endif
 template <typename T>
 static bool getCQuadrilateralArraryFromPyList(PyObject *list, T **array, int *length, swig_type_info* ty)
 {
