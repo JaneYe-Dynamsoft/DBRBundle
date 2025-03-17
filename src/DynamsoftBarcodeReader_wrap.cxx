@@ -1666,6 +1666,8 @@ extern "C"
 #define SWIG_BUILTIN_TP_INIT (SWIG_POINTER_OWN << 2)
 #define SWIG_BUILTIN_INIT (SWIG_BUILTIN_TP_INIT | SWIG_POINTER_OWN)
 
+#define SWIG_POINTER_CONST (SWIG_POINTER_OWN << 3)
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -1795,6 +1797,7 @@ extern "C"
     PyObject_HEAD void *ptr;
     swig_type_info *ty;
     int own;
+    int cst;
     PyObject *next;
 #ifdef SWIGPYTHON_BUILTIN
     PyObject *dict;
@@ -1957,8 +1960,9 @@ SwigPyObject_type(void)
 #endif
   }
 
+
   SWIGRUNTIME PyObject *
-  SwigPyObject_New(void *ptr, swig_type_info *ty, int own);
+  SwigPyObject_New(void *ptr, swig_type_info *ty, int own, int cst);
 
   static PyObject *Swig_Capsule_global = NULL;
 
@@ -1990,7 +1994,7 @@ SwigPyObject_type(void)
         if (data->delargs)
         {
           /* we need to create a temporary object to carry the destroy operation */
-          PyObject *tmp = SwigPyObject_New(sobj->ptr, ty, 0);
+          PyObject *tmp = SwigPyObject_New(sobj->ptr, ty, 0, 0);
           if (tmp)
           {
             res = SWIG_Python_CallFunctor(destroy, tmp);
@@ -2252,7 +2256,7 @@ SwigPyObject_type(void)
   }
 
   SWIGRUNTIME PyObject *
-  SwigPyObject_New(void *ptr, swig_type_info *ty, int own)
+  SwigPyObject_New(void *ptr, swig_type_info *ty, int own, int cst)
   {
     SwigPyObject *sobj = PyObject_NEW(SwigPyObject, SwigPyObject_type());
     if (sobj)
@@ -2260,6 +2264,7 @@ SwigPyObject_type(void)
       sobj->ptr = ptr;
       sobj->ty = ty;
       sobj->own = own;
+      sobj->cst = cst;
       sobj->next = 0;
 #ifdef SWIGPYTHON_BUILTIN
       sobj->dict = 0;
@@ -2951,12 +2956,13 @@ SwigPyObject_type(void)
     SwigPyClientData *clientdata;
     PyObject *robj;
     int own;
-
+    int cst;
     if (!ptr)
       return SWIG_Py_Void();
 
     clientdata = type ? (SwigPyClientData *)(type->clientdata) : 0;
     own = (flags & SWIG_POINTER_OWN) ? SWIG_POINTER_OWN : 0;
+    cst = (flags & SWIG_POINTER_CONST) ? SWIG_POINTER_CONST : 0;
     if (clientdata && clientdata->pytype)
     {
       SwigPyObject *newobj;
@@ -2990,6 +2996,7 @@ SwigPyObject_type(void)
         newobj->ptr = ptr;
         newobj->ty = type;
         newobj->own = own;
+        newobj->cst = cst;
         newobj->next = 0;
         return (PyObject *)newobj;
       }
@@ -2998,7 +3005,7 @@ SwigPyObject_type(void)
 
     assert(!(flags & SWIG_BUILTIN_TP_INIT));
 
-    robj = SwigPyObject_New(ptr, type, own);
+    robj = SwigPyObject_New(ptr, type, own, cst);
     if (robj && clientdata && !(flags & SWIG_POINTER_NOSHADOW))
     {
       PyObject *inst = SWIG_Python_NewShadowInstance(clientdata, robj);
@@ -11932,7 +11939,27 @@ extern "C"
   fail:
     return NULL;
   }
-
+  PyObject* CheckAndSetImageDataWithConst(PyObject* obj,const dynamsoft::basic_structures::CImageData* data) {
+    if(!data)
+      return SWIG_Py_Void();
+    PyObject* get = nullptr;
+    if (PyObject_HasAttrString(obj, "_image_data")) {
+        get = PyObject_GetAttrString(obj, "_image_data");
+    }
+    dynamsoft::basic_structures::CImageData* originalImage = nullptr;
+    if(get!=nullptr && get != Py_None)
+    {
+      SWIG_ConvertPtr(get, (void**)&originalImage, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+      if(data==originalImage)
+      {
+        return get;
+      }
+    }
+    PyObject* resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(data), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_CONST | 0);
+    PyObject_SetAttrString(obj, "_image_data", resultobj);
+    Py_DECREF(get);
+    return resultobj;
+  }
   SWIGINTERN PyObject *_wrap_CExtendedBarcodeResult_GetSamplingImage(PyObject *self, PyObject *args)
   {
     PyObject *resultobj = 0;
@@ -11958,7 +11985,8 @@ extern "C"
     }
     arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CExtendedBarcodeResult *>(argp1);
     result = (dynamsoft::basic_structures::CImageData *)((dynamsoft::dbr::intermediate_results::CExtendedBarcodeResult const *)arg1)->GetSamplingImage();
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+        // resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_CONST | 0);
+    resultobj = CheckAndSetImageDataWithConst(swig_obj[0],result);
     return resultobj;
   fail:
     return NULL;
@@ -13298,8 +13326,9 @@ extern "C"
     }
     arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit *>(argp1);
     result = (dynamsoft::basic_structures::CImageData *)((dynamsoft::dbr::intermediate_results::CScaledBarcodeImageUnit const *)arg1)->GetImageData();
-    result2 = CImageData_Clone(result);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result2), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    // result2 = CImageData_Clone(result);
+        // resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_CONST | 0);
+    resultobj = CheckAndSetImageDataWithConst(swig_obj[0],result);
     return resultobj;
   fail:
     return NULL;
@@ -13617,7 +13646,8 @@ extern "C"
     }
     arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode *>(argp1);
     result = (dynamsoft::basic_structures::CImageData *)((dynamsoft::dbr::intermediate_results::CDeformationResistedBarcode const *)arg1)->GetImageData();
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
+        // resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_CONST | 0);
+    resultobj = CheckAndSetImageDataWithConst(swig_obj[0],result);
     return resultobj;
   fail:
     return NULL;
@@ -14014,8 +14044,9 @@ extern "C"
     }
     arg1 = reinterpret_cast<dynamsoft::dbr::intermediate_results::CComplementedBarcodeImageUnit *>(argp1);
     result = (dynamsoft::basic_structures::CImageData *)((dynamsoft::dbr::intermediate_results::CComplementedBarcodeImageUnit const *)arg1)->GetImageData();
-    result2 = CImageData_Clone(result);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result2), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_OWN | 0);
+    // result2 = CImageData_Clone(result);
+        // resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_CONST | 0);
+    resultobj = CheckAndSetImageDataWithConst(swig_obj[0],result);
     return resultobj;
   fail:
     return NULL;

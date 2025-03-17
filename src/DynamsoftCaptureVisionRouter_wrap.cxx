@@ -1665,6 +1665,8 @@ extern "C"
 #define SWIG_BUILTIN_TP_INIT (SWIG_POINTER_OWN << 2)
 #define SWIG_BUILTIN_INIT (SWIG_BUILTIN_TP_INIT | SWIG_POINTER_OWN)
 
+#define SWIG_POINTER_CONST (SWIG_POINTER_OWN << 3)
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -1794,6 +1796,7 @@ extern "C"
     PyObject_HEAD void *ptr;
     swig_type_info *ty;
     int own;
+    int cst;
     PyObject *next;
 #ifdef SWIGPYTHON_BUILTIN
     PyObject *dict;
@@ -1957,7 +1960,8 @@ SwigPyObject_type(void)
   }
 
   SWIGRUNTIME PyObject *
-  SwigPyObject_New(void *ptr, swig_type_info *ty, int own);
+  SwigPyObject_New(void *ptr, swig_type_info *ty, int own, int cst);
+
 
   static PyObject *Swig_Capsule_global = NULL;
 
@@ -1989,7 +1993,7 @@ SwigPyObject_type(void)
         if (data->delargs)
         {
           /* we need to create a temporary object to carry the destroy operation */
-          PyObject *tmp = SwigPyObject_New(sobj->ptr, ty, 0);
+          PyObject *tmp = SwigPyObject_New(sobj->ptr, ty, 0, 0);
           if (tmp)
           {
             res = SWIG_Python_CallFunctor(destroy, tmp);
@@ -2251,7 +2255,7 @@ SwigPyObject_type(void)
   }
 
   SWIGRUNTIME PyObject *
-  SwigPyObject_New(void *ptr, swig_type_info *ty, int own)
+  SwigPyObject_New(void *ptr, swig_type_info *ty, int own, int cst)
   {
     SwigPyObject *sobj = PyObject_NEW(SwigPyObject, SwigPyObject_type());
     if (sobj)
@@ -2259,6 +2263,7 @@ SwigPyObject_type(void)
       sobj->ptr = ptr;
       sobj->ty = ty;
       sobj->own = own;
+      sobj->cst = cst;
       sobj->next = 0;
 #ifdef SWIGPYTHON_BUILTIN
       sobj->dict = 0;
@@ -2950,12 +2955,13 @@ SwigPyObject_type(void)
     SwigPyClientData *clientdata;
     PyObject *robj;
     int own;
-
+    int cst;
     if (!ptr)
       return SWIG_Py_Void();
 
     clientdata = type ? (SwigPyClientData *)(type->clientdata) : 0;
     own = (flags & SWIG_POINTER_OWN) ? SWIG_POINTER_OWN : 0;
+    cst = (flags & SWIG_POINTER_CONST) ? SWIG_POINTER_CONST : 0;
     if (clientdata && clientdata->pytype)
     {
       SwigPyObject *newobj;
@@ -2989,6 +2995,7 @@ SwigPyObject_type(void)
         newobj->ptr = ptr;
         newobj->ty = type;
         newobj->own = own;
+        newobj->cst = cst;
         newobj->next = 0;
         return (PyObject *)newobj;
       }
@@ -2997,7 +3004,7 @@ SwigPyObject_type(void)
 
     assert(!(flags & SWIG_BUILTIN_TP_INIT));
 
-    robj = SwigPyObject_New(ptr, type, own);
+    robj = SwigPyObject_New(ptr, type, own, cst);
     if (robj && clientdata && !(flags & SWIG_POINTER_NOSHADOW))
     {
       PyObject *inst = SWIG_Python_NewShadowInstance(clientdata, robj);
@@ -6491,19 +6498,19 @@ extern "C"
       if (object)
       {
         AutoGIL ag;
-        if (!PyObject_HasAttrString(object, "on_normalized_images_received"))
+        if (!PyObject_HasAttrString(object, "on_deskewed_image_received"))
         {
-          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_normalized_images_received' method");
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_deskewed_image_received' method");
           return;
         }
         PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__ddn__intermediate_results__CDeskewedImageUnit, SWIG_POINTER_OWN | 0);
         pResult->Retain();
         PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
-        PyObject *method_result = PyObject_CallMethod(object, "on_normalized_images_received", "OO", result, result2);
+        PyObject *method_result = PyObject_CallMethod(object, "on_deskewed_image_received", "OO", result, result2);
 
         if (!method_result)
         {
-          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_normalized_images_received' method on class object");
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_deskewed_image_received' method on class object");
           Py_DECREF(result);
           Py_DECREF(result2);
           return;

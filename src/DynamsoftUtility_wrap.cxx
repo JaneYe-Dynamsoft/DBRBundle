@@ -1665,6 +1665,8 @@ extern "C"
 #define SWIG_BUILTIN_TP_INIT (SWIG_POINTER_OWN << 2)
 #define SWIG_BUILTIN_INIT (SWIG_BUILTIN_TP_INIT | SWIG_POINTER_OWN)
 
+#define SWIG_POINTER_CONST (SWIG_POINTER_OWN << 3)
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -1794,6 +1796,7 @@ extern "C"
     PyObject_HEAD void *ptr;
     swig_type_info *ty;
     int own;
+    int cst;
     PyObject *next;
 #ifdef SWIGPYTHON_BUILTIN
     PyObject *dict;
@@ -1957,7 +1960,8 @@ SwigPyObject_type(void)
   }
 
   SWIGRUNTIME PyObject *
-  SwigPyObject_New(void *ptr, swig_type_info *ty, int own);
+  SwigPyObject_New(void *ptr, swig_type_info *ty, int own, int cst);
+
 
   static PyObject *Swig_Capsule_global = NULL;
 
@@ -1989,7 +1993,7 @@ SwigPyObject_type(void)
         if (data->delargs)
         {
           /* we need to create a temporary object to carry the destroy operation */
-          PyObject *tmp = SwigPyObject_New(sobj->ptr, ty, 0);
+          PyObject *tmp = SwigPyObject_New(sobj->ptr, ty, 0, 0);
           if (tmp)
           {
             res = SWIG_Python_CallFunctor(destroy, tmp);
@@ -2251,7 +2255,7 @@ SwigPyObject_type(void)
   }
 
   SWIGRUNTIME PyObject *
-  SwigPyObject_New(void *ptr, swig_type_info *ty, int own)
+  SwigPyObject_New(void *ptr, swig_type_info *ty, int own, int cst)
   {
     SwigPyObject *sobj = PyObject_NEW(SwigPyObject, SwigPyObject_type());
     if (sobj)
@@ -2259,6 +2263,7 @@ SwigPyObject_type(void)
       sobj->ptr = ptr;
       sobj->ty = ty;
       sobj->own = own;
+      sobj->cst = cst;
       sobj->next = 0;
 #ifdef SWIGPYTHON_BUILTIN
       sobj->dict = 0;
@@ -2950,12 +2955,13 @@ SwigPyObject_type(void)
     SwigPyClientData *clientdata;
     PyObject *robj;
     int own;
-
+    int cst;
     if (!ptr)
       return SWIG_Py_Void();
 
     clientdata = type ? (SwigPyClientData *)(type->clientdata) : 0;
     own = (flags & SWIG_POINTER_OWN) ? SWIG_POINTER_OWN : 0;
+    cst = (flags & SWIG_POINTER_CONST) ? SWIG_POINTER_CONST : 0;
     if (clientdata && clientdata->pytype)
     {
       SwigPyObject *newobj;
@@ -2989,6 +2995,7 @@ SwigPyObject_type(void)
         newobj->ptr = ptr;
         newobj->ty = type;
         newobj->own = own;
+        newobj->cst = cst;
         newobj->next = 0;
         return (PyObject *)newobj;
       }
@@ -2997,7 +3004,7 @@ SwigPyObject_type(void)
 
     assert(!(flags & SWIG_BUILTIN_TP_INIT));
 
-    robj = SwigPyObject_New(ptr, type, own);
+    robj = SwigPyObject_New(ptr, type, own, cst);
     if (robj && clientdata && !(flags & SWIG_POINTER_NOSHADOW))
     {
       PyObject *inst = SWIG_Python_NewShadowInstance(clientdata, robj);
@@ -3505,6 +3512,42 @@ template <typename T>
 T SwigValueInit()
 {
   return T();
+}
+template <typename T>
+static bool getCQuadrilateralArraryFromPyList(PyObject *list, T **array, int *length, swig_type_info* ty)
+{
+  (*length) = 0;
+  Py_ssize_t list_size;
+  if (!PyList_Check(list))
+  {
+    return false;
+  }
+  list_size = PyList_Size(list);
+  (*array) = new T[list_size];
+  for (Py_ssize_t i = 0; i < list_size; ++i)
+  {
+    PyObject *item = PyList_GetItem(list, i);
+    if (item == NULL)
+    {
+      delete[] (*array);
+      return false;
+    }
+    T *p = 0;
+    int res3 = SWIG_ConvertPtr(item, (void **)&p, ty, 0 | 0);
+    if (!SWIG_IsOK(res3))
+    {
+      delete[] (*array);
+      return false;
+    }
+    (*array)[i] = *p;
+    if(SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral==ty)
+    {
+      dynamsoft::basic_structures::CQuadrilateral *quadArray = (dynamsoft::basic_structures::CQuadrilateral *)(*array);
+      UpdateCQuadrilateralPointsFromPythonObject(&(quadArray[i]), item);
+    }
+  }
+  (*length) = (int)list_size;
+  return true;
 }
 
 #if __cplusplus >= 201103L
@@ -7116,118 +7159,13 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     }
     Py_DECREF(attr_value);
   }
-
   SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
   {
     PyObject *resultobj = 0;
     dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CQuadrilateral *arg3;
-    int arg4;
-    int arg5;
-    int arg6;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    void *argp3 = 0;
-    int res3 = 0;
-    int val4;
-    int ecode4 = 0;
-    int val5;
-    int ecode5 = 0;
-    int val6;
-    int ecode6 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
-
-    if ((nobjs < 6) || (nobjs > 6))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CImageDrawer *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageData const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0 | 0);
-    if (!SWIG_IsOK(res3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "3"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CQuadrilateral []"
-                                               "'");
-    }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp3);
-    UpdateCQuadrilateralPointsFromPythonObject(arg3, swig_obj[2]);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
-    if (!SWIG_IsOK(ecode5))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "5"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg5 = static_cast<int>(val5);
-    ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
-    if (!SWIG_IsOK(ecode6))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "6"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg6 = static_cast<int>(val6);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4, arg5, arg6);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
-
-  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
-    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
-    dynamsoft::basic_structures::CQuadrilateral *arg3;
+    int length3{0};
     int arg4;
     int arg5;
     void *argp1 = 0;
@@ -7268,8 +7206,8 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0 | 0);
-    if (!SWIG_IsOK(res3))
+    // res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0 | 0);
+    if (!getCQuadrilateralArraryFromPyList<dynamsoft::basic_structures::CQuadrilateral>(swig_obj[2],&arg3,&length3, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
                                                "CImageDrawer_DrawOnImage"
@@ -7279,9 +7217,22 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "dynamsoft::basic_structures::CQuadrilateral []"
                                                "'");
     }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp3);
-    UpdateCQuadrilateralPointsFromPythonObject(arg3, swig_obj[2]);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    // arg3 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp3);
+    // ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    if (PyLong_Check(swig_obj[3]))
+    {
+      val4 = (int)PyLong_AsUnsignedLong(swig_obj[3]);
+      if (PyErr_Occurred())
+      {
+        PyErr_Clear();
+        ecode4 = SWIG_OverflowError;
+      }
+    }
+    else
+    {
+      ecode4 = SWIG_TypeError;
+    }
+
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
@@ -7305,82 +7256,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                  "'");
     }
     arg5 = static_cast<int>(val5);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4, arg5);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
-
-  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_2(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
-    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
-    dynamsoft::basic_structures::CQuadrilateral *arg3;
-    int arg4;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    void *argp3 = 0;
-    int res3 = 0;
-    int val4;
-    int ecode4 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
-
-    if ((nobjs < 4) || (nobjs > 4))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CImageDrawer *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageData const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0 | 0);
-    if (!SWIG_IsOK(res3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "3"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CQuadrilateral []"
-                                               "'");
-    }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CQuadrilateral *>(argp3);
-    UpdateCQuadrilateralPointsFromPythonObject(arg3, swig_obj[2]);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4);
+    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, length3, arg4, arg5);
     resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     return resultobj;
   fail:
@@ -7393,6 +7269,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CLineSegment *arg3;
+    int length3{0};
     int arg4;
     int arg5;
     int arg6;
@@ -7436,8 +7313,8 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment, 0 | 0);
-    if (!SWIG_IsOK(res3))
+    // res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment, 0 | 0);
+    if (!getCQuadrilateralArraryFromPyList<dynamsoft::basic_structures::CLineSegment>(swig_obj[2],&arg3,&length3, SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
                                                "CImageDrawer_DrawOnImage"
@@ -7448,7 +7325,21 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg3 = reinterpret_cast<dynamsoft::basic_structures::CLineSegment *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    // ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    if (PyLong_Check(swig_obj[3]))
+    {
+      val4 = (int)PyLong_AsUnsignedLong(swig_obj[3]);
+      if (PyErr_Occurred())
+      {
+        PyErr_Clear();
+        ecode4 = SWIG_OverflowError;
+      }
+    }
+    else
+    {
+      ecode4 = SWIG_TypeError;
+    }
+
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
@@ -7472,182 +7363,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                  "'");
     }
     arg5 = static_cast<int>(val5);
-    ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
-    if (!SWIG_IsOK(ecode6))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "6"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg6 = static_cast<int>(val6);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4, arg5, arg6);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
-
-  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_4(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
-    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
-    dynamsoft::basic_structures::CLineSegment *arg3;
-    int arg4;
-    int arg5;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    void *argp3 = 0;
-    int res3 = 0;
-    int val4;
-    int ecode4 = 0;
-    int val5;
-    int ecode5 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
-
-    if ((nobjs < 5) || (nobjs > 5))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CImageDrawer *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageData const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment, 0 | 0);
-    if (!SWIG_IsOK(res3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "3"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CLineSegment []"
-                                               "'");
-    }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CLineSegment *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
-    if (!SWIG_IsOK(ecode5))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "5"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg5 = static_cast<int>(val5);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4, arg5);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
-
-  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_5(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
-    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
-    dynamsoft::basic_structures::CLineSegment *arg3;
-    int arg4;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    void *argp3 = 0;
-    int res3 = 0;
-    int val4;
-    int ecode4 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
-
-    if ((nobjs < 4) || (nobjs > 4))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CImageDrawer *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageData const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment, 0 | 0);
-    if (!SWIG_IsOK(res3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "3"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CLineSegment []"
-                                               "'");
-    }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CLineSegment *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4);
+    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, length3, arg4, arg5);
     resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     return resultobj;
   fail:
@@ -7660,6 +7376,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CContour *arg3;
+    int length3{0};
     int arg4;
     int arg5;
     int arg6;
@@ -7703,8 +7420,8 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0 | 0);
-    if (!SWIG_IsOK(res3))
+    // res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0 | 0);
+    if (!getCQuadrilateralArraryFromPyList<dynamsoft::basic_structures::CContour>(swig_obj[2],&arg3,&length3, SWIGTYPE_p_dynamsoft__basic_structures__CContour))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
                                                "CImageDrawer_DrawOnImage"
@@ -7715,7 +7432,21 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg3 = reinterpret_cast<dynamsoft::basic_structures::CContour *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    // ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    if (PyLong_Check(swig_obj[3]))
+    {
+      val4 = (int)PyLong_AsUnsignedLong(swig_obj[3]);
+      if (PyErr_Occurred())
+      {
+        PyErr_Clear();
+        ecode4 = SWIG_OverflowError;
+      }
+    }
+    else
+    {
+      ecode4 = SWIG_TypeError;
+    }
+
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
@@ -7739,182 +7470,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                  "'");
     }
     arg5 = static_cast<int>(val5);
-    ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
-    if (!SWIG_IsOK(ecode6))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "6"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg6 = static_cast<int>(val6);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4, arg5, arg6);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
-
-  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_7(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
-    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
-    dynamsoft::basic_structures::CContour *arg3;
-    int arg4;
-    int arg5;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    void *argp3 = 0;
-    int res3 = 0;
-    int val4;
-    int ecode4 = 0;
-    int val5;
-    int ecode5 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
-
-    if ((nobjs < 5) || (nobjs > 5))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CImageDrawer *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageData const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0 | 0);
-    if (!SWIG_IsOK(res3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "3"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CContour []"
-                                               "'");
-    }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CContour *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
-    if (!SWIG_IsOK(ecode5))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "5"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg5 = static_cast<int>(val5);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4, arg5);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
-
-  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_8(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
-    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
-    dynamsoft::basic_structures::CContour *arg3;
-    int arg4;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    void *argp3 = 0;
-    int res3 = 0;
-    int val4;
-    int ecode4 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
-
-    if ((nobjs < 4) || (nobjs > 4))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CImageDrawer *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageData const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0 | 0);
-    if (!SWIG_IsOK(res3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "3"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CContour []"
-                                               "'");
-    }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CContour *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4);
+    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, length3, arg4, arg5);
     resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     return resultobj;
   fail:
@@ -7927,6 +7483,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CCorner *arg3;
+    int length3{0};
     int arg4;
     int arg5;
     int arg6;
@@ -7970,8 +7527,8 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CCorner, 0 | 0);
-    if (!SWIG_IsOK(res3))
+    // res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CCorner, 0 | 0);
+    if (!getCQuadrilateralArraryFromPyList<dynamsoft::basic_structures::CCorner>(swig_obj[2],&arg3,&length3, SWIGTYPE_p_dynamsoft__basic_structures__CCorner))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
                                                "CImageDrawer_DrawOnImage"
@@ -7982,7 +7539,20 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg3 = reinterpret_cast<dynamsoft::basic_structures::CCorner *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    // ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    if (PyLong_Check(swig_obj[3]))
+    {
+      val4 = (int)PyLong_AsUnsignedLong(swig_obj[3]);
+      if (PyErr_Occurred())
+      {
+        PyErr_Clear();
+        ecode4 = SWIG_OverflowError;
+      }
+    }
+    else
+    {
+      ecode4 = SWIG_TypeError;
+    }
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
@@ -8006,182 +7576,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                  "'");
     }
     arg5 = static_cast<int>(val5);
-    ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
-    if (!SWIG_IsOK(ecode6))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "6"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg6 = static_cast<int>(val6);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4, arg5, arg6);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
-
-  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_10(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
-    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
-    dynamsoft::basic_structures::CCorner *arg3;
-    int arg4;
-    int arg5;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    void *argp3 = 0;
-    int res3 = 0;
-    int val4;
-    int ecode4 = 0;
-    int val5;
-    int ecode5 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
-
-    if ((nobjs < 5) || (nobjs > 5))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CImageDrawer *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageData const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CCorner, 0 | 0);
-    if (!SWIG_IsOK(res3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "3"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CCorner []"
-                                               "'");
-    }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CCorner *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
-    if (!SWIG_IsOK(ecode5))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "5"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg5 = static_cast<int>(val5);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4, arg5);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
-
-  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_11(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
-    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
-    dynamsoft::basic_structures::CCorner *arg3;
-    int arg4;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    void *argp3 = 0;
-    int res3 = 0;
-    int val4;
-    int ecode4 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
-
-    if ((nobjs < 4) || (nobjs > 4))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CImageDrawer *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageData const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CCorner, 0 | 0);
-    if (!SWIG_IsOK(res3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "3"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CCorner []"
-                                               "'");
-    }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CCorner *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4);
+    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, length3, arg4, arg5);
     resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     return resultobj;
   fail:
@@ -8194,6 +7589,7 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
     dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
     dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
     dynamsoft::basic_structures::CEdge *arg3;
+    int length3{0};
     int arg4;
     int arg5;
     int arg6;
@@ -8237,8 +7633,8 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0 | 0);
-    if (!SWIG_IsOK(res3))
+    // res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0 | 0);
+    if (!getCQuadrilateralArraryFromPyList<dynamsoft::basic_structures::CEdge>(swig_obj[2],&arg3,&length3, SWIGTYPE_p_dynamsoft__basic_structures__CEdge))
     {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
                                                "CImageDrawer_DrawOnImage"
@@ -8249,7 +7645,20 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                "'");
     }
     arg3 = reinterpret_cast<dynamsoft::basic_structures::CEdge *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    // ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    if (PyLong_Check(swig_obj[3]))
+    {
+      val4 = (int)PyLong_AsUnsignedLong(swig_obj[3]);
+      if (PyErr_Occurred())
+      {
+        PyErr_Clear();
+        ecode4 = SWIG_OverflowError;
+      }
+    }
+    else
+    {
+      ecode4 = SWIG_TypeError;
+    }
     if (!SWIG_IsOK(ecode4))
     {
       SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
@@ -8273,347 +7682,41 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
                                                  "'");
     }
     arg5 = static_cast<int>(val5);
-    ecode6 = SWIG_AsVal_int(swig_obj[5], &val6);
-    if (!SWIG_IsOK(ecode6))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "6"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg6 = static_cast<int>(val6);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4, arg5, arg6);
+    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, length3, arg4, arg5);
     resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
     return resultobj;
   fail:
     return NULL;
   }
 
-  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_13(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
+  int CheckPythonList(PyObject *obj, swig_type_info* tp)
   {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
-    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
-    dynamsoft::basic_structures::CEdge *arg3;
-    int arg4;
-    int arg5;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    void *argp3 = 0;
-    int res3 = 0;
-    int val4;
-    int ecode4 = 0;
-    int val5;
-    int ecode5 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
-
-    if ((nobjs < 5) || (nobjs > 5))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
-    if (!SWIG_IsOK(res1))
+    if (!PyList_Check(obj))
+      return -1;
+    int list_size = PyList_Size(obj);
+    for (Py_ssize_t i = 0; i < list_size; ++i)
     {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CImageDrawer *"
-                                               "'");
+      void *vptr = 0;
+      PyObject *item = PyList_GetItem(obj, i);
+      if (item == NULL)
+        return -1;
+      int res = SWIG_ConvertPtr(item, &vptr, tp, 0);
+      if(!SWIG_CheckState(res))
+        return -1;
     }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageData const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0 | 0);
-    if (!SWIG_IsOK(res3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "3"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CEdge []"
-                                               "'");
-    }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CEdge *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
-    if (!SWIG_IsOK(ecode5))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "5"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg5 = static_cast<int>(val5);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4, arg5);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    return resultobj;
-  fail:
-    return NULL;
+    return 0;
   }
-
-  SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage__SWIG_14(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj)
-  {
-    PyObject *resultobj = 0;
-    dynamsoft::utility::CImageDrawer *arg1 = (dynamsoft::utility::CImageDrawer *)0;
-    dynamsoft::basic_structures::CImageData *arg2 = (dynamsoft::basic_structures::CImageData *)0;
-    dynamsoft::basic_structures::CEdge *arg3;
-    int arg4;
-    void *argp1 = 0;
-    int res1 = 0;
-    void *argp2 = 0;
-    int res2 = 0;
-    void *argp3 = 0;
-    int res3 = 0;
-    int val4;
-    int ecode4 = 0;
-    dynamsoft::basic_structures::CImageData *result = 0;
-
-    if ((nobjs < 4) || (nobjs > 4))
-      SWIG_fail;
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0 | 0);
-    if (!SWIG_IsOK(res1))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "1"
-                                               " of type '"
-                                               "dynamsoft::utility::CImageDrawer *"
-                                               "'");
-    }
-    arg1 = reinterpret_cast<dynamsoft::utility::CImageDrawer *>(argp1);
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    if (!SWIG_IsOK(res2))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "2"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CImageData const *"
-                                               "'");
-    }
-    arg2 = reinterpret_cast<dynamsoft::basic_structures::CImageData *>(argp2);
-    res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0 | 0);
-    if (!SWIG_IsOK(res3))
-    {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '"
-                                               "CImageDrawer_DrawOnImage"
-                                               "', argument "
-                                               "3"
-                                               " of type '"
-                                               "dynamsoft::basic_structures::CEdge []"
-                                               "'");
-    }
-    arg3 = reinterpret_cast<dynamsoft::basic_structures::CEdge *>(argp3);
-    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
-    if (!SWIG_IsOK(ecode4))
-    {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '"
-                                                 "CImageDrawer_DrawOnImage"
-                                                 "', argument "
-                                                 "4"
-                                                 " of type '"
-                                                 "int"
-                                                 "'");
-    }
-    arg4 = static_cast<int>(val4);
-    result = (dynamsoft::basic_structures::CImageData *)(arg1)->DrawOnImage((dynamsoft::basic_structures::CImageData const *)arg2, arg3, arg4);
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0 | 0);
-    return resultobj;
-  fail:
-    return NULL;
-  }
-
   SWIGINTERN PyObject *_wrap_CImageDrawer_DrawOnImage(PyObject *self, PyObject *args)
   {
     Py_ssize_t argc;
-    PyObject *argv[7] = {
+    PyObject *argv[6] = {
         0};
 
-    if (!(argc = SWIG_Python_UnpackTuple(args, "CImageDrawer_DrawOnImage", 0, 6, argv)))
+    if (!(argc = SWIG_Python_UnpackTuple(args, "CImageDrawer_DrawOnImage", 5, 5, argv)))
+    {
       SWIG_fail;
+    }
     --argc;
-    if (argc == 4)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              return _wrap_CImageDrawer_DrawOnImage__SWIG_2(self, argc, argv);
-            }
-          }
-        }
-      }
-    }
-    if (argc == 4)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              return _wrap_CImageDrawer_DrawOnImage__SWIG_5(self, argc, argv);
-            }
-          }
-        }
-      }
-    }
-    if (argc == 4)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              return _wrap_CImageDrawer_DrawOnImage__SWIG_8(self, argc, argv);
-            }
-          }
-        }
-      }
-    }
-    if (argc == 4)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CCorner, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              return _wrap_CImageDrawer_DrawOnImage__SWIG_11(self, argc, argv);
-            }
-          }
-        }
-      }
-    }
-    if (argc == 4)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              return _wrap_CImageDrawer_DrawOnImage__SWIG_14(self, argc, argv);
-            }
-          }
-        }
-      }
-    }
     if (argc == 5)
     {
       int _v = 0;
@@ -8627,417 +7730,72 @@ SWIGINTERN PyObject *_wrap_CMultiFrameResultCrossFilter_EnableLatestOverlapping(
         _v = SWIG_CheckState(res);
         if (_v)
         {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment, 0);
+          // int res = SWIG_AsVal_int(argv[3], NULL);
+          if (PyLong_Check(argv[3]))
+          {
+            long v = PyLong_AsUnsignedLong(argv[3]);
+            if (PyErr_Occurred())
+            {
+              PyErr_Clear();
+              _v = SWIG_OverflowError;
+            }
+          }
+          else
+          {
+            _v = SWIG_TypeError;
+          }
           _v = SWIG_CheckState(res);
           if (_v)
           {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
+            int res = SWIG_AsVal_int(argv[4], NULL);
+            _v = SWIG_CheckState(res);
             if (_v)
             {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                return _wrap_CImageDrawer_DrawOnImage__SWIG_4(self, argc, argv);
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 5)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CCorner, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
+              void *vptr = 0;
+              res = CheckPythonList(argv[2], SWIGTYPE_p_dynamsoft__basic_structures__CContour);
               _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
               if (_v)
               {
-                return _wrap_CImageDrawer_DrawOnImage__SWIG_10(self, argc, argv);
+                return _wrap_CImageDrawer_DrawOnImage__SWIG_6(self, argc, argv);
               }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 5)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
+              res = CheckPythonList(argv[2], SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral);
               _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
               if (_v)
               {
-                return _wrap_CImageDrawer_DrawOnImage__SWIG_1(self, argc, argv);
+                return _wrap_CImageDrawer_DrawOnImage__SWIG_0(self, argc, argv);
               }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 5)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
+              res = CheckPythonList(argv[2], SWIGTYPE_p_dynamsoft__basic_structures__CEdge);
               _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                return _wrap_CImageDrawer_DrawOnImage__SWIG_13(self, argc, argv);
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 5)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                return _wrap_CImageDrawer_DrawOnImage__SWIG_7(self, argc, argv);
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 6)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CContour, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                {
-                  int res = SWIG_AsVal_int(argv[5], NULL);
-                  _v = SWIG_CheckState(res);
-                }
-                if (_v)
-                {
-                  return _wrap_CImageDrawer_DrawOnImage__SWIG_6(self, argc, argv);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 6)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CQuadrilateral, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                {
-                  int res = SWIG_AsVal_int(argv[5], NULL);
-                  _v = SWIG_CheckState(res);
-                }
-                if (_v)
-                {
-                  return _wrap_CImageDrawer_DrawOnImage__SWIG_0(self, argc, argv);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 6)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CEdge, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                {
-                  int res = SWIG_AsVal_int(argv[5], NULL);
-                  _v = SWIG_CheckState(res);
-                }
-                if (_v)
-                {
-                  return _wrap_CImageDrawer_DrawOnImage__SWIG_12(self, argc, argv);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 6)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                {
-                  int res = SWIG_AsVal_int(argv[5], NULL);
-                  _v = SWIG_CheckState(res);
-                }
-                if (_v)
-                {
-                  return _wrap_CImageDrawer_DrawOnImage__SWIG_3(self, argc, argv);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    if (argc == 6)
-    {
-      int _v = 0;
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_dynamsoft__utility__CImageDrawer, 0);
-      _v = SWIG_CheckState(res);
-      if (_v)
-      {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CImageData, 0);
-        _v = SWIG_CheckState(res);
-        if (_v)
-        {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_dynamsoft__basic_structures__CCorner, 0);
-          _v = SWIG_CheckState(res);
-          if (_v)
-          {
-            {
-              int res = SWIG_AsVal_int(argv[3], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v)
-            {
-              {
-                int res = SWIG_AsVal_int(argv[4], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v)
-              {
-                {
-                  int res = SWIG_AsVal_int(argv[5], NULL);
-                  _v = SWIG_CheckState(res);
-                }
-                if (_v)
-                {
-                  return _wrap_CImageDrawer_DrawOnImage__SWIG_9(self, argc, argv);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
 
+              if (_v)
+              {
+                return _wrap_CImageDrawer_DrawOnImage__SWIG_12(self, argc, argv);
+              }
+              res = CheckPythonList(argv[2], SWIGTYPE_p_dynamsoft__basic_structures__CLineSegment);
+              _v = SWIG_CheckState(res);
+              if (_v)
+              {
+                return _wrap_CImageDrawer_DrawOnImage__SWIG_3(self, argc, argv);
+              }
+              res = CheckPythonList(argv[2], SWIGTYPE_p_dynamsoft__basic_structures__CCorner);
+              _v = SWIG_CheckState(res);
+              if (_v)
+              {
+                return _wrap_CImageDrawer_DrawOnImage__SWIG_9(self, argc, argv);
+              }
+            }
+          }
+        }
+      }
+    }
   fail:
     SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'CImageDrawer_DrawOnImage'.\n"
                                        "  Possible C/C++ prototypes are:\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CQuadrilateral [],int,int,int)\n"
                                        "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CQuadrilateral [],int,int)\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CQuadrilateral [],int)\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CLineSegment [],int,int,int)\n"
                                        "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CLineSegment [],int,int)\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CLineSegment [],int)\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CContour [],int,int,int)\n"
                                        "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CContour [],int,int)\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CContour [],int)\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CCorner [],int,int,int)\n"
                                        "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CCorner [],int,int)\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CCorner [],int)\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CEdge [],int,int,int)\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CEdge [],int,int)\n"
-                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CEdge [],int)\n");
+                                       "    dynamsoft::utility::CImageDrawer::DrawOnImage(dynamsoft::basic_structures::CImageData const *,dynamsoft::basic_structures::CEdge [],int,int)\n");
     return 0;
   }
 

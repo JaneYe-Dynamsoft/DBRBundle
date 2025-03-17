@@ -1,4 +1,4 @@
-__version__ = "3.0.10.8325"
+__version__ = "3.0.10.8485"
 
 if __package__ or "." in __name__:
     from .core import *
@@ -162,7 +162,7 @@ class SimplifiedCaptureVisionSettings:
         return self._document_settings
     @document_settings.setter
     def document_settings(self, value: "SimplifiedDocumentNormalizerSettings"):
-        if not hasattr(self, '_document_settings') or self._document_settings is None: 
+        if not hasattr(self, '_document_settings') or self._document_settings is None:
             self._document_settings = _DynamsoftCaptureVisionRouter.SimplifiedCaptureVisionSettings_documentSettings_get(self)
         _DynamsoftCaptureVisionRouter.SimplifiedCaptureVisionSettings_documentSettings_set(self, value)
         self._document_settings = value
@@ -287,7 +287,7 @@ class CapturedResultArray:
         for i in range(count):
             list.append(_DynamsoftCaptureVisionRouter.CCapturedResultArray_GetResult(self, i))
         return list
-    
+
     __destroy__ = _DynamsoftCaptureVisionRouter.CCapturedResultArray_Release
 
 _DynamsoftCaptureVisionRouter.CCapturedResultArray_register(CapturedResultArray)
@@ -423,7 +423,7 @@ class CapturedResultFilter:
 
     Methods:
         get_name(self): Gets the name of the captured result filter.
-        set_name(self, name: str): Sets the name of the captured result filter.        
+        set_name(self, name: str): Sets the name of the captured result filter.
     """
     _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
@@ -612,7 +612,7 @@ class BufferedItemsManager:
         return _DynamsoftCaptureVisionRouter.CBufferedItemsManager_GetBufferedCharacterItemSet(
             self
         )
-        
+
 _DynamsoftCaptureVisionRouter.CBufferedItemsManager_register(BufferedItemsManager)
 
 #new
@@ -647,6 +647,9 @@ class IntermediateResultReceiver(AbstractIntermediateResultReceiver):
 
     def on_recognized_text_lines_received(self, result: "RecognizedTextLinesUnit", info: IntermediateResultExtraInfo) -> None:
         return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnRecognizedTextLinesReceived(self, result, info)
+
+    def on_detected_quads_received(self, result: "DetectedQuadsUnit", info: IntermediateResultExtraInfo) -> None:
+        return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnDetectedQuadsReceived(self, result, info)
 
     def on_deskewed_image_received(self, result: "DeskewedImageUnit", info: IntermediateResultExtraInfo) -> None:
         return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnDeskewedImageReceived(self, result, info)
@@ -705,7 +708,7 @@ class IntermediateResultReceiver(AbstractIntermediateResultReceiver):
     def on_candidate_barcode_zones_unit_received(self, result: "CandidateBarcodeZonesUnit", info: IntermediateResultExtraInfo) -> None:
         return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnCandidateBarcodeZonesUnitReceived(self, result, info)
 
-    def on_scaled_barcode_image_unit_received(self, result: "ScaledUpBarcodeImageUnit", info: IntermediateResultExtraInfo) -> None:
+    def on_scaled_barcode_image_unit_received(self, result: "ScaledBarcodeImageUnit", info: IntermediateResultExtraInfo) -> None:
         return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnScaledBarcodeImageUnitReceived(self, result, info)
 
     def on_deformation_resisted_barcode_image_unit_received(self, result: "DeformationResistedBarcodeImageUnit", info: IntermediateResultExtraInfo) -> None:
@@ -716,19 +719,19 @@ class IntermediateResultReceiver(AbstractIntermediateResultReceiver):
 
     def on_raw_text_lines_unit_received(self, result: "RawTextLinesUnit", info: IntermediateResultExtraInfo) -> None:
         return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnRawTextLinesUnitReceived(self, result, info)
-    
+
     def on_logic_lines_unit_received(self, result: "LogicLinesUnit", info: IntermediateResultExtraInfo) -> None:
         return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnLogicLinesUnitReceived(self, result)
-    
+
     def on_enhanced_image_received(self, result: "EnhancedImageUnit", info: IntermediateResultExtraInfo) -> None:
         return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnEnhancedImageReceived(self, result, info)
-    
+
     def on_target_roi_results_received(self, result: IntermediateResult, info: IntermediateResultExtraInfo) -> None:
         return _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_OnTargetROIResultsReceived(self, result, info)
-    
+
     def on_unit_result_received(self, unit: IntermediateResultUnit, info: IntermediateResultExtraInfo) -> None:
         pass
-    
+
 # Register CIntermediateResultReceiver in _DynamsoftCaptureVisionRouter:
 _DynamsoftCaptureVisionRouter.CIntermediateResultReceiver_register(IntermediateResultReceiver)
 class IntermediateResultManager:
@@ -743,7 +746,7 @@ class IntermediateResultManager:
 
     def remove_result_receiver(self, receiver: IntermediateResultReceiver) -> int:
         return _DynamsoftCaptureVisionRouter.CIntermediateResultManager_RemoveResultReceiver(self, receiver)
-    
+
     def get_original_image(self, image_hash_id: str)->ImageData:
         return _DynamsoftCaptureVisionRouter.CIntermediateResultManager_GetOriginalImage(self, image_hash_id)
 
@@ -836,7 +839,7 @@ class CaptureVisionRouter:
             include_default_values (bool): Specifies whether to include default values in the exported template. Default values is False.
 
         Returns:
-            A tuple containing an error code, error message, and a string containing the exported template.   
+            A tuple containing an error code, error message, and a string containing the exported template.
         """
         return _DynamsoftCaptureVisionRouter.CCaptureVisionRouter_OutputSettings(
             self, template_name, include_default_values
@@ -878,7 +881,7 @@ class CaptureVisionRouter:
         return _DynamsoftCaptureVisionRouter.CCaptureVisionRouter_GetSimplifiedSettings(
             self, template_name
         )
-    
+
     def update_settings(
         self, template_name: str, settings: SimplifiedCaptureVisionSettings
     ) -> Tuple[int, str]:
@@ -897,7 +900,7 @@ class CaptureVisionRouter:
         return _DynamsoftCaptureVisionRouter.CCaptureVisionRouter_UpdateSettings(
             self, template_name, settings
         )
-    
+
     def reset_settings(self) -> Tuple[int, str]:
         """
         Resets all templates to factory settings.
@@ -939,7 +942,7 @@ class CaptureVisionRouter:
         else:
             if len(args) == 2:
                 template_name = args[1]
-        
+
         ret = _DynamsoftCaptureVisionRouter.CCaptureVisionRouter_Capture(self, image, template_name)
         return ret
 
@@ -950,7 +953,7 @@ class CaptureVisionRouter:
         Args:
             file (Union[str, bytes]): Specifies the path of the file or the memory location containing the image to be processed.
             template_name (str, optional): Specifies the template to use for capturing. Default value is an empty string which means the factory default template.
-        
+
         Returns:
             A 'CapturedResultArray' object containing the captured result.
         """
@@ -967,7 +970,7 @@ class CaptureVisionRouter:
 
         Args:
             adapter (ImageSourceAdapter): Specifies an object which has implemented the ImageSourceAdapter Class.
-        
+
         Returns:
             A tuple containing following elements:
             - error_code <int>: The error code indicating the status of the operation.
@@ -1183,30 +1186,30 @@ class CaptureVisionRouter:
                 self
             )
         )
-    
+
     def get_parameter_template_count(self) -> int:
         """
         Gets the count of parameter templates.
-        
+
         Returns:
             An integer representing the count of parameter templates.
         """
         return _DynamsoftCaptureVisionRouter.CCaptureVisionRouter_GetParameterTemplateCount(self)
-    
+
     def get_parameter_template_name(self, index: int) -> Tuple[int, str]:
         """
         Gets the name of a parameter template at the specified index.
 
         Args:
             index (int): Specifies the index of the parameter template.
-        
+
         Returns:
             A tuple containing following elements:
             - error_code (int): The error code indicating the status of the operation.
             - template_name (str): The name of the parameter template.
         """
         return _DynamsoftCaptureVisionRouter.CCaptureVisionRouter_GetParameterTemplateName(self, index)
-    
+
     def append_model_buffer(self, model_name: str, model_buffer: bytes, max_model_instances: int) -> Tuple[int, str]:
         """
         Appends a model to the model buffer.
@@ -1215,7 +1218,7 @@ class CaptureVisionRouter:
             model_name (str): Specifies the name of the model.
             model_buffer (bytes): Specifies the model buffer in bytes.
             max_model_instances (int): Specifies the maximum number of model instances.
-        
+
         Returns:
             A tuple containing following elements:
             - error_code (int): The error code indicating the status of the operation.
