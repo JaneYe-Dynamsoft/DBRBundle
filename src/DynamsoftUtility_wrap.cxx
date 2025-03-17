@@ -3513,6 +3513,10 @@ T SwigValueInit()
 {
   return T();
 }
+
+#include "DynamsoftUtility.h"
+#include "DynamsoftCaptureVisionRouter.h"
+
 template <typename T>
 static bool getCQuadrilateralArraryFromPyList(PyObject *list, T **array, int *length, swig_type_info* ty)
 {
@@ -3635,9 +3639,6 @@ namespace swig
     }
   };
 }
-
-#include "DynamsoftUtility.h"
-#include "DynamsoftCaptureVisionRouter.h"
 
 SWIGINTERN swig_type_info *
 SWIG_pchar_descriptor(void)
