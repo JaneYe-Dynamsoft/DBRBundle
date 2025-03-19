@@ -1,4 +1,4 @@
-__version__ = "4.0.10.8527"
+__version__ = "4.0.10.8635"
 
 if __package__ or "." in __name__:
     from . import _DynamsoftCore
@@ -495,6 +495,12 @@ class Quadrilateral:
         return _DynamsoftCore.CQuadrilateral_GetArea(self)
 
     def get_bounding_rect(self) -> Rect:
+        """
+        Gets the bounding rectangle of the quadrilateral.
+
+        Returns:
+            The bounding rectangle of the quadrilateral.
+        """
         return _DynamsoftCore.CQuadrilateral_GetBoundingRect(self)
 
     __destroy__ = _DynamsoftCore.delete_CQuadrilateral
@@ -791,8 +797,8 @@ class ImageData:
         get_stride(self) -> int: Returns the stride of the image.
         get_image_pixel_format(self) -> int: Returns the pixel format of the image.
         get_orientation(self) -> int: Returns the orientation of the image.
-        get_tag(self) -> ImageTag: Returns the tag of the image.
-        set_tag(self, tag: ImageTag): Sets the tag of the image.
+        get_image_tag(self) -> ImageTag: Returns the tag of the image.
+        set_image_tag(self, tag: ImageTag): Sets the tag of the image.
     """
     _thisown = property(
         lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag"
@@ -1366,6 +1372,17 @@ class Contour:
 
 _DynamsoftCore.CContour_register(Contour)
 class Vector4:
+    """
+    The CVector4 class represents a four-dimensional vector.
+
+    Attributes:
+        value (List[int]): A list of four integer values representing the components of the vector.
+
+    Methods:
+        Set(self, v1: int, v2: int, v3: int, v4: int) -> None: Sets the components value of a four-dimensional vector.
+        __getitem__(self, index: int) -> int: Gets the component value at the specified index in the CVector4.
+        __setitem__(self, index: int, value: int) -> None: Sets the component value at the specified index in the CVector4.
+    """
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     value = property(_DynamsoftCore.CVector4_value_get, _DynamsoftCore.CVector4_value_set)
@@ -1375,6 +1392,15 @@ class Vector4:
     __destroy__ = _DynamsoftCore.delete_CVector4
 
     def Set(self, v1: int, v2: int, v3: int, v4: int) -> None:
+        """
+        Sets the components value of a four-dimensional vector.
+
+        Args:
+            v1 (int): The first component value of the four-dimensional vector.
+            v2 (int): The second component value of the four-dimensional vector.
+            v3 (int): The third component value of the four-dimensional vector.
+            v4 (int): The fourth component value of the four-dimensional vector.
+        """
         return _DynamsoftCore.CVector4_Set(self, v1, v2, v3, v4)
 
     def __getitem__(self, index: int) -> int:
@@ -1390,6 +1416,18 @@ class Vector4:
 _DynamsoftCore.CVector4_register(Vector4)
 
 class LineSegment:
+    """
+    The LineSegment class represents a line segment in 2D space.
+    It contains two CPoint objects, which represent the start point and end point of the line segment.
+
+    Attributes:
+        start_point (Point): The start point of the line segment.
+        end_point (Point): The end point of the line segment.
+        id (int): The ID of the line segment.
+
+    Methods:
+        __repr__(self) -> str: Returns a string representation of the LineSegment object.
+    """
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     start_point: Point = property(_DynamsoftCore.CLineSegment_GetStartPoint, _DynamsoftCore.CLineSegment_SetStartPoint)
@@ -1406,6 +1444,15 @@ class LineSegment:
 
 _DynamsoftCore.CLineSegment_register(LineSegment)
 class Corner:
+    """
+    Corner is a structure in an image consisting of two line segments and intersection point. A Corner represents a point at which the image's brightness or color sharply changes.
+
+    Attributes:
+        type (int): The type of the corner.
+        intersection (Point): The intersection point of the two line segments.
+        line1 (LineSegment): The first line segment.
+        line2 (LineSegment): The second line segment.
+    """
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     type: int = property(_DynamsoftCore.CCorner_type_get, _DynamsoftCore.CCorner_type_set)
@@ -1418,6 +1465,15 @@ class Corner:
 
 _DynamsoftCore.CCorner_register(Corner)
 class Edge:
+    """
+    CEdge is a structure composed of two Corner points in an image.
+    A Corner represents a point at which the image's brightness or color sharply changes.
+    Therefore, a CEdge is a line segment connecting two such points that have been identified as Corners.
+
+    Attributes:
+        start_corner (Corner): The start corner of the edge.
+        end_corner (Corner): The end corner of the edge.
+    """
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     start_corner: Corner = property(_DynamsoftCore.CEdge_startCorner_get, _DynamsoftCore.CEdge_startCorner_set)
@@ -1430,6 +1486,15 @@ class Edge:
 _DynamsoftCore.CEdge_register(Edge)
 
 class IntermediateResultExtraInfo:
+    """
+    The IntermediateResultExtraInfo class represents the extra information for generating an intermediate result unit.
+
+    Attributes:
+        target_roi_def_name (str): Specifies the name of the TargetROIDef object that generates the intermediate result.
+        task_name (str): Specifies the name of the task that generates the intermediate result.
+        is_section_level_result (bool): Specifies whether the intermediate result is section-level result.
+        section_type (int): Specifies the SectionType that generates the intermediate result.
+    """
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     target_roi_def_name: str = property(_DynamsoftCore.IntermediateResultExtraInfo_targetROIDefName_get, _DynamsoftCore.IntermediateResultExtraInfo_targetROIDefName_set)
@@ -1444,6 +1509,16 @@ class IntermediateResultExtraInfo:
 _DynamsoftCore.IntermediateResultExtraInfo_register(IntermediateResultExtraInfo)
 
 class RegionObjectElement:
+    """
+    The RegionObjectElement class represents an element of a region object in 2D space. It is an abstract class that provides the interface for region object elements.
+
+    Methods:
+        get_location(self) -> Quadrilateral: Gets the location of the region object element.
+        get_referenced_element(self) -> RegionObjectElement: Gets the referenced element of the region object element.
+        get_element_type(self) -> int: Gets the type of the region object element.
+        clone(self) -> RegionObjectElement: Clones the region object element.
+        get_image_data(self) -> ImageData: Gets the image data of the region object element.
+        """
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     __destroy__ = _DynamsoftCore.CRegionObjectElement_Release
@@ -1453,35 +1528,107 @@ class RegionObjectElement:
 
 
     def get_location(self) -> Quadrilateral:
+        """
+        Gets the location of the region object element.
+
+        Returns:
+            A Quadrilateral object which represents the location of the region object element.
+        """
         return _DynamsoftCore.CRegionObjectElement_GetLocation(self)
 
     def get_referenced_element(self) -> "RegionObjectElement":
+        """
+        Gets the referenced element of the region object element.
+
+        Returns:
+            A RegionObjectElement object which represents the referenced element of the region object element.
+        """
         return _DynamsoftCore.CRegionObjectElement_GetReferencedElement(self)
 
     def get_element_type(self) -> int:
+        """
+        Gets the type of the region object element.
+
+        Returns:
+            An integer which represents the type of the region object element.
+        """
         return _DynamsoftCore.CRegionObjectElement_GetElementType(self)
 
     def clone(self) -> "RegionObjectElement":
+        """
+        Clones the region object element.
+
+        Returns:
+            A copy of the region object element.
+        """
         return _DynamsoftCore.CRegionObjectElement_Clone(self)
 
     def get_image_data(self) -> ImageData:
+        """
+        Gets the image data for the RegionObjectElement.
+
+        Returns:
+            An ImageData object that contains the image data for the RegionObjectElement.
+        """
         return _DynamsoftCore.CRegionObjectElement_GetImageData(self)
 
 _DynamsoftCore.CRegionObjectElement_register(RegionObjectElement)
 class PredetectedRegionElement(RegionObjectElement):
+    """
+    The PredetectedRegionElement class represents a region element that has been pre-detected in an image.
+    It is a subclass of the CRegionObjectElement.
+
+    Methods:
+        get_mode_name(self) -> str: Gets the name of the detection mode used to detect this region element.
+        set_location(self, loc: Quadrilateral) -> int: Sets the location of the region object element.
+    """
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     def __init__(self):
         _DynamsoftCore.Class_init(self, _DynamsoftCore.CImageProcessingModule_CreatePredetectedRegionElement())
 
     def get_mode_name(self) -> str:
+        """
+        Gets the name of the detection mode used to detect this region element.
+
+        Returns:
+            The name of the detection mode used to detect this region element.
+        """
         return _DynamsoftCore.CPredetectedRegionElement_GetModeName(self)
 
     def set_location(self, loc: Quadrilateral) -> int:
+        """
+        Sets the location of the region object element.
+
+        Args:
+            loc(Quadrilateral): The location of the predetected region element.
+
+        Returns:
+            Returns 0 if success, otherwise an error code.
+        """
         return _DynamsoftCore.CPredetectedRegionElement_SetLocation(self, loc)
 
 _DynamsoftCore.CPredetectedRegionElement_register(PredetectedRegionElement)
 class IntermediateResultUnit:
+    """
+    The IntermediateResultUnit class represents an intermediate result unit used in image processing.
+    It is an abstract base class with multiple subclasses, each representing a different type of unit such as pre-detected regions, localized barcodes, decoded barcodes, localized text lines, binary image, gray image, etc.
+
+    Methods:
+        get_hash_id(self) -> str: Gets the hash ID of the intermediate result unit.
+        get_original_image_hash_id(self) -> str: Gets the hash ID of the original image.
+        get_original_image_tag(self) -> ImageTag: Gets the image tag of the original image.
+        get_transform_matrix(self, matrix_type: EnumTransformMatrixType) -> List[float]: Gets the transformation matrix via EnumTransformMatrixType.
+        set_transform_matrix(self, matrix_type: EnumTransformMatrixType, matrix: List[float]) -> None: Sets the transformation matrix via EnumTransformMatrixType.
+        get_type(self) -> int: Gets the type of the intermediate result unit.
+        clone(self) -> IntermediateResultUnit: Creates a copy of the intermediate result unit.
+        set_hash_id(self, hash_id: str) -> None: Sets the hash ID of the intermediate result unit.
+        set_original_image_tag(self, tag: ImageTag) -> None: Sets the image tag of the original image.
+        set_original_image_hash_id(self, hash_id: str) -> None: Sets the hash ID of the original image.
+        replace(self, unit: IntermediateResultUnit) -> int: Replaces the specified IntermediateResultUnit object with the current IntermediateResultUnit object.
+        get_usage_count(self) -> int: Gets the usage count of the intermediate result unit.
+        set_usage_count(self, usage_count: int) -> None: Sets the usage count of the intermediate result unit.
+    """
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     __destroy__ = _DynamsoftCore.CIntermediateResultUnit_Release
@@ -1490,52 +1637,149 @@ class IntermediateResultUnit:
         raise AttributeError("No constructor defined - class is abstract")
 
     def get_hash_id(self) -> str:
+        """
+        Gets the hash ID of the intermediate result unit.
+
+        Returns:
+            The hash ID of the intermediate result unit.
+        """
         return _DynamsoftCore.CIntermediateResultUnit_GetHashId(self)
 
     def get_original_image_hash_id(self) -> str:
+        """
+        Gets the hash ID of the original image.
+
+        Returns:
+            The hash ID of the original image.
+        """
         return _DynamsoftCore.CIntermediateResultUnit_GetOriginalImageHashId(self)
 
     def get_original_image_tag(self) -> ImageTag:
+        """
+        Gets the image tag of the original image.
+
+        Returns:
+            The image tag of the original image.
+        """
         return _DynamsoftCore.CIntermediateResultUnit_GetOriginalImageTag(self)
 
-    def get_transform_matrix(self, matrix_type: int) -> List[float]:
+    def get_transform_matrix(self, matrix_type: EnumTransformMatrixType) -> List[float]:
+        """
+        Gets the transformation matrix via EnumTransformMatrixType.
+
+        Args:
+            matrix_type(EnumTransformMatrixType): The type of the transformation matrix.
+
+        Returns:
+            A float array which represents the transform matrix.
+        """
         return _DynamsoftCore.CIntermediateResultUnit_GetTransformMatrix(self, matrix_type)
 
-    def set_transform_matrix(self, matrix_type: int, matrix: List[float]) -> None:
-        return _DynamsoftCore.CIntermediateResultUnit_SetTransformMatrix(self, matrix_type, matrix)
+    def set_transform_matrix(self, matrix_type: EnumTransformMatrixType, matrix: List[float]) -> None:
+        """
+        Sets the transformation matrix via EnumTransformMatrixType.
+
+        Args:
+            matrix_type(EnumTransformMatrixType): The type of the transformation matrix.
+            matrix(List[float]): A float array which represents the transform matrix.
+        """
+        _DynamsoftCore.CIntermediateResultUnit_SetTransformMatrix(self, matrix_type, matrix)
 
     def get_type(self) -> int:
+        """
+        Gets the type of the intermediate result unit.
+
+        Returns:
+            The type of the intermediate result unit.
+        """
         return _DynamsoftCore.CIntermediateResultUnit_GetType(self)
 
     def clone(self) -> "IntermediateResultUnit":
+        """
+        Creates a copy of the intermediate result unit.
+
+        Returns:
+            A copy of the intermediate result unit.
+        """
         return _DynamsoftCore.CIntermediateResultUnit_Clone(self)
 
     def set_hash_id(self, hash_id: str) -> None:
-        return _DynamsoftCore.CIntermediateResultUnit_SetHashId(self, hash_id)
+        """
+        Sets the hash ID of the intermediate result unit.
+
+        Args:
+            hash_id(str): The hash ID of the intermediate result unit.
+        """
+        _DynamsoftCore.CIntermediateResultUnit_SetHashId(self, hash_id)
 
     def set_original_image_hash_id(self, original_image_hash_id: str) -> None:
-        return _DynamsoftCore.CIntermediateResultUnit_SetOriginalImageHashId(self, original_image_hash_id)
+        """
+        Sets the hash ID of the original image.
+
+        Args:
+            original_image_hash_id(str): The hash ID of the original image.
+        """
+        _DynamsoftCore.CIntermediateResultUnit_SetOriginalImageHashId(self, original_image_hash_id)
 
     def set_original_image_tag(self, tag: ImageTag) -> None:
-        return _DynamsoftCore.CIntermediateResultUnit_SetOriginalImageTag(self, tag)
+        """
+        Sets the image tag of the original image.
+
+        Args:
+            tag(ImageTag): The image tag of the original image.
+        """
+        _DynamsoftCore.CIntermediateResultUnit_SetOriginalImageTag(self, tag)
 
     def replace(self, unit: "IntermediateResultUnit") -> int:
+        """
+        Replaces the specified IntermediateResultUnit object with the current IntermediateResultUnit object.
+
+        Args:
+            unit(IntermediateResultUnit): The IntermediateResultUnit object to be replaced.
+
+        Returns:
+            Returns 0 if success, otherwise an error code.
+        """
         return _DynamsoftCore.CIntermediateResultUnit_Replace(self, unit)
 
     def get_usage_count(self) -> int:
+        """
+        Gets the usage count of the intermediate result unit.
+
+        Returns:
+            The usage count of the intermediate result unit.
+        """
         return _DynamsoftCore.CIntermediateResultUnit_GetUsageCount(self)
 
     def set_usage_count(self, usage_count: int) -> None:
-        return _DynamsoftCore.CIntermediateResultUnit_SetUsageCount(self, usage_count)
+        """
+        Sets the usage count of the intermediate result unit.
+
+        Args:
+            usage_count(int): The usage count of the intermediate result unit.
+        """
+        _DynamsoftCore.CIntermediateResultUnit_SetUsageCount(self, usage_count)
 
 _DynamsoftCore.CIntermediateResultUnit_register(IntermediateResultUnit)
 class IntermediateResult:
+    """
+    The IntermediateResult class represents a container containing a collection of IntermediateResultUnit objects.
+
+    Methods:
+        get_intermediate_result_units(self) -> List[IntermediateResultUnit]: Gets a list of IntermediateResultUnit objects in the collection.
+    """
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     def __init__(self):
         raise AttributeError("No constructor defined - class is abstract")
 
     def get_intermediate_result_units(self) -> List[IntermediateResultUnit]:
+        """
+        Gets a list of IntermediateResultUnit objects in the collection.
+
+        Returns:
+            A list of IntermediateResultUnit objects.
+        """
         list = []
         count = _DynamsoftCore.CIntermediateResult_GetCount(self)
         for i in range(count):
@@ -1545,6 +1789,13 @@ class IntermediateResult:
 _DynamsoftCore.CIntermediateResult_register(IntermediateResult)
 
 class ColourImageUnit(IntermediateResultUnit):
+    """
+    The `ColourImageUnit` class represents a unit that contains color image. It is derived from the `IntermediateResultUnit` class.
+
+    Methods:
+        get_image_data(self) -> ImageData: Gets the image data of the colour image unit.
+        set_image_data(self, img_data: ImageData) -> int: Sets the image data of the color image unit.
+    """
     _thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
 
     def __init__(self):
@@ -1552,9 +1803,24 @@ class ColourImageUnit(IntermediateResultUnit):
 
 
     def get_image_data(self) -> ImageData:
+        """
+        Gets the image data of the colour image unit.
+
+        Returns:
+            the ImageData object that contains the image data of the color image unit.
+        """
         return _DynamsoftCore.CColourImageUnit_GetImageData(self)
 
     def set_image_data(self, img_data: ImageData) -> int:
+        """
+        Sets the image data of the color image unit.
+
+        Args:
+            img_data(ImageData): The image data to set.
+
+        Returns:
+            Returns 0 if success, otherwise an error code.
+        """
         return _DynamsoftCore.CColourImageUnit_SetImageData(self, img_data)
 
 _DynamsoftCore.CColourImageUnit_register(ColourImageUnit)
