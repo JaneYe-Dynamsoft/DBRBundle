@@ -10464,7 +10464,7 @@ SWIGINTERN PyObject *_wrap_COriginalImageResultItem_Release(PyObject *self, PyOb
     PyObject* resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(data), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_CONST | 0);
     PyObject_SetAttrString(obj, "_image_data", resultobj);
     if(get)
-      Py_DECREF(get);
+      Py_XDECREF(get);
     return resultobj;
   }
 
@@ -19527,9 +19527,9 @@ static PyObject *dataModule=nullptr;
 
 void ModelExit(void)
 {
-  if(dataModule)
+  if (Py_IsInitialized() && dataModule)
   {
-    Py_DECREF(dataModule);
+    Py_CLEAR(dataModule);
     dataModule = nullptr;
   }
 }
@@ -19620,7 +19620,7 @@ void
   SWIG_InitializeModule(0);
   dataModule = PyImport_AddModule("runtime_data" DYNAMSOFT_POSTFIX);
   if(dataModule)
-	Py_INCREF(dataModule);
+	  Py_INCREF(dataModule);
   Py_AtExit(ModelExit);
 #ifdef SWIGPYTHON_BUILTIN
   swigpyobject = SwigPyObject_TypeOnce();

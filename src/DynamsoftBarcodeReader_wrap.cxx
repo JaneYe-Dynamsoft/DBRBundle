@@ -11957,7 +11957,7 @@ extern "C"
     }
     PyObject* resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(data), SWIGTYPE_p_dynamsoft__basic_structures__CImageData, SWIG_POINTER_CONST | 0);
     PyObject_SetAttrString(obj, "_image_data", resultobj);
-    Py_DECREF(get);
+    Py_XDECREF(get);
     return resultobj;
   }
   SWIGINTERN PyObject *_wrap_CExtendedBarcodeResult_GetSamplingImage(PyObject *self, PyObject *args)
@@ -16591,9 +16591,9 @@ static PyObject *dataModule=nullptr;
 
 void ModelExit(void)
 {
-  if(dataModule)
+  if (Py_IsInitialized() && dataModule)
   {
-    Py_DECREF(dataModule);
+    Py_CLEAR(dataModule);
     dataModule = nullptr;
   }
 }

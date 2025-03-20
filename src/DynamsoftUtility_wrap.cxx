@@ -9417,9 +9417,9 @@ static PyObject *dataModule=nullptr;
 
 void ModelExit(void)
 {
-  if(dataModule)
+  if (Py_IsInitialized() && dataModule)
   {
-    Py_DECREF(dataModule);
+    Py_CLEAR(dataModule);
     dataModule = nullptr;
   }
 }

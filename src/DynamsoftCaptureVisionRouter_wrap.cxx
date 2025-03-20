@@ -7088,19 +7088,19 @@ extern "C"
       if (object)
       {
         AutoGIL ag;
-        if (!PyObject_HasAttrString(object, "on_scaled_up_barcode_image_unit_received"))
+        if (!PyObject_HasAttrString(object, "on_scaled_barcode_image_unit_received"))
         {
-          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_scaled_up_barcode_image_unit_received' method");
+          PyErr_SetString(PyExc_TypeError, "Argument must have 'on_scaled_barcode_image_unit_received' method");
           return;
         }
         PyObject *result = SWIG_NewPointerObj(SWIG_as_voidptr(pResult), SWIGTYPE_p_dynamsoft__dbr__intermediate_results__CScaledBarcodeImageUnit, SWIG_POINTER_OWN | 0);
         pResult->Retain();
         PyObject *result2 = SWIG_NewPointerObj(SWIG_as_voidptr(info), SWIGTYPE_p_IntermediateResultExtraInfo, 0 | 0);
-        PyObject *method_result = PyObject_CallMethod(object, "on_scaled_up_barcode_image_unit_received", "OO", result, result2);
+        PyObject *method_result = PyObject_CallMethod(object, "on_scaled_barcode_image_unit_received", "OO", result, result2);
 
         if (!method_result)
         {
-          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_scaled_up_barcode_image_unit_received' method on class object");
+          PyErr_SetString(PyExc_RuntimeError, "Failed to call 'on_scaled_barcode_image_unit_received' method on class object");
           Py_DECREF(result);
           Py_DECREF(result2);
           return;
@@ -16026,9 +16026,9 @@ static PyObject *dataModule=nullptr;
 
 void ModelExit(void)
 {
-  if(dataModule)
+  if (Py_IsInitialized() && dataModule)
   {
-    Py_DECREF(dataModule);
+    Py_CLEAR(dataModule);
     dataModule = nullptr;
   }
 }
